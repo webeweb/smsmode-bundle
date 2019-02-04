@@ -1,1 +1,4 @@
 # Tests/Fixtures/app/config/routing_test.yml
+smsmode:
+    prefix:   "/"
+    resource: "@SMSModeBundle/Resources/config/routing.yml"
