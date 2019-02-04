@@ -11,6 +11,24 @@ smsmode-bundle
 
 sMsmode bundle for Symfony 2 and more.
 
+> IMPORTANT NOTICE: This package is still under development. Any changes will be
+> done without prior notice to consumers of this package. Of course this code
+> will become stable at a certain point, but for now, use at your own risk.
+
+`sMsmode` provides an API that enables you to easily and automatically send SMS
+messages from your applications. This API provides the following functions:
+
+- sending immediate or scheduled SMS messages
+- managing SMS replies
+- SMS history
+- deleting SMS message
+- account balance
+- creating sub-account
+- transferring credits from one account to another one
+- adding contact
+- getting delivery report
+- callback on delivery report update
+
 ---
 
 ## Compatibility
@@ -52,7 +70,6 @@ in the `app/AppKernel.php` file of your project:
 Once the bundle is added then do:
 
 ```bash
-$ php bin/console wbw:core:unzip-assets
 $ php bin/console assets:install
 ```
 
@@ -83,3 +100,6 @@ $ vendor/bin/phpunit
 
 `smsmode-bundle` is released under the LGPL License. See the bundled [LICENSE](LICENSE)
 file for details.
+
+Please note that the sMsmode API is not free for use, see their
+[product page](https://www.smsmode.com/tarifs-sms/) for details on pricing.
