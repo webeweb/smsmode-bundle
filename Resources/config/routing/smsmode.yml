@@ -1,0 +1,10 @@
+# Resources/config/routing/smsmode.yml
+smsmode_delivery_report_callback:
+    path:     "/delivery-report-callback"
+    defaults: { _controller: "SMSModeBundle:SMSMode:deliveryReportCallback" }
+    methods: ["GET"]
+
+smsmode_sms_reply_callback:
+    path:     "/sms-reply-callback"
+    defaults: { _controller: "SMSModeBundle:SMSMode:smsReplyCallback" }
+    methods: ["GET"]
