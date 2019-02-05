@@ -43,7 +43,7 @@ class SMSModeController extends AbstractController {
 
             $deliveryReportCallback = $this->newDeliveryReportCallback($request);
 
-            $event = new DeliveryReportCallbackEvent($eventName, $deliveryReportCallback);
+            $event = new DeliveryReportCallbackEvent($deliveryReportCallback);
 
             $eventDispatcher->dispatch($eventName, $event);
         }
@@ -68,7 +68,7 @@ class SMSModeController extends AbstractController {
 
             $smsReplyCallback = $this->newSMSReplyCallback($request);
 
-            $event = new SMSReplyCallbackEvent($eventName, $smsReplyCallback);
+            $event = new SMSReplyCallbackEvent($smsReplyCallback);
 
             $eventDispatcher->dispatch($eventName, $event);
         }
