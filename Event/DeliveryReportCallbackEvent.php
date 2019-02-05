@@ -32,11 +32,10 @@ class DeliveryReportCallbackEvent extends AbstractEvent {
     /**
      * Constructor.
      *
-     * @param string $eventName The event name.
      * @param DeliveryReportCallback $deliveryReportCallback The delivery report.
      */
-    public function __construct($eventName, DeliveryReportCallback $deliveryReportCallback) {
-        parent::__construct($eventName);
+    public function __construct(DeliveryReportCallback $deliveryReportCallback) {
+        parent::__construct(SMSModeEvents::DELIVERY_REPORT_CALLBACK);
         $this->setDeliveryReportCallback($deliveryReportCallback);
     }
 
