@@ -106,6 +106,13 @@ interface CreatingSubAccountInterface {
     public function getSMSModeSociete();
 
     /**
+     * Get the telephone.
+     *
+     * @return string Returns the telephone.
+     */
+    public function getSMSModeTelephone();
+
+    /**
      * Get the ville.
      *
      * @return string Returns the ville.
