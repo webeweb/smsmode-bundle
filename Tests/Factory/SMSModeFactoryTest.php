@@ -11,19 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\Factory;
 
-use WBW\Bundle\SMSModeBundle\Entity\AddingContactInterface;
-use WBW\Bundle\SMSModeBundle\Entity\CheckingSMSMessageStatusInterface;
-use WBW\Bundle\SMSModeBundle\Entity\CreatingSubAccountInterface;
-use WBW\Bundle\SMSModeBundle\Entity\DeletingSMSInterface;
-use WBW\Bundle\SMSModeBundle\Entity\DeletingSubAccountInterface;
-use WBW\Bundle\SMSModeBundle\Entity\DeliveryReportInterface;
-use WBW\Bundle\SMSModeBundle\Entity\RetrievingSMSReplyInterface;
-use WBW\Bundle\SMSModeBundle\Entity\SendingSMSBatchInterface;
-use WBW\Bundle\SMSModeBundle\Entity\SendingSMSMessageInterface;
-use WBW\Bundle\SMSModeBundle\Entity\SendingTextToSpeechSMSInterface;
-use WBW\Bundle\SMSModeBundle\Entity\SendingUnicodeSMSInterface;
-use WBW\Bundle\SMSModeBundle\Entity\SentSMSMessageListInterface;
-use WBW\Bundle\SMSModeBundle\Entity\TransferringCreditsInterface;
 use WBW\Bundle\SMSModeBundle\Factory\SMSModeFactory;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
 use WBW\Library\SMSMode\Model\AddingContactRequest;
@@ -55,11 +42,15 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewAddingContactRequest() {
 
-        // Set an Adding contact mock.
-        $addingContact = $this->getMockBuilder(AddingContactInterface::class)->getMock();
-
-        $res = SMSModeFactory::newAddingContactRequest($addingContact);
+        $res = SMSModeFactory::newAddingContactRequest($this->addingContact);
         $this->assertInstanceOf(AddingContactRequest::class, $res);
+
+        $this->assertEquals("2019-02-05 18:00:00", $res->getDate()->format("Y-m-d H:i:s"));
+        $this->assertEquals(["groupe1", "groupe2"], $res->getGroupes());
+        $this->assertEquals("33600000000", $res->getMobile());
+        $this->assertEquals("nom", $res->getNom());
+        $this->assertEquals("other", $res->getOther());
+        $this->assertEquals("societe", $res->getSociete());
     }
 
     /**
@@ -69,11 +60,10 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewCheckingSMSMessageStatusRequest() {
 
-        // Set a Checking SMS message status mock.
-        $checkingSMSMessageStatus = $this->getMockBuilder(CheckingSMSMessageStatusInterface::class)->getMock();
-
-        $res = SMSModeFactory::newCheckingSMSMessageStatusRequest($checkingSMSMessageStatus);
+        $res = SMSModeFactory::newCheckingSMSMessageStatusRequest($this->checkingSMSMessageStatus);
         $this->assertInstanceOf(CheckingSMSMessageStatusRequest::class, $res);
+
+        $this->assertEquals("smsID", $res->getSmsID());
     }
 
     /**
@@ -83,11 +73,23 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewCreatingSubAccountRequest() {
 
-        // Set a Creating sub-account mock.
-        $creatingSubAccount = $this->getMockBuilder(CreatingSubAccountInterface::class)->getMock();
-
-        $res = SMSModeFactory::newCreatingSubAccountRequest($creatingSubAccount);
+        $res = SMSModeFactory::newCreatingSubAccountRequest($this->creatingSubAccount);
         $this->assertInstanceOf(CreatingSubAccountRequest::class, $res);
+
+        $this->assertEquals("adresse", $res->getAdresse());
+        $this->assertEquals("codePostal", $res->getCodePostal());
+        $this->assertEquals("2019-02-05 18:00:00", $res->getDate()->format("Y-m-d H:i:s"));
+        $this->assertEquals("email", $res->getEmail());
+        $this->assertEquals("33100000000", $res->getFax());
+        $this->assertEquals("33600000000", $res->getMobile());
+        $this->assertEquals("newPseudo", $res->getNewPseudo());
+        $this->assertEquals("newPass", $res->getNewPass());
+        $this->assertEquals("nom", $res->getNom());
+        $this->assertEquals("prenom", $res->getPrenom());
+        $this->assertEquals("reference", $res->getReference());
+        $this->assertEquals("societe", $res->getSociete());
+        $this->assertEquals("33100000000", $res->getTelephone());
+        $this->assertEquals("ville", $res->getVille());
     }
 
     /**
@@ -97,11 +99,11 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewDeletingSMSRequest() {
 
-        // Set a Deleting SMS mock.
-        $deletingSMS = $this->getMockBuilder(DeletingSMSInterface::class)->getMock();
-
-        $res = SMSModeFactory::newDeletingSMSRequest($deletingSMS);
+        $res = SMSModeFactory::newDeletingSMSRequest($this->deletingSMS);
         $this->assertInstanceOf(DeletingSMSRequest::class, $res);
+
+        $this->assertEquals("33600000000", $res->getNumero());
+        $this->assertEquals("smsID", $res->getSmsID());
     }
 
     /**
@@ -111,11 +113,10 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewDeletingSubAccountRequest() {
 
-        // Set a Deleting sub-account mock.
-        $deletingSubAccount = $this->getMockBuilder(DeletingSubAccountInterface::class)->getMock();
-
-        $res = SMSModeFactory::newDeletingSubAccountRequest($deletingSubAccount);
+        $res = SMSModeFactory::newDeletingSubAccountRequest($this->deletingSubAccount);
         $this->assertInstanceOf(DeletingSubAccountRequest::class, $res);
+
+        $this->assertEquals("pseudoToDelete", $res->getPseudoToDelete());
     }
 
     /**
@@ -125,11 +126,10 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewDeliveryReportRequest() {
 
-        // Set a Delivery report mock.
-        $deliveryReport = $this->getMockBuilder(DeliveryReportInterface::class)->getMock();
-
-        $res = SMSModeFactory::newDeliveryReportRequest($deliveryReport);
+        $res = SMSModeFactory::newDeliveryReportRequest($this->deliveryReport);
         $this->assertInstanceOf(DeliveryReportRequest::class, $res);
+
+        $this->assertEquals("smsID", $res->getSmsID());
     }
 
     /**
@@ -139,11 +139,13 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewRetrievingSMSReplyRequest() {
 
-        // Set a Retrieving SMS reply mock.
-        $retrievingSMSReply = $this->getMockBuilder(RetrievingSMSReplyInterface::class)->getMock();
-
-        $res = SMSModeFactory::newRetrievingSMSReplyRequest($retrievingSMSReply);
+        $res = SMSModeFactory::newRetrievingSMSReplyRequest($this->retrievingSMSReply);
         $this->assertInstanceOf(RetrievingSMSReplyRequest::class, $res);
+
+        $this->assertEquals("2019-02-05 19:00:00", $res->getEndDate()->format("Y-m-d H:i:s"));
+        $this->assertEquals(10, $res->getOffset());
+        $this->assertEquals(0, $res->getStart());
+        $this->assertEquals("2019-02-05 18:00:00", $res->getStartDate()->format("Y-m-d H:i:s"));
     }
 
     /**
@@ -153,11 +155,16 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewSendingSMSBatchRequest() {
 
-        // Set a Sending SMS batch mock.
-        $sendingSMSBatch = $this->getMockBuilder(SendingSMSBatchInterface::class)->getMock();
-
-        $res = SMSModeFactory::newSendingSMSBatchRequest($sendingSMSBatch);
+        $res = SMSModeFactory::newSendingSMSBatchRequest($this->sendingSMSBatch);
         $this->assertInstanceOf(SendingSMSBatchRequest::class, $res);
+
+        $this->assertEquals(SendingSMSBatchRequest::CLASSE_MSG_SMS, $res->getClasseMsg());
+        $this->assertEquals("2019-02-05 18:00:00", $res->getDateEnvoi()->format("Y-m-d H:i:s"));
+        $this->assertEquals("emetteur", $res->getEmetteur());
+        $this->assertEquals($this->fichier, $res->getFichier());
+        $this->assertEquals("refClient", $res->getRefClient());
+        $this->assertEquals(1, $res->getNbrMsg());
+        $this->assertEquals("notificationUrl", $res->getNotificationUrl());
     }
 
     /**
@@ -167,11 +174,20 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewSendingSMSMessageRequest() {
 
-        // Set a Sending SMS message mock.
-        $sendingSMSMessage = $this->getMockBuilder(SendingSMSMessageInterface::class)->getMock();
-
-        $res = SMSModeFactory::newSendingSMSMessageRequest($sendingSMSMessage);
+        $res = SMSModeFactory::newSendingSMSMessageRequest($this->sendingSMSMessage);
         $this->assertInstanceOf(SendingSMSMessageRequest::class, $res);
+
+        $this->assertEquals(SendingSMSMessageRequest::CLASSE_MSG_SMS, $res->getClasseMsg());
+        $this->assertEquals("2019-02-05 18:00:00", $res->getDateEnvoi()->format("Y-m-d H:i:s"));
+        $this->assertEquals("emetteur", $res->getEmetteur());
+        $this->assertEquals("groupe", $res->getGroupe());
+        $this->assertEquals("message", $res->getMessage());
+        $this->assertEquals(1, $res->getNbrMsg());
+        $this->assertEquals("notificationUrl", $res->getNotificationUrl());
+        $this->assertEquals("notificationUrlReponse", $res->getNotificationUrlReponse());
+        $this->assertEquals(["33600000000"], $res->getNumero());
+        $this->assertEquals("refClient", $res->getRefClient());
+        $this->assertEquals(SendingSMSMessageRequest::STOP_ALWAYS, $res->getStop());
     }
 
     /**
@@ -181,11 +197,14 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewSendingTextToSpeechSMSRequest() {
 
-        // Set a Sending text-to-speech SMS mock.
-        $sendingTextToSpeechSMS = $this->getMockBuilder(SendingTextToSpeechSMSInterface::class)->getMock();
-
-        $res = SMSModeFactory::newSendingTextToSpeechSMSRequest($sendingTextToSpeechSMS);
+        $res = SMSModeFactory::newSendingTextToSpeechSMSRequest($this->sendingTextToSpeechSMS);
         $this->assertInstanceOf(SendingTextToSpeechSMSRequest::class, $res);
+
+        $this->assertEquals("2019-02-05 18:00:00", $res->getDateEnvoi()->format("Y-m-d H:i:s"));
+        $this->assertEquals("message", $res->getMessage());
+        $this->assertEquals(["33600000000"], $res->getNumero());
+        $this->assertEquals(SendingTextToSpeechSMSRequest::LANGUAGE_FR, $res->getLanguage());
+        $this->assertEquals("title", $res->getTitle());
     }
 
     /**
@@ -195,11 +214,20 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewSendingUnicodeSMSRequest() {
 
-        // Set a Sending unicode SMS mock.
-        $sendingUnicodeSMS = $this->getMockBuilder(SendingUnicodeSMSInterface::class)->getMock();
-
-        $res = SMSModeFactory::newSendingUnicodeSMSRequest($sendingUnicodeSMS);
+        $res = SMSModeFactory::newSendingUnicodeSMSRequest($this->sendingUnicodeSMS);
         $this->assertInstanceOf(SendingUnicodeSMSRequest::class, $res);
+
+        $this->assertEquals(SendingUnicodeSMSRequest::CLASSE_MSG_SMS, $res->getClasseMsg());
+        $this->assertEquals("2019-02-05 18:00:00", $res->getDateEnvoi()->format("Y-m-d H:i:s"));
+        $this->assertEquals("emetteur", $res->getEmetteur());
+        $this->assertEquals("groupe", $res->getGroupe());
+        $this->assertEquals("message", $res->getMessage());
+        $this->assertEquals(1, $res->getNbrMsg());
+        $this->assertEquals("notificationUrl", $res->getNotificationUrl());
+        $this->assertEquals("notificationUrlReponse", $res->getNotificationUrlReponse());
+        $this->assertEquals(["33600000000"], $res->getNumero());
+        $this->assertEquals("refClient", $res->getRefClient());
+        $this->assertEquals(SendingUnicodeSMSRequest::STOP_ALWAYS, $res->getStop());
     }
 
     /**
@@ -209,11 +237,10 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewSentSMSMessageListRequest() {
 
-        // Set a Sent SMS message list mock.
-        $sentSMSMessageList = $this->getMockBuilder(SentSMSMessageListInterface::class)->getMock();
-
-        $res = SMSModeFactory::newSentSMSMessageListRequest($sentSMSMessageList);
+        $res = SMSModeFactory::newSentSMSMessageListRequest($this->sentSMSMessageList);
         $this->assertInstanceOf(SentSMSMessageListRequest::class, $res);
+
+        $this->assertEquals(10, $res->getOffset());
     }
 
     /**
@@ -223,10 +250,11 @@ class SMSModeFactoryTest extends AbstractTestCase {
      */
     public function testNewTransferringCreditsRequest() {
 
-        // Set a Transferring credits mock.
-        $transferringCredits = $this->getMockBuilder(TransferringCreditsInterface::class)->getMock();
-
-        $res = SMSModeFactory::newTransferringCreditsRequest($transferringCredits);
+        $res = SMSModeFactory::newTransferringCreditsRequest($this->transferringCredits);
         $this->assertInstanceOf(TransferringCreditsRequest::class, $res);
+
+        $this->assertEquals(212, $res->getCreditAmount());
+        $this->assertEquals("reference", $res->getReference());
+        $this->assertEquals("targetPseudo", $res->getTargetPseudo());
     }
 }

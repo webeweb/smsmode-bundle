@@ -55,6 +55,13 @@ class SMSModeFactory {
     public static function newAddingContactRequest(AddingContactInterface $addingContact) {
 
         $model = new AddingContactRequest();
+        $model->setDate($addingContact->getSMSModeDate());
+        $model->setGroupes($addingContact->getSMSModeGroupes());
+        $model->setMobile($addingContact->getSMSModeMobile());
+        $model->setNom($addingContact->getSMSModeNom());
+        $model->setOther($addingContact->getSMSModeOther());
+        $model->setPrenom($addingContact->getSMSModePrenom());
+        $model->setSociete($addingContact->getSMSModeSociete());
 
         return $model;
     }
@@ -68,6 +75,7 @@ class SMSModeFactory {
     public static function newCheckingSMSMessageStatusRequest(CheckingSMSMessageStatusInterface $checkingSMSMessageStatus) {
 
         $model = new CheckingSMSMessageStatusRequest();
+        $model->setSmsID($checkingSMSMessageStatus->getSMSModeSmsID());
 
         return $model;
     }
@@ -81,6 +89,20 @@ class SMSModeFactory {
     public static function newCreatingSubAccountRequest(CreatingSubAccountInterface $creatingSubAccount) {
 
         $model = new CreatingSubAccountRequest();
+        $model->setAdresse($creatingSubAccount->getSMSModeAdresse());
+        $model->setCodePostal($creatingSubAccount->getSMSModeCodePostal());
+        $model->setDate($creatingSubAccount->getSMSModeDate());
+        $model->setEmail($creatingSubAccount->getSMSModeEmail());
+        $model->setFax($creatingSubAccount->getSMSModeFax());
+        $model->setMobile($creatingSubAccount->getSMSModeMobile());
+        $model->setNewPass($creatingSubAccount->getSMSModeNewPass());
+        $model->setNewPseudo($creatingSubAccount->getSMSModeNewPseudo());
+        $model->setNom($creatingSubAccount->getSMSModeNom());
+        $model->setPrenom($creatingSubAccount->getSMSModePrenom());
+        $model->setReference($creatingSubAccount->getSMSModeReference());
+        $model->setSociete($creatingSubAccount->getSMSModeSociete());
+        $model->setTelephone($creatingSubAccount->getSMSModeTelephone());
+        $model->setVille($creatingSubAccount->getSMSModeVille());
 
         return $model;
     }
@@ -94,6 +116,8 @@ class SMSModeFactory {
     public static function newDeletingSMSRequest(DeletingSMSInterface $deletingSMS) {
 
         $model = new DeletingSMSRequest();
+        $model->setNumero($deletingSMS->getSMSModeNumero());
+        $model->setSmsID($deletingSMS->getSMSModeSmsID());
 
         return $model;
     }
@@ -107,6 +131,7 @@ class SMSModeFactory {
     public static function newDeletingSubAccountRequest(DeletingSubAccountInterface $deletingSubAccount) {
 
         $model = new DeletingSubAccountRequest();
+        $model->setPseudoToDelete($deletingSubAccount->getSMSModePseudoToDelete());
 
         return $model;
     }
@@ -120,6 +145,7 @@ class SMSModeFactory {
     public static function newDeliveryReportRequest(DeliveryReportInterface $deliveryReport) {
 
         $model = new DeliveryReportRequest();
+        $model->setSmsID($deliveryReport->getSMSModeSmsID());
 
         return $model;
     }
@@ -133,6 +159,10 @@ class SMSModeFactory {
     public static function newRetrievingSMSReplyRequest(RetrievingSMSReplyInterface $retrievingSMSReply) {
 
         $model = new RetrievingSMSReplyRequest();
+        $model->setOffset($retrievingSMSReply->getSMSModeOffset());
+        $model->setEndDate($retrievingSMSReply->getSMSModeEndDate());
+        $model->setStart($retrievingSMSReply->getSMSModeStart());
+        $model->setStartDate($retrievingSMSReply->getSMSModeStartDate());
 
         return $model;
     }
@@ -146,6 +176,13 @@ class SMSModeFactory {
     public static function newSendingSMSBatchRequest(SendingSMSBatchInterface $sendingSMSBatch) {
 
         $model = new SendingSMSBatchRequest();
+        $model->setClasseMsg($sendingSMSBatch->getSMSModeClasseMsg());
+        $model->setDateEnvoi($sendingSMSBatch->getSMSModeDateEnvoi());
+        $model->setEmetteur($sendingSMSBatch->getSMSModeEmetteur());
+        $model->setFichier($sendingSMSBatch->getSMSModeFichier());
+        $model->setNbrMsg($sendingSMSBatch->getSMSModeNbrMsg());
+        $model->setNotificationUrl($sendingSMSBatch->getSMSModeNotificationUrl());
+        $model->setRefClient($sendingSMSBatch->getSMSModeRefClient());
 
         return $model;
     }
@@ -159,6 +196,19 @@ class SMSModeFactory {
     public static function newSendingSMSMessageRequest(SendingSMSMessageInterface $sendingSMSMessage) {
 
         $model = new SendingSMSMessageRequest();
+        $model->setClasseMsg($sendingSMSMessage->getSMSModeClasseMsg());
+        $model->setDateEnvoi($sendingSMSMessage->getSMSModeDateEnvoi());
+        $model->setEmetteur($sendingSMSMessage->getSMSModeEmetteur());
+        $model->setGroupe($sendingSMSMessage->getSMSModeGroupe());
+        $model->setMessage($sendingSMSMessage->getSMSModeMessage());
+        foreach($sendingSMSMessage->getSMSModeNumero() as $current) {
+            $model->addNumero($current);
+        }
+        $model->setNbrMsg($sendingSMSMessage->getSMSModeNbrMsg());
+        $model->setNotificationUrl($sendingSMSMessage->getSMSModeNotificationUrl());
+        $model->setNotificationUrlReponse($sendingSMSMessage->getSMSModeNotificationUrlReponse());
+        $model->setRefClient($sendingSMSMessage->getSMSModeRefClient());
+        $model->setStop($sendingSMSMessage->getSMSModeStop());
 
         return $model;
     }
@@ -172,6 +222,13 @@ class SMSModeFactory {
     public static function newSendingTextToSpeechSMSRequest(SendingTextToSpeechSMSInterface $sendingTextToSpeechSMS) {
 
         $model = new SendingTextToSpeechSMSRequest();
+        $model->setDateEnvoi($sendingTextToSpeechSMS->getSMSModeDateEnvoi());
+        $model->setLanguage($sendingTextToSpeechSMS->getSMSModeLanguage());
+        $model->setMessage($sendingTextToSpeechSMS->getSMSModeMessage());
+        foreach($sendingTextToSpeechSMS->getSMSModeNumero() as $current) {
+            $model->addNumero($current);
+        }
+        $model->setTitle($sendingTextToSpeechSMS->getSMSModeTitle());
 
         return $model;
     }
@@ -185,6 +242,19 @@ class SMSModeFactory {
     public static function newSendingUnicodeSMSRequest(SendingUnicodeSMSInterface $sendingUnicodeSMS) {
 
         $model = new SendingUnicodeSMSRequest();
+        $model->setClasseMsg($sendingUnicodeSMS->getSMSModeClasseMsg());
+        $model->setDateEnvoi($sendingUnicodeSMS->getSMSModeDateEnvoi());
+        $model->setEmetteur($sendingUnicodeSMS->getSMSModeEmetteur());
+        $model->setGroupe($sendingUnicodeSMS->getSMSModeGroupe());
+        $model->setMessage($sendingUnicodeSMS->getSMSModeMessage());
+        foreach($sendingUnicodeSMS->getSMSModeNumero() as $current) {
+            $model->addNumero($current);
+        }
+        $model->setNbrMsg($sendingUnicodeSMS->getSMSModeNbrMsg());
+        $model->setNotificationUrl($sendingUnicodeSMS->getSMSModeNotificationUrl());
+        $model->setNotificationUrlReponse($sendingUnicodeSMS->getSMSModeNotificationUrlReponse());
+        $model->setRefClient($sendingUnicodeSMS->getSMSModeRefClient());
+        $model->setStop($sendingUnicodeSMS->getSMSModeStop());
 
         return $model;
     }
@@ -198,6 +268,7 @@ class SMSModeFactory {
     public static function newSentSMSMessageListRequest(SentSMSMessageListInterface $sentSMSMessageList) {
 
         $model = new SentSMSMessageListRequest();
+        $model->setOffset($sentSMSMessageList->getSMSModeOffset());
 
         return $model;
     }
@@ -211,6 +282,9 @@ class SMSModeFactory {
     public static function newTransferringCreditsRequest(TransferringCreditsInterface $transferringCredits) {
 
         $model = new TransferringCreditsRequest();
+        $model->setCreditAmount($transferringCredits->getSMSModeCreditAmount());
+        $model->setReference($transferringCredits->getSMSModeReference());
+        $model->setTargetPseudo($transferringCredits->getSMSModeTargetPseudo());
 
         return $model;
     }
