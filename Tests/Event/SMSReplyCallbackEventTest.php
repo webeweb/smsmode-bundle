@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
+use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
 use WBW\Library\SMSMode\Model\SMSReplyCallback;
@@ -33,9 +34,10 @@ class SMSReplyCallbackEventTest extends AbstractTestCase {
         // Set a SMS reply callback mock.
         $smsReplyCallback = new SMSReplyCallback();
 
-        $obj = new SMSReplyCallbackEvent("eventName", $smsReplyCallback);
+        $obj = new SMSReplyCallbackEvent($smsReplyCallback);
 
-        $this->assertEquals("eventName", $obj->getEventName());
+        $this->assertEquals(SMSModeEvents::SMS_REPLY_CALLBACK, $obj->getEventName());
+
         $this->assertSame($smsReplyCallback, $obj->getSMSReplyCallback());
     }
 }

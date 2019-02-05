@@ -32,11 +32,10 @@ class SMSReplyCallbackEvent extends AbstractEvent {
     /**
      * Constructor.
      *
-     * @param string $eventName The event name.
      * @param SMSReplyCallback $smsReplyCallback The SMS reply callback.
      */
-    public function __construct($eventName, SMSReplyCallback $smsReplyCallback) {
-        parent::__construct($eventName);
+    public function __construct(SMSReplyCallback $smsReplyCallback) {
+        parent::__construct(SMSModeEvents::SMS_REPLY_CALLBACK);
         $this->setSMSReplyCallback($smsReplyCallback);
     }
 
