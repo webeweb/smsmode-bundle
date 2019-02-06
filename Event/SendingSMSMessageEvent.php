@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\SendingSMSMessageResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SendingSMSMessageEvent extends AbstractResponseEvent {
-
-    /**
-     * Sending SMS message.
-     *
-     * @var SendingSMSMessageInterface
-     */
-    private $sendingSMSMessage;
+class SendingSMSMessageEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class SendingSMSMessageEvent extends AbstractResponseEvent {
      * @param SendingSMSMessageInterface $sendingSMSMessage The sending SMS message.
      */
     public function __construct(SendingSMSMessageInterface $sendingSMSMessage) {
-        parent::__construct(SMSModeEvents::SENDING_SMS_MESSAGE);
-        $this->setSendingSMSMessage($sendingSMSMessage);
+        parent::__construct(SMSModeEvents::SENDING_SMS_MESSAGE, $sendingSMSMessage);
     }
 
     /**
@@ -64,17 +56,6 @@ class SendingSMSMessageEvent extends AbstractResponseEvent {
      * @return SendingSMSMessageInterface Returns the sending SMS message.
      */
     public function getSendingSMSMessage() {
-        return $this->sendingSMSMessage;
-    }
-
-    /**
-     * Set the sending SMS message.
-     *
-     * @param SendingSMSMessageInterface $sendingSMSMessage The sending SMS message.
-     * @return SendingSMSMessageEvent Returns this sending SMS message event.
-     */
-    protected function setSendingSMSMessage(SendingSMSMessageInterface $sendingSMSMessage) {
-        $this->sendingSMSMessage = $sendingSMSMessage;
-        return $this;
+        return parent::getEntity();
     }
 }
