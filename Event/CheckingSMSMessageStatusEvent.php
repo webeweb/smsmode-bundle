@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\CheckingSMSMessageStatusResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class CheckingSMSMessageStatusEvent extends AbstractResponseEvent {
-
-    /**
-     * Checking SMS message status.
-     *
-     * @var CheckingSMSMessageStatusInterface
-     */
-    private $checkingSMSMessageStatus;
+class CheckingSMSMessageStatusEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class CheckingSMSMessageStatusEvent extends AbstractResponseEvent {
      * @param CheckingSMSMessageStatusInterface $checkingSMSMessageStatus The checking SMS message status.
      */
     public function __construct(CheckingSMSMessageStatusInterface $checkingSMSMessageStatus) {
-        parent::__construct(SMSModeEvents::CHECKING_SMS_MESSAGE_STATUS);
-        $this->setCheckingSMSMessageStatus($checkingSMSMessageStatus);
+        parent::__construct(SMSModeEvents::CHECKING_SMS_MESSAGE_STATUS, $checkingSMSMessageStatus);
     }
 
     /**
@@ -46,7 +38,7 @@ class CheckingSMSMessageStatusEvent extends AbstractResponseEvent {
      * @return CheckingSMSMessageStatusInterface Returns the checking SMS message status.
      */
     public function getCheckingSMSMessageStatus() {
-        return $this->checkingSMSMessageStatus;
+        return parent::getEntity();
     }
 
     /**
@@ -65,16 +57,5 @@ class CheckingSMSMessageStatusEvent extends AbstractResponseEvent {
      */
     public function getResponse() {
         return parent::getResponse();
-    }
-
-    /**
-     * Set the checking SMS message status.
-     *
-     * @param CheckingSMSMessageStatusInterface $checkingSMSMessageStatus The checking SMS message status.
-     * @return CheckingSMSMessageStatusEvent Returns this checking SMS message status event.
-     */
-    protected function setCheckingSMSMessageStatus(CheckingSMSMessageStatusInterface $checkingSMSMessageStatus) {
-        $this->checkingSMSMessageStatus = $checkingSMSMessageStatus;
-        return $this;
     }
 }
