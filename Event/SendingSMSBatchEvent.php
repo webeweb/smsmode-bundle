@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\SendingSMSBatchResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SendingSMSBatchEvent extends AbstractResponseEvent {
-
-    /**
-     * Sending SMS batch.
-     *
-     * @var SendingSMSBatchInterface
-     */
-    private $sendingSMSBatch;
+class SendingSMSBatchEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class SendingSMSBatchEvent extends AbstractResponseEvent {
      * @param SendingSMSBatchInterface $sendingSMSBatch The sending SMS batch.
      */
     public function __construct(SendingSMSBatchInterface $sendingSMSBatch) {
-        parent::__construct(SMSModeEvents::SENDING_SMS_BATCH);
-        $this->setSendingSMSBatch($sendingSMSBatch);
+        parent::__construct(SMSModeEvents::SENDING_SMS_BATCH, $sendingSMSBatch);
     }
 
     /**
@@ -64,17 +56,6 @@ class SendingSMSBatchEvent extends AbstractResponseEvent {
      * @return SendingSMSBatchInterface Returns the sending SMS batch.
      */
     public function getSendingSMSBatch() {
-        return $this->sendingSMSBatch;
-    }
-
-    /**
-     * Set the sending SMS batch.
-     *
-     * @param SendingSMSBatchInterface $sendingSMSBatch The sending SMS batch.
-     * @return SendingSMSBatchEvent Returns this sending SMS batch event.
-     */
-    protected function setSendingSMSBatch(SendingSMSBatchInterface $sendingSMSBatch) {
-        $this->sendingSMSBatch = $sendingSMSBatch;
-        return $this;
+        return parent::getEntity();
     }
 }
