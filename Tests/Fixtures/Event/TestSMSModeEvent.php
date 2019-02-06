@@ -11,32 +11,37 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\AbstractResponseEvent;
+use WBW\Bundle\SMSModeBundle\Entity\SMSModeEntityInterface;
+use WBW\Bundle\SMSModeBundle\Event\AbstractSMSModeEvent;
 use WBW\Library\SMSMode\Model\AbstractRequest;
 use WBW\Library\SMSMode\Model\AbstractResponse;
 
 /**
- * Test response event.
+ * Test sMsmode event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event
  */
-class TestResponseEvent extends AbstractResponseEvent {
+class TestSMSModeEvent extends AbstractSMSModeEvent {
 
     /**
-     * Constructor.
-     *
-     * @param string $eventName The event name.
+     * {@inheritdoc}
      */
-    public function __construct($eventName) {
-        parent::__construct($eventName);
+    public function __construct($eventName, SMSModeEntityInterface $entity) {
+        parent::__construct($eventName, $entity);
     }
 
     /**
      * {@inheritdoc}
      */
-    public
-    function getRequest() {
+    public function getEntity() {
+        return parent::getEntity();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRequest() {
         return parent::getRequest();
     }
 
@@ -50,8 +55,14 @@ class TestResponseEvent extends AbstractResponseEvent {
     /**
      * {@inheritdoc}
      */
-    public
-    function setRequest(AbstractRequest $request) {
+    public function setEntity(SMSModeEntityInterface $entity) {
+        return parent::setEntity($entity);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setRequest(AbstractRequest $request) {
         return parent::setRequest($request);
     }
 
