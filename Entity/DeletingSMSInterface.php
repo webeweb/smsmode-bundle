@@ -17,7 +17,7 @@ namespace WBW\Bundle\SMSModeBundle\Entity;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Entity
  */
-interface DeletingSMSInterface {
+interface DeletingSMSInterface extends SMSModeEntityInterface {
 
     /**
      * Get the numero.
