@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\SendingTextToSpeechSMSResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SendingTextToSpeechSMSEvent extends AbstractResponseEvent {
-
-    /**
-     * Sending text-to-speech.
-     *
-     * @var SendingTextToSpeechSMSInterface
-     */
-    private $sendingTextToSpeechSMS;
+class SendingTextToSpeechSMSEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class SendingTextToSpeechSMSEvent extends AbstractResponseEvent {
      * @param SendingTextToSpeechSMSInterface $sendingTextToSpeechSMS The sending text-to-speech SMS.
      */
     public function __construct(SendingTextToSpeechSMSInterface $sendingTextToSpeechSMS) {
-        parent::__construct(SMSModeEvents::SENDING_TEXT_TO_SPEECH_SMS);
-        $this->setSendingTextToSpeechSMS($sendingTextToSpeechSMS);
+        parent::__construct(SMSModeEvents::SENDING_TEXT_TO_SPEECH_SMS, $sendingTextToSpeechSMS);
     }
 
     /**
@@ -64,17 +56,6 @@ class SendingTextToSpeechSMSEvent extends AbstractResponseEvent {
      * @return SendingTextToSpeechSMSInterface Returns the sending text-to-speech SMS.
      */
     public function getSendingTextToSpeechSMS() {
-        return $this->sendingTextToSpeechSMS;
-    }
-
-    /**
-     * Set the sending text-to-speech SMS.
-     *
-     * @param SendingTextToSpeechSMSInterface $sendingTextToSpeechSMS The sending text-to-speech SMS.
-     * @return SendingTextToSpeechSMSEvent Returns this sending text-to-speech SMS event.
-     */
-    protected function setSendingTextToSpeechSMS(SendingTextToSpeechSMSInterface $sendingTextToSpeechSMS) {
-        $this->sendingTextToSpeechSMS = $sendingTextToSpeechSMS;
-        return $this;
+        return parent::getEntity();
     }
 }
