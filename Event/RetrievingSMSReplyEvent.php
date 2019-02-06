@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\RetrievingSMSReplyResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class RetrievingSMSReplyEvent extends AbstractResponseEvent {
-
-    /**
-     * Retrieving SMS reply.
-     *
-     * @var RetrievingSMSReplyInterface
-     */
-    private $retrievingSMSReply;
+class RetrievingSMSReplyEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class RetrievingSMSReplyEvent extends AbstractResponseEvent {
      * @param RetrievingSMSReplyInterface $retrievingSMSReply The retrieving SMS reply.
      */
     public function __construct(RetrievingSMSReplyInterface $retrievingSMSReply) {
-        parent::__construct(SMSModeEvents::RETRIEVING_SMS_REPLY);
-        $this->setRetrievingSMSReply($retrievingSMSReply);
+        parent::__construct(SMSModeEvents::RETRIEVING_SMS_REPLY, $retrievingSMSReply);
     }
 
     /**
@@ -64,17 +56,6 @@ class RetrievingSMSReplyEvent extends AbstractResponseEvent {
      * @return RetrievingSMSReplyInterface Returns the retrieving SMS reply.
      */
     public function getRetrievingSMSReply() {
-        return $this->retrievingSMSReply;
-    }
-
-    /**
-     * Set the retrieving SMS reply.
-     *
-     * @param RetrievingSMSReplyInterface $retrievingSMSReply The retrieving SMS reply.
-     * @return RetrievingSMSReplyEvent Returns this retrieving SMS reply event.
-     */
-    protected function setRetrievingSMSReply(RetrievingSMSReplyInterface $retrievingSMSReply) {
-        $this->retrievingSMSReply = $retrievingSMSReply;
-        return $this;
+        return parent::getEntity();
     }
 }
