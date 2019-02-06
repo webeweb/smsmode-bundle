@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\DeletingSMSResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class DeletingSMSEvent extends AbstractResponseEvent {
-
-    /**
-     * Deleting SMS.
-     *
-     * @var DeletingSMSInterface
-     */
-    private $deletingSMS;
+class DeletingSMSEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class DeletingSMSEvent extends AbstractResponseEvent {
      * @param DeletingSMSInterface $deletingSMS The deleting SMS.
      */
     public function __construct(DeletingSMSInterface $deletingSMS) {
-        parent::__construct(SMSModeEvents::DELETING_SMS);
-        $this->setDeletingSMS($deletingSMS);
+        parent::__construct(SMSModeEvents::DELETING_SMS, $deletingSMS);
     }
 
     /**
@@ -46,7 +38,7 @@ class DeletingSMSEvent extends AbstractResponseEvent {
      * @return DeletingSMSInterface Returns the deleting SMS.
      */
     public function getDeletingSMS() {
-        return $this->deletingSMS;
+        return parent::getEntity();
     }
 
     /**
@@ -65,16 +57,5 @@ class DeletingSMSEvent extends AbstractResponseEvent {
      */
     public function getResponse() {
         return parent::getResponse();
-    }
-
-    /**
-     * Set the deleting SMS.
-     *
-     * @param DeletingSMSInterface $deletingSMS The deleting SMS.
-     * @return DeletingSMSEvent Returns this deleting SMS event.
-     */
-    protected function setDeletingSMS(DeletingSMSInterface $deletingSMS) {
-        $this->deletingSMS = $deletingSMS;
-        return $this;
     }
 }
