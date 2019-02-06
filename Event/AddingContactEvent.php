@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\AddingContactResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class AddingContactEvent extends AbstractResponseEvent {
-
-    /**
-     * Adding contact.
-     *
-     * @var AddingContactInterface
-     */
-    private $addingContact;
+class AddingContactEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class AddingContactEvent extends AbstractResponseEvent {
      * @param AddingContactInterface $addingContact The adding contact.
      */
     public function __construct(AddingContactInterface $addingContact) {
-        parent::__construct(SMSModeEvents::ADDING_CONTACT);
-        $this->setAddingContact($addingContact);
+        parent::__construct(SMSModeEvents::ADDING_CONTACT, $addingContact);
     }
 
     /**
@@ -46,7 +38,7 @@ class AddingContactEvent extends AbstractResponseEvent {
      * @return AddingContactInterface Returns the adding contact.
      */
     public function getAddingContact() {
-        return $this->addingContact;
+        return parent::getEntity();
     }
 
     /**
@@ -65,16 +57,5 @@ class AddingContactEvent extends AbstractResponseEvent {
      */
     public function getResponse() {
         return parent::getResponse();
-    }
-
-    /**
-     * Set the adding contact.
-     *
-     * @param AddingContactInterface $addingContact The adding contact.
-     * @return AddingContactEvent Returns this adding contact event.
-     */
-    protected function setAddingContact(AddingContactInterface $addingContact) {
-        $this->addingContact = $addingContact;
-        return $this;
     }
 }
