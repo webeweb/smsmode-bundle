@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\SendingUnicodeSMSResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SendingUnicodeSMSEvent extends AbstractResponseEvent {
-
-    /**
-     * Sending unicode SMS.
-     *
-     * @var SendingUnicodeSMSInterface
-     */
-    private $sendingUnicodeSMS;
+class SendingUnicodeSMSEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class SendingUnicodeSMSEvent extends AbstractResponseEvent {
      * @param SendingUnicodeSMSInterface $sendingUnicodeSMS The sending unicode SMS.
      */
     public function __construct(SendingUnicodeSMSInterface $sendingUnicodeSMS) {
-        parent::__construct(SMSModeEvents::SENDING_UNICODE_SMS);
-        $this->setSendingUnicodeSMS($sendingUnicodeSMS);
+        parent::__construct(SMSModeEvents::SENDING_UNICODE_SMS, $sendingUnicodeSMS);
     }
 
     /**
@@ -64,17 +56,6 @@ class SendingUnicodeSMSEvent extends AbstractResponseEvent {
      * @return SendingUnicodeSMSInterface Returns the sending unicode SMS.
      */
     public function getSendingUnicodeSMS() {
-        return $this->sendingUnicodeSMS;
-    }
-
-    /**
-     * Set the sending unicode SMS.
-     *
-     * @param SendingUnicodeSMSInterface $sendingUnicodeSMS The sending unicode SMS.
-     * @return SendingUnicodeSMSEvent Returns this sending unicode SMS event.
-     */
-    protected function setSendingUnicodeSMS(SendingUnicodeSMSInterface $sendingUnicodeSMS) {
-        $this->sendingUnicodeSMS = $sendingUnicodeSMS;
-        return $this;
+        return parent::getEntity();
     }
 }
