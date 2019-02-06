@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\DeletingSubAccountResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class DeletingSubAccountEvent extends AbstractResponseEvent {
-
-    /**
-     * Deleting sub-account.
-     *
-     * @var DeletingSubAccountInterface
-     */
-    private $deletingSubAccount;
+class DeletingSubAccountEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class DeletingSubAccountEvent extends AbstractResponseEvent {
      * @param DeletingSubAccountInterface $deletingSubAccount The deleting sub-account.
      */
     public function __construct(DeletingSubAccountInterface $deletingSubAccount) {
-        parent::__construct(SMSModeEvents::DELETING_SUB_ACCOUNT);
-        $this->setDeletingSubAccount($deletingSubAccount);
+        parent::__construct(SMSModeEvents::DELETING_SUB_ACCOUNT, $deletingSubAccount);
     }
 
     /**
@@ -46,7 +38,7 @@ class DeletingSubAccountEvent extends AbstractResponseEvent {
      * @return DeletingSubAccountInterface Returns the deleting sub-account.
      */
     public function getDeletingSubAccount() {
-        return $this->deletingSubAccount;
+        return parent::getEntity();
     }
 
     /**
@@ -65,16 +57,5 @@ class DeletingSubAccountEvent extends AbstractResponseEvent {
      */
     public function getResponse() {
         return parent::getResponse();
-    }
-
-    /**
-     * Set the deleting sub-account.
-     *
-     * @param DeletingSubAccountInterface $deletingSubAccount The deleting sub-account.
-     * @return DeletingSubAccountEvent Returns this deleting sub-account event.
-     */
-    protected function setDeletingSubAccount(DeletingSubAccountInterface $deletingSubAccount) {
-        $this->deletingSubAccount = $deletingSubAccount;
-        return $this;
     }
 }
