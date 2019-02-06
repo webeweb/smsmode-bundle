@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\SentSMSMessageListResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SentSMSMessageListEvent extends AbstractResponseEvent {
-
-    /**
-     * Sent SMS message list.
-     *
-     * @var SentSMSMessageListInterface
-     */
-    private $sentSMSMessageList;
+class SentSMSMessageListEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class SentSMSMessageListEvent extends AbstractResponseEvent {
      * @param SentSMSMessageListInterface $sentSMSMessageList The sent SMS message list.
      */
     public function __construct(SentSMSMessageListInterface $sentSMSMessageList) {
-        parent::__construct(SMSModeEvents::SENT_SMS_MESSAGE_LIST);
-        $this->setSentSMSMessageList($sentSMSMessageList);
+        parent::__construct(SMSModeEvents::SENT_SMS_MESSAGE_LIST, $sentSMSMessageList);
     }
 
     /**
@@ -64,17 +56,6 @@ class SentSMSMessageListEvent extends AbstractResponseEvent {
      * @return SentSMSMessageListInterface Returns the sent SMS message list.
      */
     public function getSentSMSMessageList() {
-        return $this->sentSMSMessageList;
-    }
-
-    /**
-     * Set the sent SMS message list.
-     *
-     * @param SentSMSMessageListInterface $sentSMSMessageList The sent SMS message list.
-     * @return SentSMSMessageListEvent Returns this sent SMS message list event.
-     */
-    protected function setSentSMSMessageList(SentSMSMessageListInterface $sentSMSMessageList) {
-        $this->sentSMSMessageList = $sentSMSMessageList;
-        return $this;
+        return parent::getEntity();
     }
 }
