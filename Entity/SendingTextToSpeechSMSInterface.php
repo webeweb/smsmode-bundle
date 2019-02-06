@@ -19,7 +19,7 @@ use DateTime;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Entity
  */
-interface SendingTextToSpeechSMSInterface {
+interface SendingTextToSpeechSMSInterface extends SMSModeEntityInterface {
 
     /**
      * Get the date envoi.
