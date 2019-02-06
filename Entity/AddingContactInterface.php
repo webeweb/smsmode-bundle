@@ -19,7 +19,7 @@ use DateTime;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Entity
  */
-interface AddingContactInterface {
+interface AddingContactInterface extends SMSModeEntityInterface {
 
     /**
      * Get the date.
