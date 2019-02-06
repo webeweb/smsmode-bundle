@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\TransferringCreditsResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class TransferringCreditsEvent extends AbstractResponseEvent {
-
-    /**
-     * Transferring credits.
-     *
-     * @var TransferringCreditsInterface
-     */
-    private $transferringCredits;
+class TransferringCreditsEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class TransferringCreditsEvent extends AbstractResponseEvent {
      * @param TransferringCreditsInterface $transferringCredits The transferring credits.
      */
     public function __construct(TransferringCreditsInterface $transferringCredits) {
-        parent::__construct(SMSModeEvents::TRANSFERRING_CREDITS);
-        $this->setTransferringCredits($transferringCredits);
+        parent::__construct(SMSModeEvents::TRANSFERRING_CREDITS, $transferringCredits);
     }
 
     /**
@@ -64,17 +56,6 @@ class TransferringCreditsEvent extends AbstractResponseEvent {
      * @return TransferringCreditsInterface Returns the transferring credits.
      */
     public function getTransferringCredits() {
-        return $this->transferringCredits;
-    }
-
-    /**
-     * Set the transferring credits.
-     *
-     * @param TransferringCreditsInterface $transferringCredits The transferring credits.
-     * @return TransferringCreditsEvent Returns this transferring credits event.
-     */
-    protected function setTransferringCredits(TransferringCreditsInterface $transferringCredits) {
-        $this->transferringCredits = $transferringCredits;
-        return $this;
+        return parent::getEntity();
     }
 }
