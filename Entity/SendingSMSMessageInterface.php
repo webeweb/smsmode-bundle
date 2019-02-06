@@ -11,7 +11,13 @@
 
 namespace WBW\Bundle\SMSModeBundle\Entity;
 
-interface SendingSMSMessageInterface {
+/**
+ * Sending SMS message interface.
+ *
+ * @author webeweb <https://github.com/webeweb/>
+ * @package WBW\Bundle\SMSModeBundle\Entity
+ */
+interface SendingSMSMessageInterface extends SMSModeEntityInterface {
 
     /**
      * Get the classe msg.
