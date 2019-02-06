@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\CreatingSubAccountResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class CreatingSubAccountEvent extends AbstractResponseEvent {
-
-    /**
-     * Creating sub-account.
-     *
-     * @var CreatingSubAccountInterface
-     */
-    private $creatingSubAccount;
+class CreatingSubAccountEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class CreatingSubAccountEvent extends AbstractResponseEvent {
      * @param CreatingSubAccountInterface $creatingSubAccount The creating sub-account.
      */
     public function __construct(CreatingSubAccountInterface $creatingSubAccount) {
-        parent::__construct(SMSModeEvents::CREATING_SUB_ACCOUNT);
-        $this->setCreatingSubAccount($creatingSubAccount);
+        parent::__construct(SMSModeEvents::CREATING_SUB_ACCOUNT, $creatingSubAccount);
     }
 
     /**
@@ -46,7 +38,7 @@ class CreatingSubAccountEvent extends AbstractResponseEvent {
      * @return CreatingSubAccountInterface Returns the creating sub-account.
      */
     public function getCreatingSubAccount() {
-        return $this->creatingSubAccount;
+        return parent::getEntity();
     }
 
     /**
@@ -65,16 +57,5 @@ class CreatingSubAccountEvent extends AbstractResponseEvent {
      */
     public function getResponse() {
         return parent::getResponse();
-    }
-
-    /**
-     * Set the creating sub-account.
-     *
-     * @param CreatingSubAccountInterface $creatingSubAccount The creating sub-account.
-     * @return CreatingSubAccountEvent Returns this creating sub-account event.
-     */
-    protected function setCreatingSubAccount(CreatingSubAccountInterface $creatingSubAccount) {
-        $this->creatingSubAccount = $creatingSubAccount;
-        return $this;
     }
 }
