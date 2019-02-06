@@ -56,6 +56,6 @@ class SendingSMSBatchEvent extends AbstractSMSModeEvent {
      * @return SendingSMSBatchInterface Returns the sending SMS batch.
      */
     public function getSendingSMSBatch() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 }

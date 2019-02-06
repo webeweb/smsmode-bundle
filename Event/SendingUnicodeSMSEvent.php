@@ -56,6 +56,6 @@ class SendingUnicodeSMSEvent extends AbstractSMSModeEvent {
      * @return SendingUnicodeSMSInterface Returns the sending unicode SMS.
      */
     public function getSendingUnicodeSMS() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 }

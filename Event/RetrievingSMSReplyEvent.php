@@ -56,6 +56,6 @@ class RetrievingSMSReplyEvent extends AbstractSMSModeEvent {
      * @return RetrievingSMSReplyInterface Returns the retrieving SMS reply.
      */
     public function getRetrievingSMSReply() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 }

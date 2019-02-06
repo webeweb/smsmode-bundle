@@ -38,7 +38,7 @@ class DeletingSMSEvent extends AbstractSMSModeEvent {
      * @return DeletingSMSInterface Returns the deleting SMS.
      */
     public function getDeletingSMS() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 
     /**

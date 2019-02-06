@@ -38,7 +38,7 @@ class AddingContactEvent extends AbstractSMSModeEvent {
      * @return AddingContactInterface Returns the adding contact.
      */
     public function getAddingContact() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 
     /**

@@ -38,7 +38,7 @@ class CreatingSubAccountEvent extends AbstractSMSModeEvent {
      * @return CreatingSubAccountInterface Returns the creating sub-account.
      */
     public function getCreatingSubAccount() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 
     /**

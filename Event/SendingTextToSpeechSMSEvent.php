@@ -56,6 +56,6 @@ class SendingTextToSpeechSMSEvent extends AbstractSMSModeEvent {
      * @return SendingTextToSpeechSMSInterface Returns the sending text-to-speech SMS.
      */
     public function getSendingTextToSpeechSMS() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 }

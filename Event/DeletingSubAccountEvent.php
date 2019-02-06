@@ -38,7 +38,7 @@ class DeletingSubAccountEvent extends AbstractSMSModeEvent {
      * @return DeletingSubAccountInterface Returns the deleting sub-account.
      */
     public function getDeletingSubAccount() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 
     /**

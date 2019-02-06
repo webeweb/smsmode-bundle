@@ -56,6 +56,6 @@ class TransferringCreditsEvent extends AbstractSMSModeEvent {
      * @return TransferringCreditsInterface Returns the transferring credits.
      */
     public function getTransferringCredits() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 }

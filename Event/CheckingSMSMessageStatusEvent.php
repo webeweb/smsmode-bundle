@@ -38,7 +38,7 @@ class CheckingSMSMessageStatusEvent extends AbstractSMSModeEvent {
      * @return CheckingSMSMessageStatusInterface Returns the checking SMS message status.
      */
     public function getCheckingSMSMessageStatus() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 
     /**

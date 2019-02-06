@@ -38,7 +38,7 @@ class DeliveryReportEvent extends AbstractSMSModeEvent {
      * @return DeliveryReportInterface Returns the delivery report.
      */
     public function getDeliveryReport() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 
     /**

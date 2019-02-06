@@ -56,6 +56,6 @@ class SendingSMSMessageEvent extends AbstractSMSModeEvent {
      * @return SendingSMSMessageInterface Returns the sending SMS message.
      */
     public function getSendingSMSMessage() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 }

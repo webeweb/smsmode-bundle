@@ -56,6 +56,6 @@ class SentSMSMessageListEvent extends AbstractSMSModeEvent {
      * @return SentSMSMessageListInterface Returns the sent SMS message list.
      */
     public function getSentSMSMessageList() {
-        return parent::getEntity();
+        return $this->getEntity();
     }
 }
