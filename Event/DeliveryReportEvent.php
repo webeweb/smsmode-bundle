@@ -21,14 +21,7 @@ use WBW\Library\SMSMode\Model\DeliveryReportResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class DeliveryReportEvent extends AbstractResponseEvent {
-
-    /**
-     * Delivery report.
-     *
-     * @var DeliveryReportInterface
-     */
-    private $deliveryReport;
+class DeliveryReportEvent extends AbstractSMSModeEvent {
 
     /**
      * Constructor.
@@ -36,8 +29,7 @@ class DeliveryReportEvent extends AbstractResponseEvent {
      * @param DeliveryReportInterface $deliveryReport The delivery report.
      */
     public function __construct(DeliveryReportInterface $deliveryReport) {
-        parent::__construct(SMSModeEvents::DELIVERY_REPORT);
-        $this->setDeliveryReport($deliveryReport);
+        parent::__construct(SMSModeEvents::DELIVERY_REPORT, $deliveryReport);
     }
 
     /**
@@ -46,7 +38,7 @@ class DeliveryReportEvent extends AbstractResponseEvent {
      * @return DeliveryReportInterface Returns the delivery report.
      */
     public function getDeliveryReport() {
-        return $this->deliveryReport;
+        return parent::getEntity();
     }
 
     /**
@@ -65,16 +57,5 @@ class DeliveryReportEvent extends AbstractResponseEvent {
      */
     public function getResponse() {
         return parent::getResponse();
-    }
-
-    /**
-     * Set the delivery report.
-     *
-     * @param DeliveryReportInterface $deliveryReport The delivery report.
-     * @return DeliveryReportEvent Returns this delivery report event.
-     */
-    protected function setDeliveryReport(DeliveryReportInterface $deliveryReport) {
-        $this->deliveryReport = $deliveryReport;
-        return $this;
     }
 }
