@@ -11,7 +11,9 @@
 
 namespace WBW\Bundle\SMSModeBundle\EventListener;
 
+use InvalidArgumentException;
 use Symfony\Component\EventDispatcher\Event;
+use WBW\Bundle\SMSModeBundle\Event\AbstractSMSModeEvent;
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
 use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
 use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
@@ -25,8 +27,12 @@ use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
+use WBW\Bundle\SMSModeBundle\Factory\SMSModeFactory;
+use WBW\Library\SMSMode\Exception\APIException;
+use WBW\Library\SMSMode\Model\AbstractRequest;
+use WBW\Library\SMSMode\Model\AbstractResponse;
+use WBW\Library\SMSMode\Model\Authentication;
 use WBW\Library\SMSMode\Provider\APIProvider;
-use WBW\Library\SMSMode\Traits\AccessTokenTrait;
 
 /**
  * sMsmode event listener.
@@ -35,8 +41,6 @@ use WBW\Library\SMSMode\Traits\AccessTokenTrait;
  * @package WBW\Bundle\SMSModeBundle\EventListener
  */
 class SMSModeEventListener {
-
-    use AccessTokenTrait;
 
     /**
      * Service name.
@@ -53,24 +57,27 @@ class SMSModeEventListener {
     private $apiProvider;
 
     /**
-     * Pseudo.
-     *
-     * @var string
-     */
-    private $pass;
-
-    /**
-     * Pass.
-     *
-     * @var string.
-     */
-    private $pseudo;
-
-    /**
      * Constructor.
      */
     public function __construct() {
-        // NOTHING TO DO.
+        $authentication = new Authentication();
+        $this->setApiProvider(new APIProvider($authentication));
+    }
+
+    /**
+     * Before return an event.
+     *
+     * @param AbstractSMSModeEvent $event The event.
+     * @param AbstractRequest $request The request.
+     * @param AbstractResponse $response The response.
+     * @return Event Returns the event.
+     */
+    protected function beforeReturnEvent(AbstractSMSModeEvent $event, AbstractRequest $request, AbstractResponse $response) {
+
+        $event->setRequest($request);
+        $event->setResponse($response);
+
+        return $event;
     }
 
     /**
@@ -83,164 +90,222 @@ class SMSModeEventListener {
     }
 
     /**
-     * Get the pass.
-     *
-     * @return string Returns the pass.
-     */
-    public function getPass() {
-        return $this->pass;
-    }
-
-    /**
-     * Get the pseudo.
-     *
-     * @return string Returns the pseudo.
-     */
-    public function getPseudo() {
-        return $this->pseudo;
-    }
-
-    /**
      * On adding contact.
      *
      * @param AddingContactEvent $event The adding contact event.
-     * @return Event Returns the event.
+     * @return AddingContactEvent Returns the adding contact event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onAddingContact(AddingContactEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newAddingContactRequest($event->getAddingContact());
+        $response = $this->getApiProvider()->addingContact($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On checking SMS message status.
      *
      * @param CheckingSMSMessageStatusEvent $event The checking SMS message status event.
-     * @return Event Returns the event.
+     * @return CheckingSMSMessageStatusEvent Returns the checking SMS message status event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onCheckingSMSMessageStatus(CheckingSMSMessageStatusEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newCheckingSMSMessageStatusRequest($event->getCheckingSMSMessageStatus());
+        $response = $this->getApiProvider()->checkingSMSMessageStatus($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On creating sub-account.
      *
      * @param CreatingSubAccountEvent $event The creating sub-account event.
-     * @return Event Returns the event.
+     * @return CreatingSubAccountEvent Returns the creating sub-account event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onCreatingSubAccount(CreatingSubAccountEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newCreatingSubAccountRequest($event->getCreatingSubAccount());
+        $response = $this->getApiProvider()->creatingSubAccount($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On deleting SMS.
      *
      * @param DeletingSMSEvent $event The deleting SMS event.
-     * @return Event Returns the event.
+     * @return DeletingSMSEvent Returns the deleting SMS event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onDeletingSMS(DeletingSMSEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newDeletingSMSRequest($event->getDeletingSMS());
+        $response = $this->getApiProvider()->deletingSMS($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On deleting sub-account.
      *
      * @param DeletingSubAccountEvent $event The deleting sub-account event.
-     * @return Event Returns the event.
+     * @return DeletingSubAccountEvent Returns the deleting sub-account event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onDeletingSubAccount(DeletingSubAccountEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newDeletingSubAccountRequest($event->getDeletingSubAccount());
+        $response = $this->getApiProvider()->deletingSubAccount($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On delivery report.
      *
      * @param DeliveryReportEvent $event The delivery report event.
-     * @return Event Returns the event.
+     * @return DeliveryReportEvent Returns the delivery report event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onDeliveryReport(DeliveryReportEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newDeliveryReportRequest($event->getDeliveryReport());
+        $response = $this->getApiProvider()->deliveryReport($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On retrieving SMS reply.
      *
      * @param RetrievingSMSReplyEvent $event The retrieving SMS reply event.
-     * @return Event Returns the event.
+     * @return RetrievingSMSReplyEvent Returns the retrieving SMS reply event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onRetrievingSMSReply(RetrievingSMSReplyEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newRetrievingSMSReplyRequest($event->getRetrievingSMSReply());
+        $response = $this->getApiProvider()->retrievingSMSReply($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On sending SMS batch.
      *
      * @param SendingSMSBatchEvent $event The sending SMS batch event.
-     * @return Event Returns the event.
+     * @return SendingSMSBatchEvent Returns the sending SMS batch event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingSMSBatch(SendingSMSBatchEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newSendingSMSBatchRequest($event->getSendingSMSBatch());
+        $response = $this->getApiProvider()->sendingSMSBatch($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On sending SMS message.
      *
      * @param SendingSMSMessageEvent $event The sending SMS message event.
-     * @return Event Returns the event.
+     * @return SendingSMSMessageEvent Returns the sending SMS message event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingSMSMessage(SendingSMSMessageEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newSendingSMSMessageRequest($event->getSendingSMSMessage());
+        $response = $this->getApiProvider()->sendingSMSMessage($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On sending text-to-speech.
      *
      * @param SendingTextToSpeechSMSEvent $event The sending text-to-speech event.
-     * @return Event Returns the event.
+     * @return SendingTextToSpeechSMSEvent Returns the sending text-to-speech event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingTextToSpeechSMS(SendingTextToSpeechSMSEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newSendingTextToSpeechSMSRequest($event->getSendingTextToSpeechSMS());
+        $response = $this->getApiProvider()->sendingTextToSpeechSMS($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On sending unicode SMS.
      *
      * @param SendingUnicodeSMSEvent $event The sending unicode SMS event.
-     * @return Event Returns the event.
+     * @return SendingUnicodeSMSEvent Returns the sending unicode SMS event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingUnicodeSMS(SendingUnicodeSMSEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newSendingUnicodeSMSRequest($event->getSendingUnicodeSMS());
+        $response = $this->getApiProvider()->sendingUnicodeSMS($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On sent SMS message lis.
      *
      * @param SentSMSMessageListEvent $event The sent SMS message list event.
-     * @return Event Returns the event.
+     * @return SentSMSMessageListEvent Returns the sent SMS message list event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSentSMSMessageList(SentSMSMessageListEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newSentSMSMessageListRequest($event->getSentSMSMessageList());
+        $response = $this->getApiProvider()->sentSMSMessageList($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
     }
 
     /**
      * On transferring credits.
      *
      * @param TransferringCreditsEvent $event The transferring credits event.
-     * @return Event Returns the event.
+     * @return TransferringCreditsEvent Returns the transferring credits event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onTransferringCredits(TransferringCreditsEvent $event) {
 
-        return $event;
+        $request  = SMSModeFactory::newTransferringCreditsRequest($event->getTransferringCredits());
+        $response = $this->getApiProvider()->transferringCredits($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
+    }
+
+    /**
+     * Set the access token.
+     *
+     * @param string $accessToken The access token.
+     * @return SMSModeEventListener Returns this event listener.
+     */
+    public function setAccessToken($accessToken) {
+        $this->getApiProvider()->getAuthentication()->setAccessToken($accessToken);
+        return $this;
     }
 
     /**
@@ -249,7 +314,7 @@ class SMSModeEventListener {
      * @param APIProvider $apiProvider The API provider.
      * @return SMSModeEventListener Returns this event listener.
      */
-    protected function setApiProvider($apiProvider) {
+    protected function setApiProvider(ApiProvider $apiProvider) {
         $this->apiProvider = $apiProvider;
         return $this;
     }
@@ -261,7 +326,7 @@ class SMSModeEventListener {
      * @return SMSModeEventListener Returns this event listener.
      */
     public function setPass($pass) {
-        $this->pass = $pass;
+        $this->getApiProvider()->getAuthentication()->setPass($pass);
         return $this;
     }
 
@@ -272,7 +337,7 @@ class SMSModeEventListener {
      * @return SMSModeEventListener Returns this event listener.
      */
     public function setPseudo($pseudo) {
-        $this->pseudo = $pseudo;
+        $this->getApiProvider()->getAuthentication()->setPseudo($pseudo);
         return $this;
     }
 }

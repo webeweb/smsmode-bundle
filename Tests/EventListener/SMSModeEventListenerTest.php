@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\EventListener;
 
+use Exception;
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
 use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
 use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
@@ -26,6 +27,32 @@ use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
 use WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SMSMode\Model\AddingContactRequest;
+use WBW\Library\SMSMode\Model\AddingContactResponse;
+use WBW\Library\SMSMode\Model\CheckingSMSMessageStatusRequest;
+use WBW\Library\SMSMode\Model\CheckingSMSMessageStatusResponse;
+use WBW\Library\SMSMode\Model\CreatingSubAccountRequest;
+use WBW\Library\SMSMode\Model\CreatingSubAccountResponse;
+use WBW\Library\SMSMode\Model\DeletingSMSRequest;
+use WBW\Library\SMSMode\Model\DeletingSMSResponse;
+use WBW\Library\SMSMode\Model\DeletingSubAccountRequest;
+use WBW\Library\SMSMode\Model\DeletingSubAccountResponse;
+use WBW\Library\SMSMode\Model\DeliveryReportRequest;
+use WBW\Library\SMSMode\Model\DeliveryReportResponse;
+use WBW\Library\SMSMode\Model\RetrievingSMSReplyRequest;
+use WBW\Library\SMSMode\Model\RetrievingSMSReplyResponse;
+use WBW\Library\SMSMode\Model\SendingSMSBatchRequest;
+use WBW\Library\SMSMode\Model\SendingSMSBatchResponse;
+use WBW\Library\SMSMode\Model\SendingSMSMessageRequest;
+use WBW\Library\SMSMode\Model\SendingSMSMessageResponse;
+use WBW\Library\SMSMode\Model\SendingTextToSpeechSMSRequest;
+use WBW\Library\SMSMode\Model\SendingTextToSpeechSMSResponse;
+use WBW\Library\SMSMode\Model\SendingUnicodeSMSRequest;
+use WBW\Library\SMSMode\Model\SendingUnicodeSMSResponse;
+use WBW\Library\SMSMode\Model\SentSMSMessageListRequest;
+use WBW\Library\SMSMode\Model\SentSMSMessageListResponse;
+use WBW\Library\SMSMode\Model\TransferringCreditsRequest;
+use WBW\Library\SMSMode\Model\TransferringCreditsResponse;
 
 /**
  * sMsmode event listener test.
@@ -34,6 +61,25 @@ use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
  * @package WBW\Bundle\SMSModeBundle\Tests\EventListener
  */
 class SMSModeEventListenerTest extends AbstractTestCase {
+
+    /**
+     * sMsmode event listener.
+     *
+     * @var SMSModeEventListener
+     */
+    private $smsModeEventListener;
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function setUp() {
+        parent::setUp();
+
+        // Set a sMsmode event listener.
+        $this->smsModeEventListener = new SMSModeEventListener();
+        $this->smsModeEventListener->setPseudo("pseudo");
+        $this->smsModeEventListener->setPass("pass");
+    }
 
     /**
      * Tests the __construct() method.
@@ -46,218 +92,280 @@ class SMSModeEventListenerTest extends AbstractTestCase {
 
         $obj = new SMSModeEventListener();
 
-        $this->assertNull($obj->getAccessToken());
-        $this->assertNull($obj->getApiProvider());
-        $this->assertNull($obj->getPass());
-        $this->assertNull($obj->getPseudo());
+        $this->assertNotNull($obj->getApiProvider());
     }
 
     /**
      * Tests the onAddingContact() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnAddingContact() {
 
         // Set an Adding contact event mock.
         $addingContactEvent = new AddingContactEvent($this->addingContact);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onAddingContact($addingContactEvent);
         $this->assertSame($addingContactEvent, $res);
+
+        $this->assertInstanceOf(AddingContactRequest::class, $res->getRequest());
+        $this->assertInstanceOf(AddingContactResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onCheckingSMSMessageStatus() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnCheckingSMSMessageStatus() {
 
         // Set a Checking SMS message status event mock.
         $checkingSMSMessageStatusEvent = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onCheckingSMSMessageStatus($checkingSMSMessageStatusEvent);
         $this->assertSame($checkingSMSMessageStatusEvent, $res);
+
+        $this->assertInstanceOf(CheckingSMSMessageStatusRequest::class, $res->getRequest());
+        $this->assertInstanceOf(CheckingSMSMessageStatusResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onCreatingSubAccount() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnCreatingSubAccount() {
 
         // Set a Creating sub-account event mock.
         $creatingSubAccountEvent = new CreatingSubAccountEvent($this->creatingSubAccount);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onCreatingSubAccount($creatingSubAccountEvent);
         $this->assertSame($creatingSubAccountEvent, $res);
+
+        $this->assertInstanceOf(CreatingSubAccountRequest::class, $res->getRequest());
+        $this->assertInstanceOf(CreatingSubAccountResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onDeletingSMS() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnDeletingSMS() {
 
         // Set a Deleting SMS event mock.
         $deletingSMSEvent = new DeletingSMSEvent($this->deletingSMS);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onDeletingSMS($deletingSMSEvent);
         $this->assertSame($deletingSMSEvent, $res);
+
+        $this->assertInstanceOf(DeletingSMSRequest::class, $res->getRequest());
+        $this->assertInstanceOf(DeletingSMSResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onDeletingSubAccount() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnDeletingSubAccount() {
 
         // Set a Deleting sub-account event mock.
         $deletingSubAccountEvent = new DeletingSubAccountEvent($this->deletingSubAccount);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onDeletingSubAccount($deletingSubAccountEvent);
         $this->assertSame($deletingSubAccountEvent, $res);
+
+        $this->assertInstanceOf(DeletingSubAccountRequest::class, $res->getRequest());
+        $this->assertInstanceOf(DeletingSubAccountResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onDeliveryReport() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnDeliveryReport() {
 
         // Set a Delivery report event mock.
         $deliveryReportEvent = new DeliveryReportEvent($this->deliveryReport);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onDeliveryReport($deliveryReportEvent);
         $this->assertSame($deliveryReportEvent, $res);
+
+        $this->assertInstanceOf(DeliveryReportRequest::class, $res->getRequest());
+        $this->assertInstanceOf(DeliveryReportResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onRetrievingSMSReply() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnRetrievingSMSReply() {
 
         // Set a Retrieving SMS reply event mock.
         $retrievingSMSReplyEvent = new RetrievingSMSReplyEvent($this->retrievingSMSReply);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onRetrievingSMSReply($retrievingSMSReplyEvent);
         $this->assertSame($retrievingSMSReplyEvent, $res);
+
+        $this->assertInstanceOf(RetrievingSMSReplyRequest::class, $res->getRequest());
+        $this->assertInstanceOf(RetrievingSMSReplyResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onSendingSMSBatch() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnSendingSMSBatch() {
 
         // Set a Sending SMS batch event mock.
         $sendingSMSBatchEvent = new SendingSMSBatchEvent($this->sendingSMSBatch);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onSendingSMSBatch($sendingSMSBatchEvent);
         $this->assertSame($sendingSMSBatchEvent, $res);
+
+        $this->assertInstanceOf(SendingSMSBatchRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SendingSMSBatchResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onSendingSMSMessage() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnSendingSMSMessage() {
 
         // Set a Sending SMS message event mock.
         $sendingSMSMessageEvent = new SendingSMSMessageEvent($this->sendingSMSMessage);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onSendingSMSMessage($sendingSMSMessageEvent);
         $this->assertSame($sendingSMSMessageEvent, $res);
+
+        $this->assertInstanceOf(SendingSMSMessageRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SendingSMSMessageResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onSendingTextToSpeechSMS() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnSendingTextToSpeechSMS() {
 
         // Set a Sending text-to-speech event mock.
         $sendingTextToSpeechSMSEvent = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onSendingTextToSpeechSMS($sendingTextToSpeechSMSEvent);
         $this->assertSame($sendingTextToSpeechSMSEvent, $res);
+
+        $this->assertInstanceOf(SendingTextToSpeechSMSRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SendingTextToSpeechSMSResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onSendingUnicodeSMS() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnSendingUnicodeSMS() {
 
         // Set a Sending unicode SMS event mock.
         $sendingUnicodeSMSEvent = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onSendingUnicodeSMS($sendingUnicodeSMSEvent);
         $this->assertSame($sendingUnicodeSMSEvent, $res);
+
+        $this->assertInstanceOf(SendingUnicodeSMSRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SendingUnicodeSMSResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onSentSMSMessageList() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnSentSMSMessageList() {
 
         // Set a Sent SMS message list event mock.
         $sentSMSMessageListEvent = new SentSMSMessageListEvent($this->sentSMSMessageList);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onSentSMSMessageList($sentSMSMessageListEvent);
         $this->assertSame($sentSMSMessageListEvent, $res);
+
+        $this->assertInstanceOf(SentSMSMessageListRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SentSMSMessageListResponse::class, $res->getResponse());
     }
 
     /**
      * Tests the onTransferringCredits() method.
      *
      * @return void
+     * @throws Exception Throws an exception if an error occurs.
      */
     public function testOnTransferringCredits() {
 
         // Set a Transferring credits event mock.
         $transferringCreditsEvent = new TransferringCreditsEvent($this->transferringCredits);
 
-        $obj = new SMSModeEventListener();
+        $obj = $this->smsModeEventListener;
 
         $res = $obj->onTransferringCredits($transferringCreditsEvent);
         $this->assertSame($transferringCreditsEvent, $res);
+
+        $this->assertInstanceOf(TransferringCreditsRequest::class, $res->getRequest());
+        $this->assertInstanceOf(TransferringCreditsResponse::class, $res->getResponse());
+    }
+
+    /**
+     * Tests the setAccessToken() method.
+     *
+     * @return void
+     */
+    public function testSetAccessToken() {
+
+        $obj = new SMSModeEventListener();
+
+        $obj->setAccessToken("accessToken");
+        $this->assertEquals("accessToken", $obj->getApiProvider()->getAuthentication()->getAccessToken());
     }
 
     /**
@@ -270,7 +378,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         $obj = new SMSModeEventListener();
 
         $obj->setPass("pass");
-        $this->assertEquals("pass", $obj->getPass());
+        $this->assertEquals("pass", $obj->getApiProvider()->getAuthentication()->getPass());
     }
 
     /**
@@ -283,6 +391,6 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         $obj = new SMSModeEventListener();
 
         $obj->setPseudo("pseudo");
-        $this->assertEquals("pseudo", $obj->getPseudo());
+        $this->assertEquals("pseudo", $obj->getApiProvider()->getAuthentication()->getPseudo());
     }
 }
