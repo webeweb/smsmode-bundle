@@ -1,2 +1,23 @@
 # Resources/config/services.yml
 services:
+
+    webeweb.smsmode.event_listener:
+        class:     WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener
+        public:    true
+        calls:
+            - ["setAccessToken", ["@?smsmode.accessToken"]]
+            - ["setPseudo",      ["@?smsmode.pseudo"]]
+            - ["setPass",        ["@?smsmode.pass"]]
+        tags:
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.adding_contact",              method: "onAddingContact" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.checking_sms_message_status", method: "onCheckingSMSMessageStatus" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.creating_sub_account",        method: "onCreatingSubAccount" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.deleting_sms",                method: "onDeletingSMS" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.deleting_sub_account",        method: "onDeletingSubAccount" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.delivery_report",             method: "onDeliveryReport" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.retrieving_sms_reply",        method: "onRetrievingSMSReply" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.sending_sms_batch",           method: "onSendingSMSBatch" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.sending_sms_message",         method: "onSendingSMSMessage" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.sending_text_to_speech_sms",  method: "onSendingTextToSpeechSMS" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.sent_sms_message_list",       method: "onSentSMSMessageList" }
+            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.transferring_credits",        method: "onTransferringCredits" }
