@@ -13,8 +13,10 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Factory;
 
 use WBW\Bundle\SMSModeBundle\Factory\SMSModeFactory;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SMSMode\Model\Request\AccountBalanceRequest;
 use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
 use WBW\Library\SMSMode\Model\Request\CheckingSMSMessageStatusRequest;
+use WBW\Library\SMSMode\Model\Request\CreatingAPIKeyRequest;
 use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
 use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
@@ -34,6 +36,17 @@ use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
  * @package WBW\Bundle\SMSModeBundle\Tests\Factory
  */
 class SMSModeFactoryTest extends AbstractTestCase {
+
+    /**
+     * Tests the newAccountBalanceRequest() method.
+     *
+     * @return void
+     */
+    public function testNewAccountBalanceRequest() {
+
+        $res = SMSModeFactory::newAccountBalanceRequest();
+        $this->assertInstanceOf(AccountBalanceRequest::class, $res);
+    }
 
     /**
      * Tests the newAddingContactRequest() method.
@@ -64,6 +77,17 @@ class SMSModeFactoryTest extends AbstractTestCase {
         $this->assertInstanceOf(CheckingSMSMessageStatusRequest::class, $res);
 
         $this->assertEquals("smsID", $res->getSmsID());
+    }
+
+    /**
+     * Tests the newCreatingAPIKeyRequest() method.
+     *
+     * @return void
+     */
+    public function testNewCreatingAPIKeyRequest() {
+
+        $res = SMSModeFactory::newCreatingAPIKeyRequest();
+        $this->assertInstanceOf(CreatingAPIKeyRequest::class, $res);
     }
 
     /**

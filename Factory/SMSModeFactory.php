@@ -24,8 +24,10 @@ use WBW\Bundle\SMSModeBundle\Entity\SendingTextToSpeechSMSInterface;
 use WBW\Bundle\SMSModeBundle\Entity\SendingUnicodeSMSInterface;
 use WBW\Bundle\SMSModeBundle\Entity\SentSMSMessageListInterface;
 use WBW\Bundle\SMSModeBundle\Entity\TransferringCreditsInterface;
+use WBW\Library\SMSMode\Model\Request\AccountBalanceRequest;
 use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
 use WBW\Library\SMSMode\Model\Request\CheckingSMSMessageStatusRequest;
+use WBW\Library\SMSMode\Model\Request\CreatingAPIKeyRequest;
 use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
 use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
@@ -45,6 +47,15 @@ use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
  * @package WBW\Bundle\SMSModeBundle\Factory
  */
 class SMSModeFactory {
+
+    /**
+     * Creates an account balance request.
+     *
+     * @return AccountBalanceRequest Returns the account balance request.
+     */
+    public static function newAccountBalanceRequest() {
+        return new AccountBalanceRequest();
+    }
 
     /**
      * Creates an adding contact request.
@@ -78,6 +89,15 @@ class SMSModeFactory {
         $model->setSmsID($checkingSMSMessageStatus->getSMSModeSmsID());
 
         return $model;
+    }
+
+    /**
+     * Creates an creating API key request.
+     *
+     * @return CreatingAPIKeyRequest Returns the creating API key request.
+     */
+    public static function newCreatingAPIKeyRequest() {
+        return new CreatingAPIKeyRequest();
     }
 
     /**
@@ -201,7 +221,7 @@ class SMSModeFactory {
         $model->setEmetteur($sendingSMSMessage->getSMSModeEmetteur());
         $model->setGroupe($sendingSMSMessage->getSMSModeGroupe());
         $model->setMessage($sendingSMSMessage->getSMSModeMessage());
-        foreach($sendingSMSMessage->getSMSModeNumero() as $current) {
+        foreach ($sendingSMSMessage->getSMSModeNumero() as $current) {
             $model->addNumero($current);
         }
         $model->setNbrMsg($sendingSMSMessage->getSMSModeNbrMsg());
@@ -225,7 +245,7 @@ class SMSModeFactory {
         $model->setDateEnvoi($sendingTextToSpeechSMS->getSMSModeDateEnvoi());
         $model->setLanguage($sendingTextToSpeechSMS->getSMSModeLanguage());
         $model->setMessage($sendingTextToSpeechSMS->getSMSModeMessage());
-        foreach($sendingTextToSpeechSMS->getSMSModeNumero() as $current) {
+        foreach ($sendingTextToSpeechSMS->getSMSModeNumero() as $current) {
             $model->addNumero($current);
         }
         $model->setTitle($sendingTextToSpeechSMS->getSMSModeTitle());
@@ -247,7 +267,7 @@ class SMSModeFactory {
         $model->setEmetteur($sendingUnicodeSMS->getSMSModeEmetteur());
         $model->setGroupe($sendingUnicodeSMS->getSMSModeGroupe());
         $model->setMessage($sendingUnicodeSMS->getSMSModeMessage());
-        foreach($sendingUnicodeSMS->getSMSModeNumero() as $current) {
+        foreach ($sendingUnicodeSMS->getSMSModeNumero() as $current) {
             $model->addNumero($current);
         }
         $model->setNbrMsg($sendingUnicodeSMS->getSMSModeNbrMsg());
