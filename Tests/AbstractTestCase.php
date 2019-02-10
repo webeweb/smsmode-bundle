@@ -26,10 +26,10 @@ use WBW\Bundle\SMSModeBundle\Entity\SendingTextToSpeechSMSInterface;
 use WBW\Bundle\SMSModeBundle\Entity\SendingUnicodeSMSInterface;
 use WBW\Bundle\SMSModeBundle\Entity\SentSMSMessageListInterface;
 use WBW\Bundle\SMSModeBundle\Entity\TransferringCreditsInterface;
-use WBW\Library\SMSMode\Model\SendingSMSBatchRequest;
-use WBW\Library\SMSMode\Model\SendingSMSMessageRequest;
-use WBW\Library\SMSMode\Model\SendingTextToSpeechSMSRequest;
-use WBW\Library\SMSMode\Model\SendingUnicodeSMSRequest;
+use WBW\Library\SMSMode\Model\Request\SendingSMSBatchRequest;
+use WBW\Library\SMSMode\Model\Request\SendingSMSMessageRequest;
+use WBW\Library\SMSMode\Model\Request\SendingTextToSpeechSMSRequest;
+use WBW\Library\SMSMode\Model\Request\SendingUnicodeSMSRequest;
 
 /**
  * Abstract test case.
@@ -145,7 +145,7 @@ abstract class AbstractTestCase extends TestCase {
         parent::setUp();
 
         // Set a Fichier mock.
-        $this->fichier = getcwd() . "/vendor/webeweb/smsmode-library/tests/Fixtures/Model/SendingSMSBatchRequest.csv";
+        $this->fichier = getcwd() . "/vendor/webeweb/smsmode-library/tests/Fixtures/Model/Request/SendingSMSBatchRequest.csv";
 
         // Set an Adding contact mock.
         $this->addingContact = $this->getMockBuilder(AddingContactInterface::class)->getMock();
