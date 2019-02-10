@@ -12,8 +12,10 @@
 namespace WBW\Bundle\SMSModeBundle\Tests\EventListener;
 
 use Exception;
+use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
 use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
+use WBW\Bundle\SMSModeBundle\Event\CreatingAPIKeyEvent;
 use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
 use WBW\Bundle\SMSModeBundle\Event\DeletingSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\DeletingSubAccountEvent;
@@ -27,8 +29,10 @@ use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
 use WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SMSMode\Model\Request\AccountBalanceRequest;
 use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
 use WBW\Library\SMSMode\Model\Request\CheckingSMSMessageStatusRequest;
+use WBW\Library\SMSMode\Model\Request\CreatingAPIKeyRequest;
 use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
 use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
@@ -40,8 +44,10 @@ use WBW\Library\SMSMode\Model\Request\SendingTextToSpeechSMSRequest;
 use WBW\Library\SMSMode\Model\Request\SendingUnicodeSMSRequest;
 use WBW\Library\SMSMode\Model\Request\SentSMSMessageListRequest;
 use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
+use WBW\Library\SMSMode\Model\Response\AccountBalanceResponse;
 use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
 use WBW\Library\SMSMode\Model\Response\CheckingSMSMessageStatusResponse;
+use WBW\Library\SMSMode\Model\Response\CreatingAPIKeyResponse;
 use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
 use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
 use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
@@ -96,6 +102,26 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
+     * Tests the onAccountBalance() method.
+     *
+     * @return void
+     * @throws Exception Throws an exception if an error occurs.
+     */
+    public function testOnAccountBalance() {
+
+        // Set an Account balance event mock.
+        $addingContactEvent = new AccountBalanceEvent();
+
+        $obj = $this->smsModeEventListener;
+
+        $res = $obj->onAccountBalance($addingContactEvent);
+        $this->assertSame($addingContactEvent, $res);
+
+        $this->assertInstanceOf(AccountBalanceRequest::class, $res->getRequest());
+        $this->assertInstanceOf(AccountBalanceResponse::class, $res->getResponse());
+    }
+
+    /**
      * Tests the onAddingContact() method.
      *
      * @return void
@@ -133,6 +159,26 @@ class SMSModeEventListenerTest extends AbstractTestCase {
 
         $this->assertInstanceOf(CheckingSMSMessageStatusRequest::class, $res->getRequest());
         $this->assertInstanceOf(CheckingSMSMessageStatusResponse::class, $res->getResponse());
+    }
+
+    /**
+     * Tests the onCreatingAPIKey() method.
+     *
+     * @return void
+     * @throws Exception Throws an exception if an error occurs.
+     */
+    public function testOnCreatingAPIKey() {
+
+        // Set a Creating API key event mock.
+        $addingContactEvent = new CreatingAPIKeyEvent();
+
+        $obj = $this->smsModeEventListener;
+
+        $res = $obj->onCreatingAPIKey($addingContactEvent);
+        $this->assertSame($addingContactEvent, $res);
+
+        $this->assertInstanceOf(CreatingAPIKeyRequest::class, $res->getRequest());
+        $this->assertInstanceOf(CreatingAPIKeyResponse::class, $res->getResponse());
     }
 
     /**

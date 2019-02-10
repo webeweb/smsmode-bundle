@@ -14,8 +14,10 @@ namespace WBW\Bundle\SMSModeBundle\EventListener;
 use InvalidArgumentException;
 use Symfony\Component\EventDispatcher\Event;
 use WBW\Bundle\SMSModeBundle\Event\AbstractSMSModeEvent;
+use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
 use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
+use WBW\Bundle\SMSModeBundle\Event\CreatingAPIKeyEvent;
 use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
 use WBW\Bundle\SMSModeBundle\Event\DeletingSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\DeletingSubAccountEvent;
@@ -90,6 +92,22 @@ class SMSModeEventListener {
     }
 
     /**
+     * On account balance.
+     *
+     * @param AccountBalanceEvent $event The account balance event.
+     * @return AccountBalanceEvent Returns the account balance event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     */
+    public function onAccountBalance(AccountBalanceEvent $event) {
+
+        $request  = SMSModeFactory::newAccountBalanceRequest();
+        $response = $this->getApiProvider()->accountBalance($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
+    }
+
+    /**
      * On adding contact.
      *
      * @param AddingContactEvent $event The adding contact event.
@@ -117,6 +135,22 @@ class SMSModeEventListener {
 
         $request  = SMSModeFactory::newCheckingSMSMessageStatusRequest($event->getCheckingSMSMessageStatus());
         $response = $this->getApiProvider()->checkingSMSMessageStatus($request);
+
+        return $this->beforeReturnEvent($event, $request, $response);
+    }
+
+    /**
+     * On creating API key.
+     *
+     * @param CreatingAPIKeyEvent $event The account balance event.
+     * @return CreatingAPIKeyEvent Returns the account balance event.
+     * @throws APIException Throws an API exception if an error occurs.
+     * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     */
+    public function onCreatingAPIKey(CreatingAPIKeyEvent $event) {
+
+        $request  = SMSModeFactory::newCreatingAPIKeyRequest();
+        $response = $this->getApiProvider()->creatingAPIKey($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }
