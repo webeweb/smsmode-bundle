@@ -5,7 +5,7 @@ services:
         class:     WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener
         public:    true
         calls:
-            - ["setAccessToken", ["@?smsmode.accessToken"]]
+            - ["setAccessToken", ["@?smsmode.access_token"]]
             - ["setPseudo",      ["@?smsmode.pseudo"]]
             - ["setPass",        ["@?smsmode.pass"]]
         tags:
