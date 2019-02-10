@@ -27,7 +27,7 @@ class TestSMSModeEvent extends AbstractSMSModeEvent {
     /**
      * {@inheritdoc}
      */
-    public function __construct($eventName, SMSModeEntityInterface $entity) {
+    public function __construct($eventName, SMSModeEntityInterface $entity = null) {
         parent::__construct($eventName, $entity);
     }
 
@@ -55,7 +55,7 @@ class TestSMSModeEvent extends AbstractSMSModeEvent {
     /**
      * {@inheritdoc}
      */
-    public function setEntity(SMSModeEntityInterface $entity) {
+    public function setEntity(SMSModeEntityInterface $entity = null) {
         return parent::setEntity($entity);
     }
 

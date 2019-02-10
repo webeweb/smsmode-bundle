@@ -50,9 +50,9 @@ abstract class AbstractSMSModeEvent extends AbstractEvent {
      * Constructor.
      *
      * @param string $eventName The event name.
-     * @param SMSModeEntityInterface $entity The entity.
+     * @param SMSModeEntityInterface|null $entity The entity.
      */
-    protected function __construct($eventName, SMSModeEntityInterface $entity) {
+    protected function __construct($eventName, SMSModeEntityInterface $entity = null) {
         parent::__construct($eventName);
         $this->setEntity($entity);
     }
@@ -87,10 +87,10 @@ abstract class AbstractSMSModeEvent extends AbstractEvent {
     /**
      * Set the entity.
      *
-     * @param SMSModeEntityInterface $entity The entity.
+     * @param SMSModeEntityInterface|null $entity The entity.
      * @return AbstractSMSModeEvent Returns this sMsmode event.
      */
-    protected function setEntity(SMSModeEntityInterface $entity) {
+    protected function setEntity(SMSModeEntityInterface $entity = null) {
         $this->entity = $entity;
         return $this;
     }
