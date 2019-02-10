@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
 use WBW\Library\SMSMode\Model\Response\TransferringCreditsResponse;
 
 /**
- * Transferring credits event
+ * Transferring credits event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

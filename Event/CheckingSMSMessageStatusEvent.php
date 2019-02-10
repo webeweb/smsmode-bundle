@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\CheckingSMSMessageStatusRequest;
 use WBW\Library\SMSMode\Model\Response\CheckingSMSMessageStatusResponse;
 
 /**
- * Checking SMS message status event
+ * Checking SMS message status event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

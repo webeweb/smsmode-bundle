@@ -18,7 +18,7 @@ use WBW\Library\SMSMode\Model\DeliveryReportCallback;
 use WBW\Library\SMSMode\Model\SMSReplyCallback;
 
 /**
- * Abstract controller test
+ * Abstract controller test.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Tests\Controller

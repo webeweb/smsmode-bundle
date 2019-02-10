@@ -12,7 +12,7 @@
 namespace WBW\Bundle\SMSModeBundle\Entity;
 
 /**
- * Deleting SMS interface
+ * Deleting SMS interface.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Entity

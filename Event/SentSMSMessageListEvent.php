@@ -13,10 +13,10 @@ namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\SMSModeBundle\Entity\SentSMSMessageListInterface;
 use WBW\Library\SMSMode\Model\Request\SentSMSMessageListRequest;
-use WBW\Library\SMSMode\Model\SentSMSMessageListResponse;
+use WBW\Library\SMSMode\Model\Response\SentSMSMessageListResponse;
 
 /**
- * Sent SMS message list event
+ * Sent SMS message list event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

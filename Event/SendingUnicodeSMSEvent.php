@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\SendingUnicodeSMSRequest;
 use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
 
 /**
- * Sending unicode SMS event
+ * Sending unicode SMS event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

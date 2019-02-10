@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
 use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
 
 /**
- * Deleting SMS event
+ * Deleting SMS event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

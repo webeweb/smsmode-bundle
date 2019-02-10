@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\SendingSMSMessageRequest;
 use WBW\Library\SMSMode\Model\Response\SendingSMSMessageResponse;
 
 /**
- * Sending SMS message event
+ * Sending SMS message event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

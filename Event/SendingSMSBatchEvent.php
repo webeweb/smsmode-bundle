@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\SendingSMSBatchRequest;
 use WBW\Library\SMSMode\Model\Response\SendingSMSBatchResponse;
 
 /**
- * Sending SMS batch event
+ * Sending SMS batch event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

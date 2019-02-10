@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
 
 /**
- * Creating sub-account event
+ * Creating sub-account event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

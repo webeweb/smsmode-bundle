@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
 use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
 
 /**
- * Adding contact event
+ * Adding contact event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

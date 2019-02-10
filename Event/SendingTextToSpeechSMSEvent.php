@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\SendingTextToSpeechSMSRequest;
 use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
 
 /**
- * Sending text-to-speech event
+ * Sending text-to-speech event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

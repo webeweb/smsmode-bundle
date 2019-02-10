@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\DeliveryReportRequest;
 use WBW\Library\SMSMode\Model\Response\DeliveryReportResponse;
 
 /**
- * Delivery report event
+ * Delivery report event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

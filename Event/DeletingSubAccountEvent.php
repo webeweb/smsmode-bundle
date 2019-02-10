@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
 
 /**
- * Deleting sub-account event
+ * Deleting sub-account event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event

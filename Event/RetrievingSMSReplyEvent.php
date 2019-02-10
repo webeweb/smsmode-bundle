@@ -16,7 +16,7 @@ use WBW\Library\SMSMode\Model\Request\RetrievingSMSReplyRequest;
 use WBW\Library\SMSMode\Model\Response\RetrievingSMSReplyResponse;
 
 /**
- * Retrieving SMS reply event
+ * Retrieving SMS reply event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
