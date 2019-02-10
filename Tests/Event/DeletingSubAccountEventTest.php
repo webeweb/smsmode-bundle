@@ -14,8 +14,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 use WBW\Bundle\SMSModeBundle\Event\DeletingSubAccountEvent;
 use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\DeletingSubAccountRequest;
-use WBW\Library\SMSMode\Model\DeletingSubAccountResponse;
+use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
+use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
 
 /**
  * Deleting sub-account event test.

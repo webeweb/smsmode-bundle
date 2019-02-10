@@ -14,8 +14,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 use WBW\Bundle\SMSModeBundle\Event\RetrievingSMSReplyEvent;
 use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\RetrievingSMSReplyRequest;
-use WBW\Library\SMSMode\Model\RetrievingSMSReplyResponse;
+use WBW\Library\SMSMode\Model\Request\RetrievingSMSReplyRequest;
+use WBW\Library\SMSMode\Model\Response\RetrievingSMSReplyResponse;
 
 /**
  * Retrieving SMS reply event test.

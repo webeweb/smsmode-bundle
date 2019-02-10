@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\SMSModeBundle\Entity\TransferringCreditsInterface;
-use WBW\Library\SMSMode\Model\TransferringCreditsRequest;
-use WBW\Library\SMSMode\Model\TransferringCreditsResponse;
+use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
+use WBW\Library\SMSMode\Model\Response\TransferringCreditsResponse;
 
 /**
  * Transferring credits event

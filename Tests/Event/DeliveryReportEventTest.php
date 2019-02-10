@@ -14,8 +14,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 use WBW\Bundle\SMSModeBundle\Event\DeliveryReportEvent;
 use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\DeliveryReportRequest;
-use WBW\Library\SMSMode\Model\DeliveryReportResponse;
+use WBW\Library\SMSMode\Model\Request\DeliveryReportRequest;
+use WBW\Library\SMSMode\Model\Response\DeliveryReportResponse;
 
 /**
  * Delivery report event test.

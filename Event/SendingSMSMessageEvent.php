@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\SMSModeBundle\Entity\SendingSMSMessageInterface;
-use WBW\Library\SMSMode\Model\SendingSMSMessageRequest;
-use WBW\Library\SMSMode\Model\SendingSMSMessageResponse;
+use WBW\Library\SMSMode\Model\Request\SendingSMSMessageRequest;
+use WBW\Library\SMSMode\Model\Response\SendingSMSMessageResponse;
 
 /**
  * Sending SMS message event

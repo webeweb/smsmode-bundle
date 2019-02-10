@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\SMSModeBundle\Entity\AddingContactInterface;
-use WBW\Library\SMSMode\Model\AddingContactRequest;
-use WBW\Library\SMSMode\Model\AddingContactResponse;
+use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
+use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
 
 /**
  * Adding contact event

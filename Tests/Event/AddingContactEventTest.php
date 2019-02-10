@@ -14,8 +14,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
 use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\AddingContactRequest;
-use WBW\Library\SMSMode\Model\AddingContactResponse;
+use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
+use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
 
 /**
  * Adding contact event test.

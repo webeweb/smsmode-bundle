@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\SMSModeBundle\Entity\DeletingSubAccountInterface;
-use WBW\Library\SMSMode\Model\DeletingSubAccountRequest;
-use WBW\Library\SMSMode\Model\DeletingSubAccountResponse;
+use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
+use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
 
 /**
  * Deleting sub-account event

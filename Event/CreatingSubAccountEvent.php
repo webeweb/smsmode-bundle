@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\SMSModeBundle\Entity\CreatingSubAccountInterface;
-use WBW\Library\SMSMode\Model\CreatingSubAccountRequest;
-use WBW\Library\SMSMode\Model\CreatingSubAccountResponse;
+use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
+use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
 
 /**
  * Creating sub-account event

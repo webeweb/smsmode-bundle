@@ -14,8 +14,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 use WBW\Bundle\SMSModeBundle\Event\SendingSMSMessageEvent;
 use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\SendingSMSMessageRequest;
-use WBW\Library\SMSMode\Model\SendingSMSMessageResponse;
+use WBW\Library\SMSMode\Model\Request\SendingSMSMessageRequest;
+use WBW\Library\SMSMode\Model\Response\SendingSMSMessageResponse;
 
 /**
  * Sending SMS message event test.

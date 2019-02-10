@@ -12,7 +12,7 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\SMSModeBundle\Entity\SentSMSMessageListInterface;
-use WBW\Library\SMSMode\Model\SentSMSMessageListRequest;
+use WBW\Library\SMSMode\Model\Request\SentSMSMessageListRequest;
 use WBW\Library\SMSMode\Model\SentSMSMessageListResponse;
 
 /**
