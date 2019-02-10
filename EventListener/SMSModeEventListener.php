@@ -12,7 +12,7 @@
 namespace WBW\Bundle\SMSModeBundle\EventListener;
 
 use InvalidArgumentException;
-use Symfony\Component\EventDispatcher\Event;
+use RuntimeException;
 use WBW\Bundle\SMSModeBundle\Event\AbstractSMSModeEvent;
 use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
@@ -45,6 +45,17 @@ use WBW\Library\SMSMode\Provider\APIProvider;
 class SMSModeEventListener {
 
     /**
+     * Runtime exception message.
+     *
+     * @var string
+     */
+    const RUNTIME_EXCEPTION_MESSAGE = <<< EOT
+sMsmode configuration is missing in your app/config/config.yml.
+Please, add smsmode.accesss_token or smsmode.pseudo and smsmode.pass
+EOT;
+
+
+    /**
      * Service name.
      *
      * @var string
@@ -67,12 +78,32 @@ class SMSModeEventListener {
     }
 
     /**
+     * Before handle event.
+     *
+     * @return void
+     * @throws RuntimeException Throws an runtime exception if the sMsmode configuration is missing.
+     */
+    protected function beforeHandleEvent() {
+
+        $authentication    = $this->getApiProvider()->getAuthentication();
+        $requestNormalizer = $this->getApiProvider()->getRequestNormalizer();
+
+        try {
+
+            $requestNormalizer->normalize($authentication);
+        } catch (InvalidArgumentException $ex) {
+
+            throw new RuntimeException(self::RUNTIME_EXCEPTION_MESSAGE, 500, $ex);
+        }
+    }
+
+    /**
      * Before return an event.
      *
      * @param AbstractSMSModeEvent $event The event.
      * @param AbstractRequest $request The request.
      * @param AbstractResponse $response The response.
-     * @return Event Returns the event.
+     * @return AbstractSMSModeEvent Returns the event.
      */
     protected function beforeReturnEvent(AbstractSMSModeEvent $event, AbstractRequest $request, AbstractResponse $response) {
 
@@ -101,6 +132,8 @@ class SMSModeEventListener {
      */
     public function onAccountBalance(AccountBalanceEvent $event) {
 
+        $this->beforeHandleEvent();
+
         $request  = SMSModeFactory::newAccountBalanceRequest();
         $response = $this->getApiProvider()->accountBalance($request);
 
@@ -116,6 +149,8 @@ class SMSModeEventListener {
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onAddingContact(AddingContactEvent $event) {
+
+        $this->beforeHandleEvent();
 
         $request  = SMSModeFactory::newAddingContactRequest($event->getAddingContact());
         $response = $this->getApiProvider()->addingContact($request);
@@ -133,6 +168,8 @@ class SMSModeEventListener {
      */
     public function onCheckingSMSMessageStatus(CheckingSMSMessageStatusEvent $event) {
 
+        $this->beforeHandleEvent();
+
         $request  = SMSModeFactory::newCheckingSMSMessageStatusRequest($event->getCheckingSMSMessageStatus());
         $response = $this->getApiProvider()->checkingSMSMessageStatus($request);
 
@@ -148,6 +185,8 @@ class SMSModeEventListener {
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onCreatingAPIKey(CreatingAPIKeyEvent $event) {
+
+        $this->beforeHandleEvent();
 
         $request  = SMSModeFactory::newCreatingAPIKeyRequest();
         $response = $this->getApiProvider()->creatingAPIKey($request);
@@ -165,6 +204,8 @@ class SMSModeEventListener {
      */
     public function onCreatingSubAccount(CreatingSubAccountEvent $event) {
 
+        $this->beforeHandleEvent();
+
         $request  = SMSModeFactory::newCreatingSubAccountRequest($event->getCreatingSubAccount());
         $response = $this->getApiProvider()->creatingSubAccount($request);
 
@@ -180,6 +221,8 @@ class SMSModeEventListener {
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onDeletingSMS(DeletingSMSEvent $event) {
+
+        $this->beforeHandleEvent();
 
         $request  = SMSModeFactory::newDeletingSMSRequest($event->getDeletingSMS());
         $response = $this->getApiProvider()->deletingSMS($request);
@@ -197,6 +240,8 @@ class SMSModeEventListener {
      */
     public function onDeletingSubAccount(DeletingSubAccountEvent $event) {
 
+        $this->beforeHandleEvent();
+
         $request  = SMSModeFactory::newDeletingSubAccountRequest($event->getDeletingSubAccount());
         $response = $this->getApiProvider()->deletingSubAccount($request);
 
@@ -212,6 +257,8 @@ class SMSModeEventListener {
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onDeliveryReport(DeliveryReportEvent $event) {
+
+        $this->beforeHandleEvent();
 
         $request  = SMSModeFactory::newDeliveryReportRequest($event->getDeliveryReport());
         $response = $this->getApiProvider()->deliveryReport($request);
@@ -229,6 +276,8 @@ class SMSModeEventListener {
      */
     public function onRetrievingSMSReply(RetrievingSMSReplyEvent $event) {
 
+        $this->beforeHandleEvent();
+
         $request  = SMSModeFactory::newRetrievingSMSReplyRequest($event->getRetrievingSMSReply());
         $response = $this->getApiProvider()->retrievingSMSReply($request);
 
@@ -244,6 +293,8 @@ class SMSModeEventListener {
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingSMSBatch(SendingSMSBatchEvent $event) {
+
+        $this->beforeHandleEvent();
 
         $request  = SMSModeFactory::newSendingSMSBatchRequest($event->getSendingSMSBatch());
         $response = $this->getApiProvider()->sendingSMSBatch($request);
@@ -261,6 +312,8 @@ class SMSModeEventListener {
      */
     public function onSendingSMSMessage(SendingSMSMessageEvent $event) {
 
+        $this->beforeHandleEvent();
+
         $request  = SMSModeFactory::newSendingSMSMessageRequest($event->getSendingSMSMessage());
         $response = $this->getApiProvider()->sendingSMSMessage($request);
 
@@ -276,6 +329,8 @@ class SMSModeEventListener {
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingTextToSpeechSMS(SendingTextToSpeechSMSEvent $event) {
+
+        $this->beforeHandleEvent();
 
         $request  = SMSModeFactory::newSendingTextToSpeechSMSRequest($event->getSendingTextToSpeechSMS());
         $response = $this->getApiProvider()->sendingTextToSpeechSMS($request);
@@ -293,6 +348,8 @@ class SMSModeEventListener {
      */
     public function onSendingUnicodeSMS(SendingUnicodeSMSEvent $event) {
 
+        $this->beforeHandleEvent();
+
         $request  = SMSModeFactory::newSendingUnicodeSMSRequest($event->getSendingUnicodeSMS());
         $response = $this->getApiProvider()->sendingUnicodeSMS($request);
 
@@ -309,6 +366,8 @@ class SMSModeEventListener {
      */
     public function onSentSMSMessageList(SentSMSMessageListEvent $event) {
 
+        $this->beforeHandleEvent();
+
         $request  = SMSModeFactory::newSentSMSMessageListRequest($event->getSentSMSMessageList());
         $response = $this->getApiProvider()->sentSMSMessageList($request);
 
@@ -324,6 +383,8 @@ class SMSModeEventListener {
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onTransferringCredits(TransferringCreditsEvent $event) {
+
+        $this->beforeHandleEvent();
 
         $request  = SMSModeFactory::newTransferringCreditsRequest($event->getTransferringCredits());
         $response = $this->getApiProvider()->transferringCredits($request);
