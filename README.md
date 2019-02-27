@@ -82,9 +82,8 @@ Open a command console and execute the following commands to download the latest
 stable version of this package:
 
 ```bash
-$ mkdir smsmode-bundle
+$ git clone https://github.com/webeweb/smsmode-bundle.git
 $ cd smsmode-bundle
-$ git clone https://github.com/webeweb/smsmode-bundle.git .
 $ composer install
 ```
 
