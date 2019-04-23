@@ -1,8 +1,8 @@
 # Tests/Fixtures/App/config/services_test.yml
 services:
 
-    webeweb.smsmode.event_listener:
+    wbw.smsmode.event_listener:
         class:     WBW\Bundle\SMSModeBundle\Tests\Fixtures\EventListener\TestEventListener
         tags:
-            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.delivery_report_callback",  method: "onDeliveryReportCallback" }
-            - { name: "kernel.event_listener", event: "webeweb.smsmode.event.sms_reply_callback",    method: "onSMSReplyCallback" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.delivery_report_callback", method: "onDeliveryReportCallback" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sms_reply_callback",       method: "onSMSReplyCallback" }

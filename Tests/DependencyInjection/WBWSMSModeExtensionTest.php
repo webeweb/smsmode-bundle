@@ -12,7 +12,7 @@
 namespace WBW\Bundle\SMSModeBundle\Tests\DependencyInjection;
 
 use Exception;
-use WBW\Bundle\SMSModeBundle\DependencyInjection\SMSModeExtension;
+use WBW\Bundle\SMSModeBundle\DependencyInjection\WBWSMSModeExtension;
 use WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
 
@@ -22,7 +22,7 @@ use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Tests\DependencyInjection
  */
-class SMSModeExtensionTest extends AbstractTestCase {
+class WBWSMSModeExtensionTest extends AbstractTestCase {
 
     /**
      * Tests the load() method.
@@ -32,7 +32,7 @@ class SMSModeExtensionTest extends AbstractTestCase {
      */
     public function testLoad() {
 
-        $obj = new SMSModeExtension();
+        $obj = new WBWSMSModeExtension();
 
         $this->assertNull($obj->load([], $this->containerBuilder));
 

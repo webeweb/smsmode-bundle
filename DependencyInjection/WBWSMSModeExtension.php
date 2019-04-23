@@ -22,7 +22,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\DependencyInjection
  */
-class SMSModeExtension extends Extension {
+class WBWSMSModeExtension extends Extension {
 
     /**
      * {@inheritdoc}

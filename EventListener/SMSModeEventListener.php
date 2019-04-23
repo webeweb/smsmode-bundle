@@ -60,7 +60,7 @@ EOT;
      *
      * @var string
      */
-    const SERVICE_NAME = "webeweb.smsmode.event_listener";
+    const SERVICE_NAME = "wbw.smsmode.event_listener";
 
     /**
      * API provider.

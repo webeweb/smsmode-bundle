@@ -12,6 +12,7 @@
 namespace WBW\Bundle\SMSModeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use WBW\Bundle\SMSModeBundle\DependencyInjection\WBWSMSModeExtension;
 
 /**
  * sMsmode bundle.
@@ -19,6 +20,12 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle
  */
-class SMSModeBundle extends Bundle {
+class WBWSMSModeBundle extends Bundle {
 
+    /**
+     * {@inheritDoc}
+     */
+    public function getContainerExtension() {
+        return new WBWSMSModeExtension();
+    }
 }
