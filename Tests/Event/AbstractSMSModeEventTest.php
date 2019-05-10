@@ -26,19 +26,33 @@ use WBW\Library\SMSMode\Model\AbstractResponse;
 class AbstractSMSModeEventTest extends AbstractTestCase {
 
     /**
+     * Entity.
+     *
+     * @var SMSModeEntityInterface
+     */
+    private $entity;
+
+    /**
+     * {inheritdoc}
+     */
+    protected function setUp() {
+        parent::setUp();
+
+        // Set a sMsmode entity mock.
+        $this->entity = $this->getMockBuilder(SMSModeEntityInterface::class)->getMock();
+    }
+
+    /**
      * Tests the __construct() method.
      *
      * @return void
      */
     public function testConstruct() {
 
-        // Set a sMsmode entity mock.
-        $entity = $this->getMockBuilder(SMSModeEntityInterface::class)->getMock();
-
-        $obj = new TestSMSModeEvent("eventName", $entity);
+        $obj = new TestSMSModeEvent("eventName", $this->entity);
 
         $this->assertEquals("eventName", $obj->getEventName());
-        $this->assertSame($entity, $obj->getEntity());
+        $this->assertSame($this->entity, $obj->getEntity());
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
     }
@@ -50,13 +64,10 @@ class AbstractSMSModeEventTest extends AbstractTestCase {
      */
     public function testSetRequest() {
 
-        // Set a sMsmode entity mock.
-        $entity = $this->getMockBuilder(SMSModeEntityInterface::class)->getMock();
-
         // Set a Request mock.
         $request = $this->getMockBuilder(AbstractRequest::class)->getMock();
 
-        $obj = new TestSMSModeEvent("eventName", $entity);
+        $obj = new TestSMSModeEvent("eventName", $this->entity);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -69,13 +80,10 @@ class AbstractSMSModeEventTest extends AbstractTestCase {
      */
     public function testSetResponse() {
 
-        // Set a sMsmode entity mock.
-        $entity = $this->getMockBuilder(SMSModeEntityInterface::class)->getMock();
-
         // Set a Response mock.
         $response = $this->getMockBuilder(AbstractResponse::class)->getMock();
 
-        $obj = new TestSMSModeEvent("eventName", $entity);
+        $obj = new TestSMSModeEvent("eventName", $this->entity);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
