@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\CoreBundle\Event\AbstractEvent;
+use WBW\Bundle\CoreBundle\Event\AbstractEvent as BaseEvent;
 use WBW\Library\SMSMode\Model\SMSReplyCallback;
 
 /**
@@ -20,7 +20,7 @@ use WBW\Library\SMSMode\Model\SMSReplyCallback;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SMSReplyCallbackEvent extends AbstractEvent {
+class SMSReplyCallbackEvent extends BaseEvent {
 
     /**
      * SMS reply callback.
