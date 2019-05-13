@@ -13,7 +13,7 @@ namespace WBW\Bundle\SMSModeBundle\EventListener;
 
 use InvalidArgumentException;
 use RuntimeException;
-use WBW\Bundle\SMSModeBundle\Event\AbstractSMSModeEvent;
+use WBW\Bundle\SMSModeBundle\Event\AbstractEvent;
 use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
 use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
@@ -29,8 +29,8 @@ use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
-use WBW\Bundle\SMSModeBundle\Factory\SMSModeFactory;
 use WBW\Library\SMSMode\Exception\APIException;
+use WBW\Library\SMSMode\Factory\RequestFactory;
 use WBW\Library\SMSMode\Model\AbstractRequest;
 use WBW\Library\SMSMode\Model\AbstractResponse;
 use WBW\Library\SMSMode\Model\Authentication;
@@ -53,7 +53,6 @@ class SMSModeEventListener {
 sMsmode configuration is missing in your app/config/config.yml.
 Please, add smsmode.accesss_token or smsmode.pseudo and smsmode.pass
 EOT;
-
 
     /**
      * Service name.
@@ -100,12 +99,12 @@ EOT;
     /**
      * Before return an event.
      *
-     * @param AbstractSMSModeEvent $event The event.
+     * @param AbstractEvent $event The event.
      * @param AbstractRequest $request The request.
      * @param AbstractResponse $response The response.
-     * @return AbstractSMSModeEvent Returns the event.
+     * @return AbstractEvent Returns the event.
      */
-    protected function beforeReturnEvent(AbstractSMSModeEvent $event, AbstractRequest $request, AbstractResponse $response) {
+    protected function beforeReturnEvent(AbstractEvent $event, AbstractRequest $request, AbstractResponse $response) {
 
         $event->setRequest($request);
         $event->setResponse($response);
@@ -134,7 +133,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newAccountBalanceRequest();
+        $request  = RequestFactory::newAccountBalanceRequest();
         $response = $this->getApiProvider()->accountBalance($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -152,7 +151,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newAddingContactRequest($event->getAddingContact());
+        $request  = RequestFactory::newAddingContactRequest($event->getAddingContact());
         $response = $this->getApiProvider()->addingContact($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -170,7 +169,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newCheckingSMSMessageStatusRequest($event->getCheckingSMSMessageStatus());
+        $request  = RequestFactory::newCheckingSMSMessageStatusRequest($event->getCheckingSMSMessageStatus());
         $response = $this->getApiProvider()->checkingSMSMessageStatus($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -188,7 +187,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newCreatingAPIKeyRequest();
+        $request  = RequestFactory::newCreatingAPIKeyRequest();
         $response = $this->getApiProvider()->creatingAPIKey($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -206,7 +205,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newCreatingSubAccountRequest($event->getCreatingSubAccount());
+        $request  = RequestFactory::newCreatingSubAccountRequest($event->getCreatingSubAccount());
         $response = $this->getApiProvider()->creatingSubAccount($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -224,7 +223,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newDeletingSMSRequest($event->getDeletingSMS());
+        $request  = RequestFactory::newDeletingSMSRequest($event->getDeletingSMS());
         $response = $this->getApiProvider()->deletingSMS($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -242,7 +241,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newDeletingSubAccountRequest($event->getDeletingSubAccount());
+        $request  = RequestFactory::newDeletingSubAccountRequest($event->getDeletingSubAccount());
         $response = $this->getApiProvider()->deletingSubAccount($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -260,7 +259,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newDeliveryReportRequest($event->getDeliveryReport());
+        $request  = RequestFactory::newDeliveryReportRequest($event->getDeliveryReport());
         $response = $this->getApiProvider()->deliveryReport($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -278,7 +277,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newRetrievingSMSReplyRequest($event->getRetrievingSMSReply());
+        $request  = RequestFactory::newRetrievingSMSReplyRequest($event->getRetrievingSMSReply());
         $response = $this->getApiProvider()->retrievingSMSReply($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -296,7 +295,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newSendingSMSBatchRequest($event->getSendingSMSBatch());
+        $request  = RequestFactory::newSendingSMSBatchRequest($event->getSendingSMSBatch());
         $response = $this->getApiProvider()->sendingSMSBatch($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -314,7 +313,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newSendingSMSMessageRequest($event->getSendingSMSMessage());
+        $request  = RequestFactory::newSendingSMSMessageRequest($event->getSendingSMSMessage());
         $response = $this->getApiProvider()->sendingSMSMessage($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -332,7 +331,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newSendingTextToSpeechSMSRequest($event->getSendingTextToSpeechSMS());
+        $request  = RequestFactory::newSendingTextToSpeechSMSRequest($event->getSendingTextToSpeechSMS());
         $response = $this->getApiProvider()->sendingTextToSpeechSMS($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -350,7 +349,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newSendingUnicodeSMSRequest($event->getSendingUnicodeSMS());
+        $request  = RequestFactory::newSendingUnicodeSMSRequest($event->getSendingUnicodeSMS());
         $response = $this->getApiProvider()->sendingUnicodeSMS($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -368,7 +367,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newSentSMSMessageListRequest($event->getSentSMSMessageList());
+        $request  = RequestFactory::newSentSMSMessageListRequest($event->getSentSMSMessageList());
         $response = $this->getApiProvider()->sentSMSMessageList($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -386,7 +385,7 @@ EOT;
 
         $this->beforeHandleEvent();
 
-        $request  = SMSModeFactory::newTransferringCreditsRequest($event->getTransferringCredits());
+        $request  = RequestFactory::newTransferringCreditsRequest($event->getTransferringCredits());
         $response = $this->getApiProvider()->transferringCredits($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
