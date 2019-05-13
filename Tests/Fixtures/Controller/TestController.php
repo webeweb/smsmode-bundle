@@ -28,6 +28,7 @@ class TestController extends AbstractController {
     public function newDeliveryReportCallback(Request $request) {
         return parent::newDeliveryReportCallback($request);
     }
+
     /**
      * {@inheritdoc}
      */
