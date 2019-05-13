@@ -20,7 +20,7 @@ use WBW\Library\SMSMode\Model\Response\AccountBalanceResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class AccountBalanceEvent extends AbstractSMSModeEvent {
+class AccountBalanceEvent extends AbstractEvent {
 
     /**
      * Constructor.

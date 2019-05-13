@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\SendingSMSBatchInterface;
+use WBW\Library\SMSMode\Entity\SendingSMSBatchInterface;
 use WBW\Library\SMSMode\Model\Request\SendingSMSBatchRequest;
 use WBW\Library\SMSMode\Model\Response\SendingSMSBatchResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\SendingSMSBatchResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SendingSMSBatchEvent extends AbstractSMSModeEvent {
+class SendingSMSBatchEvent extends AbstractEvent {
 
     /**
      * Constructor.

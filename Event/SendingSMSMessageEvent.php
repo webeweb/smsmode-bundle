@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\SendingSMSMessageInterface;
+use WBW\Library\SMSMode\Entity\SendingSMSMessageInterface;
 use WBW\Library\SMSMode\Model\Request\SendingSMSMessageRequest;
 use WBW\Library\SMSMode\Model\Response\SendingSMSMessageResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\SendingSMSMessageResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SendingSMSMessageEvent extends AbstractSMSModeEvent {
+class SendingSMSMessageEvent extends AbstractEvent {
 
     /**
      * Constructor.

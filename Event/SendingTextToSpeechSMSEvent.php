@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\SendingTextToSpeechSMSInterface;
+use WBW\Library\SMSMode\Entity\SendingTextToSpeechSMSInterface;
 use WBW\Library\SMSMode\Model\Request\SendingTextToSpeechSMSRequest;
 use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SendingTextToSpeechSMSEvent extends AbstractSMSModeEvent {
+class SendingTextToSpeechSMSEvent extends AbstractEvent {
 
     /**
      * Constructor.

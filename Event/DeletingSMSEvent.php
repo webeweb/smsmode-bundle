@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\DeletingSMSInterface;
+use WBW\Library\SMSMode\Entity\DeletingSMSInterface;
 use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
 use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class DeletingSMSEvent extends AbstractSMSModeEvent {
+class DeletingSMSEvent extends AbstractEvent {
 
     /**
      * Constructor.

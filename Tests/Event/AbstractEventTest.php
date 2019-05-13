@@ -11,19 +11,19 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\SMSModeEntityInterface;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event\TestSMSModeEvent;
+use WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event\TestEvent;
+use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
 use WBW\Library\SMSMode\Model\AbstractRequest;
 use WBW\Library\SMSMode\Model\AbstractResponse;
 
 /**
- * Abstract response event test.
+ * Abstract event test.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Tests\Event
  */
-class AbstractSMSModeEventTest extends AbstractTestCase {
+class AbstractEventTest extends AbstractTestCase {
 
     /**
      * Entity.
@@ -49,7 +49,7 @@ class AbstractSMSModeEventTest extends AbstractTestCase {
      */
     public function testConstruct() {
 
-        $obj = new TestSMSModeEvent("eventName", $this->entity);
+        $obj = new TestEvent("eventName", $this->entity);
 
         $this->assertEquals("eventName", $obj->getEventName());
         $this->assertSame($this->entity, $obj->getEntity());
@@ -67,7 +67,7 @@ class AbstractSMSModeEventTest extends AbstractTestCase {
         // Set a Request mock.
         $request = $this->getMockBuilder(AbstractRequest::class)->getMock();
 
-        $obj = new TestSMSModeEvent("eventName", $this->entity);
+        $obj = new TestEvent("eventName", $this->entity);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -83,7 +83,7 @@ class AbstractSMSModeEventTest extends AbstractTestCase {
         // Set a Response mock.
         $response = $this->getMockBuilder(AbstractResponse::class)->getMock();
 
-        $obj = new TestSMSModeEvent("eventName", $this->entity);
+        $obj = new TestEvent("eventName", $this->entity);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());

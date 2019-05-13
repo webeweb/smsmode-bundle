@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\TransferringCreditsInterface;
+use WBW\Library\SMSMode\Entity\TransferringCreditsInterface;
 use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
 use WBW\Library\SMSMode\Model\Response\TransferringCreditsResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\TransferringCreditsResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class TransferringCreditsEvent extends AbstractSMSModeEvent {
+class TransferringCreditsEvent extends AbstractEvent {
 
     /**
      * Constructor.

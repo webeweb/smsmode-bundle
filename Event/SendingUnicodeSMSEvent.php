@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\SendingUnicodeSMSInterface;
+use WBW\Library\SMSMode\Entity\SendingUnicodeSMSInterface;
 use WBW\Library\SMSMode\Model\Request\SendingUnicodeSMSRequest;
 use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class SendingUnicodeSMSEvent extends AbstractSMSModeEvent {
+class SendingUnicodeSMSEvent extends AbstractEvent {
 
     /**
      * Constructor.

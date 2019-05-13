@@ -11,8 +11,8 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\SMSModeEntityInterface;
-use WBW\Bundle\SMSModeBundle\Event\AbstractSMSModeEvent;
+use WBW\Bundle\SMSModeBundle\Event\AbstractEvent;
+use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
 use WBW\Library\SMSMode\Model\AbstractRequest;
 use WBW\Library\SMSMode\Model\AbstractResponse;
 
@@ -22,7 +22,7 @@ use WBW\Library\SMSMode\Model\AbstractResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event
  */
-class TestSMSModeEvent extends AbstractSMSModeEvent {
+class TestEvent extends AbstractEvent {
 
     /**
      * {@inheritdoc}

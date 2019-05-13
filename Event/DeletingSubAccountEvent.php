@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\DeletingSubAccountInterface;
+use WBW\Library\SMSMode\Entity\DeletingSubAccountInterface;
 use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class DeletingSubAccountEvent extends AbstractSMSModeEvent {
+class DeletingSubAccountEvent extends AbstractEvent {
 
     /**
      * Constructor.

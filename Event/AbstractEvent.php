@@ -11,19 +11,19 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\CoreBundle\Event\AbstractEvent;
-use WBW\Bundle\SMSModeBundle\Entity\SMSModeEntityInterface;
+use WBW\Bundle\CoreBundle\Event\AbstractEvent as BaseEvent;
+use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
 use WBW\Library\SMSMode\Model\AbstractRequest;
 use WBW\Library\SMSMode\Model\AbstractResponse;
 
 /**
- * Abstract sMsmode event.
+ * Abstract event.
  *
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  * @abstract
  */
-abstract class AbstractSMSModeEvent extends AbstractEvent {
+abstract class AbstractEvent extends BaseEvent {
 
     /**
      * Entity.
@@ -88,7 +88,7 @@ abstract class AbstractSMSModeEvent extends AbstractEvent {
      * Set the entity.
      *
      * @param SMSModeEntityInterface|null $entity The entity.
-     * @return AbstractSMSModeEvent Returns this sMsmode event.
+     * @return AbstractEvent Returns this sMsmode event.
      */
     protected function setEntity(SMSModeEntityInterface $entity = null) {
         $this->entity = $entity;
@@ -99,7 +99,7 @@ abstract class AbstractSMSModeEvent extends AbstractEvent {
      * Set the request.
      *
      * @param AbstractRequest $request The request.
-     * @return AbstractSMSModeEvent Returns this sMsmode event.
+     * @return AbstractEvent Returns this sMsmode event.
      */
     public function setRequest(AbstractRequest $request) {
         $this->request = $request;
@@ -110,7 +110,7 @@ abstract class AbstractSMSModeEvent extends AbstractEvent {
      * Set the response.
      *
      * @param AbstractResponse $response The response.
-     * @return AbstractSMSModeEvent Returns this sMsmode event.
+     * @return AbstractEvent Returns this sMsmode event.
      */
     public function setResponse(AbstractResponse $response) {
         $this->response = $response;

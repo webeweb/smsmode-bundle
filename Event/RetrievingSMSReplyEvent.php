@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\RetrievingSMSReplyInterface;
+use WBW\Library\SMSMode\Entity\RetrievingSMSReplyInterface;
 use WBW\Library\SMSMode\Model\Request\RetrievingSMSReplyRequest;
 use WBW\Library\SMSMode\Model\Response\RetrievingSMSReplyResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\RetrievingSMSReplyResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class RetrievingSMSReplyEvent extends AbstractSMSModeEvent {
+class RetrievingSMSReplyEvent extends AbstractEvent {
 
     /**
      * Constructor.

@@ -20,7 +20,7 @@ use WBW\Library\SMSMode\Model\Response\CreatingAPIKeyResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class CreatingAPIKeyEvent extends AbstractSMSModeEvent {
+class CreatingAPIKeyEvent extends AbstractEvent {
 
     /**
      * Constructor.

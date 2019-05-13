@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\AddingContactInterface;
+use WBW\Library\SMSMode\Entity\AddingContactInterface;
 use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
 use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class AddingContactEvent extends AbstractSMSModeEvent {
+class AddingContactEvent extends AbstractEvent {
 
     /**
      * Constructor.

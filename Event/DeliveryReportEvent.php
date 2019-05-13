@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\DeliveryReportInterface;
+use WBW\Library\SMSMode\Entity\DeliveryReportInterface;
 use WBW\Library\SMSMode\Model\Request\DeliveryReportRequest;
 use WBW\Library\SMSMode\Model\Response\DeliveryReportResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\DeliveryReportResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class DeliveryReportEvent extends AbstractSMSModeEvent {
+class DeliveryReportEvent extends AbstractEvent {
 
     /**
      * Constructor.

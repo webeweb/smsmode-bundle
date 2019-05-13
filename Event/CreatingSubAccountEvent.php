@@ -11,7 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\Entity\CreatingSubAccountInterface;
+use WBW\Library\SMSMode\Entity\CreatingSubAccountInterface;
 use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
 
@@ -21,7 +21,7 @@ use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
-class CreatingSubAccountEvent extends AbstractSMSModeEvent {
+class CreatingSubAccountEvent extends AbstractEvent {
 
     /**
      * Constructor.
