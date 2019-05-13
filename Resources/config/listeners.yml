@@ -1,0 +1,26 @@
+# Resources/config/listeners.yml
+services:
+
+    wbw.smsmode.event_listener:
+        class:     WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener
+        public:    true
+        calls:
+            - ["setAccessToken", ["@?smsmode.access_token"]]
+            - ["setPseudo",      ["@?smsmode.pseudo"]]
+            - ["setPass",        ["@?smsmode.pass"]]
+        tags:
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.account_balance",             method: "onAccountBalance" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.adding_contact",              method: "onAddingContact" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.checking_sms_message_status", method: "onCheckingSMSMessageStatus" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.creating_api_key",            method: "onCreatingAPIKey" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.creating_sub_account",        method: "onCreatingSubAccount" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.deleting_sms",                method: "onDeletingSMS" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.deleting_sub_account",        method: "onDeletingSubAccount" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.delivery_report",             method: "onDeliveryReport" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.retrieving_sms_reply",        method: "onRetrievingSMSReply" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_sms_batch",           method: "onSendingSMSBatch" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_sms_message",         method: "onSendingSMSMessage" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_text_to_speech_sms",  method: "onSendingTextToSpeechSMS" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_unicode_sms",         method: "onSendingUnicodeSMS" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sent_sms_message_list",       method: "onSentSMSMessageList" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.transferring_credits",        method: "onTransferringCredits" }
