@@ -77,7 +77,7 @@ $ php bin/console assets:install
 
 ## Usage
 
-Read the [bundle documentation](DOCUMENTATION.md).
+Read the [documentation](DOCUMENTATION.md).
 
 ---
 
