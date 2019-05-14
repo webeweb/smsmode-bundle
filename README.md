@@ -11,10 +11,6 @@ smsmode-bundle
 
 sMsmode bundle for Symfony 2 and more.
 
-> IMPORTANT NOTICE: This package is still under development. Any changes will be
-> done without prior notice to consumers of this package. Of course this code
-> will become stable at a certain point, but for now, use at your own risk.
-
 `sMsmode` provides an API that enables you to easily and automatically send SMS
 messages from your applications. This API provides the following functions:
 
@@ -28,6 +24,10 @@ messages from your applications. This API provides the following functions:
 - adding contact
 - getting delivery report
 - callback on delivery report update
+
+Includes:
+
+- [webeweb/smsmode-library](https://github.com/webeweb/smsmode-library)
 
 ---
 
@@ -58,7 +58,7 @@ in the `app/AppKernel.php` file of your project:
     public function registerBundles() {
         $bundles = [
             // ...
-            new WBW\Bundle\SMSModeBundle\SMSModeBundle(),
+            new WBW\Bundle\SMSModeBundle\WBWSMSModeBundle(),
         ];
 
         // ...
@@ -72,6 +72,12 @@ Once the bundle is added then do:
 ```bash
 $ php bin/console assets:install
 ```
+
+---
+
+## Usage
+
+Read the [bundle documentation](DOCUMENTATION.md).
 
 ---
 
