@@ -1,18 +1,75 @@
 DOCUMENTATION
 =============
 
+Creates an event listener in the `src/AppBundle/EventListener` directory of your project:
+
+```php
+namespace AppBundle\EventListener;
+
+use Symfony\Component\EventDispatcher\Event;
+use WBW\Bundle\SMSModeBundle\Event\DeliveryReportCallbackEvent;
+use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
+
+class SMSEventListener {
+
+    /**
+     * On delivery report callback.
+     *
+     * @param DeliveryReportCallbackEvent $event The event.
+     * @return Event Returns the event.
+     */
+    public function onDeliveryReportCallback(DeliveryReportCallbackEvent $event) {
+
+        $deliveryReportCallback = $event->getDeliveryReportCallback();
+
+        // YOUR CODE HERE 
+
+        return $event;
+    }
+
+    /**
+     * On SMS reply callback.
+     *
+     * @param SMSReplyCallbackEvent $event The event.
+     * @return Event Returns the event.
+     */
+    public function onSMSReplyCallback(SMSReplyCallbackEvent $event) {
+
+        $smsReplyCallback = $event->getSMSReplyCallback();
+
+        // YOUR CODE HERE 
+
+        return $event;
+    }
+}
+```
+
+Add this event listener in `app/config/services.yml` file of your project:
+
+```yml
+services:
+
+    app.smsmode.event_listener:
+        class: AppBundle\EventListener\SMSEventListener
+        tags:
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.delivery_report_callback", method: "onDeliveryReportCallback" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sms_reply_callback",       method: "onSMSReplyCallback" }
+```
+
 1° Authentication
 ---
 
 Add this parameters in the `app/config/config.yml` file of your project:
 
 ```yml
-# Set a couple login/password
-smsmode.pseudo: "pseudo"
-smsmode.pass:   "pass"
+parameters:
 
-# or use an access token
-#smsmode.token:  "token"
+    # Set a couple login/password
+    smsmode.pseudo: "pseudo"
+    smsmode.pass:   "pass"
+    
+    # or use an access token
+    #smsmode.token:  "token"
 ```
 
 Creating an API key :
@@ -40,15 +97,24 @@ $response->getExpiration();
 $response->getState();
 ```
 
-
 2° Sending SMS message
 ---
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement SendingSMSMessageInterface.
+>
+> $model->getSMSModeNotificationUrl() must return the generated route 'wbw_smsmode_delivery_report_callback'
+> if you want receive callback into the event listener.
+>
+> $model->getSMSModeNotificationUrlReponse() must return the generated route 'wbw_smsmode_reply_callback'
+> if you want receive callback into the event listener.
+
 ```php
 // Creates a sending SMS message event.
-$event = new SendingSMSMessageEvent($model); // $model must be a SendingSMSMessageInterface
+$event = new SendingSMSMessageEvent($model); 
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -67,9 +133,13 @@ $response->getSmsID();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement DeliveryReportInterface.
+
 ```php
 // Creates a delivery report event.
-$event = new DeliveryReportEvent($model); // $model must be a DeliveryReportInterface
+$event = new DeliveryReportEvent($model); 
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -112,9 +182,13 @@ $response->getAccountBalance();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement CreatingSubAccountInterface.
+
 ```php
 // Creates a creating sub-account event.
-$event = new CreatingSubAccountEvent($model); // $model must be a CreatingSubAccountInterface
+$event = new CreatingSubAccountEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -128,9 +202,13 @@ $response->getDescription();
 
 Deleting sub-account :
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement DeletingSubAccountInterface.
+
 ```php
 // Creates a deleting sub-account API key event.
-$event = new DeletingSubAccountEvent($model); // $model must be a DeletingSubAccountInterface
+$event = new DeletingSubAccountEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -147,9 +225,13 @@ $response->getDescription();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement TransferringCreditsInterface.
+
 ```php
 // Creates a transferring credits event.
-$event = new TransferringCreditsEvent($model); // $model must be a TransferringCreditsInterface
+$event = new TransferringCreditsEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -166,9 +248,13 @@ $response->getDescription();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement AddingContactInterface.
+
 ```php
 // Creates an adding contact event.
-$event = new AddingContactEvent($model); // $model must be a AddingContactInterface
+$event = new AddingContactEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -185,9 +271,13 @@ $response->getDescription();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement DeletingSMSInterface.
+
 ```php
 // Creates a deleting SMS event.
-$event = new DeletingSMSEvent($model); // $model must be a DeletingSMSInterface
+$event = new DeletingSMSEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -204,9 +294,13 @@ $response->getDescription();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement SentSMSMessageListInterface.
+
 ```php
 // Creates a sent SMS message list event.
-$event = new SentSMSMessageListEvent($model); // $model must be a SentSMSMessageListInterface
+$event = new SentSMSMessageListEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -232,9 +326,13 @@ foreach($response->getSentSMSMessages() as $current) {
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement CheckingSMSMessageStatusInterface.
+
 ```php
 // Creates a checking SMS message status event.
-$event = new CheckingSMSMessageStatusEvent($model); // $model must be a CheckingSMSMessageStatusInterface
+$event = new CheckingSMSMessageStatusEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -251,9 +349,13 @@ $response->getDescription();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement RetrievingSMSReplyInterface.
+
 ```php
 // Creates a retrieving SMS reply event.
-$event = new RetrievingSMSReplyEvent($model); // $model must be a RetrievingSMSReplyInterface
+$event = new RetrievingSMSReplyEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -279,9 +381,13 @@ foreach($response->getSMSReplies() as $current) {
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement SendingTextToSpeechSMSInterface.
+
 ```php
 // Creates a sending text-to-speech SMS event.
-$event = new SendingTextToSpeechSMSEvent($model); // $model must be a SendingTextToSpeechSMSInterface
+$event = new SendingTextToSpeechSMSEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -300,9 +406,19 @@ $response->getSmsID();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement SendingUnicodeSMSInterface.
+>
+> $model->getSMSModeNotificationUrl() must return the generated route 'wbw_smsmode_delivery_report_callback'
+> if you want receive callback into the event listener.
+>
+> $model->getSMSModeNotificationUrlReponse() must return the generated route 'wbw_smsmode_reply_callback'
+> if you want receive callback into the event listener.
+
 ```php
 // Creates a sending unicode SMS event.
-$event = new SendingUnicodeSMSEvent($model); // $model must be a SendingUnicodeSMSInterface
+$event = new SendingUnicodeSMSEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
@@ -321,9 +437,16 @@ $response->getSmsID();
 
 Add the following code in a command or controller class:
 
+> IMPORTANT NOTICE:
+>
+> The following $model must implement SendingSMSBatchInterface.
+>
+> $model->getSMSModeNotificationUrl() must return the generated route 'wbw_smsmode_delivery_report_callback'
+> if you want receive callback into the event listener.
+
 ```php
 // Creates a sending SMS batch event.
-$event = new SendingSMSBatchEvent($model); // $model must be a SendingSMSBatchInterface
+$event = new SendingSMSBatchEvent($model);
 
 // Get the event dispatcher and dispatch the event.
 $this->get("event_dispatcher")->dispatch($event->getEventName(), $event);
