@@ -73,6 +73,14 @@ Once the bundle is added then do:
 $ php bin/console assets:install
 ```
 
+Add the bundle routing in the `app/config/routing.yml` file of your project:
+
+```yml
+wbw_smsmode:
+    prefix:   "/"
+    resource: "@WBWSMSModeBundle/Resources/config/routing.yml"
+```
+
 ---
 
 ## Usage
