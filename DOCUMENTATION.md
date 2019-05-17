@@ -1,7 +1,7 @@
 DOCUMENTATION
 =============
 
-Creates an event listener in the `src/AppBundle/EventListener` directory of your project:
+Create an event listener in the `src/AppBundle/EventListener` directory of your project:
 
 ```php
 namespace AppBundle\EventListener;
@@ -77,7 +77,7 @@ Creating an API key :
 Add the following code in a command or controller class:
 
 ```php
-// Creates a creating API key event.
+// Create a creating API key event.
 $event = new CreatingAPIKeyEvent();
 
 // Get the event dispatcher and dispatch the event.
@@ -113,7 +113,7 @@ Add the following code in a command or controller class:
 > if you want receive callback into the event listener.
 
 ```php
-// Creates a sending SMS message event.
+// Create a sending SMS message event.
 $event = new SendingSMSMessageEvent($model); 
 
 // Get the event dispatcher and dispatch the event.
@@ -138,7 +138,7 @@ Add the following code in a command or controller class:
 > The following $model must implement DeliveryReportInterface.
 
 ```php
-// Creates a delivery report event.
+// Create a delivery report event.
 $event = new DeliveryReportEvent($model); 
 
 // Get the event dispatcher and dispatch the event.
@@ -162,7 +162,7 @@ foreach($response->getDeliveryReports() as $current) {
 Add the following code in a command or controller class:
 
 ```php
-// Creates a account balance event.
+// Create a account balance event.
 $event = new AccountBalanceEvent();
 
 // Get the event dispatcher and dispatch the event.
@@ -187,7 +187,7 @@ Add the following code in a command or controller class:
 > The following $model must implement CreatingSubAccountInterface.
 
 ```php
-// Creates a creating sub-account event.
+// Create a creating sub-account event.
 $event = new CreatingSubAccountEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -207,7 +207,7 @@ Deleting sub-account :
 > The following $model must implement DeletingSubAccountInterface.
 
 ```php
-// Creates a deleting sub-account API key event.
+// Create a deleting sub-account API key event.
 $event = new DeletingSubAccountEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -230,7 +230,7 @@ Add the following code in a command or controller class:
 > The following $model must implement TransferringCreditsInterface.
 
 ```php
-// Creates a transferring credits event.
+// Create a transferring credits event.
 $event = new TransferringCreditsEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -253,7 +253,7 @@ Add the following code in a command or controller class:
 > The following $model must implement AddingContactInterface.
 
 ```php
-// Creates an adding contact event.
+// Create an adding contact event.
 $event = new AddingContactEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -276,7 +276,7 @@ Add the following code in a command or controller class:
 > The following $model must implement DeletingSMSInterface.
 
 ```php
-// Creates a deleting SMS event.
+// Create a deleting SMS event.
 $event = new DeletingSMSEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -299,7 +299,7 @@ Add the following code in a command or controller class:
 > The following $model must implement SentSMSMessageListInterface.
 
 ```php
-// Creates a sent SMS message list event.
+// Create a sent SMS message list event.
 $event = new SentSMSMessageListEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -331,7 +331,7 @@ Add the following code in a command or controller class:
 > The following $model must implement CheckingSMSMessageStatusInterface.
 
 ```php
-// Creates a checking SMS message status event.
+// Create a checking SMS message status event.
 $event = new CheckingSMSMessageStatusEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -354,7 +354,7 @@ Add the following code in a command or controller class:
 > The following $model must implement RetrievingSMSReplyInterface.
 
 ```php
-// Creates a retrieving SMS reply event.
+// Create a retrieving SMS reply event.
 $event = new RetrievingSMSReplyEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -386,7 +386,7 @@ Add the following code in a command or controller class:
 > The following $model must implement SendingTextToSpeechSMSInterface.
 
 ```php
-// Creates a sending text-to-speech SMS event.
+// Create a sending text-to-speech SMS event.
 $event = new SendingTextToSpeechSMSEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -417,7 +417,7 @@ Add the following code in a command or controller class:
 > if you want receive callback into the event listener.
 
 ```php
-// Creates a sending unicode SMS event.
+// Create a sending unicode SMS event.
 $event = new SendingUnicodeSMSEvent($model);
 
 // Get the event dispatcher and dispatch the event.
@@ -445,7 +445,7 @@ Add the following code in a command or controller class:
 > if you want receive callback into the event listener.
 
 ```php
-// Creates a sending SMS batch event.
+// Create a sending SMS batch event.
 $event = new SendingSMSBatchEvent($model);
 
 // Get the event dispatcher and dispatch the event.
