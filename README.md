@@ -85,7 +85,7 @@ wbw_smsmode:
 
 ## Usage
 
-Read the [documentation](DOCUMENTATION.md).
+Read the [documentation](Resources/doc/index.md).
 
 ---
 
