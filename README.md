@@ -1,13 +1,13 @@
 smsmode-bundle
 ==============
 
-[![Build Status](https://travis-ci.com/webeweb/smsmode-bundle.svg?branch=master)](https://travis-ci.com/webeweb/smsmode-bundle)
-[![Coverage Status](https://coveralls.io/repos/github/webeweb/smsmode-bundle/badge.svg?branch=master)](https://coveralls.io/github/webeweb/smsmode-bundle?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webeweb/smsmode-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/webeweb/smsmode-bundle/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/webeweb/smsmode-bundle/v/stable)](https://packagist.org/packages/webeweb/smsmode-bundle)
-[![Latest Unstable Version](https://poser.pugx.org/webeweb/smsmode-bundle/v/unstable)](https://packagist.org/packages/webeweb/smsmode-bundle)
-[![License](https://poser.pugx.org/webeweb/smsmode-bundle/license)](https://packagist.org/packages/webeweb/smsmode-bundle)
-[![composer.lock](https://poser.pugx.org/webeweb/smsmode-bundle/composerlock)](https://packagist.org/packages/webeweb/smsmode-bundle)
+[![Build Status](https://img.shields.io/travis/com/webeweb/smsmode-bundle/master.svg?style=flat-square)](https://travis-ci.com/webeweb/smsmode-bundle)
+[![Coverage Status](https://img.shields.io/coveralls/webeweb/smsmode-bundle/master.svg?style=flat-square)](https://coveralls.io/github/webeweb/smsmode-bundle?branch=master)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/quality/g/webeweb/smsmode-bundle/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/webeweb/smsmode-bundle/?branch=master)
+[![Latest Stable Version](https://img.shields.io/packagist/v/webeweb/smsmode-bundle.svg?style=flat-square)](https://packagist.org/packages/webeweb/smsmode-bundle)
+[![Latest Unstable Version](https://img.shields.io/packagist/vpre/webeweb/smsmode-bundle.svg?style=flat-square)](https://packagist.org/packages/webeweb/smsmode-bundle)
+[![License](https://img.shields.io/packagist/l/webeweb/smsmode-bundle.svg?style=flat-square)](https://packagist.org/packages/webeweb/smsmode-bundle)
+[![composer.lock](https://img.shields.io/badge/.lock-uncommited-important.svg?style=flat-square)](https://packagist.org/packages/webeweb/smsmode-bundle)
 
 sMsmode bundle for Symfony 2 and more.
 
@@ -27,14 +27,14 @@ messages from your applications. This API provides the following functions:
 
 Includes:
 
-- [webeweb/smsmode-library](https://github.com/webeweb/smsmode-library)
+- [webeweb/smsmode-bundle](https://github.com/webeweb/smsmode-library)
 
 ---
 
 ## Compatibility
 
-[![PHP](https://img.shields.io/badge/PHP-%5E5.6%7C%5E7.0-blue.svg)](http://php.net)
-[![Symfony](https://img.shields.io/badge/Symfony-%5E2.7%7C%5E3.0%7C%5E4.0-brightgreen.svg)](https://symfony.com)
+[![PHP](https://img.shields.io/packagist/php-v/webeweb/syntaxhighlighter-bundle.svg?style=flat-square)](http://php.net)
+[![Symfony](https://img.shields.io/badge/symfony-%5E2.7%7C%5E3.0%7C%5E4.0-brightness.svg?style=flat-square)](https://symfony.com)
 
 ---
 
