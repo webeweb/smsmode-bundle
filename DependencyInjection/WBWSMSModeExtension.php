@@ -25,6 +25,13 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 class WBWSMSModeExtension extends Extension {
 
     /**
+     * {@inheritDoc}
+     */
+    public function getAlias(){
+        return "wbw_smsmode";
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container) {
@@ -34,6 +41,24 @@ class WBWSMSModeExtension extends Extension {
         $serviceLoader = new YamlFileLoader($container, $fileLocator);
         $serviceLoader->load("services.yml");
 
-        $serviceLoader->load("listeners.yml");
+        $configuration = $this->getConfiguration($configs, $container);
+
+        $config = $this->processConfiguration($configuration, $configs);
+
+        if (true === array_key_exists("authentication", $config)) {
+            if (true === array_key_exists("access_token", $config["authentication"])) {
+                $container->setParameter("smsmode.access_token", $config["authentication"]["access_token"]);
+            }
+            if (true === array_key_exists("pseudo", $config["authentication"])) {
+                $container->setParameter("smsmode.pseudo", $config["authentication"]["pseudo"]);
+            }
+            if (true === array_key_exists("pass", $config["authentication"])) {
+                $container->setParameter("smsmode.pass", $config["authentication"]["pass"]);
+            }
+        }
+
+        if (true === $config["event_listeners"]) {
+            $serviceLoader->load("event_listeners.yml");
+        }
     }
 }
