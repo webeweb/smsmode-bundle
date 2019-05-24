@@ -3,6 +3,7 @@ CHANGELOG
 
 ### master
 
+- Add Configuration
 - Correct DOCUMENTATION
 
 ### [1.0.2](https://github.com/webeweb/smsmode-bundle/tree/v1.0.2) (2019-05-15)
