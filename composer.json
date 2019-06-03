@@ -35,8 +35,13 @@
         "symfony/templating": "^2.7|^3.0|^4.0",
         "symfony/twig-bundle": "^2.7|^3.0|^4.0"
     },
-    "support": {
-        "issues": "https://github.com/webeweb/smsmode-bundle/issues"
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -51,12 +56,7 @@
             "WBW\\Bundle\\SMSModeBundle\\Tests\\": "Tests/"
         }
     },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
+    "support": {
+        "issues": "https://github.com/webeweb/smsmode-bundle/issues"
     }
 }
