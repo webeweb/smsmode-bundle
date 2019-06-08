@@ -13,6 +13,7 @@ namespace WBW\Bundle\SMSModeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use WBW\Bundle\CoreBundle\DependencyInjection\ConfigurationHelper;
 
 /**
  * Configuration
@@ -27,9 +28,9 @@ class Configuration implements ConfigurationInterface {
      */
     public function getConfigTreeBuilder() {
 
-        $treeBuilder = new TreeBuilder("wbw_smsmode");
+        $treeBuilder = new TreeBuilder(WBWSMSModeExtension::EXTENSION_ALIAS);
 
-        $rootNode = $treeBuilder->getRootNode();
+        $rootNode = ConfigurationHelper::getRootNode($treeBuilder, WBWSMSModeExtension::EXTENSION_ALIAS);
         $rootNode->children()
             ->arrayNode("authentication")->children()
             ->scalarNode("access_token")->defaultNull()->end()

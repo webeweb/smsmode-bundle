@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### [1.2.1](https://github.com/webeweb/smsmode-bundle/tree/v1.2.1) (2019-06-08)
+
+- Fix deprecated root() call on TreeBuilder
+
 ### [1.2.0](https://github.com/webeweb/smsmode-bundle/tree/v1.2.0) (2019-06-08)
 
 - Change license

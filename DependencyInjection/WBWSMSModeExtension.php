@@ -26,10 +26,17 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 class WBWSMSModeExtension extends Extension {
 
     /**
+     * Extension alias.
+     *
+     * @var string
+     */
+    const EXTENSION_ALIAS = "wbw_smsmode";
+
+    /**
      * {@inheritDoc}
      */
-    public function getAlias(){
-        return "wbw_smsmode";
+    public function getAlias() {
+        return self::EXTENSION_ALIAS;
     }
 
     /**

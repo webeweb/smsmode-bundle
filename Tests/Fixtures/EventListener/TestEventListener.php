@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\Fixtures\EventListener;
 
-use Symfony\Component\EventDispatcher\Event;
 use WBW\Bundle\SMSModeBundle\Event\DeliveryReportCallbackEvent;
 use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
 
@@ -27,7 +26,7 @@ class TestEventListener {
      * On delivery report callback.
      *
      * @param DeliveryReportCallbackEvent $event The event.
-     * @return Event Returns the event.
+     * @return DeliveryReportCallbackEvent Returns the event.
      */
     public function onDeliveryReportCallback(DeliveryReportCallbackEvent $event) {
         return $event;
@@ -37,7 +36,7 @@ class TestEventListener {
      * On SMS reply callback.
      *
      * @param SMSReplyCallbackEvent $event The event.
-     * @return Event Returns the event.
+     * @return SMSReplyCallbackEvent Returns the event.
      */
     public function onSMSReplyCallback(SMSReplyCallbackEvent $event) {
         return $event;

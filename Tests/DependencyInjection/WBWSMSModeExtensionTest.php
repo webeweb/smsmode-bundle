@@ -41,7 +41,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
 
         // Set a configs array mock.
         $this->configs = [
-            "wbw_smsmode" => [
+            WBWSMSModeExtension::EXTENSION_ALIAS => [
                 "authentication"  => [
                     "access_token" => null,
                     "pseudo"       => null,
@@ -53,6 +53,16 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
     }
 
     /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function testConstruct() {
+
+        $this->assertEquals("wbw_smsmode", WBWSMSModeExtension::EXTENSION_ALIAS);
+    }
+
+    /**
      * Tests the getAlias() method.
      *
      * @return void
@@ -61,7 +71,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
 
         $obj = new WBWSMSModeExtension();
 
-        $this->assertEquals("wbw_smsmode", $obj->getAlias());
+        $this->assertEquals(WBWSMSModeExtension::EXTENSION_ALIAS, $obj->getAlias());
     }
 
     /**
@@ -100,7 +110,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
     public function testLoadWithoutEventListeners() {
 
         // Set the configs mock.
-        $this->configs["wbw_smsmode"]["event_listeners"] = false;
+        $this->configs[WBWSMSModeExtension::EXTENSION_ALIAS]["event_listeners"] = false;
 
         $obj = new WBWSMSModeExtension();
 

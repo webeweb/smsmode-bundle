@@ -6,7 +6,6 @@ Create an event listener in the `src/AppBundle/EventListener` directory of your 
 ```php
 namespace AppBundle\EventListener;
 
-use Symfony\Component\EventDispatcher\Event;
 use WBW\Bundle\SMSModeBundle\Event\DeliveryReportCallbackEvent;
 use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
 
@@ -16,7 +15,7 @@ class SMSEventListener {
      * On delivery report callback.
      *
      * @param DeliveryReportCallbackEvent $event The event.
-     * @return Event Returns the event.
+     * @return DeliveryReportCallbackEvent Returns the event.
      */
     public function onDeliveryReportCallback(DeliveryReportCallbackEvent $event) {
 
@@ -31,7 +30,7 @@ class SMSEventListener {
      * On SMS reply callback.
      *
      * @param SMSReplyCallbackEvent $event The event.
-     * @return Event Returns the event.
+     * @return SMSReplyCallbackEvent Returns the event.
      */
     public function onSMSReplyCallback(SMSReplyCallbackEvent $event) {
 
