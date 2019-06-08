@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use WBW\Bundle\SMSModeBundle\Event\DeliveryReportCallbackEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
 
 /**
@@ -34,19 +33,13 @@ class SMSModeController extends AbstractController {
      */
     public function deliveryReportCallbackAction(Request $request) {
 
-        $eventName = SMSModeEvents::DELIVERY_REPORT_CALLBACK;
+        $deliveryReportCallback = $this->newDeliveryReportCallback($request);
 
-        $eventDispatcher = $this->getEventDispatcher();
-        if (null !== $eventDispatcher && true === $eventDispatcher->hasListeners($eventName)) {
+        $event = new DeliveryReportCallbackEvent($deliveryReportCallback);
 
-            $this->getLogger()->info(sprintf("sMsmode controller dispatch an event with name \"%s\"", $eventName));
+        $this->getLogger()->info(sprintf("sMsmode controller dispatch an event with name \"%s\"", $event->getEventName()));
 
-            $deliveryReportCallback = $this->newDeliveryReportCallback($request);
-
-            $event = new DeliveryReportCallbackEvent($deliveryReportCallback);
-
-            $eventDispatcher->dispatch($eventName, $event);
-        }
+        $this->dispatchEvent($event->getEventName(), $event);
 
         return new JsonResponse(["code" => 200, "message" => "OK"]);
     }
@@ -59,19 +52,13 @@ class SMSModeController extends AbstractController {
      */
     public function smsReplyCallbackAction(Request $request) {
 
-        $eventName = SMSModeEvents::SMS_REPLY_CALLBACK;
+        $smsReplyCallback = $this->newSMSReplyCallback($request);
 
-        $eventDispatcher = $this->getEventDispatcher();
-        if (null !== $eventDispatcher && true === $eventDispatcher->hasListeners($eventName)) {
+        $event = new SMSReplyCallbackEvent($smsReplyCallback);
 
-            $this->getLogger()->info(sprintf("sMsmode controller dispatch an event with name \"%s\"", $eventName));
+        $this->getLogger()->info(sprintf("sMsmode controller dispatch an event with name \"%s\"", $event->getEventName()));
 
-            $smsReplyCallback = $this->newSMSReplyCallback($request);
-
-            $event = new SMSReplyCallbackEvent($smsReplyCallback);
-
-            $eventDispatcher->dispatch($eventName, $event);
-        }
+        $this->dispatchEvent($event->getEventName(), $event);
 
         return new JsonResponse(["code" => 200, "message" => "OK"]);
     }
