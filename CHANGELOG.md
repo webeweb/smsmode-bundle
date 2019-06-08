@@ -1,8 +1,9 @@
 CHANGELOG
 =========
 
-### master
+### [1.2.0](https://github.com/webeweb/smsmode-bundle/tree/v1.2.0) (2019-06-08)
 
+- Change license
 - Update Composer (according to Composer schema)
 - Update Travis-CI configuration (Symfony 4.3)
 
