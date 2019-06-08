@@ -27,9 +27,9 @@ class Configuration implements ConfigurationInterface {
      */
     public function getConfigTreeBuilder() {
 
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder("wbw_smsmode");
 
-        $rootNode = $treeBuilder->root("wbw_smsmode");
+        $rootNode = $treeBuilder->getRootNode();
         $rootNode->children()
             ->arrayNode("authentication")->children()
             ->scalarNode("access_token")->defaultNull()->end()
