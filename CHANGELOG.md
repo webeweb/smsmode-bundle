@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### [1.2.2](https://github.com/webeweb/smsmode-bundle/tree/v1.2.2) (2019-07-22)
+
+- Add PHP extensions into Composer
+
 ### [1.2.1](https://github.com/webeweb/smsmode-bundle/tree/v1.2.1) (2019-06-08)
 
 - Fix deprecated root() call on TreeBuilder
