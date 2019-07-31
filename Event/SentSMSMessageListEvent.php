@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\SentSMSMessageListInterface;
 use WBW\Library\SMSMode\Model\Request\SentSMSMessageListRequest;
 use WBW\Library\SMSMode\Model\Response\SentSMSMessageListResponse;
@@ -29,7 +30,7 @@ class SentSMSMessageListEvent extends AbstractEvent {
      * @param SentSMSMessageListInterface $sentSMSMessageList The sent SMS message list.
      */
     public function __construct(SentSMSMessageListInterface $sentSMSMessageList) {
-        parent::__construct(SMSModeEvents::SENT_SMS_MESSAGE_LIST, $sentSMSMessageList);
+        parent::__construct(WBWSMSModeEvents::SENT_SMS_MESSAGE_LIST, $sentSMSMessageList);
     }
 
     /**

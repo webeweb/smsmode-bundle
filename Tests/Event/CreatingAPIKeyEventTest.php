@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\CreatingAPIKeyEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\CreatingAPIKeyRequest;
 use WBW\Library\SMSMode\Model\Response\CreatingAPIKeyResponse;
 
@@ -34,7 +34,7 @@ class CreatingAPIKeyEventTest extends AbstractTestCase {
 
         $obj = new CreatingAPIKeyEvent();
 
-        $this->assertEquals(SMSModeEvents::CREATING_API_KEY, $obj->getEventName());
+        $this->assertEquals(WBWSMSModeEvents::CREATING_API_KEY, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

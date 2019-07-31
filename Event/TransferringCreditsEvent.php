@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\TransferringCreditsInterface;
 use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
 use WBW\Library\SMSMode\Model\Response\TransferringCreditsResponse;
@@ -29,7 +30,7 @@ class TransferringCreditsEvent extends AbstractEvent {
      * @param TransferringCreditsInterface $transferringCredits The transferring credits.
      */
     public function __construct(TransferringCreditsInterface $transferringCredits) {
-        parent::__construct(SMSModeEvents::TRANSFERRING_CREDITS, $transferringCredits);
+        parent::__construct(WBWSMSModeEvents::TRANSFERRING_CREDITS, $transferringCredits);
     }
 
     /**

@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\SendingUnicodeSMSRequest;
 use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
 
@@ -34,7 +34,7 @@ class SendingUnicodeSMSEventTest extends AbstractTestCase {
 
         $obj = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
 
-        $this->assertEquals(SMSModeEvents::SENDING_UNICODE_SMS, $obj->getEventName());
+        $this->assertEquals(WBWSMSModeEvents::SENDING_UNICODE_SMS, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

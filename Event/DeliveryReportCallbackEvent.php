@@ -12,6 +12,7 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\CoreBundle\Event\AbstractEvent as BaseEvent;
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\DeliveryReportCallback;
 
 /**
@@ -35,7 +36,7 @@ class DeliveryReportCallbackEvent extends BaseEvent {
      * @param DeliveryReportCallback $deliveryReportCallback The delivery report.
      */
     public function __construct(DeliveryReportCallback $deliveryReportCallback) {
-        parent::__construct(SMSModeEvents::DELIVERY_REPORT_CALLBACK);
+        parent::__construct(WBWSMSModeEvents::DELIVERY_REPORT_CALLBACK);
         $this->setDeliveryReportCallback($deliveryReportCallback);
     }
 

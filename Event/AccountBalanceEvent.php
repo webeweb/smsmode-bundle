@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\AccountBalanceRequest;
 use WBW\Library\SMSMode\Model\Response\AccountBalanceResponse;
 
@@ -26,7 +27,7 @@ class AccountBalanceEvent extends AbstractEvent {
      * Constructor.
      */
     public function __construct() {
-        parent::__construct(SMSModeEvents::ACCOUNT_BALANCE, null);
+        parent::__construct(WBWSMSModeEvents::ACCOUNT_BALANCE, null);
     }
 
     /**

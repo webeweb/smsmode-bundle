@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\DeliveryReportCallbackEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\DeliveryReportCallback;
 
 /**
@@ -36,7 +36,7 @@ class DeliveryReportCallbackEventTest extends AbstractTestCase {
 
         $obj = new DeliveryReportCallbackEvent($deliveryReportCallback);
 
-        $this->assertEquals(SMSModeEvents::DELIVERY_REPORT_CALLBACK, $obj->getEventName());
+        $this->assertEquals(WBWSMSModeEvents::DELIVERY_REPORT_CALLBACK, $obj->getEventName());
 
         $this->assertSame($deliveryReportCallback, $obj->getDeliveryReportCallback());
     }

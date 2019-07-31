@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
 
@@ -34,7 +34,7 @@ class CreatingSubAccountEventTest extends AbstractTestCase {
 
         $obj = new CreatingSubAccountEvent($this->creatingSubAccount);
 
-        $this->assertEquals(SMSModeEvents::CREATING_SUB_ACCOUNT, $obj->getEventName());
+        $this->assertEquals(WBWSMSModeEvents::CREATING_SUB_ACCOUNT, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

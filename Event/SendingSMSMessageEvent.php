@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\SendingSMSMessageInterface;
 use WBW\Library\SMSMode\Model\Request\SendingSMSMessageRequest;
 use WBW\Library\SMSMode\Model\Response\SendingSMSMessageResponse;
@@ -29,7 +30,7 @@ class SendingSMSMessageEvent extends AbstractEvent {
      * @param SendingSMSMessageInterface $sendingSMSMessage The sending SMS message.
      */
     public function __construct(SendingSMSMessageInterface $sendingSMSMessage) {
-        parent::__construct(SMSModeEvents::SENDING_SMS_MESSAGE, $sendingSMSMessage);
+        parent::__construct(WBWSMSModeEvents::SENDING_SMS_MESSAGE, $sendingSMSMessage);
     }
 
     /**

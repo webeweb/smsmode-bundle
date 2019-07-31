@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\AccountBalanceRequest;
 use WBW\Library\SMSMode\Model\Response\AccountBalanceResponse;
 
@@ -34,7 +34,7 @@ class AccountBalanceEventTest extends AbstractTestCase {
 
         $obj = new AccountBalanceEvent();
 
-        $this->assertEquals(SMSModeEvents::ACCOUNT_BALANCE, $obj->getEventName());
+        $this->assertEquals(WBWSMSModeEvents::ACCOUNT_BALANCE, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSModeEvents;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\CheckingSMSMessageStatusRequest;
 use WBW\Library\SMSMode\Model\Response\CheckingSMSMessageStatusResponse;
 
@@ -34,7 +34,7 @@ class CheckingSMSMessageStatusEventTest extends AbstractTestCase {
 
         $obj = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
 
-        $this->assertEquals(SMSModeEvents::CHECKING_SMS_MESSAGE_STATUS, $obj->getEventName());
+        $this->assertEquals(WBWSMSModeEvents::CHECKING_SMS_MESSAGE_STATUS, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

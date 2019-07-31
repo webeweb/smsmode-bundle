@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\RetrievingSMSReplyInterface;
 use WBW\Library\SMSMode\Model\Request\RetrievingSMSReplyRequest;
 use WBW\Library\SMSMode\Model\Response\RetrievingSMSReplyResponse;
@@ -29,7 +30,7 @@ class RetrievingSMSReplyEvent extends AbstractEvent {
      * @param RetrievingSMSReplyInterface $retrievingSMSReply The retrieving SMS reply.
      */
     public function __construct(RetrievingSMSReplyInterface $retrievingSMSReply) {
-        parent::__construct(SMSModeEvents::RETRIEVING_SMS_REPLY, $retrievingSMSReply);
+        parent::__construct(WBWSMSModeEvents::RETRIEVING_SMS_REPLY, $retrievingSMSReply);
     }
 
     /**

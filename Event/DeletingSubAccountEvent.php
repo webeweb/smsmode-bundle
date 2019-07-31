@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
+use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\DeletingSubAccountInterface;
 use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
@@ -29,7 +30,7 @@ class DeletingSubAccountEvent extends AbstractEvent {
      * @param DeletingSubAccountInterface $deletingSubAccount The deleting sub-account.
      */
     public function __construct(DeletingSubAccountInterface $deletingSubAccount) {
-        parent::__construct(SMSModeEvents::DELETING_SUB_ACCOUNT, $deletingSubAccount);
+        parent::__construct(WBWSMSModeEvents::DELETING_SUB_ACCOUNT, $deletingSubAccount);
     }
 
     /**
