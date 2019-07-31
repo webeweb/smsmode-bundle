@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+### [1.3.0](https://github.com/webeweb/smsmode-bundle/tree/v1.3.0) (2019-07-31)
+
+> IMPORTANT NOTICE: The following classes are deprecated
+> - WBW\Bundle\SMSModeBundle\Event\SMSModeEvents
+
+- Add sMsmode events
+
 ### [1.2.2](https://github.com/webeweb/smsmode-bundle/tree/v1.2.2) (2019-07-22)
 
 - Add PHP extensions into Composer
