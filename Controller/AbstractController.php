@@ -36,15 +36,15 @@ abstract class AbstractController extends BaseController {
 
         $dateReception = DateTime::createFromFormat("Y-m-d H:i:s", $request->query->get(DeliveryReportCallback::PARAMETER_DATE_RECEPTION));
 
-        $deliveryReportCallback = new DeliveryReportCallback();
-        $deliveryReportCallback->setDateReception(false !== $dateReception ? $dateReception : null);
-        $deliveryReportCallback->setMccMnc($request->query->get(DeliveryReportCallback::PARAMETER_MCC_MNC));
-        $deliveryReportCallback->setNumero($request->query->get(DeliveryReportCallback::PARAMETER_NUMERO));
-        $deliveryReportCallback->setRefClient($request->query->get(DeliveryReportCallback::PARAMETER_REF_CLIENT));
-        $deliveryReportCallback->setSmsID($request->query->get(DeliveryReportCallback::PARAMETER_SMS_ID));
-        $deliveryReportCallback->setStatus($request->query->getInt(DeliveryReportCallback::PARAMETER_STATUT));
+        $model = new DeliveryReportCallback();
+        $model->setDateReception(false !== $dateReception ? $dateReception : null);
+        $model->setMccMnc($request->query->get(DeliveryReportCallback::PARAMETER_MCC_MNC));
+        $model->setNumero($request->query->get(DeliveryReportCallback::PARAMETER_NUMERO));
+        $model->setRefClient($request->query->get(DeliveryReportCallback::PARAMETER_REF_CLIENT));
+        $model->setSmsID($request->query->get(DeliveryReportCallback::PARAMETER_SMS_ID));
+        $model->setStatus($request->query->getInt(DeliveryReportCallback::PARAMETER_STATUT));
 
-        return $deliveryReportCallback;
+        return $model;
     }
 
     /**
@@ -57,15 +57,15 @@ abstract class AbstractController extends BaseController {
 
         $dateReception = DateTime::createFromFormat("dmY-His", $request->query->get(SMSReplyCallback::PARAMETER_DATE_RECEPTION));
 
-        $smsReplyCallback = new SMSReplyCallback();
-        $smsReplyCallback->setDateReception(false !== $dateReception ? $dateReception : null);
-        $smsReplyCallback->setEmetteur($request->query->get(SMSReplyCallback::PARAMETER_EMETTEUR));
-        $smsReplyCallback->setMessage($request->query->get(SMSReplyCallback::PARAMETER_MESSAGE));
-        $smsReplyCallback->setNumero($request->query->get(SMSReplyCallback::PARAMETER_NUMERO));
-        $smsReplyCallback->setRefClient($request->query->get(SMSReplyCallback::PARAMETER_REF_CLIENT));
-        $smsReplyCallback->setResponseID($request->query->get(SMSReplyCallback::PARAMETER_RESPONSE_ID));
-        $smsReplyCallback->setSmsID($request->query->get(SMSReplyCallback::PARAMETER_SMS_ID));
+        $model = new SMSReplyCallback();
+        $model->setDateReception(false !== $dateReception ? $dateReception : null);
+        $model->setEmetteur($request->query->get(SMSReplyCallback::PARAMETER_EMETTEUR));
+        $model->setMessage($request->query->get(SMSReplyCallback::PARAMETER_MESSAGE));
+        $model->setNumero($request->query->get(SMSReplyCallback::PARAMETER_NUMERO));
+        $model->setRefClient($request->query->get(SMSReplyCallback::PARAMETER_REF_CLIENT));
+        $model->setResponseID($request->query->get(SMSReplyCallback::PARAMETER_RESPONSE_ID));
+        $model->setSmsID($request->query->get(SMSReplyCallback::PARAMETER_SMS_ID));
 
-        return $smsReplyCallback;
+        return $model;
     }
 }
