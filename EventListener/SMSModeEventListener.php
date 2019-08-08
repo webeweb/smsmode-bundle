@@ -12,7 +12,9 @@
 namespace WBW\Bundle\SMSModeBundle\EventListener;
 
 use InvalidArgumentException;
+use Psr\Log\LoggerInterface;
 use RuntimeException;
+use WBW\Bundle\CoreBundle\Service\LoggerTrait;
 use WBW\Bundle\SMSModeBundle\Event\AbstractEvent;
 use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
@@ -44,6 +46,8 @@ use WBW\Library\SMSMode\Provider\APIProvider;
  */
 class SMSModeEventListener {
 
+    use LoggerTrait;
+
     /**
      * Runtime exception message.
      *
@@ -70,10 +74,12 @@ EOT;
 
     /**
      * Constructor.
+     *
+     * @param LoggerInterface $logger The logger.
      */
-    public function __construct() {
+    public function __construct(LoggerInterface $logger) {
         $authentication = new Authentication();
-        $this->setApiProvider(new APIProvider($authentication));
+        $this->setApiProvider(new APIProvider($authentication, $logger));
     }
 
     /**

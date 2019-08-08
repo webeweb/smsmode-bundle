@@ -36,9 +36,6 @@ class SMSModeController extends AbstractController {
         $deliveryReportCallback = $this->newDeliveryReportCallback($request);
 
         $event = new DeliveryReportCallbackEvent($deliveryReportCallback);
-
-        $this->getLogger()->info(sprintf("sMsmode controller dispatch an event with name \"%s\"", $event->getEventName()));
-
         $this->dispatchEvent($event->getEventName(), $event);
 
         return new JsonResponse(["code" => 200, "message" => "OK"]);
@@ -55,9 +52,6 @@ class SMSModeController extends AbstractController {
         $smsReplyCallback = $this->newSMSReplyCallback($request);
 
         $event = new SMSReplyCallbackEvent($smsReplyCallback);
-
-        $this->getLogger()->info(sprintf("sMsmode controller dispatch an event with name \"%s\"", $event->getEventName()));
-
         $this->dispatchEvent($event->getEventName(), $event);
 
         return new JsonResponse(["code" => 200, "message" => "OK"]);

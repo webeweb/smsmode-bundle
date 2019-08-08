@@ -83,7 +83,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         parent::setUp();
 
         // Set a sMsmode event listener.
-        $this->smsModeEventListener = new SMSModeEventListener();
+        $this->smsModeEventListener = new SMSModeEventListener($this->logger);
         $this->smsModeEventListener->setPseudo("pseudo");
         $this->smsModeEventListener->setPass("pass");
     }
@@ -98,7 +98,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         $this->assertEquals("sMsmode configuration is missing in your app/config/config.yml.\nPlease, add smsmode.accesss_token or smsmode.pseudo and smsmode.pass", SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE);
         $this->assertEquals("wbw.smsmode.event_listener", SMSModeEventListener::SERVICE_NAME);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         $this->assertNotNull($obj->getApiProvider());
     }
@@ -134,7 +134,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set an Account balance event mock.
         $accountBalanceEvent = new AccountBalanceEvent();
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -177,7 +177,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set an Adding contact event mock.
         $addingContactEvent = new AddingContactEvent($this->addingContact);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -220,7 +220,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set an Checking SMS message status event mock.
         $checkingSMSMessageStatusEvent = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -263,7 +263,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Creating API key event mock.
         $creatingAPIKeyEvent = new CreatingAPIKeyEvent();
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -306,7 +306,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Creating sub-account event mock.
         $creatingSubAccountEvent = new CreatingSubAccountEvent($this->creatingSubAccount);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -349,7 +349,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Deleting SMS event mock.
         $deletingSMSEvent = new DeletingSMSEvent($this->deletingSMS);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -392,7 +392,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Deleting sub-account event mock.
         $deletingSubAccountEvent = new DeletingSubAccountEvent($this->deletingSubAccount);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -435,7 +435,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Delivery report event mock.
         $deliveryReportEvent = new DeliveryReportEvent($this->deliveryReport);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -478,7 +478,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Retrieving SMS reply event mock.
         $retrievingSMSReplyEvent = new RetrievingSMSReplyEvent($this->retrievingSMSReply);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -521,7 +521,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sending SMS batch event mock.
         $sendingSMSBatchEvent = new SendingSMSBatchEvent($this->sendingSMSBatch);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -564,7 +564,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sending SMS message event mock.
         $sendingSMSMessageEvent = new SendingSMSMessageEvent($this->sendingSMSMessage);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -607,7 +607,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sending text-to-speech SMS event mock.
         $sendingTextToSpeechSMSEvent = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -650,7 +650,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sending unicode SMS event mock.
         $sendingUnicodeSMSEvent = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -693,7 +693,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sent SMS message list event mock.
         $sentSMSMessageListEvent = new SentSMSMessageListEvent($this->sentSMSMessageList);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -736,7 +736,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Transferring credits event mock.
         $transferringCreditsEvent = new TransferringCreditsEvent($this->transferringCredits);
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         try {
 
@@ -755,7 +755,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      */
     public function testSetAccessToken() {
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         $obj->setAccessToken("accessToken");
         $this->assertEquals("accessToken", $obj->getApiProvider()->getAuthentication()->getAccessToken());
@@ -768,7 +768,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      */
     public function testSetPass() {
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         $obj->setPass("pass");
         $this->assertEquals("pass", $obj->getApiProvider()->getAuthentication()->getPass());
@@ -781,7 +781,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      */
     public function testSetPseudo() {
 
-        $obj = new SMSModeEventListener();
+        $obj = new SMSModeEventListener($this->logger);
 
         $obj->setPseudo("pseudo");
         $this->assertEquals("pseudo", $obj->getApiProvider()->getAuthentication()->getPseudo());
