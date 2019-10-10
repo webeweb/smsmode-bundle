@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### [1.4.0](https://github.com/webeweb/smsmode-bundle/tree/v1.4.0) (2019-10-10)
+
+- Update sMsmode extension
+
 ### [1.3.0](https://github.com/webeweb/smsmode-bundle/tree/v1.3.0) (2019-08-08)
 
 - Improve logs

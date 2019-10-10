@@ -16,6 +16,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use WBW\Bundle\CoreBundle\DependencyInjection\ConfigurationHelper;
 
 /**
  * sMsmode extension.
@@ -54,20 +55,16 @@ class WBWSMSModeExtension extends Extension {
 
         $config = $this->processConfiguration($configuration, $configs);
 
-        if (true === array_key_exists("authentication", $config)) {
-            if (true === array_key_exists("access_token", $config["authentication"])) {
-                $container->setParameter("smsmode.access_token", $config["authentication"]["access_token"]);
-            }
-            if (true === array_key_exists("pseudo", $config["authentication"])) {
-                $container->setParameter("smsmode.pseudo", $config["authentication"]["pseudo"]);
-            }
-            if (true === array_key_exists("pass", $config["authentication"])) {
-                $container->setParameter("smsmode.pass", $config["authentication"]["pass"]);
-            }
-        }
-
         if (true === $config["event_listeners"]) {
             $serviceLoader->load("event_listeners.yml");
         }
+
+        if (true === array_key_exists("authentication", $config)) {
+            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], "smsmode", "access_token");
+            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], "smsmode", "pseudo");
+            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], "smsmode", "pass");
+        }
+
+        ConfigurationHelper::registerContainerParameter($container, $config, $this->getAlias(), "event_listeners");
     }
 }

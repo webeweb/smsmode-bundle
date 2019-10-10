@@ -21,7 +21,7 @@
     "require": {
         "php": "^5.6|^7.0",
         "ext-json": "*",
-        "webeweb/core-bundle": "^2.9",
+        "webeweb/core-bundle": "^2.13",
         "webeweb/smsmode-library": "^2.5"
     },
     "require-dev": {
