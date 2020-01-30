@@ -43,7 +43,7 @@ before_install:
     - if [ "" != "$SYMFONY_VERSION" ]; then composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; else composer require "symfony/symfony:3.4.*"; fi;
 
 install:
-    - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update
+    - php -dmemory_limit=-1 composer update
     - wget -c -nc --retry-connrefused --tries=0 https://github.com/php-coveralls/php-coveralls/releases/download/v2.2.0/php-coveralls.phar -O coveralls.phar
     - chmod +x coveralls.phar
     - php coveralls.phar --version
