@@ -29,14 +29,14 @@ Includes:
 
 - [webeweb/smsmode-bundle](https://github.com/webeweb/smsmode-library)
 
----
+
+If you like this package, pay me a beer (or a coffee)
+[![paypal.me](https://img.shields.io/badge/paypal.me-webeweb-0070ba.svg?style=flat-square&logo=paypal)](https://www.paypal.me/webeweb)
 
 ## Compatibility
 
 [![PHP](https://img.shields.io/packagist/php-v/webeweb/syntaxhighlighter-bundle.svg?style=flat-square)](http://php.net)
 [![Symfony](https://img.shields.io/badge/symfony-%5E2.7%7C%5E3.0%7C%5E4.0-brightness.svg?style=flat-square)](https://symfony.com)
-
----
 
 ## Installation
 
@@ -81,13 +81,9 @@ wbw_smsmode:
     resource: "@WBWSMSModeBundle/Resources/config/routing.yml"
 ```
 
----
-
 ## Usage
 
 Read the [documentation](Resources/doc/index.md).
-
----
 
 ## Testing
 
@@ -107,8 +103,6 @@ Once all required libraries are installed then do:
 $ vendor/bin/phpunit
 ```
 
----
-
 ## License
 
 `smsmode-bundle` is released under the MIT License. See the bundled [LICENSE](LICENSE)
@@ -116,3 +110,8 @@ file for details.
 
 Please note that the sMsmode API is not free for use, see their
 [product page](https://www.smsmode.com/tarifs-sms/) for details on pricing.
+
+## Donate
+
+If you like this work, please consider donating at
+[![paypal.me](https://img.shields.io/badge/paypal.me-webeweb-0070ba.svg?style=flat-square&logo=paypal)](https://www.paypal.me/webeweb)
