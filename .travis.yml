@@ -40,9 +40,10 @@ matrix:
         -   php: "nightly"
 
 before_install:
-    - /bin/dd if=/dev/zero of=./swap.1 bs=1M count=8192
-    - /sbin/mkswap ./swap.1
-    - /sbin/swapon ./swap.1
+    - /bin/dd if=/dev/zero of=./swap bs=1M count=8192
+    - chmod 600 ./swap
+    - /sbin/mkswap ./swap
+    - /sbin/swapon ./swap
     #- echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
     - if [ "" != "$SYMFONY_VERSION" ]; then COMPOSER_MEMORY_LIMIT=-1 composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; else COMPOSER_MEMORY_LIMIT=-1 composer require "symfony/symfony:3.4.*"; fi;
 
