@@ -40,11 +40,14 @@ matrix:
         -   php: "nightly"
 
 before_install:
+    - /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=8192
+    - /sbin/mkswap /var/swap.1
+    - /sbin/swapon /var/swap.1
     #- echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
     - if [ "" != "$SYMFONY_VERSION" ]; then COMPOSER_MEMORY_LIMIT=-1 composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; else COMPOSER_MEMORY_LIMIT=-1 composer require "symfony/symfony:3.4.*"; fi;
 
 install:
-    - COMPOSER_MEMORY_LIMIT=-1 composer update
+    - COMPOSER_MEMORY_LIMIT=-1 composer install
     - wget -c -nc --retry-connrefused --tries=0 https://github.com/php-coveralls/php-coveralls/releases/download/v2.2.0/php-coveralls.phar -O coveralls.phar
     - chmod +x coveralls.phar
     - php coveralls.phar --version
