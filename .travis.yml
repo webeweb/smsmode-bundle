@@ -1,6 +1,8 @@
 # .travis.yml
 language: "php"
 
+sudo: true
+
 php:
     - "5.6"
     - "7.0"
@@ -40,10 +42,9 @@ matrix:
         -   php: "nightly"
 
 before_install:
-    - /bin/dd if=/dev/zero of=./swap bs=1M count=8192
-    - chmod 600 ./swap
-    - /sbin/mkswap ./swap
-    - /sbin/swapon ./swap
+    - sudo /bin/dd if=/dev/zero of=/var/swap bs=1M count=8192
+    - sudo /sbin/mkswap /var/swap
+    - sudo /sbin/swapon /var/swap
     #- echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
     - if [ "" != "$SYMFONY_VERSION" ]; then COMPOSER_MEMORY_LIMIT=-1 composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; else COMPOSER_MEMORY_LIMIT=-1 composer require "symfony/symfony:3.4.*"; fi;
 
