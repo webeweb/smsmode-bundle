@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### [1.5.0](https://github.com/webeweb/smsmode-bundle/tree/v1.5.0) (2020-03-10)
+
+- Update dependencies
+
 ### [1.4.0](https://github.com/webeweb/smsmode-bundle/tree/v1.4.0) (2019-10-10)
 
 - Update sMsmode extension
