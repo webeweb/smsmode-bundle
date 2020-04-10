@@ -29,7 +29,7 @@ class DeliveryReportCallbackEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testConstruct() {
+    public function test__construct() {
 
         // Set a Delivery report callback mock.
         $deliveryReportCallback = new DeliveryReportCallback();

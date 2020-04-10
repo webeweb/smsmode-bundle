@@ -29,7 +29,7 @@ class SMSReplyCallbackEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testConstruct() {
+    public function test__construct() {
 
         // Set a SMS reply callback mock.
         $smsReplyCallback = new SMSReplyCallback();

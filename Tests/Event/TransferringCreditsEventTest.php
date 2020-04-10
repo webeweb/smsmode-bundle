@@ -30,7 +30,7 @@ class TransferringCreditsEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testConstruct() {
+    public function test__construct() {
 
         $obj = new TransferringCreditsEvent($this->transferringCredits);
 

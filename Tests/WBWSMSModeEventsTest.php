@@ -27,7 +27,7 @@ class WBWSMSModeEventsTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testConstruct() {
+    public function test__construct() {
 
         $this->assertEquals("wbw.smsmode.event.account_balance", WBWSMSModeEvents::ACCOUNT_BALANCE);
         $this->assertEquals("wbw.smsmode.event.adding_contact", WBWSMSModeEvents::ADDING_CONTACT);

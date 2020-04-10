@@ -93,7 +93,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testConstruct() {
+    public function test__construct() {
 
         $this->assertEquals("sMsmode configuration is missing in your app/config/config.yml.\nPlease, add smsmode.accesss_token or smsmode.pseudo and smsmode.pass", SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE);
         $this->assertEquals("wbw.smsmode.event_listener", SMSModeEventListener::SERVICE_NAME);

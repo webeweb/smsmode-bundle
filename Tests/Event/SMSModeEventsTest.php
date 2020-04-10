@@ -28,7 +28,7 @@ class SMSModeEventsTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testConstruct() {
+    public function test__construct() {
 
         $this->assertEquals(WBWSMSModeEvents::ACCOUNT_BALANCE, SMSModeEvents::ACCOUNT_BALANCE);
         $this->assertEquals(WBWSMSModeEvents::ADDING_CONTACT, SMSModeEvents::ADDING_CONTACT);

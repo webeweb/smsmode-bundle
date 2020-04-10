@@ -30,7 +30,7 @@ class DeliveryReportEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testConstruct() {
+    public function test__construct() {
 
         $obj = new DeliveryReportEvent($this->deliveryReport);
 
