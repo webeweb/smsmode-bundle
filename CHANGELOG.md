@@ -1,9 +1,10 @@
 CHANGELOG
 =========
 
-### master
+### [1.6.0](https://github.com/webeweb/smsmode-bundle/tree/v1.6.0) (2020-05-27)
 
 - Improve unit tests
+- Update dependencies
 
 ### [1.5.0](https://github.com/webeweb/smsmode-bundle/tree/v1.5.0) (2020-03-10)
 
