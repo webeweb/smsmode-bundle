@@ -31,7 +31,7 @@ use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
-use WBW\Library\SMSMode\Exception\APIException;
+use WBW\Library\Core\Exception\ApiException;
 use WBW\Library\SMSMode\Factory\RequestFactory;
 use WBW\Library\SMSMode\Model\AbstractRequest;
 use WBW\Library\SMSMode\Model\AbstractResponse;
@@ -132,7 +132,7 @@ EOT;
      *
      * @param AccountBalanceEvent $event The account balance event.
      * @return AccountBalanceEvent Returns the account balance event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onAccountBalance(AccountBalanceEvent $event) {
@@ -150,7 +150,7 @@ EOT;
      *
      * @param AddingContactEvent $event The adding contact event.
      * @return AddingContactEvent Returns the adding contact event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onAddingContact(AddingContactEvent $event) {
@@ -168,7 +168,7 @@ EOT;
      *
      * @param CheckingSMSMessageStatusEvent $event The checking SMS message status event.
      * @return CheckingSMSMessageStatusEvent Returns the checking SMS message status event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onCheckingSMSMessageStatus(CheckingSMSMessageStatusEvent $event) {
@@ -186,7 +186,7 @@ EOT;
      *
      * @param CreatingAPIKeyEvent $event The account balance event.
      * @return CreatingAPIKeyEvent Returns the account balance event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onCreatingAPIKey(CreatingAPIKeyEvent $event) {
@@ -204,7 +204,7 @@ EOT;
      *
      * @param CreatingSubAccountEvent $event The creating sub-account event.
      * @return CreatingSubAccountEvent Returns the creating sub-account event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onCreatingSubAccount(CreatingSubAccountEvent $event) {
@@ -222,7 +222,7 @@ EOT;
      *
      * @param DeletingSMSEvent $event The deleting SMS event.
      * @return DeletingSMSEvent Returns the deleting SMS event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onDeletingSMS(DeletingSMSEvent $event) {
@@ -240,7 +240,7 @@ EOT;
      *
      * @param DeletingSubAccountEvent $event The deleting sub-account event.
      * @return DeletingSubAccountEvent Returns the deleting sub-account event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onDeletingSubAccount(DeletingSubAccountEvent $event) {
@@ -258,7 +258,7 @@ EOT;
      *
      * @param DeliveryReportEvent $event The delivery report event.
      * @return DeliveryReportEvent Returns the delivery report event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onDeliveryReport(DeliveryReportEvent $event) {
@@ -276,7 +276,7 @@ EOT;
      *
      * @param RetrievingSMSReplyEvent $event The retrieving SMS reply event.
      * @return RetrievingSMSReplyEvent Returns the retrieving SMS reply event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onRetrievingSMSReply(RetrievingSMSReplyEvent $event) {
@@ -294,7 +294,7 @@ EOT;
      *
      * @param SendingSMSBatchEvent $event The sending SMS batch event.
      * @return SendingSMSBatchEvent Returns the sending SMS batch event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingSMSBatch(SendingSMSBatchEvent $event) {
@@ -312,7 +312,7 @@ EOT;
      *
      * @param SendingSMSMessageEvent $event The sending SMS message event.
      * @return SendingSMSMessageEvent Returns the sending SMS message event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingSMSMessage(SendingSMSMessageEvent $event) {
@@ -330,7 +330,7 @@ EOT;
      *
      * @param SendingTextToSpeechSMSEvent $event The sending text-to-speech event.
      * @return SendingTextToSpeechSMSEvent Returns the sending text-to-speech event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingTextToSpeechSMS(SendingTextToSpeechSMSEvent $event) {
@@ -348,7 +348,7 @@ EOT;
      *
      * @param SendingUnicodeSMSEvent $event The sending unicode SMS event.
      * @return SendingUnicodeSMSEvent Returns the sending unicode SMS event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSendingUnicodeSMS(SendingUnicodeSMSEvent $event) {
@@ -366,7 +366,7 @@ EOT;
      *
      * @param SentSMSMessageListEvent $event The sent SMS message list event.
      * @return SentSMSMessageListEvent Returns the sent SMS message list event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onSentSMSMessageList(SentSMSMessageListEvent $event) {
@@ -384,7 +384,7 @@ EOT;
      *
      * @param TransferringCreditsEvent $event The transferring credits event.
      * @return TransferringCreditsEvent Returns the transferring credits event.
-     * @throws APIException Throws an API exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      */
     public function onTransferringCredits(TransferringCreditsEvent $event) {
