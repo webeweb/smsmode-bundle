@@ -36,7 +36,7 @@ use WBW\Library\SMSMode\Factory\RequestFactory;
 use WBW\Library\SMSMode\Model\AbstractRequest;
 use WBW\Library\SMSMode\Model\AbstractResponse;
 use WBW\Library\SMSMode\Model\Authentication;
-use WBW\Library\SMSMode\Provider\APIProvider;
+use WBW\Library\SMSMode\Provider\ApiProvider;
 
 /**
  * sMsmode event listener.
@@ -79,7 +79,7 @@ EOT;
      */
     public function __construct(LoggerInterface $logger) {
         $authentication = new Authentication();
-        $this->setApiProvider(new APIProvider($authentication, $logger));
+        $this->setApiProvider(new ApiProvider($authentication, $logger));
     }
 
     /**
