@@ -27,7 +27,7 @@ messages from your applications. This API provides the following functions:
 
 Includes:
 
-- [webeweb/smsmode-bundle](https://github.com/webeweb/smsmode-library)
+- [webeweb/smsmode-library](https://github.com/webeweb/smsmode-library)
 
 
 If you like this package, pay me a beer (or a coffee)
