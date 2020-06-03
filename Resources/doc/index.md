@@ -55,8 +55,7 @@ services:
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.sms_reply_callback",       method: "onSMSReplyCallback" }
 ```
 
-1° Authentication
----
+1) Authentication
 
 Add this parameters in the `app/config/config.yml` file of your project:
 
@@ -96,8 +95,7 @@ $response->getExpiration();
 $response->getState();
 ```
 
-2° Sending SMS message
----
+2) Sending SMS message
 
 Add the following code in a command or controller class:
 
@@ -127,8 +125,7 @@ $response->getDescription();
 $response->getSmsID();
 ```
 
-3° Delivery report
----
+3) Delivery report
 
 Add the following code in a command or controller class:
 
@@ -155,8 +152,7 @@ foreach($response->getDeliveryReports() as $current) {
 }
 ```
 
-4° Account balance
----
+4) Account balance
 
 Add the following code in a command or controller class:
 
@@ -176,8 +172,7 @@ $response->getDescription();
 $response->getAccountBalance();
 ```
 
-5° Creating sub-account
----
+5) Creating sub-account
 
 Add the following code in a command or controller class:
 
@@ -219,8 +214,7 @@ $response->getCode();
 $response->getDescription();
 ```
 
-6° Transferring credits from one account to another
----
+6) Transferring credits from one account to another
 
 Add the following code in a command or controller class:
 
@@ -242,8 +236,7 @@ $response->getCode();
 $response->getDescription();
 ```
 
-7° Adding contacts
----
+7) Adding contacts
 
 Add the following code in a command or controller class:
 
@@ -265,8 +258,7 @@ $response->getCode();
 $response->getDescription();
 ```
 
-8° Deleting SMS
----
+8) Deleting SMS
 
 Add the following code in a command or controller class:
 
@@ -288,8 +280,7 @@ $response->getCode();
 $response->getDescription();
 ```
 
-9° Sent SMS message list
----
+9) Sent SMS message list
 
 Add the following code in a command or controller class:
 
@@ -320,8 +311,7 @@ foreach($response->getSentSMSMessages() as $current) {
 }
 ```
 
-10° Checking SMS message status
----
+10) Checking SMS message status
 
 Add the following code in a command or controller class:
 
@@ -343,8 +333,7 @@ $response->getCode();
 $response->getDescription();
 ```
 
-11° Retrieving SMS replies
----
+11) Retrieving SMS replies
 
 Add the following code in a command or controller class:
 
@@ -375,8 +364,7 @@ foreach($response->getSMSReplies() as $current) {
 }
 ```
 
-12° Sending text-to-speech SMS
----
+12) Sending text-to-speech SMS
 
 Add the following code in a command or controller class:
 
@@ -400,8 +388,7 @@ $response->getDescription();
 $response->getSmsID();
 ```
 
-13° Sending unicode SMS
----
+13) Sending unicode SMS
 
 Add the following code in a command or controller class:
 
@@ -431,8 +418,7 @@ $response->getDescription();
 $response->getSmsID();
 ```
 
-14° Sending SMS in batch mode (attached file)
----
+14) Sending SMS in batch mode (attached file)
 
 Add the following code in a command or controller class:
 
