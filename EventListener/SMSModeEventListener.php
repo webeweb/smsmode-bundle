@@ -411,7 +411,7 @@ EOT;
     /**
      * Set the API provider.
      *
-     * @param APIProvider $apiProvider The API provider.
+     * @param ApiProvider $apiProvider The API provider.
      * @return SMSModeEventListener Returns this event listener.
      */
     protected function setApiProvider(ApiProvider $apiProvider) {
