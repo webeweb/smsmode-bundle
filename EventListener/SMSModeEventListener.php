@@ -68,7 +68,7 @@ EOT;
     /**
      * API provider.
      *
-     * @var APIProvider
+     * @var ApiProvider
      */
     private $apiProvider;
 
@@ -121,7 +121,7 @@ EOT;
     /**
      * Get the API provider.
      *
-     * @return APIProvider Returns the API provider.
+     * @return ApiProvider Returns the API provider.
      */
     public function getApiProvider() {
         return $this->apiProvider;
