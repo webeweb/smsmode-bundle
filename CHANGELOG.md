@@ -1,6 +1,27 @@
 CHANGELOG
 =========
 
+### [1.7.0](https://github.com/webeweb/smsmode-bundle/tree/v1.7.0) (2021-02-03)
+
+> IMPORTANT NOTICE: The following Symfony versions are now not supported
+> - Symfony 2.7
+> - Symfony 2.8
+> - Symfony 3.0
+> - Symfony 3.1
+> - Symfony 3.2
+> - Symfony 3.3
+
+> IMPORTANT NOTICE: The following PHP versions are now not supported
+> - PHP 5.6
+> - PHP 7.0
+
+> IMPORTANT NOTICE: The following deprecated classes has been removed
+> - WBW\Bundle\SMSModeBundle\Event\SMSModeEvents
+
+- Improve PHP doc
+- Improve unit tests
+- Migrating from PHP 5.6 to PHP 7.1
+
 ### [1.6.1](https://github.com/webeweb/smsmode-bundle/tree/v1.6.1) (2020-06-03)
 
 - Minor fix
