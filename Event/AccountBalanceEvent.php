@@ -33,18 +33,18 @@ class AccountBalanceEvent extends AbstractEvent {
     /**
      * Get the account balance request.
      *
-     * @return AccountBalanceRequest Returns the account balance request.
+     * @return AccountBalanceRequest|null Returns the account balance request.
      */
-    public function getRequest() {
+    public function getRequest(): ?AccountBalanceRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the account balance response.
      *
-     * @return AccountBalanceResponse Returns the account balance response.
+     * @return AccountBalanceResponse|null Returns the account balance response.
      */
-    public function getResponse() {
+    public function getResponse(): ?AccountBalanceResponse {
         return parent::getResponse();
     }
 }

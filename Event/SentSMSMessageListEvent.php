@@ -36,27 +36,27 @@ class SentSMSMessageListEvent extends AbstractEvent {
     /**
      * Get the sent SMS message list request.
      *
-     * @return SentSMSMessageListRequest Returns the sent SMS message list request.
+     * @return SentSMSMessageListRequest|null Returns the sent SMS message list request.
      */
-    public function getRequest() {
+    public function getRequest(): ?SentSMSMessageListRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the sent SMS message list response.
      *
-     * @return SentSMSMessageListResponse Returns the sent SMS message list response.
+     * @return SentSMSMessageListResponse|null Returns the sent SMS message list response.
      */
-    public function getResponse() {
+    public function getResponse(): ?SentSMSMessageListResponse {
         return parent::getResponse();
     }
 
     /**
      * Get the sent SMS message list.
      *
-     * @return SentSMSMessageListInterface Returns the sent SMS message list.
+     * @return SentSMSMessageListInterface|null Returns the sent SMS message list.
      */
-    public function getSentSMSMessageList() {
+    public function getSentSMSMessageList(): ?SentSMSMessageListInterface {
         return $this->getEntity();
     }
 }

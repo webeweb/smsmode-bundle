@@ -36,18 +36,18 @@ class CreatingSubAccountEvent extends AbstractEvent {
     /**
      * Get the creating sub-account.
      *
-     * @return CreatingSubAccountInterface Returns the creating sub-account.
+     * @return CreatingSubAccountInterface|null Returns the creating sub-account.
      */
-    public function getCreatingSubAccount() {
+    public function getCreatingSubAccount(): ?CreatingSubAccountInterface {
         return $this->getEntity();
     }
 
     /**
      * Get the creating sub-account request.
      *
-     * @return CreatingSubAccountRequest Returns the creating sub-account request.
+     * @return CreatingSubAccountRequest|null Returns the creating sub-account request.
      */
-    public function getRequest() {
+    public function getRequest(): ?CreatingSubAccountRequest {
         return parent::getRequest();
     }
 
@@ -56,7 +56,7 @@ class CreatingSubAccountEvent extends AbstractEvent {
      *
      * @return CreatingSubAccountResponse Returns the creating sub-account response.
      */
-    public function getResponse() {
+    public function getResponse(): ?CreatingSubAccountResponse {
         return parent::getResponse();
     }
 }

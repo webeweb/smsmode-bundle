@@ -31,7 +31,7 @@ class SMSModeController extends AbstractController {
      * @param Request $request The request.
      * @return Response Returns the response.
      */
-    public function deliveryReportCallbackAction(Request $request) {
+    public function deliveryReportCallbackAction(Request $request): Response {
 
         $deliveryReportCallback = $this->newDeliveryReportCallback($request);
 
@@ -47,7 +47,7 @@ class SMSModeController extends AbstractController {
      * @param Request $request The request.
      * @return Response Returns the response.
      */
-    public function smsReplyCallbackAction(Request $request) {
+    public function smsReplyCallbackAction(Request $request): Response {
 
         $smsReplyCallback = $this->newSMSReplyCallback($request);
 

@@ -26,26 +26,11 @@ use WBW\Library\SMSMode\Model\Response\AccountBalanceResponse;
 class AccountBalanceEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new AccountBalanceEvent();
-
-        $this->assertEquals(WBWSMSModeEvents::ACCOUNT_BALANCE, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set an Account balance request mock.
         $request = new AccountBalanceRequest();
@@ -61,7 +46,7 @@ class AccountBalanceEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set an Account balance response mock.
         $response = new AccountBalanceResponse();
@@ -70,5 +55,20 @@ class AccountBalanceEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new AccountBalanceEvent();
+
+        $this->assertEquals(WBWSMSModeEvents::ACCOUNT_BALANCE, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
     }
 }

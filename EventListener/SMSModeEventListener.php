@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\EventListener;
 
+use GuzzleHttp\Exception\GuzzleException;
 use InvalidArgumentException;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
@@ -88,7 +89,7 @@ EOT;
      * @return void
      * @throws RuntimeException Throws an runtime exception if the sMsmode configuration is missing.
      */
-    protected function beforeHandleEvent() {
+    protected function beforeHandleEvent(): void {
 
         $authentication    = $this->getApiProvider()->getAuthentication();
         $requestNormalizer = $this->getApiProvider()->getRequestSerializer();
@@ -110,7 +111,7 @@ EOT;
      * @param AbstractResponse $response The response.
      * @return AbstractEvent Returns the event.
      */
-    protected function beforeReturnEvent(AbstractEvent $event, AbstractRequest $request, AbstractResponse $response) {
+    protected function beforeReturnEvent(AbstractEvent $event, AbstractRequest $request, AbstractResponse $response): AbstractEvent {
 
         $event->setRequest($request);
         $event->setResponse($response);
@@ -123,7 +124,7 @@ EOT;
      *
      * @return ApiProvider Returns the API provider.
      */
-    public function getApiProvider() {
+    public function getApiProvider(): ApiProvider {
         return $this->apiProvider;
     }
 
@@ -132,10 +133,11 @@ EOT;
      *
      * @param AccountBalanceEvent $event The account balance event.
      * @return AccountBalanceEvent Returns the account balance event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onAccountBalance(AccountBalanceEvent $event) {
+    public function onAccountBalance(AccountBalanceEvent $event): AccountBalanceEvent {
 
         $this->beforeHandleEvent();
 
@@ -150,10 +152,11 @@ EOT;
      *
      * @param AddingContactEvent $event The adding contact event.
      * @return AddingContactEvent Returns the adding contact event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onAddingContact(AddingContactEvent $event) {
+    public function onAddingContact(AddingContactEvent $event): AddingContactEvent {
 
         $this->beforeHandleEvent();
 
@@ -168,10 +171,11 @@ EOT;
      *
      * @param CheckingSMSMessageStatusEvent $event The checking SMS message status event.
      * @return CheckingSMSMessageStatusEvent Returns the checking SMS message status event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onCheckingSMSMessageStatus(CheckingSMSMessageStatusEvent $event) {
+    public function onCheckingSMSMessageStatus(CheckingSMSMessageStatusEvent $event): CheckingSMSMessageStatusEvent {
 
         $this->beforeHandleEvent();
 
@@ -186,10 +190,11 @@ EOT;
      *
      * @param CreatingAPIKeyEvent $event The account balance event.
      * @return CreatingAPIKeyEvent Returns the account balance event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onCreatingAPIKey(CreatingAPIKeyEvent $event) {
+    public function onCreatingAPIKey(CreatingAPIKeyEvent $event): CreatingAPIKeyEvent {
 
         $this->beforeHandleEvent();
 
@@ -204,10 +209,11 @@ EOT;
      *
      * @param CreatingSubAccountEvent $event The creating sub-account event.
      * @return CreatingSubAccountEvent Returns the creating sub-account event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onCreatingSubAccount(CreatingSubAccountEvent $event) {
+    public function onCreatingSubAccount(CreatingSubAccountEvent $event): CreatingSubAccountEvent {
 
         $this->beforeHandleEvent();
 
@@ -222,10 +228,11 @@ EOT;
      *
      * @param DeletingSMSEvent $event The deleting SMS event.
      * @return DeletingSMSEvent Returns the deleting SMS event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onDeletingSMS(DeletingSMSEvent $event) {
+    public function onDeletingSMS(DeletingSMSEvent $event): DeletingSMSEvent {
 
         $this->beforeHandleEvent();
 
@@ -240,10 +247,11 @@ EOT;
      *
      * @param DeletingSubAccountEvent $event The deleting sub-account event.
      * @return DeletingSubAccountEvent Returns the deleting sub-account event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onDeletingSubAccount(DeletingSubAccountEvent $event) {
+    public function onDeletingSubAccount(DeletingSubAccountEvent $event): DeletingSubAccountEvent {
 
         $this->beforeHandleEvent();
 
@@ -258,10 +266,11 @@ EOT;
      *
      * @param DeliveryReportEvent $event The delivery report event.
      * @return DeliveryReportEvent Returns the delivery report event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onDeliveryReport(DeliveryReportEvent $event) {
+    public function onDeliveryReport(DeliveryReportEvent $event): DeliveryReportEvent {
 
         $this->beforeHandleEvent();
 
@@ -276,10 +285,11 @@ EOT;
      *
      * @param RetrievingSMSReplyEvent $event The retrieving SMS reply event.
      * @return RetrievingSMSReplyEvent Returns the retrieving SMS reply event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onRetrievingSMSReply(RetrievingSMSReplyEvent $event) {
+    public function onRetrievingSMSReply(RetrievingSMSReplyEvent $event): RetrievingSMSReplyEvent {
 
         $this->beforeHandleEvent();
 
@@ -294,10 +304,11 @@ EOT;
      *
      * @param SendingSMSBatchEvent $event The sending SMS batch event.
      * @return SendingSMSBatchEvent Returns the sending SMS batch event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSendingSMSBatch(SendingSMSBatchEvent $event) {
+    public function onSendingSMSBatch(SendingSMSBatchEvent $event): SendingSMSBatchEvent {
 
         $this->beforeHandleEvent();
 
@@ -312,10 +323,11 @@ EOT;
      *
      * @param SendingSMSMessageEvent $event The sending SMS message event.
      * @return SendingSMSMessageEvent Returns the sending SMS message event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSendingSMSMessage(SendingSMSMessageEvent $event) {
+    public function onSendingSMSMessage(SendingSMSMessageEvent $event): SendingSMSMessageEvent {
 
         $this->beforeHandleEvent();
 
@@ -330,10 +342,11 @@ EOT;
      *
      * @param SendingTextToSpeechSMSEvent $event The sending text-to-speech event.
      * @return SendingTextToSpeechSMSEvent Returns the sending text-to-speech event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSendingTextToSpeechSMS(SendingTextToSpeechSMSEvent $event) {
+    public function onSendingTextToSpeechSMS(SendingTextToSpeechSMSEvent $event): SendingTextToSpeechSMSEvent {
 
         $this->beforeHandleEvent();
 
@@ -348,10 +361,11 @@ EOT;
      *
      * @param SendingUnicodeSMSEvent $event The sending unicode SMS event.
      * @return SendingUnicodeSMSEvent Returns the sending unicode SMS event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSendingUnicodeSMS(SendingUnicodeSMSEvent $event) {
+    public function onSendingUnicodeSMS(SendingUnicodeSMSEvent $event): SendingUnicodeSMSEvent {
 
         $this->beforeHandleEvent();
 
@@ -366,10 +380,11 @@ EOT;
      *
      * @param SentSMSMessageListEvent $event The sent SMS message list event.
      * @return SentSMSMessageListEvent Returns the sent SMS message list event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSentSMSMessageList(SentSMSMessageListEvent $event) {
+    public function onSentSMSMessageList(SentSMSMessageListEvent $event): SentSMSMessageListEvent {
 
         $this->beforeHandleEvent();
 
@@ -384,10 +399,11 @@ EOT;
      *
      * @param TransferringCreditsEvent $event The transferring credits event.
      * @return TransferringCreditsEvent Returns the transferring credits event.
-     * @throws ApiException Throws an API exception if an error occurs.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
+     * @throws GuzzleException Throws a Guzzle exception if an error occurs.
+     * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onTransferringCredits(TransferringCreditsEvent $event) {
+    public function onTransferringCredits(TransferringCreditsEvent $event): TransferringCreditsEvent {
 
         $this->beforeHandleEvent();
 
@@ -400,10 +416,10 @@ EOT;
     /**
      * Set the access token.
      *
-     * @param string $accessToken The access token.
+     * @param string|null $accessToken The access token.
      * @return SMSModeEventListener Returns this event listener.
      */
-    public function setAccessToken($accessToken) {
+    public function setAccessToken(?string $accessToken): SMSModeEventListener {
         $this->getApiProvider()->getAuthentication()->setAccessToken($accessToken);
         return $this;
     }
@@ -414,7 +430,7 @@ EOT;
      * @param ApiProvider $apiProvider The API provider.
      * @return SMSModeEventListener Returns this event listener.
      */
-    protected function setApiProvider(ApiProvider $apiProvider) {
+    protected function setApiProvider(ApiProvider $apiProvider): SMSModeEventListener {
         $this->apiProvider = $apiProvider;
         return $this;
     }
@@ -422,10 +438,10 @@ EOT;
     /**
      * Set the pass.
      *
-     * @param string $pass The pass.
+     * @param string|null $pass The pass.
      * @return SMSModeEventListener Returns this event listener.
      */
-    public function setPass($pass) {
+    public function setPass(?string $pass): SMSModeEventListener {
         $this->getApiProvider()->getAuthentication()->setPass($pass);
         return $this;
     }
@@ -433,10 +449,10 @@ EOT;
     /**
      * Set the pseudo.
      *
-     * @param string $pseudo The pseudo.
+     * @param string|null $pseudo The pseudo.
      * @return SMSModeEventListener Returns this event listener.
      */
-    public function setPseudo($pseudo) {
+    public function setPseudo(?string $pseudo): SMSModeEventListener {
         $this->getApiProvider()->getAuthentication()->setPseudo($pseudo);
         return $this;
     }

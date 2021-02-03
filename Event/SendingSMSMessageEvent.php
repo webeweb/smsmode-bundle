@@ -36,27 +36,27 @@ class SendingSMSMessageEvent extends AbstractEvent {
     /**
      * Get the sending SMS message request.
      *
-     * @return SendingSMSMessageRequest Returns the sending SMS message request.
+     * @return SendingSMSMessageRequest|null Returns the sending SMS message request.
      */
-    public function getRequest() {
+    public function getRequest(): ?SendingSMSMessageRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the sending SMS message response.
      *
-     * @return SendingSMSMessageResponse Returns the sending SMS message response.
+     * @return SendingSMSMessageResponse|null Returns the sending SMS message response.
      */
-    public function getResponse() {
+    public function getResponse(): ?SendingSMSMessageResponse {
         return parent::getResponse();
     }
 
     /**
      * Get the sending SMS message.
      *
-     * @return SendingSMSMessageInterface Returns the sending SMS message.
+     * @return SendingSMSMessageInterface|null Returns the sending SMS message.
      */
-    public function getSendingSMSMessage() {
+    public function getSendingSMSMessage(): ?SendingSMSMessageInterface {
         return $this->getEntity();
     }
 }

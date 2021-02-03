@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
 class CreatingSubAccountEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new CreatingSubAccountEvent($this->creatingSubAccount);
-
-        $this->assertEquals(WBWSMSModeEvents::CREATING_SUB_ACCOUNT, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->creatingSubAccount, $obj->getCreatingSubAccount());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Creating sub-account request mock.
         $request = new CreatingSubAccountRequest();
@@ -63,7 +46,7 @@ class CreatingSubAccountEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Creating sub-account response mock.
         $response = new CreatingSubAccountResponse();
@@ -72,5 +55,22 @@ class CreatingSubAccountEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new CreatingSubAccountEvent($this->creatingSubAccount);
+
+        $this->assertEquals(WBWSMSModeEvents::CREATING_SUB_ACCOUNT, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->creatingSubAccount, $obj->getCreatingSubAccount());
     }
 }

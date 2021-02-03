@@ -27,7 +27,7 @@ class WBWSMSModeBundleTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testGetContainerExtension() {
+    public function testGetContainerExtension(): void {
 
         $obj = new WBWSMSModeBundle();
 

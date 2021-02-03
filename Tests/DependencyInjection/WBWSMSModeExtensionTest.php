@@ -36,7 +36,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
     /**
      * {@inheritDoc}
      */
-    protected function setUp() {
+    protected function setUp(): void {
         parent::setUp();
 
         // Set a configs array mock.
@@ -53,21 +53,11 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $this->assertEquals("wbw_smsmode", WBWSMSModeExtension::EXTENSION_ALIAS);
-    }
-
-    /**
      * Tests the getAlias() method.
      *
      * @return void
      */
-    public function testGetAlias() {
+    public function testGetAlias(): void {
 
         $obj = new WBWSMSModeExtension();
 
@@ -79,7 +69,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testGetConfiguration() {
+    public function testGetConfiguration(): void {
 
         $obj = new WBWSMSModeExtension();
 
@@ -92,7 +82,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testLoad() {
+    public function testLoad(): void {
 
         $obj = new WBWSMSModeExtension();
 
@@ -107,7 +97,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testLoadWithoutEventListeners() {
+    public function testLoadWithoutEventListeners(): void {
 
         // Set the configs mock.
         $this->configs[WBWSMSModeExtension::EXTENSION_ALIAS]["event_listeners"] = false;
@@ -122,7 +112,17 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(ServiceNotFoundException::class, $ex);
-            $this->assertContains(SMSModeEventListener::SERVICE_NAME, $ex->getMessage());
+            $this->assertStringContainsString(SMSModeEventListener::SERVICE_NAME, $ex->getMessage());
         }
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $this->assertEquals("wbw_smsmode", WBWSMSModeExtension::EXTENSION_ALIAS);
     }
 }

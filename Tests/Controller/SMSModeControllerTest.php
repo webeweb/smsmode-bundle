@@ -26,7 +26,7 @@ class SMSModeControllerTest extends AbstractWebTestCase {
      *
      * @return void
      */
-    public function testDeliveryReportCallbackAction() {
+    public function testDeliveryReportCallbackAction(): void {
 
         // Create a client.
         $client = static::createClient();
@@ -51,7 +51,7 @@ class SMSModeControllerTest extends AbstractWebTestCase {
      *
      * @return void
      */
-    public function testSmsReplyCallbackAction() {
+    public function testSmsReplyCallbackAction(): void {
 
         // Create a client.
         $client = static::createClient();

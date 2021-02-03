@@ -30,7 +30,7 @@ class AbstractControllerTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testNewDeliveryReportCallback() {
+    public function testNewDeliveryReportCallback(): void {
 
         // Set a Request mock.
         $request = new Request([
@@ -60,7 +60,7 @@ class AbstractControllerTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testNewSMSReplyCallback() {
+    public function testNewSMSReplyCallback(): void {
 
         // Set a Request mock.
         $request = new Request([

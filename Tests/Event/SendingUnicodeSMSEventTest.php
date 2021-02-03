@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
 class SendingUnicodeSMSEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
-
-        $this->assertEquals(WBWSMSModeEvents::SENDING_UNICODE_SMS, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->sendingUnicodeSMS, $obj->getSendingUnicodeSMS());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Sending unicode SMS request mock.
         $request = new SendingUnicodeSMSRequest();
@@ -63,7 +46,7 @@ class SendingUnicodeSMSEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Sending unicode SMS response mock.
         $response = new SendingUnicodeSMSResponse();
@@ -72,5 +55,22 @@ class SendingUnicodeSMSEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
+
+        $this->assertEquals(WBWSMSModeEvents::SENDING_UNICODE_SMS, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->sendingUnicodeSMS, $obj->getSendingUnicodeSMS());
     }
 }

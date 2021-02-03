@@ -9,16 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SMSModeBundle\Tests;
 
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
 use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 
 /**
  * sMsmode events test.
  *
  * @author webeweb <https://github.com/webeweb/>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SMSModeBundle\Tests
  */
 class WBWSMSModeEventsTest extends AbstractTestCase {
 
@@ -27,7 +26,7 @@ class WBWSMSModeEventsTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function test__construct() {
+    public function test__construct(): void {
 
         $this->assertEquals("wbw.smsmode.event.account_balance", WBWSMSModeEvents::ACCOUNT_BALANCE);
         $this->assertEquals("wbw.smsmode.event.adding_contact", WBWSMSModeEvents::ADDING_CONTACT);

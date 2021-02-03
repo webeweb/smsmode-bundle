@@ -13,6 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Fixtures\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use WBW\Bundle\SMSModeBundle\Controller\AbstractController;
+use WBW\Library\SMSMode\Model\DeliveryReportCallback;
+use WBW\Library\SMSMode\Model\SMSReplyCallback;
 
 /**
  * Test controller.
@@ -25,14 +27,14 @@ class TestController extends AbstractController {
     /**
      * {@inheritdoc}
      */
-    public function newDeliveryReportCallback(Request $request) {
+    public function newDeliveryReportCallback(Request $request): DeliveryReportCallback {
         return parent::newDeliveryReportCallback($request);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function newSMSReplyCallback(Request $request) {
+    public function newSMSReplyCallback(Request $request): SMSReplyCallback {
         return parent::newSMSReplyCallback($request);
     }
 }

@@ -36,27 +36,27 @@ class DeletingSubAccountEvent extends AbstractEvent {
     /**
      * Get the deleting sub-account.
      *
-     * @return DeletingSubAccountInterface Returns the deleting sub-account.
+     * @return DeletingSubAccountInterface|null Returns the deleting sub-account.
      */
-    public function getDeletingSubAccount() {
+    public function getDeletingSubAccount(): ?DeletingSubAccountInterface {
         return $this->getEntity();
     }
 
     /**
      * Get the deleting sub-account request.
      *
-     * @return DeletingSubAccountRequest Returns the deleting sub-account request.
+     * @return DeletingSubAccountRequest|null Returns the deleting sub-account request.
      */
-    public function getRequest() {
+    public function getRequest(): ?DeletingSubAccountRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the deleting sub-account response.
      *
-     * @return DeletingSubAccountResponse Returns the deleting sub-account response.
+     * @return DeletingSubAccountResponse|null Returns the deleting sub-account response.
      */
-    public function getResponse() {
+    public function getResponse(): ?DeletingSubAccountResponse {
         return parent::getResponse();
     }
 }

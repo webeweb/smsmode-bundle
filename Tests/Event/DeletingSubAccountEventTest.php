@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
 class DeletingSubAccountEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new DeletingSubAccountEvent($this->deletingSubAccount);
-
-        $this->assertEquals(WBWSMSModeEvents::DELETING_SUB_ACCOUNT, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->deletingSubAccount, $obj->getDeletingSubAccount());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Deleting sub-account request mock.
         $request = new DeletingSubAccountRequest();
@@ -63,7 +46,7 @@ class DeletingSubAccountEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Deleting sub-account response mock.
         $response = new DeletingSubAccountResponse();
@@ -72,5 +55,22 @@ class DeletingSubAccountEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new DeletingSubAccountEvent($this->deletingSubAccount);
+
+        $this->assertEquals(WBWSMSModeEvents::DELETING_SUB_ACCOUNT, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->deletingSubAccount, $obj->getDeletingSubAccount());
     }
 }

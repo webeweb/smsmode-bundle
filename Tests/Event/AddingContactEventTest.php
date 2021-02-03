@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
 class AddingContactEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new AddingContactEvent($this->addingContact);
-
-        $this->assertEquals(WBWSMSModeEvents::ADDING_CONTACT, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->addingContact, $obj->getAddingContact());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set an Adding contact request mock.
         $request = new AddingContactRequest();
@@ -63,7 +46,7 @@ class AddingContactEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set an Adding contact response mock.
         $response = new AddingContactResponse();
@@ -72,5 +55,22 @@ class AddingContactEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new AddingContactEvent($this->addingContact);
+
+        $this->assertEquals(WBWSMSModeEvents::ADDING_CONTACT, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->addingContact, $obj->getAddingContact());
     }
 }

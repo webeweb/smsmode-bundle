@@ -36,27 +36,27 @@ class SendingUnicodeSMSEvent extends AbstractEvent {
     /**
      * Get the sending unicode SMS request.
      *
-     * @return SendingUnicodeSMSRequest Returns the sending unicode SMS request.
+     * @return SendingUnicodeSMSRequest|null Returns the sending unicode SMS request.
      */
-    public function getRequest() {
+    public function getRequest(): ?SendingUnicodeSMSRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the sending unicode SMS response.
      *
-     * @return SendingUnicodeSMSResponse Returns the sending unicode SMS response.
+     * @return SendingUnicodeSMSResponse|null Returns the sending unicode SMS response.
      */
-    public function getResponse() {
+    public function getResponse(): ?SendingUnicodeSMSResponse {
         return parent::getResponse();
     }
 
     /**
      * Get the sending unicode SMS.
      *
-     * @return SendingUnicodeSMSInterface Returns the sending unicode SMS.
+     * @return SendingUnicodeSMSInterface|null Returns the sending unicode SMS.
      */
-    public function getSendingUnicodeSMS() {
+    public function getSendingUnicodeSMS(): ?SendingUnicodeSMSInterface {
         return $this->getEntity();
     }
 }

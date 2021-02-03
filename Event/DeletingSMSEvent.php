@@ -36,27 +36,27 @@ class DeletingSMSEvent extends AbstractEvent {
     /**
      * Get the deleting SMS.
      *
-     * @return DeletingSMSInterface Returns the deleting SMS.
+     * @return DeletingSMSInterface|null Returns the deleting SMS.
      */
-    public function getDeletingSMS() {
+    public function getDeletingSMS(): ?DeletingSMSInterface {
         return $this->getEntity();
     }
 
     /**
      * Get the deleting SMS request.
      *
-     * @return DeletingSMSRequest Returns the deleting SMS request.
+     * @return DeletingSMSRequest|null Returns the deleting SMS request.
      */
-    public function getRequest() {
+    public function getRequest(): ?DeletingSMSRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the deleting SMS response.
      *
-     * @return DeletingSMSResponse Returns the deleting SMS response.
+     * @return DeletingSMSResponse|null Returns the deleting SMS response.
      */
-    public function getResponse() {
+    public function getResponse(): ?DeletingSMSResponse {
         return parent::getResponse();
     }
 }

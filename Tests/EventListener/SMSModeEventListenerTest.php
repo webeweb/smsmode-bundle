@@ -79,7 +79,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     /**
      * {@inheritdoc}
      */
-    protected function setUp() {
+    protected function setUp(): void {
         parent::setUp();
 
         // Set a sMsmode event listener.
@@ -89,27 +89,12 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $this->assertEquals("sMsmode configuration is missing in your app/config/config.yml.\nPlease, add smsmode.accesss_token or smsmode.pseudo and smsmode.pass", SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE);
-        $this->assertEquals("wbw.smsmode.event_listener", SMSModeEventListener::SERVICE_NAME);
-
-        $obj = new SMSModeEventListener($this->logger);
-
-        $this->assertNotNull($obj->getApiProvider());
-    }
-
-    /**
      * Tests the onAccountBalance() method.
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnAccountBalance() {
+    public function testOnAccountBalance(): void {
 
         // Set an Account balance event mock.
         $accountBalanceEvent = new AccountBalanceEvent();
@@ -129,7 +114,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnAccountBalanceWithRuntimeException() {
+    public function testOnAccountBalanceWithRuntimeException(): void {
 
         // Set an Account balance event mock.
         $accountBalanceEvent = new AccountBalanceEvent();
@@ -152,7 +137,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnAddingContact() {
+    public function testOnAddingContact(): void {
 
         // Set an Adding contact event mock.
         $addingContactEvent = new AddingContactEvent($this->addingContact);
@@ -172,7 +157,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnAddingContactWithRuntimeException() {
+    public function testOnAddingContactWithRuntimeException(): void {
 
         // Set an Adding contact event mock.
         $addingContactEvent = new AddingContactEvent($this->addingContact);
@@ -195,7 +180,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCheckingSMSMessageStatus() {
+    public function testOnCheckingSMSMessageStatus(): void {
 
         // Set a Checking SMS message status event mock.
         $checkingSMSMessageStatusEvent = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
@@ -215,7 +200,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCheckingSMSMessageStatusWithRuntimeException() {
+    public function testOnCheckingSMSMessageStatusWithRuntimeException(): void {
 
         // Set an Checking SMS message status event mock.
         $checkingSMSMessageStatusEvent = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
@@ -238,7 +223,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCreatingAPIKey() {
+    public function testOnCreatingAPIKey(): void {
 
         // Set a Creating API key event mock.
         $creatingAPIKeyEvent = new CreatingAPIKeyEvent();
@@ -258,7 +243,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCreatingAPIKeyWithRuntimeException() {
+    public function testOnCreatingAPIKeyWithRuntimeException(): void {
 
         // Set a Creating API key event mock.
         $creatingAPIKeyEvent = new CreatingAPIKeyEvent();
@@ -281,7 +266,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCreatingSubAccount() {
+    public function testOnCreatingSubAccount(): void {
 
         // Set a Creating sub-account event mock.
         $creatingSubAccountEvent = new CreatingSubAccountEvent($this->creatingSubAccount);
@@ -301,7 +286,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCreatingSubAccountWithRuntimeException() {
+    public function testOnCreatingSubAccountWithRuntimeException(): void {
 
         // Set a Creating sub-account event mock.
         $creatingSubAccountEvent = new CreatingSubAccountEvent($this->creatingSubAccount);
@@ -324,7 +309,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnDeletingSMS() {
+    public function testOnDeletingSMS(): void {
 
         // Set a Deleting SMS event mock.
         $deletingSMSEvent = new DeletingSMSEvent($this->deletingSMS);
@@ -344,7 +329,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnDeletingSMSWithRuntimeException() {
+    public function testOnDeletingSMSWithRuntimeException(): void {
 
         // Set a Deleting SMS event mock.
         $deletingSMSEvent = new DeletingSMSEvent($this->deletingSMS);
@@ -785,5 +770,20 @@ class SMSModeEventListenerTest extends AbstractTestCase {
 
         $obj->setPseudo("pseudo");
         $this->assertEquals("pseudo", $obj->getApiProvider()->getAuthentication()->getPseudo());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $this->assertEquals("sMsmode configuration is missing in your app/config/config.yml.\nPlease, add smsmode.accesss_token or smsmode.pseudo and smsmode.pass", SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE);
+        $this->assertEquals("wbw.smsmode.event_listener", SMSModeEventListener::SERVICE_NAME);
+
+        $obj = new SMSModeEventListener($this->logger);
+
+        $this->assertNotNull($obj->getApiProvider());
     }
 }

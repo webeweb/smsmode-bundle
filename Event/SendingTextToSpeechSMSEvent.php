@@ -36,27 +36,27 @@ class SendingTextToSpeechSMSEvent extends AbstractEvent {
     /**
      * Get the sending text-to-speech SMS request.
      *
-     * @return SendingTextToSpeechSMSRequest Returns the sending text-to-speech SMS request.
+     * @return SendingTextToSpeechSMSRequest|null Returns the sending text-to-speech SMS request.
      */
-    public function getRequest() {
+    public function getRequest(): ?SendingTextToSpeechSMSRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the sending text-to-speech SMS response.
      *
-     * @return SendingTextToSpeechSMSResponse Returns the sending text-to-speech SMS response.
+     * @return SendingTextToSpeechSMSResponse|null Returns the sending text-to-speech SMS response.
      */
-    public function getResponse() {
+    public function getResponse(): ?SendingTextToSpeechSMSResponse {
         return parent::getResponse();
     }
 
     /**
      * Get the sending text-to-speech SMS.
      *
-     * @return SendingTextToSpeechSMSInterface Returns the sending text-to-speech SMS.
+     * @return SendingTextToSpeechSMSInterface|null Returns the sending text-to-speech SMS.
      */
-    public function getSendingTextToSpeechSMS() {
+    public function getSendingTextToSpeechSMS(): ?SendingTextToSpeechSMSInterface {
         return $this->getEntity();
     }
 }

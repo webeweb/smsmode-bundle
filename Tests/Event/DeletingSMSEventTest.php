@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
 class DeletingSMSEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new DeletingSMSEvent($this->deletingSMS);
-
-        $this->assertEquals(WBWSMSModeEvents::DELETING_SMS, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->deletingSMS, $obj->getDeletingSMS());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Deleting SMS request mock.
         $request = new DeletingSMSRequest();
@@ -63,7 +46,7 @@ class DeletingSMSEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Deleting SMS response mock.
         $response = new DeletingSMSResponse();
@@ -72,5 +55,22 @@ class DeletingSMSEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new DeletingSMSEvent($this->deletingSMS);
+
+        $this->assertEquals(WBWSMSModeEvents::DELETING_SMS, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->deletingSMS, $obj->getDeletingSMS());
     }
 }

@@ -45,7 +45,7 @@ class DeliveryReportCallbackEvent extends BaseEvent {
      *
      * @return DeliveryReportCallback Returns the delivery report.
      */
-    public function getDeliveryReportCallback() {
+    public function getDeliveryReportCallback(): DeliveryReportCallback {
         return $this->deliveryReportCallback;
     }
 
@@ -55,7 +55,7 @@ class DeliveryReportCallbackEvent extends BaseEvent {
      * @param DeliveryReportCallback $deliveryReportCallback The delivery report.
      * @return DeliveryReportCallbackEvent Returns this delivery report callback event.
      */
-    protected function setDeliveryReportCallback($deliveryReportCallback) {
+    protected function setDeliveryReportCallback(DeliveryReportCallback $deliveryReportCallback): DeliveryReportCallbackEvent {
         $this->deliveryReportCallback = $deliveryReportCallback;
         return $this;
     }

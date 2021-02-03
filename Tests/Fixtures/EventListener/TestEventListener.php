@@ -28,7 +28,7 @@ class TestEventListener {
      * @param DeliveryReportCallbackEvent $event The event.
      * @return DeliveryReportCallbackEvent Returns the event.
      */
-    public function onDeliveryReportCallback(DeliveryReportCallbackEvent $event) {
+    public function onDeliveryReportCallback(DeliveryReportCallbackEvent $event): DeliveryReportCallbackEvent {
         return $event;
     }
 
@@ -38,7 +38,7 @@ class TestEventListener {
      * @param SMSReplyCallbackEvent $event The event.
      * @return SMSReplyCallbackEvent Returns the event.
      */
-    public function onSMSReplyCallback(SMSReplyCallbackEvent $event) {
+    public function onSMSReplyCallback(SMSReplyCallbackEvent $event): SMSReplyCallbackEvent {
         return $event;
     }
 }

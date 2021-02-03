@@ -14,8 +14,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
 use WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event\TestEvent;
 use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
-use WBW\Library\SMSMode\Model\AbstractRequest;
-use WBW\Library\SMSMode\Model\AbstractResponse;
+use WBW\Library\SMSMode\Model\Request\AccountBalanceRequest;
+use WBW\Library\SMSMode\Model\Response\AccountBalanceResponse;
 
 /**
  * Abstract event test.
@@ -35,7 +35,7 @@ class AbstractEventTest extends AbstractTestCase {
     /**
      * {inheritdoc}
      */
-    protected function setUp() {
+    protected function setUp(): void {
         parent::setUp();
 
         // Set a sMsmode entity mock.
@@ -43,29 +43,14 @@ class AbstractEventTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new TestEvent("eventName", $this->entity);
-
-        $this->assertEquals("eventName", $obj->getEventName());
-        $this->assertSame($this->entity, $obj->getEntity());
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Request mock.
-        $request = $this->getMockBuilder(AbstractRequest::class)->getMock();
+        $request = new AccountBalanceRequest();
 
         $obj = new TestEvent("eventName", $this->entity);
 
@@ -78,14 +63,29 @@ class AbstractEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Response mock.
-        $response = $this->getMockBuilder(AbstractResponse::class)->getMock();
+        $response = new AccountBalanceResponse();
 
         $obj = new TestEvent("eventName", $this->entity);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new TestEvent("eventName", $this->entity);
+
+        $this->assertEquals("eventName", $obj->getEventName());
+        $this->assertSame($this->entity, $obj->getEntity());
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
     }
 }

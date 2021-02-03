@@ -45,7 +45,7 @@ class SMSReplyCallbackEvent extends BaseEvent {
      *
      * @return SMSReplyCallback Returns the SMS reply callback.
      */
-    public function getSMSReplyCallback() {
+    public function getSMSReplyCallback(): SMSReplyCallback {
         return $this->smsReplyCallback;
     }
 
@@ -55,7 +55,7 @@ class SMSReplyCallbackEvent extends BaseEvent {
      * @param SMSReplyCallback $smsReplyCallback The SMS reply callback.
      * @return SMSReplyCallbackEvent Returns this SMS reply callback event.
      */
-    public function setSMSReplyCallback($smsReplyCallback) {
+    public function setSMSReplyCallback(SMSReplyCallback $smsReplyCallback): SMSReplyCallbackEvent {
         $this->smsReplyCallback = $smsReplyCallback;
         return $this;
     }

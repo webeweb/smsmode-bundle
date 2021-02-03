@@ -26,26 +26,11 @@ use WBW\Library\SMSMode\Model\Response\CreatingAPIKeyResponse;
 class CreatingAPIKeyEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new CreatingAPIKeyEvent();
-
-        $this->assertEquals(WBWSMSModeEvents::CREATING_API_KEY, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set an Creating API key request mock.
         $request = new CreatingAPIKeyRequest();
@@ -61,7 +46,7 @@ class CreatingAPIKeyEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set an Creating API key response mock.
         $response = new CreatingAPIKeyResponse();
@@ -70,5 +55,20 @@ class CreatingAPIKeyEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new CreatingAPIKeyEvent();
+
+        $this->assertEquals(WBWSMSModeEvents::CREATING_API_KEY, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
     }
 }

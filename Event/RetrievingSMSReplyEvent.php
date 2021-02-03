@@ -36,27 +36,27 @@ class RetrievingSMSReplyEvent extends AbstractEvent {
     /**
      * Get the retrieving SMS reply request.
      *
-     * @return RetrievingSMSReplyRequest Returns the retrieving SMS reply request.
+     * @return RetrievingSMSReplyRequest|null Returns the retrieving SMS reply request.
      */
-    public function getRequest() {
+    public function getRequest(): ?RetrievingSMSReplyRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the retrieving SMS reply response.
      *
-     * @return RetrievingSMSReplyResponse Returns the retrieving SMS reply response.
+     * @return RetrievingSMSReplyResponse|null Returns the retrieving SMS reply response.
      */
-    public function getResponse() {
+    public function getResponse(): ?RetrievingSMSReplyResponse {
         return parent::getResponse();
     }
 
     /**
      * Get the retrieving SMS reply.
      *
-     * @return RetrievingSMSReplyInterface Returns the retrieving SMS reply.
+     * @return RetrievingSMSReplyInterface|null Returns the retrieving SMS reply.
      */
-    public function getRetrievingSMSReply() {
+    public function getRetrievingSMSReply(): ?RetrievingSMSReplyInterface {
         return $this->getEntity();
     }
 }

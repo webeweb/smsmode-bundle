@@ -36,27 +36,27 @@ class DeliveryReportEvent extends AbstractEvent {
     /**
      * Get the delivery report.
      *
-     * @return DeliveryReportInterface Returns the delivery report.
+     * @return DeliveryReportInterface|null Returns the delivery report.
      */
-    public function getDeliveryReport() {
+    public function getDeliveryReport(): ?DeliveryReportInterface {
         return $this->getEntity();
     }
 
     /**
      * Get the delivery report request.
      *
-     * @return DeliveryReportRequest Returns the delivery report request.
+     * @return DeliveryReportRequest|null Returns the delivery report request.
      */
-    public function getRequest() {
+    public function getRequest(): ?DeliveryReportRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the delivery report response.
      *
-     * @return DeliveryReportResponse Returns the delivery report response.
+     * @return DeliveryReportResponse|null Returns the delivery report response.
      */
-    public function getResponse() {
+    public function getResponse(): ?DeliveryReportResponse {
         return parent::getResponse();
     }
 }

@@ -28,31 +28,31 @@ abstract class AbstractEvent extends BaseEvent {
     /**
      * Entity.
      *
-     * @var SMSModeEntityInterface
+     * @var SMSModeEntityInterface|null
      */
     private $entity;
 
     /**
      * Request.
      *
-     * @var AbstractRequest
+     * @var AbstractRequest|null
      */
     private $request;
 
     /**
      * Response.
      *
-     * @var AbstractResponse
+     * @var AbstractResponse|null
      */
     private $response;
 
     /**
      * Constructor.
      *
-     * @param string $eventName The event name.
+     * @param string|null $eventName The event name.
      * @param SMSModeEntityInterface|null $entity The entity.
      */
-    protected function __construct($eventName, SMSModeEntityInterface $entity = null) {
+    protected function __construct(string $eventName, ?SMSModeEntityInterface $entity) {
         parent::__construct($eventName);
         $this->setEntity($entity);
     }
@@ -60,16 +60,16 @@ abstract class AbstractEvent extends BaseEvent {
     /**
      * Get the entity.
      *
-     * @return SMSModeEntityInterface Returns the entity.
+     * @return SMSModeEntityInterface|null Returns the entity.
      */
-    protected function getEntity() {
+    protected function getEntity(): ?SMSModeEntityInterface {
         return $this->entity;
     }
 
     /**
      * Get the request.
      *
-     * @return AbstractRequest Returns the request.
+     * @return AbstractRequest|null Returns the request.
      */
     protected function getRequest() {
         return $this->request;
@@ -78,7 +78,7 @@ abstract class AbstractEvent extends BaseEvent {
     /**
      * Get the response.
      *
-     * @return AbstractResponse Returns the response.
+     * @return AbstractResponse|null Returns the response.
      */
     protected function getResponse() {
         return $this->response;
@@ -90,7 +90,7 @@ abstract class AbstractEvent extends BaseEvent {
      * @param SMSModeEntityInterface|null $entity The entity.
      * @return AbstractEvent Returns this sMsmode event.
      */
-    protected function setEntity(SMSModeEntityInterface $entity = null) {
+    protected function setEntity(?SMSModeEntityInterface $entity): AbstractEvent {
         $this->entity = $entity;
         return $this;
     }
@@ -98,10 +98,10 @@ abstract class AbstractEvent extends BaseEvent {
     /**
      * Set the request.
      *
-     * @param AbstractRequest $request The request.
+     * @param AbstractRequest|null $request The request.
      * @return AbstractEvent Returns this sMsmode event.
      */
-    public function setRequest(AbstractRequest $request) {
+    public function setRequest(?AbstractRequest $request): AbstractEvent {
         $this->request = $request;
         return $this;
     }
@@ -109,10 +109,10 @@ abstract class AbstractEvent extends BaseEvent {
     /**
      * Set the response.
      *
-     * @param AbstractResponse $response The response.
+     * @param AbstractResponse|null $response The response.
      * @return AbstractEvent Returns this sMsmode event.
      */
-    public function setResponse(AbstractResponse $response) {
+    public function setResponse(?AbstractResponse $response): AbstractEvent {
         $this->response = $response;
         return $this;
     }

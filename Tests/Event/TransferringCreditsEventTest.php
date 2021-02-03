@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\TransferringCreditsResponse;
 class TransferringCreditsEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new TransferringCreditsEvent($this->transferringCredits);
-
-        $this->assertEquals(WBWSMSModeEvents::TRANSFERRING_CREDITS, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->transferringCredits, $obj->getTransferringCredits());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Transferring credits request mock.
         $request = new TransferringCreditsRequest();
@@ -63,7 +46,7 @@ class TransferringCreditsEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Transferring credits response mock.
         $response = new TransferringCreditsResponse();
@@ -72,5 +55,22 @@ class TransferringCreditsEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new TransferringCreditsEvent($this->transferringCredits);
+
+        $this->assertEquals(WBWSMSModeEvents::TRANSFERRING_CREDITS, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->transferringCredits, $obj->getTransferringCredits());
     }
 }

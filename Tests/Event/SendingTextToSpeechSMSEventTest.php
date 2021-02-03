@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
 class SendingTextToSpeechSMSEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
-
-        $this->assertEquals(WBWSMSModeEvents::SENDING_TEXT_TO_SPEECH_SMS, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->sendingTextToSpeechSMS, $obj->getSendingTextToSpeechSMS());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Sending text-to-speech SMS request mock.
         $request = new SendingTextToSpeechSMSRequest();
@@ -63,7 +46,7 @@ class SendingTextToSpeechSMSEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Sending text-to-speech SMS response mock.
         $response = new SendingTextToSpeechSMSResponse();
@@ -72,5 +55,22 @@ class SendingTextToSpeechSMSEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
+
+        $this->assertEquals(WBWSMSModeEvents::SENDING_TEXT_TO_SPEECH_SMS, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->sendingTextToSpeechSMS, $obj->getSendingTextToSpeechSMS());
     }
 }

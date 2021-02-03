@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\SendingSMSMessageResponse;
 class SendingSMSMessageEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new SendingSMSMessageEvent($this->sendingSMSMessage);
-
-        $this->assertEquals(WBWSMSModeEvents::SENDING_SMS_MESSAGE, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->sendingSMSMessage, $obj->getSendingSMSMessage());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Sending SMS message request mock.
         $request = new SendingSMSMessageRequest();
@@ -63,7 +46,7 @@ class SendingSMSMessageEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Sending SMS message response mock.
         $response = new SendingSMSMessageResponse();
@@ -72,5 +55,22 @@ class SendingSMSMessageEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new SendingSMSMessageEvent($this->sendingSMSMessage);
+
+        $this->assertEquals(WBWSMSModeEvents::SENDING_SMS_MESSAGE, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->sendingSMSMessage, $obj->getSendingSMSMessage());
     }
 }

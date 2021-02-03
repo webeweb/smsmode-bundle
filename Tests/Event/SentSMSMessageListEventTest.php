@@ -23,31 +23,14 @@ use WBW\Library\SMSMode\Model\Response\SentSMSMessageListResponse;
  * @author webeweb <https://github.com/webeweb/>
  * @package WBW\Bundle\SMSModeBundle\Tests\Event
  */
-class SentSMSMessageListEventEventTest extends AbstractTestCase {
-
-    /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new SentSMSMessageListEvent($this->sentSMSMessageList);
-
-        $this->assertEquals(WBWSMSModeEvents::SENT_SMS_MESSAGE_LIST, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->sentSMSMessageList, $obj->getSentSMSMessageList());
-    }
+class SentSMSMessageListEventTest extends AbstractTestCase {
 
     /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Sent SMS message list request mock.
         $request = new SentSMSMessageListRequest();
@@ -63,7 +46,7 @@ class SentSMSMessageListEventEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Sent SMS message list response mock.
         $response = new SentSMSMessageListResponse();
@@ -72,5 +55,22 @@ class SentSMSMessageListEventEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new SentSMSMessageListEvent($this->sentSMSMessageList);
+
+        $this->assertEquals(WBWSMSModeEvents::SENT_SMS_MESSAGE_LIST, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->sentSMSMessageList, $obj->getSentSMSMessageList());
     }
 }

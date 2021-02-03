@@ -36,27 +36,27 @@ class AddingContactEvent extends AbstractEvent {
     /**
      * Get the adding contact.
      *
-     * @return AddingContactInterface Returns the adding contact.
+     * @return AddingContactInterface|null Returns the adding contact.
      */
-    public function getAddingContact() {
+    public function getAddingContact(): ?AddingContactInterface {
         return $this->getEntity();
     }
 
     /**
      * Get the adding contact request.
      *
-     * @return AddingContactRequest Returns the adding contact request.
+     * @return AddingContactRequest|null Returns the adding contact request.
      */
-    public function getRequest() {
+    public function getRequest(): ?AddingContactRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the adding contact response.
      *
-     * @return AddingContactResponse Returns the adding contact response.
+     * @return AddingContactResponse|null Returns the adding contact response.
      */
-    public function getResponse() {
+    public function getResponse(): ?AddingContactResponse {
         return parent::getResponse();
     }
 }

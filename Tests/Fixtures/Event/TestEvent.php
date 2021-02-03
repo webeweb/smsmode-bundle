@@ -27,49 +27,49 @@ class TestEvent extends AbstractEvent {
     /**
      * {@inheritdoc}
      */
-    public function __construct($eventName, SMSModeEntityInterface $entity = null) {
+    public function __construct(string $eventName, ?SMSModeEntityInterface $entity) {
         parent::__construct($eventName, $entity);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getEntity() {
+    public function getEntity(): ?SMSModeEntityInterface {
         return parent::getEntity();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getRequest() {
+    public function getRequest(): ?AbstractRequest {
         return parent::getRequest();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getResponse() {
+    public function getResponse(): ?AbstractResponse {
         return parent::getResponse();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setEntity(SMSModeEntityInterface $entity = null) {
+    public function setEntity(?SMSModeEntityInterface $entity): AbstractEvent {
         return parent::setEntity($entity);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setRequest(AbstractRequest $request) {
+    public function setRequest(?AbstractRequest $request): AbstractEvent {
         return parent::setRequest($request);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setResponse(AbstractResponse $response) {
+    public function setResponse(?AbstractResponse $response): AbstractEvent {
         return parent::setResponse($response);
     }
 }

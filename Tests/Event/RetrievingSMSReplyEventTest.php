@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\RetrievingSMSReplyResponse;
 class RetrievingSMSReplyEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new RetrievingSMSReplyEvent($this->retrievingSMSReply);
-
-        $this->assertEquals(WBWSMSModeEvents::RETRIEVING_SMS_REPLY, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->retrievingSMSReply, $obj->getRetrievingSMSReply());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Retrieving SMS reply request mock.
         $request = new RetrievingSMSReplyRequest();
@@ -63,7 +46,7 @@ class RetrievingSMSReplyEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Retrieving SMS reply response mock.
         $response = new RetrievingSMSReplyResponse();
@@ -72,5 +55,22 @@ class RetrievingSMSReplyEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new RetrievingSMSReplyEvent($this->retrievingSMSReply);
+
+        $this->assertEquals(WBWSMSModeEvents::RETRIEVING_SMS_REPLY, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->retrievingSMSReply, $obj->getRetrievingSMSReply());
     }
 }

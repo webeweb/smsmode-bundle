@@ -32,7 +32,7 @@ abstract class AbstractController extends BaseController {
      * @param Request $request The request.
      * @return DeliveryReportCallback Returns the delivery report callback.
      */
-    protected function newDeliveryReportCallback(Request $request) {
+    protected function newDeliveryReportCallback(Request $request): DeliveryReportCallback {
 
         $dateReception = DateTime::createFromFormat("Y-m-d H:i:s", $request->query->get(DeliveryReportCallback::PARAMETER_DATE_RECEPTION));
 
@@ -53,7 +53,7 @@ abstract class AbstractController extends BaseController {
      * @param Request $request The request.
      * @return SMSReplyCallback Returns the SMS reply callback.
      */
-    protected function newSMSReplyCallback(Request $request) {
+    protected function newSMSReplyCallback(Request $request): SMSReplyCallback {
 
         $dateReception = DateTime::createFromFormat("dmY-His", $request->query->get(SMSReplyCallback::PARAMETER_DATE_RECEPTION));
 

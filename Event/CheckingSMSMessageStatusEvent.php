@@ -36,27 +36,27 @@ class CheckingSMSMessageStatusEvent extends AbstractEvent {
     /**
      * Get the checking SMS message status.
      *
-     * @return CheckingSMSMessageStatusInterface Returns the checking SMS message status.
+     * @return CheckingSMSMessageStatusInterface|null Returns the checking SMS message status.
      */
-    public function getCheckingSMSMessageStatus() {
+    public function getCheckingSMSMessageStatus(): ?CheckingSMSMessageStatusInterface {
         return $this->getEntity();
     }
 
     /**
      * Get the checking SMS message status request.
      *
-     * @return CheckingSMSMessageStatusRequest Returns the checking SMS message status request.
+     * @return CheckingSMSMessageStatusRequest|null Returns the checking SMS message status request.
      */
-    public function getRequest() {
+    public function getRequest(): ?CheckingSMSMessageStatusRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the checking SMS message status response.
      *
-     * @return CheckingSMSMessageStatusResponse Returns the checking SMS message status response.
+     * @return CheckingSMSMessageStatusResponse|null Returns the checking SMS message status response.
      */
-    public function getResponse() {
+    public function getResponse(): ?CheckingSMSMessageStatusResponse {
         return parent::getResponse();
     }
 }

@@ -36,27 +36,27 @@ class TransferringCreditsEvent extends AbstractEvent {
     /**
      * Get the transferring credits request.
      *
-     * @return TransferringCreditsRequest Returns the transferring credits request.
+     * @return TransferringCreditsRequest|null Returns the transferring credits request.
      */
-    public function getRequest() {
+    public function getRequest(): ?TransferringCreditsRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the transferring credits response.
      *
-     * @return TransferringCreditsResponse Returns the transferring credits response.
+     * @return TransferringCreditsResponse|null Returns the transferring credits response.
      */
-    public function getResponse() {
+    public function getResponse(): ?TransferringCreditsResponse {
         return parent::getResponse();
     }
 
     /**
      * Get the transferring credits.
      *
-     * @return TransferringCreditsInterface Returns the transferring credits.
+     * @return TransferringCreditsInterface|null Returns the transferring credits.
      */
-    public function getTransferringCredits() {
+    public function getTransferringCredits(): ?TransferringCreditsInterface {
         return $this->getEntity();
     }
 }

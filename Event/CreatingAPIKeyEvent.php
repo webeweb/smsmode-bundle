@@ -33,18 +33,18 @@ class CreatingAPIKeyEvent extends AbstractEvent {
     /**
      * Get the creating API key request.
      *
-     * @return CreatingAPIKeyRequest Returns the creating API key request.
+     * @return CreatingAPIKeyRequest|null Returns the creating API key request.
      */
-    public function getRequest() {
+    public function getRequest(): ?CreatingAPIKeyRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the creating API key response.
      *
-     * @return CreatingAPIKeyResponse Returns the creating API key response.
+     * @return CreatingAPIKeyResponse|null Returns the creating API key response.
      */
-    public function getResponse() {
+    public function getResponse(): ?CreatingAPIKeyResponse {
         return parent::getResponse();
     }
 }

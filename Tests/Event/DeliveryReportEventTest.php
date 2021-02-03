@@ -26,28 +26,11 @@ use WBW\Library\SMSMode\Model\Response\DeliveryReportResponse;
 class DeliveryReportEventTest extends AbstractTestCase {
 
     /**
-     * Tests the __construct() method.
-     *
-     * @return void
-     */
-    public function test__construct() {
-
-        $obj = new DeliveryReportEvent($this->deliveryReport);
-
-        $this->assertEquals(WBWSMSModeEvents::DELIVERY_REPORT, $obj->getEventName());
-
-        $this->assertNull($obj->getRequest());
-        $this->assertNull($obj->getResponse());
-
-        $this->assertSame($this->deliveryReport, $obj->getDeliveryReport());
-    }
-
-    /**
      * Tests the setRequest() method.
      *
      * @return void
      */
-    public function testSetRequest() {
+    public function testSetRequest(): void {
 
         // Set a Delivery report request mock.
         $request = new DeliveryReportRequest();
@@ -63,7 +46,7 @@ class DeliveryReportEventTest extends AbstractTestCase {
      *
      * @return void
      */
-    public function testSetResponse() {
+    public function testSetResponse(): void {
 
         // Set a Delivery report response mock.
         $response = new DeliveryReportResponse();
@@ -72,5 +55,22 @@ class DeliveryReportEventTest extends AbstractTestCase {
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
+    }
+
+    /**
+     * Tests the __construct() method.
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $obj = new DeliveryReportEvent($this->deliveryReport);
+
+        $this->assertEquals(WBWSMSModeEvents::DELIVERY_REPORT, $obj->getEventName());
+
+        $this->assertNull($obj->getRequest());
+        $this->assertNull($obj->getResponse());
+
+        $this->assertSame($this->deliveryReport, $obj->getDeliveryReport());
     }
 }

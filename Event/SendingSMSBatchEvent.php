@@ -36,27 +36,27 @@ class SendingSMSBatchEvent extends AbstractEvent {
     /**
      * Get the sending SMS batch request.
      *
-     * @return SendingSMSBatchRequest Returns the sending SMS batch request.
+     * @return SendingSMSBatchRequest|null Returns the sending SMS batch request.
      */
-    public function getRequest() {
+    public function getRequest(): ?SendingSMSBatchRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the sending SMS batch response.
      *
-     * @return SendingSMSBatchResponse Returns the sending SMS batch response.
+     * @return SendingSMSBatchResponse|null Returns the sending SMS batch response.
      */
-    public function getResponse() {
+    public function getResponse(): ?SendingSMSBatchResponse {
         return parent::getResponse();
     }
 
     /**
      * Get the sending SMS batch.
      *
-     * @return SendingSMSBatchInterface Returns the sending SMS batch.
+     * @return SendingSMSBatchInterface|null Returns the sending SMS batch.
      */
-    public function getSendingSMSBatch() {
+    public function getSendingSMSBatch(): ?SendingSMSBatchInterface {
         return $this->getEntity();
     }
 }
