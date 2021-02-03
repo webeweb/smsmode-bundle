@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### [1.7.1](https://github.com/webeweb/smsmode-bundle/tree/v1.7.1) (2021-02-03)
+
+- Minor fix
+
 ### [1.7.0](https://github.com/webeweb/smsmode-bundle/tree/v1.7.0) (2021-02-03)
 
 > IMPORTANT NOTICE: The following Symfony versions are now not supported
