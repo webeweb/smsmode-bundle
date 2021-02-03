@@ -1,8 +1,8 @@
 smsmode-bundle
 ==============
 
-[![Build Status](https://img.shields.io/travis/com/webeweb/smsmode-bundle/master.svg?style=flat-square)](https://travis-ci.com/webeweb/smsmode-bundle)
-[![Coverage Status](https://img.shields.io/coveralls/webeweb/smsmode-bundle/master.svg?style=flat-square)](https://coveralls.io/github/webeweb/smsmode-bundle?branch=master)
+[![Build Status](https://img.shields.io/github/workflow/status/webeweb/smsmode-bundle/build?style=flat-square)](https://github.com/webeweb/smsmode-bundle/actions)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/webeweb/smsmode-bundle/master.svg?style=flat-square)](https://coveralls.io/github/webeweb/smsmode-bundle?branch=master)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/quality/g/webeweb/smsmode-bundle/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/webeweb/smsmode-bundle/?branch=master)
 [![Latest Stable Version](https://img.shields.io/packagist/v/webeweb/smsmode-bundle.svg?style=flat-square)](https://packagist.org/packages/webeweb/smsmode-bundle)
 [![Latest Unstable Version](https://img.shields.io/packagist/vpre/webeweb/smsmode-bundle.svg?style=flat-square)](https://packagist.org/packages/webeweb/smsmode-bundle)
