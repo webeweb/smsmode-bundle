@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle;
 
+use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use WBW\Bundle\SMSModeBundle\DependencyInjection\WBWSMSModeExtension;
 
@@ -25,7 +26,7 @@ class WBWSMSModeBundle extends Bundle {
     /**
      * {@inheritDoc}
      */
-    public function getContainerExtension() {
+    public function getContainerExtension(): Extension {
         return new WBWSMSModeExtension();
     }
 }
