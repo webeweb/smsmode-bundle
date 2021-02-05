@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### [1.7.2](https://github.com/webeweb/smsmode-bundle/tree/v1.7.2) (2021-02-05)
+
+- Replace Class:: by static::
+
 ### [1.7.1](https://github.com/webeweb/smsmode-bundle/tree/v1.7.1) (2021-02-03)
 
 - Minor fix
