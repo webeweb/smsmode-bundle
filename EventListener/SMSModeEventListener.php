@@ -99,7 +99,7 @@ EOT;
             $requestNormalizer->serialize($authentication);
         } catch (InvalidArgumentException $ex) {
 
-            throw new RuntimeException(self::RUNTIME_EXCEPTION_MESSAGE, 500, $ex);
+            throw new RuntimeException(static::RUNTIME_EXCEPTION_MESSAGE, 500, $ex);
         }
     }
 
