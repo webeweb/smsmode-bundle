@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### master
+
+- Improve unit tests
+
 ### [1.7.3](https://github.com/webeweb/smsmode-bundle/tree/v1.7.3) (2021-03-01)
 
 - Improve code quality
