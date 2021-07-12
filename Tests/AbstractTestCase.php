@@ -145,7 +145,7 @@ abstract class AbstractTestCase extends TestCase {
         parent::setUp();
 
         // Set a Fichier mock.
-        $this->fichier = getcwd() . "/vendor/webeweb/smsmode-library/tests/Fixtures/Model/Request/SendingSMSBatchRequest.csv";
+        $this->fichier = realpath(__DIR__ . "/../vendor/webeweb/smsmode-library/tests/Fixtures/Model/Request/SendingSMSBatchRequest.csv");
 
         // Set an Adding contact mock.
         $this->addingContact = $this->getMockBuilder(AddingContactInterface::class)->getMock();
