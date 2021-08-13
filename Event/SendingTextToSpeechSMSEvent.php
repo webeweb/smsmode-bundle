@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\SendingTextToSpeechSMSInterface;
 use WBW\Library\SMSMode\Model\Request\SendingTextToSpeechSMSRequest;
 use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
@@ -25,12 +24,19 @@ use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
 class SendingTextToSpeechSMSEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.sending_text_to_speech_sms";
+
+    /**
      * Constructor.
      *
      * @param SendingTextToSpeechSMSInterface $sendingTextToSpeechSMS The sending text-to-speech SMS.
      */
     public function __construct(SendingTextToSpeechSMSInterface $sendingTextToSpeechSMS) {
-        parent::__construct(WBWSMSModeEvents::SENDING_TEXT_TO_SPEECH_SMS, $sendingTextToSpeechSMS);
+        parent::__construct(self::EVENT_NAME, $sendingTextToSpeechSMS);
     }
 
     /**

@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\DeletingSMSEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
 use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
 
@@ -64,9 +63,11 @@ class DeletingSMSEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.deleting_sms", DeletingSMSEvent::EVENT_NAME);
+
         $obj = new DeletingSMSEvent($this->deletingSMS);
 
-        $this->assertEquals(WBWSMSModeEvents::DELETING_SMS, $obj->getEventName());
+        $this->assertEquals(DeletingSMSEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

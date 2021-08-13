@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\SendingUnicodeSMSInterface;
 use WBW\Library\SMSMode\Model\Request\SendingUnicodeSMSRequest;
 use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
@@ -25,12 +24,19 @@ use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
 class SendingUnicodeSMSEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.sending_unicode_sms";
+
+    /**
      * Constructor.
      *
      * @param SendingUnicodeSMSInterface $sendingUnicodeSMS The sending unicode SMS.
      */
     public function __construct(SendingUnicodeSMSInterface $sendingUnicodeSMS) {
-        parent::__construct(WBWSMSModeEvents::SENDING_UNICODE_SMS, $sendingUnicodeSMS);
+        parent::__construct(self::EVENT_NAME, $sendingUnicodeSMS);
     }
 
     /**

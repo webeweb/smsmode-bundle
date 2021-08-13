@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\AddingContactInterface;
 use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
 use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
@@ -25,12 +24,19 @@ use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
 class AddingContactEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.adding_contact";
+
+    /**
      * Constructor.
      *
      * @param AddingContactInterface $addingContact The adding contact.
      */
     public function __construct(AddingContactInterface $addingContact) {
-        parent::__construct(WBWSMSModeEvents::ADDING_CONTACT, $addingContact);
+        parent::__construct(self::EVENT_NAME, $addingContact);
     }
 
     /**

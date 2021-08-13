@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\RetrievingSMSReplyEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\RetrievingSMSReplyRequest;
 use WBW\Library\SMSMode\Model\Response\RetrievingSMSReplyResponse;
 
@@ -64,9 +63,11 @@ class RetrievingSMSReplyEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.retrieving_sms_reply", RetrievingSMSReplyEvent::EVENT_NAME);
+
         $obj = new RetrievingSMSReplyEvent($this->retrievingSMSReply);
 
-        $this->assertEquals(WBWSMSModeEvents::RETRIEVING_SMS_REPLY, $obj->getEventName());
+        $this->assertEquals(RetrievingSMSReplyEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

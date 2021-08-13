@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\CheckingSMSMessageStatusInterface;
 use WBW\Library\SMSMode\Model\Request\CheckingSMSMessageStatusRequest;
 use WBW\Library\SMSMode\Model\Response\CheckingSMSMessageStatusResponse;
@@ -25,12 +24,19 @@ use WBW\Library\SMSMode\Model\Response\CheckingSMSMessageStatusResponse;
 class CheckingSMSMessageStatusEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.checking_sms_message_status";
+
+    /**
      * Constructor.
      *
      * @param CheckingSMSMessageStatusInterface $checkingSMSMessageStatus The checking SMS message status.
      */
     public function __construct(CheckingSMSMessageStatusInterface $checkingSMSMessageStatus) {
-        parent::__construct(WBWSMSModeEvents::CHECKING_SMS_MESSAGE_STATUS, $checkingSMSMessageStatus);
+        parent::__construct(self::EVENT_NAME, $checkingSMSMessageStatus);
     }
 
     /**

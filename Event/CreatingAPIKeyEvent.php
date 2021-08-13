@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\CreatingAPIKeyRequest;
 use WBW\Library\SMSMode\Model\Response\CreatingAPIKeyResponse;
 
@@ -24,10 +23,17 @@ use WBW\Library\SMSMode\Model\Response\CreatingAPIKeyResponse;
 class CreatingAPIKeyEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.creating_api_key";
+
+    /**
      * Constructor.
      */
     public function __construct() {
-        parent::__construct(WBWSMSModeEvents::CREATING_API_KEY, null);
+        parent::__construct(self::EVENT_NAME, null);
     }
 
     /**

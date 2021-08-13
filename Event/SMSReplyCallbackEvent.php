@@ -12,7 +12,6 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\CoreBundle\Event\AbstractEvent as BaseEvent;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\SMSReplyCallback;
 
 /**
@@ -22,6 +21,13 @@ use WBW\Library\SMSMode\Model\SMSReplyCallback;
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class SMSReplyCallbackEvent extends BaseEvent {
+
+    /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.sms_reply_callback";
 
     /**
      * SMS reply callback.
@@ -36,7 +42,7 @@ class SMSReplyCallbackEvent extends BaseEvent {
      * @param SMSReplyCallback $smsReplyCallback The SMS reply callback.
      */
     public function __construct(SMSReplyCallback $smsReplyCallback) {
-        parent::__construct(WBWSMSModeEvents::SMS_REPLY_CALLBACK);
+        parent::__construct(self::EVENT_NAME);
         $this->setSMSReplyCallback($smsReplyCallback);
     }
 

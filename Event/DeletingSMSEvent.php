@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\DeletingSMSInterface;
 use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
 use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
@@ -25,12 +24,19 @@ use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
 class DeletingSMSEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.deleting_sms";
+
+    /**
      * Constructor.
      *
      * @param DeletingSMSInterface $deletingSMS The deleting SMS.
      */
     public function __construct(DeletingSMSInterface $deletingSMS) {
-        parent::__construct(WBWSMSModeEvents::DELETING_SMS, $deletingSMS);
+        parent::__construct(self::EVENT_NAME, $deletingSMS);
     }
 
     /**

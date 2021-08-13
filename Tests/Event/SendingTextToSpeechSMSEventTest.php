@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\SendingTextToSpeechSMSRequest;
 use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
 
@@ -64,9 +63,11 @@ class SendingTextToSpeechSMSEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.sending_text_to_speech_sms", SendingTextToSpeechSMSEvent::EVENT_NAME);
+
         $obj = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
 
-        $this->assertEquals(WBWSMSModeEvents::SENDING_TEXT_TO_SPEECH_SMS, $obj->getEventName());
+        $this->assertEquals(SendingTextToSpeechSMSEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

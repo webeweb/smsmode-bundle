@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\DeletingSubAccountEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\DeletingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Response\DeletingSubAccountResponse;
 
@@ -64,9 +63,11 @@ class DeletingSubAccountEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.deleting_sub_account", DeletingSubAccountEvent::EVENT_NAME);
+
         $obj = new DeletingSubAccountEvent($this->deletingSubAccount);
 
-        $this->assertEquals(WBWSMSModeEvents::DELETING_SUB_ACCOUNT, $obj->getEventName());
+        $this->assertEquals(DeletingSubAccountEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

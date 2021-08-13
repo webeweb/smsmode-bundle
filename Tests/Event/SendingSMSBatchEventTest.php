@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SendingSMSBatchEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\SendingSMSBatchRequest;
 use WBW\Library\SMSMode\Model\Response\SendingSMSBatchResponse;
 
@@ -64,9 +63,11 @@ class SendingSMSBatchEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.sending_sms_batch", SendingSMSBatchEvent::EVENT_NAME);
+
         $obj = new SendingSMSBatchEvent($this->sendingSMSBatch);
 
-        $this->assertEquals(WBWSMSModeEvents::SENDING_SMS_BATCH, $obj->getEventName());
+        $this->assertEquals(SendingSMSBatchEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

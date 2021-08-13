@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\DeliveryReportInterface;
 use WBW\Library\SMSMode\Model\Request\DeliveryReportRequest;
 use WBW\Library\SMSMode\Model\Response\DeliveryReportResponse;
@@ -25,12 +24,19 @@ use WBW\Library\SMSMode\Model\Response\DeliveryReportResponse;
 class DeliveryReportEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.delivery_report";
+
+    /**
      * Constructor.
      *
      * @param DeliveryReportInterface $deliveryReport The delivery report.
      */
     public function __construct(DeliveryReportInterface $deliveryReport) {
-        parent::__construct(WBWSMSModeEvents::DELIVERY_REPORT, $deliveryReport);
+        parent::__construct(self::EVENT_NAME, $deliveryReport);
     }
 
     /**

@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SendingSMSMessageEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\SendingSMSMessageRequest;
 use WBW\Library\SMSMode\Model\Response\SendingSMSMessageResponse;
 
@@ -64,9 +63,11 @@ class SendingSMSMessageEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.sending_sms_message", SendingSMSMessageEvent::EVENT_NAME);
+
         $obj = new SendingSMSMessageEvent($this->sendingSMSMessage);
 
-        $this->assertEquals(WBWSMSModeEvents::SENDING_SMS_MESSAGE, $obj->getEventName());
+        $this->assertEquals(SendingSMSMessageEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

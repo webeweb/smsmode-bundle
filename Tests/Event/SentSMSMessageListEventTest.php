@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\SentSMSMessageListRequest;
 use WBW\Library\SMSMode\Model\Response\SentSMSMessageListResponse;
 
@@ -64,9 +63,11 @@ class SentSMSMessageListEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.sent_sms_message_list", SentSMSMessageListEvent::EVENT_NAME);
+
         $obj = new SentSMSMessageListEvent($this->sentSMSMessageList);
 
-        $this->assertEquals(WBWSMSModeEvents::SENT_SMS_MESSAGE_LIST, $obj->getEventName());
+        $this->assertEquals(SentSMSMessageListEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

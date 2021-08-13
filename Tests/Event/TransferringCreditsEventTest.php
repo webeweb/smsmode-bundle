@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
 use WBW\Library\SMSMode\Model\Response\TransferringCreditsResponse;
 
@@ -64,9 +63,11 @@ class TransferringCreditsEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.transferring_credits", TransferringCreditsEvent::EVENT_NAME);
+
         $obj = new TransferringCreditsEvent($this->transferringCredits);
 
-        $this->assertEquals(WBWSMSModeEvents::TRANSFERRING_CREDITS, $obj->getEventName());
+        $this->assertEquals(TransferringCreditsEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

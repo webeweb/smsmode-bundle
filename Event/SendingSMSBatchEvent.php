@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\SendingSMSBatchInterface;
 use WBW\Library\SMSMode\Model\Request\SendingSMSBatchRequest;
 use WBW\Library\SMSMode\Model\Response\SendingSMSBatchResponse;
@@ -25,12 +24,19 @@ use WBW\Library\SMSMode\Model\Response\SendingSMSBatchResponse;
 class SendingSMSBatchEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.sending_sms_batch";
+
+    /**
      * Constructor.
      *
      * @param SendingSMSBatchInterface $sendingSMSBatch The sending SMS batch.
      */
     public function __construct(SendingSMSBatchInterface $sendingSMSBatch) {
-        parent::__construct(WBWSMSModeEvents::SENDING_SMS_BATCH, $sendingSMSBatch);
+        parent::__construct(self::EVENT_NAME, $sendingSMSBatch);
     }
 
     /**

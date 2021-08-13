@@ -11,7 +11,6 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Entity\CreatingSubAccountInterface;
 use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
 use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
@@ -25,12 +24,19 @@ use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
 class CreatingSubAccountEvent extends AbstractEvent {
 
     /**
+     * Event name.
+     *
+     * @var string
+     */
+    const EVENT_NAME = "wbw.smsmode.event.creating_sub_account";
+
+    /**
      * Constructor.
      *
      * @param CreatingSubAccountInterface $creatingSubAccount The creating sub-account.
      */
     public function __construct(CreatingSubAccountInterface $creatingSubAccount) {
-        parent::__construct(WBWSMSModeEvents::CREATING_SUB_ACCOUNT, $creatingSubAccount);
+        parent::__construct(self::EVENT_NAME, $creatingSubAccount);
     }
 
     /**

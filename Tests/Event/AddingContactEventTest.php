@@ -13,7 +13,6 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeEvents;
 use WBW\Library\SMSMode\Model\Request\AddingContactRequest;
 use WBW\Library\SMSMode\Model\Response\AddingContactResponse;
 
@@ -64,9 +63,11 @@ class AddingContactEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
+        $this->assertEquals("wbw.smsmode.event.adding_contact", AddingContactEvent::EVENT_NAME);
+
         $obj = new AddingContactEvent($this->addingContact);
 
-        $this->assertEquals(WBWSMSModeEvents::ADDING_CONTACT, $obj->getEventName());
+        $this->assertEquals(AddingContactEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
