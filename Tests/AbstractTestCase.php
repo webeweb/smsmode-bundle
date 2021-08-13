@@ -12,7 +12,7 @@
 namespace WBW\Bundle\SMSModeBundle\Tests;
 
 use DateTime;
-use WBW\Bundle\CoreBundle\Tests\AbstractTestCase as TestCase;
+use WBW\Bundle\CoreBundle\Tests\AbstractTestCase as BaseTestCase;
 use WBW\Library\SMSMode\Entity\AddingContactInterface;
 use WBW\Library\SMSMode\Entity\CheckingSMSMessageStatusInterface;
 use WBW\Library\SMSMode\Entity\CreatingSubAccountInterface;
@@ -38,7 +38,7 @@ use WBW\Library\SMSMode\Request\SendingUnicodeSMSRequest;
  * @package WBW\Bundle\SMSModeBundle\Tests
  * @abstract
  */
-abstract class AbstractTestCase extends TestCase {
+abstract class AbstractTestCase extends BaseTestCase {
 
     /**
      * Adding contact.
@@ -145,7 +145,7 @@ abstract class AbstractTestCase extends TestCase {
         parent::setUp();
 
         // Set a Fichier mock.
-        $this->fichier = realpath(__DIR__ . "/../vendor/webeweb/smsmode-library/tests/Fixtures/Model/Request/SendingSMSBatchRequest.csv");
+        $this->fichier = realpath(__DIR__ . "/../vendor/webeweb/smsmode-library/tests/Fixtures/Request/SendingSMSBatchRequest.csv");
 
         // Set an Adding contact mock.
         $this->addingContact = $this->getMockBuilder(AddingContactInterface::class)->getMock();
