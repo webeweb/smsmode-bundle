@@ -1,9 +1,11 @@
 CHANGELOG
 =========
 
-### master
+### [1.8.0](https://github.com/webeweb/smsmode-bundle/tree/v1.8.0) (2021-08-13)
 
 - Improve unit tests
+- Remove sMsmode events class
+- Update dependencies
 
 ### [1.7.3](https://github.com/webeweb/smsmode-bundle/tree/v1.7.3) (2021-03-01)
 
