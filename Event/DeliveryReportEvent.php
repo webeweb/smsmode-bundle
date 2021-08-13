@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Library\SMSMode\Entity\DeliveryReportInterface;
-use WBW\Library\SMSMode\Model\Request\DeliveryReportRequest;
-use WBW\Library\SMSMode\Model\Response\DeliveryReportResponse;
+use WBW\Library\SMSMode\Request\DeliveryReportRequest;
+use WBW\Library\SMSMode\Response\DeliveryReportResponse;
 
 /**
  * Delivery report event.

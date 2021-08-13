@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Library\SMSMode\Entity\RetrievingSMSReplyInterface;
-use WBW\Library\SMSMode\Model\Request\RetrievingSMSReplyRequest;
-use WBW\Library\SMSMode\Model\Response\RetrievingSMSReplyResponse;
+use WBW\Library\SMSMode\Request\RetrievingSMSReplyRequest;
+use WBW\Library\SMSMode\Response\RetrievingSMSReplyResponse;
 
 /**
  * Retrieving SMS reply event.

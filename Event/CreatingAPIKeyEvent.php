@@ -11,8 +11,8 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Library\SMSMode\Model\Request\CreatingAPIKeyRequest;
-use WBW\Library\SMSMode\Model\Response\CreatingAPIKeyResponse;
+use WBW\Library\SMSMode\Request\CreatingAPIKeyRequest;
+use WBW\Library\SMSMode\Response\CreatingAPIKeyResponse;
 
 /**
  * Creating API key event.

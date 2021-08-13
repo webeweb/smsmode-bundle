@@ -34,10 +34,10 @@ use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
 use WBW\Library\Core\Exception\ApiException;
 use WBW\Library\SMSMode\Factory\RequestFactory;
-use WBW\Library\SMSMode\Model\AbstractRequest;
-use WBW\Library\SMSMode\Model\AbstractResponse;
 use WBW\Library\SMSMode\Model\Authentication;
 use WBW\Library\SMSMode\Provider\ApiProvider;
+use WBW\Library\SMSMode\Request\AbstractRequest;
+use WBW\Library\SMSMode\Response\AbstractResponse;
 
 /**
  * sMsmode event listener.

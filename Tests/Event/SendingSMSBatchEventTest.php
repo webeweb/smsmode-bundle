@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SendingSMSBatchEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\SendingSMSBatchRequest;
-use WBW\Library\SMSMode\Model\Response\SendingSMSBatchResponse;
+use WBW\Library\SMSMode\Request\SendingSMSBatchRequest;
+use WBW\Library\SMSMode\Response\SendingSMSBatchResponse;
 
 /**
  * Sending SMS batch event test.

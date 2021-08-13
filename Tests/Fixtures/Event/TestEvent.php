@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\AbstractEvent;
 use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
-use WBW\Library\SMSMode\Model\AbstractRequest;
-use WBW\Library\SMSMode\Model\AbstractResponse;
+use WBW\Library\SMSMode\Request\AbstractRequest;
+use WBW\Library\SMSMode\Response\AbstractResponse;
 
 /**
  * Test sMsmode event.

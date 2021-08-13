@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\CreatingSubAccountRequest;
-use WBW\Library\SMSMode\Model\Response\CreatingSubAccountResponse;
+use WBW\Library\SMSMode\Request\CreatingSubAccountRequest;
+use WBW\Library\SMSMode\Response\CreatingSubAccountResponse;
 
 /**
  * Creating sub-account event test.

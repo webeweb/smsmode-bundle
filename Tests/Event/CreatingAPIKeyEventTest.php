@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\CreatingAPIKeyEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\CreatingAPIKeyRequest;
-use WBW\Library\SMSMode\Model\Response\CreatingAPIKeyResponse;
+use WBW\Library\SMSMode\Request\CreatingAPIKeyRequest;
+use WBW\Library\SMSMode\Response\CreatingAPIKeyResponse;
 
 /**
  * Creating API key event test.

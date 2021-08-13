@@ -11,8 +11,8 @@
 
 namespace WBW\Bundle\SMSModeBundle\Event;
 
-use WBW\Library\SMSMode\Model\Request\AccountBalanceRequest;
-use WBW\Library\SMSMode\Model\Response\AccountBalanceResponse;
+use WBW\Library\SMSMode\Request\AccountBalanceRequest;
+use WBW\Library\SMSMode\Response\AccountBalanceResponse;
 
 /**
  * Account balance event.

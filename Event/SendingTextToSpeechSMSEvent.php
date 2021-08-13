@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Library\SMSMode\Entity\SendingTextToSpeechSMSInterface;
-use WBW\Library\SMSMode\Model\Request\SendingTextToSpeechSMSRequest;
-use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
+use WBW\Library\SMSMode\Request\SendingTextToSpeechSMSRequest;
+use WBW\Library\SMSMode\Response\SendingTextToSpeechSMSResponse;
 
 /**
  * Sending text-to-speech event.

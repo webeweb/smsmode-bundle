@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\SendingUnicodeSMSRequest;
-use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
+use WBW\Library\SMSMode\Request\SendingUnicodeSMSRequest;
+use WBW\Library\SMSMode\Response\SendingUnicodeSMSResponse;
 
 /**
  * Sending unicode SMS event test.

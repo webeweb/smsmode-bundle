@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Library\SMSMode\Entity\SentSMSMessageListInterface;
-use WBW\Library\SMSMode\Model\Request\SentSMSMessageListRequest;
-use WBW\Library\SMSMode\Model\Response\SentSMSMessageListResponse;
+use WBW\Library\SMSMode\Request\SentSMSMessageListRequest;
+use WBW\Library\SMSMode\Response\SentSMSMessageListResponse;
 
 /**
  * Sent SMS message list event.

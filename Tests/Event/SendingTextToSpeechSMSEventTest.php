@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\SendingTextToSpeechSMSRequest;
-use WBW\Library\SMSMode\Model\Response\SendingTextToSpeechSMSResponse;
+use WBW\Library\SMSMode\Request\SendingTextToSpeechSMSRequest;
+use WBW\Library\SMSMode\Response\SendingTextToSpeechSMSResponse;
 
 /**
  * Sending text-to-speech SMS event test.

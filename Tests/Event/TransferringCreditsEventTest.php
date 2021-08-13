@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\TransferringCreditsRequest;
-use WBW\Library\SMSMode\Model\Response\TransferringCreditsResponse;
+use WBW\Library\SMSMode\Request\TransferringCreditsRequest;
+use WBW\Library\SMSMode\Response\TransferringCreditsResponse;
 
 /**
  * Transferring credits event test.

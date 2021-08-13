@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\AccountBalanceRequest;
-use WBW\Library\SMSMode\Model\Response\AccountBalanceResponse;
+use WBW\Library\SMSMode\Request\AccountBalanceRequest;
+use WBW\Library\SMSMode\Response\AccountBalanceResponse;
 
 /**
  * Account balance event test.

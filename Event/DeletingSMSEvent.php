@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Library\SMSMode\Entity\DeletingSMSInterface;
-use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
-use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
+use WBW\Library\SMSMode\Request\DeletingSMSRequest;
+use WBW\Library\SMSMode\Response\DeletingSMSResponse;
 
 /**
  * Deleting SMS event.

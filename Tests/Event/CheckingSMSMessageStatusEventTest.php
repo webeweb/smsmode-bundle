@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\CheckingSMSMessageStatusRequest;
-use WBW\Library\SMSMode\Model\Response\CheckingSMSMessageStatusResponse;
+use WBW\Library\SMSMode\Request\CheckingSMSMessageStatusRequest;
+use WBW\Library\SMSMode\Response\CheckingSMSMessageStatusResponse;
 
 /**
  * Checking SMS message status event test.

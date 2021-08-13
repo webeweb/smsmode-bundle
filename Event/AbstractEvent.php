@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Bundle\CoreBundle\Event\AbstractEvent as BaseEvent;
 use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
-use WBW\Library\SMSMode\Model\AbstractRequest;
-use WBW\Library\SMSMode\Model\AbstractResponse;
+use WBW\Library\SMSMode\Request\AbstractRequest;
+use WBW\Library\SMSMode\Response\AbstractResponse;
 
 /**
  * Abstract event.

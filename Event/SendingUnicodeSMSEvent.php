@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Library\SMSMode\Entity\SendingUnicodeSMSInterface;
-use WBW\Library\SMSMode\Model\Request\SendingUnicodeSMSRequest;
-use WBW\Library\SMSMode\Model\Response\SendingUnicodeSMSResponse;
+use WBW\Library\SMSMode\Request\SendingUnicodeSMSRequest;
+use WBW\Library\SMSMode\Response\SendingUnicodeSMSResponse;
 
 /**
  * Sending unicode SMS event.

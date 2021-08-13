@@ -12,8 +12,8 @@
 namespace WBW\Bundle\SMSModeBundle\Event;
 
 use WBW\Library\SMSMode\Entity\CheckingSMSMessageStatusInterface;
-use WBW\Library\SMSMode\Model\Request\CheckingSMSMessageStatusRequest;
-use WBW\Library\SMSMode\Model\Response\CheckingSMSMessageStatusResponse;
+use WBW\Library\SMSMode\Request\CheckingSMSMessageStatusRequest;
+use WBW\Library\SMSMode\Response\CheckingSMSMessageStatusResponse;
 
 /**
  * Checking SMS message status event.

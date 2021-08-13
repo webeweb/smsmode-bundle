@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\DeletingSMSEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\DeletingSMSRequest;
-use WBW\Library\SMSMode\Model\Response\DeletingSMSResponse;
+use WBW\Library\SMSMode\Request\DeletingSMSRequest;
+use WBW\Library\SMSMode\Response\DeletingSMSResponse;
 
 /**
  * Deleting SMS event test.

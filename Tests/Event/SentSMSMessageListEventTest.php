@@ -13,8 +13,8 @@ namespace WBW\Bundle\SMSModeBundle\Tests\Event;
 
 use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Model\Request\SentSMSMessageListRequest;
-use WBW\Library\SMSMode\Model\Response\SentSMSMessageListResponse;
+use WBW\Library\SMSMode\Request\SentSMSMessageListRequest;
+use WBW\Library\SMSMode\Response\SentSMSMessageListResponse;
 
 /**
  * Sent SMS message list event test.
