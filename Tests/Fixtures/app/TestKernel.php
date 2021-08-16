@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the core-bundle package.
+ * This file is part of the smsmode-bundle package.
  *
  * (c) 2019 WEBEWEB
  *
@@ -15,7 +15,6 @@ use WBW\Bundle\CoreBundle\Tests\AbstractKernel;
  * Test kernel.
  *
  * @author webeweb <https://github.com/webeweb/>
- * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures
  */
 class TestKernel extends AbstractKernel {
 
