@@ -32,7 +32,7 @@ use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
-use WBW\Library\Core\Exception\ApiException;
+use WBW\Library\Provider\Exception\ApiException;
 use WBW\Library\SMSMode\Factory\RequestFactory;
 use WBW\Library\SMSMode\Model\Authentication;
 use WBW\Library\SMSMode\Provider\ApiProvider;
