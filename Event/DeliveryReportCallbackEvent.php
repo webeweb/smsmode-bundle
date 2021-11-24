@@ -43,6 +43,7 @@ class DeliveryReportCallbackEvent extends BaseEvent {
      */
     public function __construct(DeliveryReportCallback $deliveryReportCallback) {
         parent::__construct(self::EVENT_NAME);
+
         $this->setDeliveryReportCallback($deliveryReportCallback);
     }
 

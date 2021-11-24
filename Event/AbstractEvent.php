@@ -54,6 +54,7 @@ abstract class AbstractEvent extends BaseEvent {
      */
     protected function __construct(string $eventName, ?SMSModeEntityInterface $entity) {
         parent::__construct($eventName);
+
         $this->setEntity($entity);
     }
 

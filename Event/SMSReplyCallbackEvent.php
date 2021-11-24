@@ -43,6 +43,7 @@ class SMSReplyCallbackEvent extends BaseEvent {
      */
     public function __construct(SMSReplyCallback $smsReplyCallback) {
         parent::__construct(self::EVENT_NAME);
+
         $this->setSMSReplyCallback($smsReplyCallback);
     }
 
