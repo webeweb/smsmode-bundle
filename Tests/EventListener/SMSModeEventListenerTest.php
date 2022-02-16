@@ -89,7 +89,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onAccountBalance() method.
+     * Tests onAccountBalance()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -109,7 +109,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onAccountBalance() method.
+     * Tests onAccountBalance()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -132,7 +132,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onAddingContact() method.
+     * Tests onAddingContact()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -152,7 +152,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onAddingContact() method.
+     * Tests onAddingContact()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -175,7 +175,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onCheckingSMSMessageStatus() method.
+     * Tests onCheckingSMSMessageStatus()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -195,7 +195,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onCheckingSMSMessageStatus() method.
+     * Tests onCheckingSMSMessageStatus()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -218,7 +218,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onCreatingAPIKey() method.
+     * Tests onCreatingAPIKey()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -238,7 +238,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onCreatingAPIKey() method.
+     * Tests onCreatingAPIKey()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -261,7 +261,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onCreatingSubAccount() method.
+     * Tests onCreatingSubAccount()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -281,7 +281,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onCreatingSubAccount() method.
+     * Tests onCreatingSubAccount()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -304,7 +304,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onDeletingSMS() method.
+     * Tests onDeletingSMS()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -324,7 +324,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onDeletingSMS() method.
+     * Tests onDeletingSMS()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -347,7 +347,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onDeletingSubAccount() method.
+     * Tests onDeletingSubAccount()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -367,7 +367,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onDeletingSubAccount() method.
+     * Tests onDeletingSubAccount()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -390,7 +390,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onDeliveryReport() method.
+     * Tests onDeliveryReport()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -410,7 +410,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onDeliveryReport() method.
+     * Tests onDeliveryReport()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -433,7 +433,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onRetrievingSMSReply() method.
+     * Tests onRetrievingSMSReply()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -453,7 +453,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onRetrievingSMSReply() method.
+     * Tests onRetrievingSMSReply()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -476,7 +476,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSendingSMSBatch() method.
+     * Tests onSendingSMSBatch()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -496,7 +496,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSendingSMSBatch() method.
+     * Tests onSendingSMSBatch()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -519,7 +519,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSendingSMSMessage() method.
+     * Tests onSendingSMSMessage()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -539,7 +539,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSendingSMSMessage() method.
+     * Tests onSendingSMSMessage()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -562,7 +562,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSendingTextToSpeechSMS() method.
+     * Tests onSendingTextToSpeechSMS()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -582,7 +582,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSendingTextToSpeechSMS() method.
+     * Tests onSendingTextToSpeechSMS()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -605,7 +605,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSendingUnicodeSMS() method.
+     * Tests onSendingUnicodeSMS()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -625,7 +625,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSendingUnicodeSMS() method.
+     * Tests onSendingUnicodeSMS()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -648,7 +648,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSentSMSMessageList() method.
+     * Tests onSentSMSMessageList()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -668,7 +668,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onSentSMSMessageList() method.
+     * Tests onSentSMSMessageList()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -691,7 +691,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onTransferringCredits() method.
+     * Tests onTransferringCredits()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -711,7 +711,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the onTransferringCredits() method.
+     * Tests onTransferringCredits()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
@@ -734,7 +734,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the setAccessToken() method.
+     * Tests setAccessToken()
      *
      * @return void
      */
@@ -747,7 +747,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the setPass() method.
+     * Tests setPass()
      *
      * @return void
      */
@@ -760,7 +760,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the setPseudo() method.
+     * Tests setPseudo()
      *
      * @return void
      */
@@ -773,7 +773,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the __construct() method.
+     * Tests __construct()
      *
      * @return void
      */

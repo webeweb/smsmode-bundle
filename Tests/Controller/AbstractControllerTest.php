@@ -26,7 +26,7 @@ use WBW\Library\SMSMode\Model\SMSReplyCallback;
 class AbstractControllerTest extends AbstractTestCase {
 
     /**
-     * Tests the newSMSReplyCallback() method.
+     * Tests newSMSReplyCallback()
      *
      * @return void
      */
@@ -56,7 +56,7 @@ class AbstractControllerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests the newSMSReplyCallback() method.
+     * Tests newSMSReplyCallback()
      *
      * @return void
      */
