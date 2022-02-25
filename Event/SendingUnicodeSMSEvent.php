@@ -18,7 +18,7 @@ use WBW\Library\SMSMode\Response\SendingUnicodeSMSResponse;
 /**
  * Sending unicode SMS event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class SendingUnicodeSMSEvent extends AbstractEvent {

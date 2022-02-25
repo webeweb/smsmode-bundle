@@ -42,7 +42,7 @@ use WBW\Library\SMSMode\Response\AbstractResponse;
 /**
  * sMsmode event listener.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\EventListener
  */
 class SMSModeEventListener {

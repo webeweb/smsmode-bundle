@@ -20,7 +20,7 @@ use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
 /**
  * sMsmode controller.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Controller
  */
 class SMSModeController extends AbstractController {

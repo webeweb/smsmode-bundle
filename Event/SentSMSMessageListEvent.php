@@ -18,7 +18,7 @@ use WBW\Library\SMSMode\Response\SentSMSMessageListResponse;
 /**
  * Sent SMS message list event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class SentSMSMessageListEvent extends AbstractEvent {

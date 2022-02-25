@@ -18,7 +18,7 @@ use WBW\Library\SMSMode\Response\CreatingSubAccountResponse;
 /**
  * Creating sub-account event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class CreatingSubAccountEvent extends AbstractEvent {

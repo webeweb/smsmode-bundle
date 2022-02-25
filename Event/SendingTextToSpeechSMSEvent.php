@@ -18,7 +18,7 @@ use WBW\Library\SMSMode\Response\SendingTextToSpeechSMSResponse;
 /**
  * Sending text-to-speech event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class SendingTextToSpeechSMSEvent extends AbstractEvent {

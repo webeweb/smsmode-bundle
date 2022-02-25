@@ -18,7 +18,7 @@ use WBW\Library\SMSMode\Response\DeliveryReportResponse;
 /**
  * Delivery report event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class DeliveryReportEvent extends AbstractEvent {

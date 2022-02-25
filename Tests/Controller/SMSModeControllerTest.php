@@ -16,7 +16,7 @@ use WBW\Bundle\SMSModeBundle\Tests\AbstractWebTestCase;
 /**
  * sMsmode controller test.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Controller
  */
 class SMSModeControllerTest extends AbstractWebTestCase {

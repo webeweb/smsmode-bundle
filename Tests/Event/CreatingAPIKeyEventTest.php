@@ -19,7 +19,7 @@ use WBW\Library\SMSMode\Response\CreatingAPIKeyResponse;
 /**
  * Creating API key event test.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Event
  */
 class CreatingAPIKeyEventTest extends AbstractTestCase {

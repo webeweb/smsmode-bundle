@@ -19,7 +19,7 @@ use WBW\Library\SMSMode\Response\TransferringCreditsResponse;
 /**
  * Transferring credits event test.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Event
  */
 class TransferringCreditsEventTest extends AbstractTestCase {

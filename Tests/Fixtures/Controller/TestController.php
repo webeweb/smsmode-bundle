@@ -19,7 +19,7 @@ use WBW\Library\SMSMode\Model\SMSReplyCallback;
 /**
  * Test controller.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures\Controller
  */
 class TestController extends AbstractController {

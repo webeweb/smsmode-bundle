@@ -18,7 +18,7 @@ use WBW\Bundle\SMSModeBundle\DependencyInjection\WBWSMSModeExtension;
 /**
  * sMsmode bundle.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle
  */
 class WBWSMSModeBundle extends Bundle {

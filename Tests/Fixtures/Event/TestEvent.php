@@ -19,7 +19,7 @@ use WBW\Library\SMSMode\Response\AbstractResponse;
 /**
  * Test sMsmode event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event
  */
 class TestEvent extends AbstractEvent {

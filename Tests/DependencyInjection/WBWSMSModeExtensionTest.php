@@ -21,7 +21,7 @@ use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
 /**
  * sMsmode extension test.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\DependencyInjection
  */
 class WBWSMSModeExtensionTest extends AbstractTestCase {

@@ -17,7 +17,7 @@ use WBW\Library\SMSMode\Model\DeliveryReportCallback;
 /**
  * Delivery report callback event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class DeliveryReportCallbackEvent extends BaseEvent {

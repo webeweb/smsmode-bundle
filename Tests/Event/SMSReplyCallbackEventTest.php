@@ -18,7 +18,7 @@ use WBW\Library\SMSMode\Model\SMSReplyCallback;
 /**
  * SMS reply callback event test.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Event
  */
 class SMSReplyCallbackEventTest extends AbstractTestCase {

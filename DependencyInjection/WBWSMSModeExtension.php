@@ -21,7 +21,7 @@ use WBW\Bundle\CoreBundle\DependencyInjection\ConfigurationHelper;
 /**
  * sMsmode extension.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\DependencyInjection
  */
 class WBWSMSModeExtension extends Extension {

@@ -17,7 +17,7 @@ use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
 /**
  * Test event listener.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures\EventListener
  */
 class TestEventListener {

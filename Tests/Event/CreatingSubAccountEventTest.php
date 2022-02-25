@@ -19,7 +19,7 @@ use WBW\Library\SMSMode\Response\CreatingSubAccountResponse;
 /**
  * Creating sub-account event test.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Event
  */
 class CreatingSubAccountEventTest extends AbstractTestCase {

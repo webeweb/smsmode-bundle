@@ -17,7 +17,7 @@ use WBW\Library\SMSMode\Model\SMSReplyCallback;
 /**
  * SMS reply callback event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class SMSReplyCallbackEvent extends BaseEvent {

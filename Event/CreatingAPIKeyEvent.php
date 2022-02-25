@@ -17,7 +17,7 @@ use WBW\Library\SMSMode\Response\CreatingAPIKeyResponse;
 /**
  * Creating API key event.
  *
- * @author webeweb <https://github.com/webeweb/>
+ * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Event
  */
 class CreatingAPIKeyEvent extends AbstractEvent {
