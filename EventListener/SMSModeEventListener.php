@@ -91,12 +91,12 @@ EOT;
      */
     protected function beforeHandleEvent(): void {
 
-        $authentication    = $this->getApiProvider()->getAuthentication();
-        $requestNormalizer = $this->getApiProvider()->getRequestSerializer();
+        $authentication = $this->getApiProvider()->getAuthentication();
+        $serializer     = $this->getApiProvider()->getRequestSerializer();
 
         try {
 
-            $requestNormalizer->serialize($authentication);
+            $serializer->serialize($authentication);
         } catch (InvalidArgumentException $ex) {
 
             throw new RuntimeException(self::RUNTIME_EXCEPTION_MESSAGE, 500, $ex);
