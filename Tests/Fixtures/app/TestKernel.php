@@ -23,11 +23,9 @@ class TestKernel extends AbstractKernel {
      */
     public function registerBundles() {
         $bundles = [
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-            new Symfony\Bundle\TwigBundle\TwigBundle(),
             new WBW\Bundle\SMSModeBundle\WBWSMSModeBundle(),
         ];
         return $bundles;

@@ -8,29 +8,16 @@ parameters:
 
 framework:
     default_locale: "%locale%"
-    form:           true
     router:
         resource:            "%kernel.root_dir%/config/routing_test.yml"
         strict_requirements: true
     secret:         "ThisTokenIsNotSoSecretChangeIt"
     session:
         storage_id: "session.storage.mock_file"
-    templating:
-        engines: [ "twig" ]
     test:           ~
     translator: { fallbacks: [ "%locale%" ] }
     validation:
         enabled: false
-
-# Doctrine configuration
-doctrine:
-    dbal:
-        driver: "pdo_sqlite"
-        path:   "%kernel.root_dir%/var/test.sqlite"
-    orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping:                true
-        naming_strategy:             "doctrine.orm.naming_strategy.underscore"
 
 # Monolog configuration
 monolog:
@@ -39,8 +26,3 @@ monolog:
             level: "debug"
             path:  "%kernel.logs_dir%/test.log"
             type:  "stream"
-
-# Twig configuration
-twig:
-    debug:            "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
