@@ -4,12 +4,3 @@ services:
     logger:
         alias:  "monolog.logger"
         public: true
-
-    WBW\Bundle\SMSModeBundle\Controller\SMSModeController:
-        alias:  "wbw.smsmode.controller.smsmode"
-        public: true
-
-    wbw.smsmode.controller.smsmode:
-        class: WBW\Bundle\SMSModeBundle\Controller\SMSModeController
-        calls:
-            - [ "setContainer", [ "@service_container" ] ]
