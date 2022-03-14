@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-### master
+### [1.10.0](https://github.com/webeweb/smsmode-bundle/tree/v1.10.0) (2022-03-14)
 
 > IMPORTANT NOTICE: The following Symfony versions are now not supported
 > - Symfony 3.4
@@ -13,6 +13,7 @@ CHANGELOG
 - Add PHP 8.x support
 - Add Symfony 5.x support
 - Improve PHPDoc
+- Update dependencies
 
 ### [1.9.0](https://github.com/webeweb/smsmode-bundle/tree/v1.9.0) (2021-08-17)
 
