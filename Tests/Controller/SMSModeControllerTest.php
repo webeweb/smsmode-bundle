@@ -30,7 +30,7 @@ class SMSModeControllerTest extends AbstractWebTestCase {
     public function testDeliveryReportCallbackAction(): void {
 
         // Create a client.
-        $client = static::createClient();
+        $client = $this->client;
 
         // Make a GET request with XML HTTP request.
         $client->request("GET", "/delivery-report-callback?numero=33601020304&date_reception=2010-03-25+09%3A52%3A17&statut=11&smsID=S7EpYZ5kmS87&refClient=12azer34&mcc_mnc=20801");
@@ -55,7 +55,7 @@ class SMSModeControllerTest extends AbstractWebTestCase {
     public function testSmsReplyCallbackAction(): void {
 
         // Create a client.
-        $client = static::createClient();
+        $client = $this->client;
 
         // Make a GET request with XML HTTP request.
         $client->request("GET", "/sms-reply-callback?numero=36034&message=bonjour&emetteur=33601020304&date_reception=01012013-122233&smsID=abcd1234&refClient=monclient123&responseID=azertyu123");
