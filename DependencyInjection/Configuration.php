@@ -31,14 +31,15 @@ class Configuration implements ConfigurationInterface {
         $treeBuilder = new TreeBuilder(WBWSMSModeExtension::EXTENSION_ALIAS);
 
         $rootNode = ConfigurationHelper::getRootNode($treeBuilder, WBWSMSModeExtension::EXTENSION_ALIAS);
-        $rootNode->children()
-            ->arrayNode("authentication")->children()
-                ->scalarNode("access_token")->defaultNull()->end()
-                ->scalarNode("pseudo")->defaultNull()->end()
-                ->scalarNode("pass")->defaultNull()->end()
+        $rootNode
+            ->children()
+                ->arrayNode("authentication")->children()
+                    ->scalarNode("access_token")->defaultNull()->end()
+                    ->scalarNode("pseudo")->defaultNull()->end()
+                    ->scalarNode("pass")->defaultNull()->end()
                 ->end()
             ->end()
-            ->booleanNode("event_listeners")->defaultTrue()->info("Load event listeners")->end()
+                ->booleanNode("event_listeners")->defaultTrue()->info("Load event listeners")->end()
             ->end();
 
         return $treeBuilder;
