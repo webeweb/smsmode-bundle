@@ -3,6 +3,15 @@ CHANGELOG
 
 ### master
 
+> IMPORTANT NOTICE: The following Symfony versions are now not supported
+> - Symfony 3.4
+> - Symfony 4.0
+> - Symfony 4.1
+> - Symfony 4.2
+> - Symfony 4.3
+
+- Add PHP 8.x support
+- Add Symfony 5.x support
 - Improve PHPDoc
 
 ### [1.9.0](https://github.com/webeweb/smsmode-bundle/tree/v1.9.0) (2021-08-17)
