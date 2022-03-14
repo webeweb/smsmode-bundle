@@ -26,6 +26,13 @@ use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
 class SMSModeController extends AbstractController {
 
     /**
+     * Service name.
+     *
+     * @var string
+     */
+    const SERVICE_NAME = "wbw.smsmode.controller.smsmode";
+
+    /**
      * Delivery report callback.
      *
      * @param Request $request The request.

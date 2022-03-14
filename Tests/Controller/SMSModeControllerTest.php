@@ -11,6 +11,7 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\Controller;
 
+use WBW\Bundle\SMSModeBundle\Controller\SMSModeController;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractWebTestCase;
 
 /**
@@ -69,5 +70,15 @@ class SMSModeControllerTest extends AbstractWebTestCase {
 
         $this->assertEquals(200, $res["code"]);
         $this->assertEquals("OK", $res["message"]);
+    }
+
+    /**
+     * Tests __construct()
+     *
+     * @return void
+     */
+    public function test__construct(): void {
+
+        $this->assertEquals("wbw.smsmode.controller.smsmode", SMSModeController::SERVICE_NAME);
     }
 }
