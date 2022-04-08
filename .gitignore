@@ -2,7 +2,4 @@
 /.phpunit.result.cache
 /composer.lock
 
-/Resources/public/*
-!/Resources/public/.gitkeep
-
 /Tests/Fixtures/app/var/*
