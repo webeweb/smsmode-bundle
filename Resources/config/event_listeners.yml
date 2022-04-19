@@ -5,9 +5,9 @@ services:
         class:  WBW\Bundle\SMSModeBundle\EventListener\DefaultEventListener
         arguments: [ "@logger" ]
         calls:
-            - [ "setAccessToken", [ "@?smsmode.access_token" ] ]
-            - [ "setPseudo",      [ "@?smsmode.pseudo" ] ]
-            - [ "setPass",        [ "@?smsmode.pass" ] ]
+            - [ "setAccessToken", [ "%smsmode.access_token%" ] ]
+            - [ "setPseudo",      [ "%smsmode.pseudo%" ] ]
+            - [ "setPass",        [ "%smsmode.pass%" ] ]
         public: true
         tags:
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.account_balance",             method: "onAccountBalance" }

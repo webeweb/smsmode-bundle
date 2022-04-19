@@ -33,12 +33,13 @@ class Configuration implements ConfigurationInterface {
         $rootNode = ConfigurationHelper::getRootNode($treeBuilder, WBWSMSModeExtension::EXTENSION_ALIAS);
         $rootNode
             ->children()
-                ->arrayNode("authentication")->children()
-                    ->scalarNode("access_token")->defaultNull()->end()
-                    ->scalarNode("pseudo")->defaultNull()->end()
-                    ->scalarNode("pass")->defaultNull()->end()
+                ->arrayNode("authentication")->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode("access_token")->defaultNull()->end()
+                        ->scalarNode("pseudo")->defaultNull()->end()
+                        ->scalarNode("pass")->defaultNull()->end()
+                    ->end()
                 ->end()
-            ->end()
                 ->booleanNode("event_listeners")->defaultTrue()->info("Load event listeners")->end()
             ->end();
 
