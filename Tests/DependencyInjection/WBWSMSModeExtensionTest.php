@@ -13,10 +13,10 @@ namespace WBW\Bundle\SMSModeBundle\Tests\DependencyInjection;
 
 use Exception;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
-use WBW\Bundle\SMSModeBundle\Controller\SMSModeController;
+use WBW\Bundle\SMSModeBundle\Controller\DefaultController;
 use WBW\Bundle\SMSModeBundle\DependencyInjection\Configuration;
 use WBW\Bundle\SMSModeBundle\DependencyInjection\WBWSMSModeExtension;
-use WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener;
+use WBW\Bundle\SMSModeBundle\EventListener\DefaultEventListener;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
 
 /**
@@ -90,10 +90,10 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
         $this->assertNull($obj->load($this->configs, $this->containerBuilder));
 
         // Controllers
-        $this->assertInstanceOf(SMSModeController::class, $this->containerBuilder->get(SMSModeController::SERVICE_NAME));
+        $this->assertInstanceOf(DefaultController::class, $this->containerBuilder->get(DefaultController::SERVICE_NAME));
 
         // Event listeners
-        $this->assertInstanceOf(SMSModeEventListener::class, $this->containerBuilder->get(SMSModeEventListener::SERVICE_NAME));
+        $this->assertInstanceOf(DefaultEventListener::class, $this->containerBuilder->get(DefaultEventListener::SERVICE_NAME));
     }
 
     /**
@@ -112,11 +112,11 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
 
         try {
 
-            $this->containerBuilder->get(SMSModeEventListener::SERVICE_NAME);
+            $this->containerBuilder->get(DefaultEventListener::SERVICE_NAME);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(ServiceNotFoundException::class, $ex);
-            $this->assertStringContainsString(SMSModeEventListener::SERVICE_NAME, $ex->getMessage());
+            $this->assertStringContainsString(DefaultEventListener::SERVICE_NAME, $ex->getMessage());
         }
     }
 

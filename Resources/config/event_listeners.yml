@@ -1,8 +1,8 @@
 # Resources/config/event_listeners.yml
 services:
 
-    wbw.smsmode.event_listener:
-        class:  WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener
+    wbw.smsmode.event_listener.default:
+        class:  WBW\Bundle\SMSModeBundle\EventListener\DefaultEventListener
         arguments: [ "@logger" ]
         calls:
             - [ "setAccessToken", [ "@?smsmode.access_token" ] ]

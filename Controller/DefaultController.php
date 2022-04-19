@@ -18,19 +18,19 @@ use WBW\Bundle\SMSModeBundle\Event\DeliveryReportCallbackEvent;
 use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
 
 /**
- * sMsmode controller.
+ * Default controller.
  *
  * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Controller
  */
-class SMSModeController extends AbstractController {
+class DefaultController extends AbstractController {
 
     /**
      * Service name.
      *
      * @var string
      */
-    const SERVICE_NAME = "wbw.smsmode.controller.smsmode";
+    const SERVICE_NAME = "wbw.smsmode.controller.smsmode.default";
 
     /**
      * Delivery report callback.

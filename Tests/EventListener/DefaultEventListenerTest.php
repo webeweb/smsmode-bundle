@@ -28,7 +28,7 @@ use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
 use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
 use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
-use WBW\Bundle\SMSModeBundle\EventListener\SMSModeEventListener;
+use WBW\Bundle\SMSModeBundle\EventListener\DefaultEventListener;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
 use WBW\Library\SMSMode\Request\AccountBalanceRequest;
 use WBW\Library\SMSMode\Request\AddingContactRequest;
@@ -62,17 +62,17 @@ use WBW\Library\SMSMode\Response\SentSMSMessageListResponse;
 use WBW\Library\SMSMode\Response\TransferringCreditsResponse;
 
 /**
- * sMsmode event listener test.
+ * Default event listener test.
  *
  * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\EventListener
  */
-class SMSModeEventListenerTest extends AbstractTestCase {
+class DefaultEventListenerTest extends AbstractTestCase {
 
     /**
      * sMsmode event listener.
      *
-     * @var SMSModeEventListener
+     * @var DefaultEventListener
      */
     private $smsModeEventListener;
 
@@ -83,7 +83,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         parent::setUp();
 
         // Set a sMsmode event listener.
-        $this->smsModeEventListener = new SMSModeEventListener($this->logger);
+        $this->smsModeEventListener = new DefaultEventListener($this->logger);
         $this->smsModeEventListener->setPseudo("pseudo");
         $this->smsModeEventListener->setPass("pass");
     }
@@ -119,7 +119,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set an Account balance event mock.
         $accountBalanceEvent = new AccountBalanceEvent();
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -127,7 +127,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -162,7 +162,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set an Adding contact event mock.
         $addingContactEvent = new AddingContactEvent($this->addingContact);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -170,7 +170,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -205,7 +205,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set an Checking SMS message status event mock.
         $checkingSMSMessageStatusEvent = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -213,7 +213,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -248,7 +248,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Creating API key event mock.
         $creatingAPIKeyEvent = new CreatingAPIKeyEvent();
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -256,7 +256,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -291,7 +291,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Creating sub-account event mock.
         $creatingSubAccountEvent = new CreatingSubAccountEvent($this->creatingSubAccount);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -299,7 +299,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -334,7 +334,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Deleting SMS event mock.
         $deletingSMSEvent = new DeletingSMSEvent($this->deletingSMS);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -342,7 +342,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -377,7 +377,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Deleting sub-account event mock.
         $deletingSubAccountEvent = new DeletingSubAccountEvent($this->deletingSubAccount);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -385,7 +385,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -420,7 +420,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Delivery report event mock.
         $deliveryReportEvent = new DeliveryReportEvent($this->deliveryReport);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -428,7 +428,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -463,7 +463,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Retrieving SMS reply event mock.
         $retrievingSMSReplyEvent = new RetrievingSMSReplyEvent($this->retrievingSMSReply);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -471,7 +471,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -506,7 +506,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sending SMS batch event mock.
         $sendingSMSBatchEvent = new SendingSMSBatchEvent($this->sendingSMSBatch);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -514,7 +514,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -549,7 +549,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sending SMS message event mock.
         $sendingSMSMessageEvent = new SendingSMSMessageEvent($this->sendingSMSMessage);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -557,7 +557,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -592,7 +592,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sending text-to-speech SMS event mock.
         $sendingTextToSpeechSMSEvent = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -600,7 +600,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -635,7 +635,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sending unicode SMS event mock.
         $sendingUnicodeSMSEvent = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -643,7 +643,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -678,7 +678,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Sent SMS message list event mock.
         $sentSMSMessageListEvent = new SentSMSMessageListEvent($this->sentSMSMessageList);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -686,7 +686,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -721,7 +721,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         // Set a Transferring credits event mock.
         $transferringCreditsEvent = new TransferringCreditsEvent($this->transferringCredits);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         try {
 
@@ -729,7 +729,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
-            $this->assertEquals(SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
+            $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
         }
     }
 
@@ -740,7 +740,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      */
     public function testSetAccessToken() {
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         $obj->setAccessToken("accessToken");
         $this->assertEquals("accessToken", $obj->getApiProvider()->getAuthentication()->getAccessToken());
@@ -753,7 +753,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      */
     public function testSetPass() {
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         $obj->setPass("pass");
         $this->assertEquals("pass", $obj->getApiProvider()->getAuthentication()->getPass());
@@ -766,7 +766,7 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      */
     public function testSetPseudo() {
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         $obj->setPseudo("pseudo");
         $this->assertEquals("pseudo", $obj->getApiProvider()->getAuthentication()->getPseudo());
@@ -779,10 +779,10 @@ class SMSModeEventListenerTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("sMsmode configuration is missing in your app/config/config.yml.\nPlease, add smsmode.accesss_token or smsmode.pseudo and smsmode.pass", SMSModeEventListener::RUNTIME_EXCEPTION_MESSAGE);
-        $this->assertEquals("wbw.smsmode.event_listener", SMSModeEventListener::SERVICE_NAME);
+        $this->assertEquals("sMsmode configuration is missing in your app/config/config.yml.\nPlease, add smsmode.accesss_token or smsmode.pseudo and smsmode.pass", DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE);
+        $this->assertEquals("wbw.smsmode.event_listener.default", DefaultEventListener::SERVICE_NAME);
 
-        $obj = new SMSModeEventListener($this->logger);
+        $obj = new DefaultEventListener($this->logger);
 
         $this->assertNotNull($obj->getApiProvider());
     }

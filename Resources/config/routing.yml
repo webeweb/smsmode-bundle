@@ -1,4 +1,4 @@
 # Resources/config/routing.yml
-wbw_smsmode:
+wbw_smsmode_default:
     prefix:   "/"
-    resource: "@WBWSMSModeBundle/Resources/config/routing/smsmode.yml"
+    resource: "@WBWSMSModeBundle/Resources/config/routing/default.yml"

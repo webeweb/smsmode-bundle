@@ -11,16 +11,16 @@
 
 namespace WBW\Bundle\SMSModeBundle\Tests\Controller;
 
-use WBW\Bundle\SMSModeBundle\Controller\SMSModeController;
+use WBW\Bundle\SMSModeBundle\Controller\DefaultController;
 use WBW\Bundle\SMSModeBundle\Tests\AbstractWebTestCase;
 
 /**
- * sMsmode controller test.
+ * Default controller test.
  *
  * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\Tests\Controller
  */
-class SMSModeControllerTest extends AbstractWebTestCase {
+class DefaultControllerTest extends AbstractWebTestCase {
 
     /**
      * Tests deliveryReportCallbackAction()
@@ -79,6 +79,6 @@ class SMSModeControllerTest extends AbstractWebTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.controller.smsmode", SMSModeController::SERVICE_NAME);
+        $this->assertEquals("wbw.smsmode.controller.smsmode.default", DefaultController::SERVICE_NAME);
     }
 }

@@ -40,12 +40,12 @@ use WBW\Library\SMSMode\Request\AbstractRequest;
 use WBW\Library\SMSMode\Response\AbstractResponse;
 
 /**
- * sMsmode event listener.
+ * Default event listener.
  *
  * @author webeweb <https://github.com/webeweb>
  * @package WBW\Bundle\SMSModeBundle\EventListener
  */
-class SMSModeEventListener {
+class DefaultEventListener {
 
     use LoggerTrait;
 
@@ -64,7 +64,7 @@ EOT;
      *
      * @var string
      */
-    const SERVICE_NAME = "wbw.smsmode.event_listener";
+    const SERVICE_NAME = "wbw.smsmode.event_listener.default";
 
     /**
      * API provider.
@@ -87,7 +87,7 @@ EOT;
      * Before handle event.
      *
      * @return void
-     * @throws RuntimeException Throws an runtime exception if the sMsmode configuration is missing.
+     * @throws RuntimeException Throws a runtime exception if the sMsmode configuration is missing.
      */
     protected function beforeHandleEvent(): void {
 
@@ -417,9 +417,9 @@ EOT;
      * Set the access token.
      *
      * @param string|null $accessToken The access token.
-     * @return SMSModeEventListener Returns this event listener.
+     * @return DefaultEventListener Returns this event listener.
      */
-    public function setAccessToken(?string $accessToken): SMSModeEventListener {
+    public function setAccessToken(?string $accessToken): DefaultEventListener {
         $this->getApiProvider()->getAuthentication()->setAccessToken($accessToken);
         return $this;
     }
@@ -428,9 +428,9 @@ EOT;
      * Set the API provider.
      *
      * @param ApiProvider $apiProvider The API provider.
-     * @return SMSModeEventListener Returns this event listener.
+     * @return DefaultEventListener Returns this event listener.
      */
-    protected function setApiProvider(ApiProvider $apiProvider): SMSModeEventListener {
+    protected function setApiProvider(ApiProvider $apiProvider): DefaultEventListener {
         $this->apiProvider = $apiProvider;
         return $this;
     }
@@ -439,9 +439,9 @@ EOT;
      * Set the pass.
      *
      * @param string|null $pass The pass.
-     * @return SMSModeEventListener Returns this event listener.
+     * @return DefaultEventListener Returns this event listener.
      */
-    public function setPass(?string $pass): SMSModeEventListener {
+    public function setPass(?string $pass): DefaultEventListener {
         $this->getApiProvider()->getAuthentication()->setPass($pass);
         return $this;
     }
@@ -450,9 +450,9 @@ EOT;
      * Set the pseudo.
      *
      * @param string|null $pseudo The pseudo.
-     * @return SMSModeEventListener Returns this event listener.
+     * @return DefaultEventListener Returns this event listener.
      */
-    public function setPseudo(?string $pseudo): SMSModeEventListener {
+    public function setPseudo(?string $pseudo): DefaultEventListener {
         $this->getApiProvider()->getAuthentication()->setPseudo($pseudo);
         return $this;
     }

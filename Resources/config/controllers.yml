@@ -1,11 +1,11 @@
 # Resources/config/controllers.yml
 services:
 
-    WBW\Bundle\SMSModeBundle\Controller\SMSModeController:
-        alias:  "wbw.smsmode.controller.smsmode"
+    WBW\Bundle\SMSModeBundle\Controller\DefaultController:
+        alias:  "wbw.smsmode.controller.smsmode.default"
         public: true
 
-    wbw.smsmode.controller.smsmode:
-        class: WBW\Bundle\SMSModeBundle\Controller\SMSModeController
+    wbw.smsmode.controller.smsmode.default:
+        class: WBW\Bundle\SMSModeBundle\Controller\DefaultController
         calls:
             - [ "setContainer", [ "@service_container" ] ]
