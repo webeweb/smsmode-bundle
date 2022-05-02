@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\TransferringCreditsRequest;
-use WBW\Library\SMSMode\Response\TransferringCreditsResponse;
+use WBW\Bundle\SmsModeBundle\Event\TransferringCreditsEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\TransferringCreditsRequest;
+use WBW\Library\SmsMode\Response\TransferringCreditsResponse;
 
 /**
  * Transferring credits event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
 class TransferringCreditsEventTest extends AbstractTestCase {
 

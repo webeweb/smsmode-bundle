@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\CreatingAPIKeyEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\CreatingAPIKeyRequest;
-use WBW\Library\SMSMode\Response\CreatingAPIKeyResponse;
+use WBW\Bundle\SmsModeBundle\Event\CreatingApiKeyEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\CreatingApiKeyRequest;
+use WBW\Library\SmsMode\Response\CreatingApiKeyResponse;
 
 /**
  * Creating API key event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
-class CreatingAPIKeyEventTest extends AbstractTestCase {
+class CreatingApiKeyEventTest extends AbstractTestCase {
 
     /**
      * Tests setRequest()
@@ -32,9 +32,9 @@ class CreatingAPIKeyEventTest extends AbstractTestCase {
     public function testSetRequest(): void {
 
         // Set an Creating API key request mock.
-        $request = new CreatingAPIKeyRequest();
+        $request = new CreatingApiKeyRequest();
 
-        $obj = new CreatingAPIKeyEvent();
+        $obj = new CreatingApiKeyEvent();
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -48,9 +48,9 @@ class CreatingAPIKeyEventTest extends AbstractTestCase {
     public function testSetResponse(): void {
 
         // Set an Creating API key response mock.
-        $response = new CreatingAPIKeyResponse();
+        $response = new CreatingApiKeyResponse();
 
-        $obj = new CreatingAPIKeyEvent();
+        $obj = new CreatingApiKeyEvent();
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
@@ -63,11 +63,11 @@ class CreatingAPIKeyEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.event.creating_api_key", CreatingAPIKeyEvent::EVENT_NAME);
+        $this->assertEquals("wbw.smsmode.event.creating_api_key", CreatingApiKeyEvent::EVENT_NAME);
 
-        $obj = new CreatingAPIKeyEvent();
+        $obj = new CreatingApiKeyEvent();
 
-        $this->assertEquals(CreatingAPIKeyEvent::EVENT_NAME, $obj->getEventName());
+        $this->assertEquals(CreatingApiKeyEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());

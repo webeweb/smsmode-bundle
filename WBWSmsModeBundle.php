@@ -9,24 +9,24 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle;
+namespace WBW\Bundle\SmsModeBundle;
 
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use WBW\Bundle\SMSModeBundle\DependencyInjection\WBWSMSModeExtension;
+use WBW\Bundle\SmsModeBundle\DependencyInjection\WBWSmsModeExtension;
 
 /**
  * sMsmode bundle.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle
+ * @package WBW\Bundle\SmsModeBundle
  */
-class WBWSMSModeBundle extends Bundle {
+class WBWSmsModeBundle extends Bundle {
 
     /**
      * {@inheritDoc}
      */
     public function getContainerExtension(): Extension {
-        return new WBWSMSModeExtension();
+        return new WBWSmsModeExtension();
     }
 }

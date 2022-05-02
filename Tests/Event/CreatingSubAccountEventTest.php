@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\CreatingSubAccountRequest;
-use WBW\Library\SMSMode\Response\CreatingSubAccountResponse;
+use WBW\Bundle\SmsModeBundle\Event\CreatingSubAccountEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\CreatingSubAccountRequest;
+use WBW\Library\SmsMode\Response\CreatingSubAccountResponse;
 
 /**
  * Creating sub-account event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
 class CreatingSubAccountEventTest extends AbstractTestCase {
 

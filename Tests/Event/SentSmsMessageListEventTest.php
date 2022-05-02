@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\SentSMSMessageListRequest;
-use WBW\Library\SMSMode\Response\SentSMSMessageListResponse;
+use WBW\Bundle\SmsModeBundle\Event\SentSmsMessageListEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\SentSmsMessageListRequest;
+use WBW\Library\SmsMode\Response\SentSmsMessageListResponse;
 
 /**
  * Sent SMS message list event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
-class SentSMSMessageListEventTest extends AbstractTestCase {
+class SentSmsMessageListEventTest extends AbstractTestCase {
 
     /**
      * Tests setRequest()
@@ -32,9 +32,9 @@ class SentSMSMessageListEventTest extends AbstractTestCase {
     public function testSetRequest(): void {
 
         // Set a Sent SMS message list request mock.
-        $request = new SentSMSMessageListRequest();
+        $request = new SentSmsMessageListRequest();
 
-        $obj = new SentSMSMessageListEvent($this->sentSMSMessageList);
+        $obj = new SentSmsMessageListEvent($this->sentSmsMessageList);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -48,9 +48,9 @@ class SentSMSMessageListEventTest extends AbstractTestCase {
     public function testSetResponse(): void {
 
         // Set a Sent SMS message list response mock.
-        $response = new SentSMSMessageListResponse();
+        $response = new SentSmsMessageListResponse();
 
-        $obj = new SentSMSMessageListEvent($this->sentSMSMessageList);
+        $obj = new SentSmsMessageListEvent($this->sentSmsMessageList);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
@@ -63,15 +63,15 @@ class SentSMSMessageListEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.event.sent_sms_message_list", SentSMSMessageListEvent::EVENT_NAME);
+        $this->assertEquals("wbw.smsmode.event.sent_sms_message_list", SentSmsMessageListEvent::EVENT_NAME);
 
-        $obj = new SentSMSMessageListEvent($this->sentSMSMessageList);
+        $obj = new SentSmsMessageListEvent($this->sentSmsMessageList);
 
-        $this->assertEquals(SentSMSMessageListEvent::EVENT_NAME, $obj->getEventName());
+        $this->assertEquals(SentSmsMessageListEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
 
-        $this->assertSame($this->sentSMSMessageList, $obj->getSentSMSMessageList());
+        $this->assertSame($this->sentSmsMessageList, $obj->getSentSmsMessageList());
     }
 }

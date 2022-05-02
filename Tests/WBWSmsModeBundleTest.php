@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests;
+namespace WBW\Bundle\SmsModeBundle\Tests;
 
-use WBW\Bundle\SMSModeBundle\DependencyInjection\WBWSMSModeExtension;
-use WBW\Bundle\SMSModeBundle\WBWSMSModeBundle;
+use WBW\Bundle\SmsModeBundle\DependencyInjection\WBWSmsModeExtension;
+use WBW\Bundle\SmsModeBundle\WBWSmsModeBundle;
 
 /**
  * sMsmode bundle test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests
+ * @package WBW\Bundle\SmsModeBundle\Tests
  */
-class WBWSMSModeBundleTest extends AbstractTestCase {
+class WBWSmsModeBundleTest extends AbstractTestCase {
 
     /**
      * Tests getContainerExtension()
@@ -29,9 +29,9 @@ class WBWSMSModeBundleTest extends AbstractTestCase {
      */
     public function testGetContainerExtension(): void {
 
-        $obj = new WBWSMSModeBundle();
+        $obj = new WBWSmsModeBundle();
 
         $res = $obj->getContainerExtension();
-        $this->assertInstanceOf(WBWSMSModeExtension::class, $res);
+        $this->assertInstanceOf(WBWSmsModeExtension::class, $res);
     }
 }

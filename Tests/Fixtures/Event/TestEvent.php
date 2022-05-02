@@ -9,32 +9,32 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Fixtures\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\AbstractEvent;
-use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
-use WBW\Library\SMSMode\Request\AbstractRequest;
-use WBW\Library\SMSMode\Response\AbstractResponse;
+use WBW\Bundle\SmsModeBundle\Event\AbstractEvent;
+use WBW\Library\SmsMode\Entity\SmsModeEntityInterface;
+use WBW\Library\SmsMode\Request\AbstractRequest;
+use WBW\Library\SmsMode\Response\AbstractResponse;
 
 /**
  * Test sMsmode event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Fixtures\Event
  */
 class TestEvent extends AbstractEvent {
 
     /**
      * {@inheritdoc}
      */
-    public function __construct(string $eventName, ?SMSModeEntityInterface $entity) {
+    public function __construct(string $eventName, ?SmsModeEntityInterface $entity) {
         parent::__construct($eventName, $entity);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getEntity(): ?SMSModeEntityInterface {
+    public function getEntity(): ?SmsModeEntityInterface {
         return parent::getEntity();
     }
 
@@ -55,7 +55,7 @@ class TestEvent extends AbstractEvent {
     /**
      * {@inheritdoc}
      */
-    public function setEntity(?SMSModeEntityInterface $entity): AbstractEvent {
+    public function setEntity(?SmsModeEntityInterface $entity): AbstractEvent {
         return parent::setEntity($entity);
     }
 

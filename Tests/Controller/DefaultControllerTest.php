@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Controller;
+namespace WBW\Bundle\SmsModeBundle\Tests\Controller;
 
-use WBW\Bundle\SMSModeBundle\Controller\DefaultController;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractWebTestCase;
+use WBW\Bundle\SmsModeBundle\Controller\DefaultController;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractWebTestCase;
 
 /**
  * Default controller test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Controller
+ * @package WBW\Bundle\SmsModeBundle\Tests\Controller
  */
 class DefaultControllerTest extends AbstractWebTestCase {
 

@@ -2,7 +2,7 @@
 services:
 
     wbw.smsmode.event_listener.default:
-        class:  WBW\Bundle\SMSModeBundle\EventListener\DefaultEventListener
+        class:  WBW\Bundle\SmsModeBundle\EventListener\DefaultEventListener
         arguments: [ "@logger" ]
         calls:
             - [ "setAccessToken", [ "%smsmode.access_token%" ] ]
@@ -12,16 +12,16 @@ services:
         tags:
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.account_balance",             method: "onAccountBalance" }
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.adding_contact",              method: "onAddingContact" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.checking_sms_message_status", method: "onCheckingSMSMessageStatus" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.creating_api_key",            method: "onCreatingAPIKey" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.checking_sms_message_status", method: "onCheckingSmsMessageStatus" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.creating_api_key",            method: "onCreatingApiKey" }
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.creating_sub_account",        method: "onCreatingSubAccount" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.deleting_sms",                method: "onDeletingSMS" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.deleting_sms",                method: "onDeletingSms" }
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.deleting_sub_account",        method: "onDeletingSubAccount" }
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.delivery_report",             method: "onDeliveryReport" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.retrieving_sms_reply",        method: "onRetrievingSMSReply" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_sms_batch",           method: "onSendingSMSBatch" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_sms_message",         method: "onSendingSMSMessage" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_text_to_speech_sms",  method: "onSendingTextToSpeechSMS" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_unicode_sms",         method: "onSendingUnicodeSMS" }
-            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sent_sms_message_list",       method: "onSentSMSMessageList" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.retrieving_sms_reply",        method: "onRetrievingSmsReply" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_sms_batch",           method: "onSendingSmsBatch" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_sms_message",         method: "onSendingSmsMessage" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_text_to_speech_sms",  method: "onSendingTextToSpeechSms" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sending_unicode_sms",         method: "onSendingUnicodeSms" }
+            - { name: "kernel.event_listener", event: "wbw.smsmode.event.sent_sms_message_list",       method: "onSentSmsMessageList" }
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.transferring_credits",        method: "onTransferringCredits" }

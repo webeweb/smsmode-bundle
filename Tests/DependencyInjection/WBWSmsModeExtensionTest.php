@@ -9,23 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\DependencyInjection;
+namespace WBW\Bundle\SmsModeBundle\Tests\DependencyInjection;
 
 use Exception;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
-use WBW\Bundle\SMSModeBundle\Controller\DefaultController;
-use WBW\Bundle\SMSModeBundle\DependencyInjection\Configuration;
-use WBW\Bundle\SMSModeBundle\DependencyInjection\WBWSMSModeExtension;
-use WBW\Bundle\SMSModeBundle\EventListener\DefaultEventListener;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SmsModeBundle\Controller\DefaultController;
+use WBW\Bundle\SmsModeBundle\DependencyInjection\Configuration;
+use WBW\Bundle\SmsModeBundle\DependencyInjection\WBWSmsModeExtension;
+use WBW\Bundle\SmsModeBundle\EventListener\DefaultEventListener;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
 
 /**
  * sMsmode extension test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\DependencyInjection
+ * @package WBW\Bundle\SmsModeBundle\Tests\DependencyInjection
  */
-class WBWSMSModeExtensionTest extends AbstractTestCase {
+class WBWSmsModeExtensionTest extends AbstractTestCase {
 
     /**
      * Configs.
@@ -42,7 +42,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
 
         // Set a configs array mock.
         $this->configs = [
-            WBWSMSModeExtension::EXTENSION_ALIAS => [
+            WBWSmsModeExtension::EXTENSION_ALIAS => [
                 "authentication"  => [
                     "access_token" => null,
                     "pseudo"       => null,
@@ -60,9 +60,9 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
      */
     public function testGetAlias(): void {
 
-        $obj = new WBWSMSModeExtension();
+        $obj = new WBWSmsModeExtension();
 
-        $this->assertEquals(WBWSMSModeExtension::EXTENSION_ALIAS, $obj->getAlias());
+        $this->assertEquals(WBWSmsModeExtension::EXTENSION_ALIAS, $obj->getAlias());
     }
 
     /**
@@ -72,7 +72,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
      */
     public function testGetConfiguration(): void {
 
-        $obj = new WBWSMSModeExtension();
+        $obj = new WBWSmsModeExtension();
 
         $this->assertInstanceOf(Configuration::class, $obj->getConfiguration([], $this->containerBuilder));
     }
@@ -85,7 +85,7 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
      */
     public function testLoad(): void {
 
-        $obj = new WBWSMSModeExtension();
+        $obj = new WBWSmsModeExtension();
 
         $this->assertNull($obj->load($this->configs, $this->containerBuilder));
 
@@ -104,9 +104,9 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
     public function testLoadWithoutEventListeners(): void {
 
         // Set the configs mock.
-        $this->configs[WBWSMSModeExtension::EXTENSION_ALIAS]["event_listeners"] = false;
+        $this->configs[WBWSmsModeExtension::EXTENSION_ALIAS]["event_listeners"] = false;
 
-        $obj = new WBWSMSModeExtension();
+        $obj = new WBWSmsModeExtension();
 
         $this->assertNull($obj->load($this->configs, $this->containerBuilder));
 
@@ -127,6 +127,6 @@ class WBWSMSModeExtensionTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw_smsmode", WBWSMSModeExtension::EXTENSION_ALIAS);
+        $this->assertEquals("wbw_smsmode", WBWSmsModeExtension::EXTENSION_ALIAS);
     }
 }

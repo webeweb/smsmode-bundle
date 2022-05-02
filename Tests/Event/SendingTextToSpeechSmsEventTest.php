@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\SendingTextToSpeechSMSRequest;
-use WBW\Library\SMSMode\Response\SendingTextToSpeechSMSResponse;
+use WBW\Bundle\SmsModeBundle\Event\SendingTextToSpeechSmsEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\SendingTextToSpeechSmsRequest;
+use WBW\Library\SmsMode\Response\SendingTextToSpeechSmsResponse;
 
 /**
  * Sending text-to-speech SMS event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
-class SendingTextToSpeechSMSEventTest extends AbstractTestCase {
+class SendingTextToSpeechSmsEventTest extends AbstractTestCase {
 
     /**
      * Tests setRequest()
@@ -32,9 +32,9 @@ class SendingTextToSpeechSMSEventTest extends AbstractTestCase {
     public function testSetRequest(): void {
 
         // Set a Sending text-to-speech SMS request mock.
-        $request = new SendingTextToSpeechSMSRequest();
+        $request = new SendingTextToSpeechSmsRequest();
 
-        $obj = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
+        $obj = new SendingTextToSpeechSmsEvent($this->sendingTextToSpeechSms);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -48,9 +48,9 @@ class SendingTextToSpeechSMSEventTest extends AbstractTestCase {
     public function testSetResponse(): void {
 
         // Set a Sending text-to-speech SMS response mock.
-        $response = new SendingTextToSpeechSMSResponse();
+        $response = new SendingTextToSpeechSmsResponse();
 
-        $obj = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
+        $obj = new SendingTextToSpeechSmsEvent($this->sendingTextToSpeechSms);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
@@ -63,15 +63,15 @@ class SendingTextToSpeechSMSEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.event.sending_text_to_speech_sms", SendingTextToSpeechSMSEvent::EVENT_NAME);
+        $this->assertEquals("wbw.smsmode.event.sending_text_to_speech_sms", SendingTextToSpeechSmsEvent::EVENT_NAME);
 
-        $obj = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
+        $obj = new SendingTextToSpeechSmsEvent($this->sendingTextToSpeechSms);
 
-        $this->assertEquals(SendingTextToSpeechSMSEvent::EVENT_NAME, $obj->getEventName());
+        $this->assertEquals(SendingTextToSpeechSmsEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
 
-        $this->assertSame($this->sendingTextToSpeechSMS, $obj->getSendingTextToSpeechSMS());
+        $this->assertSame($this->sendingTextToSpeechSms, $obj->getSendingTextToSpeechSms());
     }
 }

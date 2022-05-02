@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
-use WBW\Library\SMSMode\Entity\CreatingSubAccountInterface;
-use WBW\Library\SMSMode\Request\CreatingSubAccountRequest;
-use WBW\Library\SMSMode\Response\CreatingSubAccountResponse;
+use WBW\Library\SmsMode\Entity\CreatingSubAccountInterface;
+use WBW\Library\SmsMode\Request\CreatingSubAccountRequest;
+use WBW\Library\SmsMode\Response\CreatingSubAccountResponse;
 
 /**
  * Creating sub-account event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  */
 class CreatingSubAccountEvent extends AbstractEvent {
 

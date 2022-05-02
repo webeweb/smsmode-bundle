@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Fixtures\Controller;
+namespace WBW\Bundle\SmsModeBundle\Tests\Fixtures\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use WBW\Bundle\SMSModeBundle\Controller\AbstractController;
-use WBW\Library\SMSMode\Model\DeliveryReportCallback;
-use WBW\Library\SMSMode\Model\SMSReplyCallback;
+use WBW\Bundle\SmsModeBundle\Controller\AbstractController;
+use WBW\Library\SmsMode\Model\DeliveryReportCallback;
+use WBW\Library\SmsMode\Model\SmsReplyCallback;
 
 /**
  * Test controller.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures\Controller
+ * @package WBW\Bundle\SmsModeBundle\Tests\Fixtures\Controller
  */
 class TestController extends AbstractController {
 
@@ -34,7 +34,7 @@ class TestController extends AbstractController {
     /**
      * {@inheritdoc}
      */
-    public function newSMSReplyCallback(Request $request): SMSReplyCallback {
-        return parent::newSMSReplyCallback($request);
+    public function newSmsReplyCallback(Request $request): SmsReplyCallback {
+        return parent::newSmsReplyCallback($request);
     }
 }

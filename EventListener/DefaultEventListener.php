@@ -9,41 +9,41 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\EventListener;
+namespace WBW\Bundle\SmsModeBundle\EventListener;
 
 use GuzzleHttp\Exception\GuzzleException;
 use InvalidArgumentException;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
-use WBW\Bundle\SMSModeBundle\Event\AbstractEvent;
-use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
-use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
-use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
-use WBW\Bundle\SMSModeBundle\Event\CreatingAPIKeyEvent;
-use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
-use WBW\Bundle\SMSModeBundle\Event\DeletingSMSEvent;
-use WBW\Bundle\SMSModeBundle\Event\DeletingSubAccountEvent;
-use WBW\Bundle\SMSModeBundle\Event\DeliveryReportEvent;
-use WBW\Bundle\SMSModeBundle\Event\RetrievingSMSReplyEvent;
-use WBW\Bundle\SMSModeBundle\Event\SendingSMSBatchEvent;
-use WBW\Bundle\SMSModeBundle\Event\SendingSMSMessageEvent;
-use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
-use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
-use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
-use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
+use WBW\Bundle\SmsModeBundle\Event\AbstractEvent;
+use WBW\Bundle\SmsModeBundle\Event\AccountBalanceEvent;
+use WBW\Bundle\SmsModeBundle\Event\AddingContactEvent;
+use WBW\Bundle\SmsModeBundle\Event\CheckingSmsMessageStatusEvent;
+use WBW\Bundle\SmsModeBundle\Event\CreatingApiKeyEvent;
+use WBW\Bundle\SmsModeBundle\Event\CreatingSubAccountEvent;
+use WBW\Bundle\SmsModeBundle\Event\DeletingSmsEvent;
+use WBW\Bundle\SmsModeBundle\Event\DeletingSubAccountEvent;
+use WBW\Bundle\SmsModeBundle\Event\DeliveryReportEvent;
+use WBW\Bundle\SmsModeBundle\Event\RetrievingSmsReplyEvent;
+use WBW\Bundle\SmsModeBundle\Event\SendingSmsBatchEvent;
+use WBW\Bundle\SmsModeBundle\Event\SendingSmsMessageEvent;
+use WBW\Bundle\SmsModeBundle\Event\SendingTextToSpeechSmsEvent;
+use WBW\Bundle\SmsModeBundle\Event\SendingUnicodeSmsEvent;
+use WBW\Bundle\SmsModeBundle\Event\SentSmsMessageListEvent;
+use WBW\Bundle\SmsModeBundle\Event\TransferringCreditsEvent;
 use WBW\Library\Logger\LoggerTrait;
 use WBW\Library\Provider\Exception\ApiException;
-use WBW\Library\SMSMode\Factory\RequestFactory;
-use WBW\Library\SMSMode\Model\Authentication;
-use WBW\Library\SMSMode\Provider\ApiProvider;
-use WBW\Library\SMSMode\Request\AbstractRequest;
-use WBW\Library\SMSMode\Response\AbstractResponse;
+use WBW\Library\SmsMode\Factory\RequestFactory;
+use WBW\Library\SmsMode\Model\Authentication;
+use WBW\Library\SmsMode\Provider\ApiProvider;
+use WBW\Library\SmsMode\Request\AbstractRequest;
+use WBW\Library\SmsMode\Response\AbstractResponse;
 
 /**
  * Default event listener.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\EventListener
+ * @package WBW\Bundle\SmsModeBundle\EventListener
  */
 class DefaultEventListener {
 
@@ -169,18 +169,18 @@ EOT;
     /**
      * On checking SMS message status.
      *
-     * @param CheckingSMSMessageStatusEvent $event The checking SMS message status event.
-     * @return CheckingSMSMessageStatusEvent Returns the checking SMS message status event.
+     * @param CheckingSmsMessageStatusEvent $event The checking SMS message status event.
+     * @return CheckingSmsMessageStatusEvent Returns the checking SMS message status event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onCheckingSMSMessageStatus(CheckingSMSMessageStatusEvent $event): CheckingSMSMessageStatusEvent {
+    public function onCheckingSmsMessageStatus(CheckingSmsMessageStatusEvent $event): CheckingSmsMessageStatusEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newCheckingSMSMessageStatusRequest($event->getCheckingSMSMessageStatus());
-        $response = $this->getApiProvider()->checkingSMSMessageStatus($request);
+        $request  = RequestFactory::newCheckingSmsMessageStatusRequest($event->getCheckingSmsMessageStatus());
+        $response = $this->getApiProvider()->checkingSmsMessageStatus($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }
@@ -188,17 +188,17 @@ EOT;
     /**
      * On creating API key.
      *
-     * @param CreatingAPIKeyEvent $event The account balance event.
-     * @return CreatingAPIKeyEvent Returns the account balance event.
+     * @param CreatingApiKeyEvent $event The account balance event.
+     * @return CreatingApiKeyEvent Returns the account balance event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onCreatingAPIKey(CreatingAPIKeyEvent $event): CreatingAPIKeyEvent {
+    public function onCreatingApiKey(CreatingApiKeyEvent $event): CreatingApiKeyEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newCreatingAPIKeyRequest();
+        $request  = RequestFactory::newCreatingApiKeyRequest();
         $response = $this->getApiProvider()->creatingAPIKey($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
@@ -226,18 +226,18 @@ EOT;
     /**
      * On deleting SMS.
      *
-     * @param DeletingSMSEvent $event The deleting SMS event.
-     * @return DeletingSMSEvent Returns the deleting SMS event.
+     * @param DeletingSmsEvent $event The deleting SMS event.
+     * @return DeletingSmsEvent Returns the deleting SMS event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onDeletingSMS(DeletingSMSEvent $event): DeletingSMSEvent {
+    public function onDeletingSms(DeletingSmsEvent $event): DeletingSmsEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newDeletingSMSRequest($event->getDeletingSMS());
-        $response = $this->getApiProvider()->deletingSMS($request);
+        $request  = RequestFactory::newDeletingSmsRequest($event->getDeletingSms());
+        $response = $this->getApiProvider()->deletingSms($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }
@@ -283,18 +283,18 @@ EOT;
     /**
      * On retrieving SMS reply.
      *
-     * @param RetrievingSMSReplyEvent $event The retrieving SMS reply event.
-     * @return RetrievingSMSReplyEvent Returns the retrieving SMS reply event.
+     * @param RetrievingSmsReplyEvent $event The retrieving SMS reply event.
+     * @return RetrievingSmsReplyEvent Returns the retrieving SMS reply event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onRetrievingSMSReply(RetrievingSMSReplyEvent $event): RetrievingSMSReplyEvent {
+    public function onRetrievingSmsReply(RetrievingSmsReplyEvent $event): RetrievingSmsReplyEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newRetrievingSMSReplyRequest($event->getRetrievingSMSReply());
-        $response = $this->getApiProvider()->retrievingSMSReply($request);
+        $request  = RequestFactory::newRetrievingSmsReplyRequest($event->getRetrievingSmsReply());
+        $response = $this->getApiProvider()->retrievingSmsReply($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }
@@ -302,18 +302,18 @@ EOT;
     /**
      * On sending SMS batch.
      *
-     * @param SendingSMSBatchEvent $event The sending SMS batch event.
-     * @return SendingSMSBatchEvent Returns the sending SMS batch event.
+     * @param SendingSmsBatchEvent $event The sending SMS batch event.
+     * @return SendingSmsBatchEvent Returns the sending SMS batch event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSendingSMSBatch(SendingSMSBatchEvent $event): SendingSMSBatchEvent {
+    public function onSendingSmsBatch(SendingSmsBatchEvent $event): SendingSmsBatchEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newSendingSMSBatchRequest($event->getSendingSMSBatch());
-        $response = $this->getApiProvider()->sendingSMSBatch($request);
+        $request  = RequestFactory::newSendingSmsBatchRequest($event->getSendingSmsBatch());
+        $response = $this->getApiProvider()->sendingSmsBatch($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }
@@ -321,18 +321,18 @@ EOT;
     /**
      * On sending SMS message.
      *
-     * @param SendingSMSMessageEvent $event The sending SMS message event.
-     * @return SendingSMSMessageEvent Returns the sending SMS message event.
+     * @param SendingSmsMessageEvent $event The sending SMS message event.
+     * @return SendingSmsMessageEvent Returns the sending SMS message event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSendingSMSMessage(SendingSMSMessageEvent $event): SendingSMSMessageEvent {
+    public function onSendingSmsMessage(SendingSmsMessageEvent $event): SendingSmsMessageEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newSendingSMSMessageRequest($event->getSendingSMSMessage());
-        $response = $this->getApiProvider()->sendingSMSMessage($request);
+        $request  = RequestFactory::newSendingSmsMessageRequest($event->getSendingSmsMessage());
+        $response = $this->getApiProvider()->sendingSmsMessage($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }
@@ -340,18 +340,18 @@ EOT;
     /**
      * On sending text-to-speech.
      *
-     * @param SendingTextToSpeechSMSEvent $event The sending text-to-speech event.
-     * @return SendingTextToSpeechSMSEvent Returns the sending text-to-speech event.
+     * @param SendingTextToSpeechSmsEvent $event The sending text-to-speech event.
+     * @return SendingTextToSpeechSmsEvent Returns the sending text-to-speech event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSendingTextToSpeechSMS(SendingTextToSpeechSMSEvent $event): SendingTextToSpeechSMSEvent {
+    public function onSendingTextToSpeechSms(SendingTextToSpeechSmsEvent $event): SendingTextToSpeechSmsEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newSendingTextToSpeechSMSRequest($event->getSendingTextToSpeechSMS());
-        $response = $this->getApiProvider()->sendingTextToSpeechSMS($request);
+        $request  = RequestFactory::newSendingTextToSpeechSmsRequest($event->getSendingTextToSpeechSms());
+        $response = $this->getApiProvider()->sendingTextToSpeechSms($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }
@@ -359,18 +359,18 @@ EOT;
     /**
      * On sending unicode SMS.
      *
-     * @param SendingUnicodeSMSEvent $event The sending unicode SMS event.
-     * @return SendingUnicodeSMSEvent Returns the sending unicode SMS event.
+     * @param SendingUnicodeSmsEvent $event The sending unicode SMS event.
+     * @return SendingUnicodeSmsEvent Returns the sending unicode SMS event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSendingUnicodeSMS(SendingUnicodeSMSEvent $event): SendingUnicodeSMSEvent {
+    public function onSendingUnicodeSms(SendingUnicodeSmsEvent $event): SendingUnicodeSmsEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newSendingUnicodeSMSRequest($event->getSendingUnicodeSMS());
-        $response = $this->getApiProvider()->sendingUnicodeSMS($request);
+        $request  = RequestFactory::newSendingUnicodeSmsRequest($event->getSendingUnicodeSms());
+        $response = $this->getApiProvider()->sendingUnicodeSms($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }
@@ -378,18 +378,18 @@ EOT;
     /**
      * On sent SMS message lis.
      *
-     * @param SentSMSMessageListEvent $event The sent SMS message list event.
-     * @return SentSMSMessageListEvent Returns the sent SMS message list event.
+     * @param SentSmsMessageListEvent $event The sent SMS message list event.
+     * @return SentSmsMessageListEvent Returns the sent SMS message list event.
      * @throws InvalidArgumentException Throws an invalid argument exception if a parameter is missing.
      * @throws GuzzleException Throws a Guzzle exception if an error occurs.
      * @throws ApiException Throws an API exception if an error occurs.
      */
-    public function onSentSMSMessageList(SentSMSMessageListEvent $event): SentSMSMessageListEvent {
+    public function onSentSmsMessageList(SentSmsMessageListEvent $event): SentSmsMessageListEvent {
 
         $this->beforeHandleEvent();
 
-        $request  = RequestFactory::newSentSMSMessageListRequest($event->getSentSMSMessageList());
-        $response = $this->getApiProvider()->sentSMSMessageList($request);
+        $request  = RequestFactory::newSentSmsMessageListRequest($event->getSentSmsMessageList());
+        $response = $this->getApiProvider()->sentSmsMessageList($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }

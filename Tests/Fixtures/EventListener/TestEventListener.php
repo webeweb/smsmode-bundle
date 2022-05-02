@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Fixtures\EventListener;
+namespace WBW\Bundle\SmsModeBundle\Tests\Fixtures\EventListener;
 
-use WBW\Bundle\SMSModeBundle\Event\DeliveryReportCallbackEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
+use WBW\Bundle\SmsModeBundle\Event\DeliveryReportCallbackEvent;
+use WBW\Bundle\SmsModeBundle\Event\SmsReplyCallbackEvent;
 
 /**
  * Test event listener.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Fixtures\EventListener
+ * @package WBW\Bundle\SmsModeBundle\Tests\Fixtures\EventListener
  */
 class TestEventListener {
 
@@ -35,10 +35,10 @@ class TestEventListener {
     /**
      * On SMS reply callback.
      *
-     * @param SMSReplyCallbackEvent $event The event.
-     * @return SMSReplyCallbackEvent Returns the event.
+     * @param SmsReplyCallbackEvent $event The event.
+     * @return SmsReplyCallbackEvent Returns the event.
      */
-    public function onSMSReplyCallback(SMSReplyCallbackEvent $event): SMSReplyCallbackEvent {
+    public function onSmsReplyCallback(SmsReplyCallbackEvent $event): SmsReplyCallbackEvent {
         return $event;
     }
 }

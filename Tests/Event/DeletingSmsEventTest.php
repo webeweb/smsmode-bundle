@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\DeletingSMSEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\DeletingSMSRequest;
-use WBW\Library\SMSMode\Response\DeletingSMSResponse;
+use WBW\Bundle\SmsModeBundle\Event\DeletingSmsEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\DeletingSmsRequest;
+use WBW\Library\SmsMode\Response\DeletingSmsResponse;
 
 /**
  * Deleting SMS event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
-class DeletingSMSEventTest extends AbstractTestCase {
+class DeletingSmsEventTest extends AbstractTestCase {
 
     /**
      * Tests setRequest()
@@ -32,9 +32,9 @@ class DeletingSMSEventTest extends AbstractTestCase {
     public function testSetRequest(): void {
 
         // Set a Deleting SMS request mock.
-        $request = new DeletingSMSRequest();
+        $request = new DeletingSmsRequest();
 
-        $obj = new DeletingSMSEvent($this->deletingSMS);
+        $obj = new DeletingSmsEvent($this->deletingSms);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -48,9 +48,9 @@ class DeletingSMSEventTest extends AbstractTestCase {
     public function testSetResponse(): void {
 
         // Set a Deleting SMS response mock.
-        $response = new DeletingSMSResponse();
+        $response = new DeletingSmsResponse();
 
-        $obj = new DeletingSMSEvent($this->deletingSMS);
+        $obj = new DeletingSmsEvent($this->deletingSms);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
@@ -63,15 +63,15 @@ class DeletingSMSEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.event.deleting_sms", DeletingSMSEvent::EVENT_NAME);
+        $this->assertEquals("wbw.smsmode.event.deleting_sms", DeletingSmsEvent::EVENT_NAME);
 
-        $obj = new DeletingSMSEvent($this->deletingSMS);
+        $obj = new DeletingSmsEvent($this->deletingSms);
 
-        $this->assertEquals(DeletingSMSEvent::EVENT_NAME, $obj->getEventName());
+        $this->assertEquals(DeletingSmsEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
 
-        $this->assertSame($this->deletingSMS, $obj->getDeletingSMS());
+        $this->assertSame($this->deletingSms, $obj->getDeletingSms());
     }
 }

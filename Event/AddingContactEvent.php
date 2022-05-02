@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
-use WBW\Library\SMSMode\Entity\AddingContactInterface;
-use WBW\Library\SMSMode\Request\AddingContactRequest;
-use WBW\Library\SMSMode\Response\AddingContactResponse;
+use WBW\Library\SmsMode\Entity\AddingContactInterface;
+use WBW\Library\SmsMode\Request\AddingContactRequest;
+use WBW\Library\SmsMode\Response\AddingContactResponse;
 
 /**
  * Adding contact event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  */
 class AddingContactEvent extends AbstractEvent {
 

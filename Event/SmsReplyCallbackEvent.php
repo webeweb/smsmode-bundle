@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
 use WBW\Bundle\CoreBundle\Event\AbstractEvent as BaseEvent;
-use WBW\Library\SMSMode\Model\SMSReplyCallback;
+use WBW\Library\SmsMode\Model\SmsReplyCallback;
 
 /**
  * SMS reply callback event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  */
-class SMSReplyCallbackEvent extends BaseEvent {
+class SmsReplyCallbackEvent extends BaseEvent {
 
     /**
      * Event name.
@@ -32,37 +32,37 @@ class SMSReplyCallbackEvent extends BaseEvent {
     /**
      * SMS reply callback.
      *
-     * @var SMSReplyCallback
+     * @var SmsReplyCallback
      */
     private $smsReplyCallback;
 
     /**
      * Constructor.
      *
-     * @param SMSReplyCallback $smsReplyCallback The SMS reply callback.
+     * @param SmsReplyCallback $smsReplyCallback The SMS reply callback.
      */
-    public function __construct(SMSReplyCallback $smsReplyCallback) {
+    public function __construct(SmsReplyCallback $smsReplyCallback) {
         parent::__construct(self::EVENT_NAME);
 
-        $this->setSMSReplyCallback($smsReplyCallback);
+        $this->setSmsReplyCallback($smsReplyCallback);
     }
 
     /**
      * Get the SMS reply callback.
      *
-     * @return SMSReplyCallback Returns the SMS reply callback.
+     * @return SmsReplyCallback Returns the SMS reply callback.
      */
-    public function getSMSReplyCallback(): SMSReplyCallback {
+    public function getSmsReplyCallback(): SmsReplyCallback {
         return $this->smsReplyCallback;
     }
 
     /**
      * Set the SMS reply callback.
      *
-     * @param SMSReplyCallback $smsReplyCallback The SMS reply callback.
-     * @return SMSReplyCallbackEvent Returns this SMS reply callback event.
+     * @param SmsReplyCallback $smsReplyCallback The SMS reply callback.
+     * @return SmsReplyCallbackEvent Returns this SMS reply callback event.
      */
-    public function setSMSReplyCallback(SMSReplyCallback $smsReplyCallback): SMSReplyCallbackEvent {
+    public function setSmsReplyCallback(SmsReplyCallback $smsReplyCallback): SmsReplyCallbackEvent {
         $this->smsReplyCallback = $smsReplyCallback;
         return $this;
     }

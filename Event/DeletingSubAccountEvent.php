@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
-use WBW\Library\SMSMode\Entity\DeletingSubAccountInterface;
-use WBW\Library\SMSMode\Request\DeletingSubAccountRequest;
-use WBW\Library\SMSMode\Response\DeletingSubAccountResponse;
+use WBW\Library\SmsMode\Entity\DeletingSubAccountInterface;
+use WBW\Library\SmsMode\Request\DeletingSubAccountRequest;
+use WBW\Library\SmsMode\Response\DeletingSubAccountResponse;
 
 /**
  * Deleting sub-account event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  */
 class DeletingSubAccountEvent extends AbstractEvent {
 

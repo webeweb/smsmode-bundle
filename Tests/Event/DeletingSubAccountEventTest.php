@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\DeletingSubAccountEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\DeletingSubAccountRequest;
-use WBW\Library\SMSMode\Response\DeletingSubAccountResponse;
+use WBW\Bundle\SmsModeBundle\Event\DeletingSubAccountEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\DeletingSubAccountRequest;
+use WBW\Library\SmsMode\Response\DeletingSubAccountResponse;
 
 /**
  * Deleting sub-account event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
 class DeletingSubAccountEventTest extends AbstractTestCase {
 

@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\SendingUnicodeSMSRequest;
-use WBW\Library\SMSMode\Response\SendingUnicodeSMSResponse;
+use WBW\Bundle\SmsModeBundle\Event\SendingUnicodeSmsEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\SendingUnicodeSmsRequest;
+use WBW\Library\SmsMode\Response\SendingUnicodeSmsResponse;
 
 /**
  * Sending unicode SMS event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
-class SendingUnicodeSMSEventTest extends AbstractTestCase {
+class SendingUnicodeSmsEventTest extends AbstractTestCase {
 
     /**
      * Tests setRequest()
@@ -32,9 +32,9 @@ class SendingUnicodeSMSEventTest extends AbstractTestCase {
     public function testSetRequest(): void {
 
         // Set a Sending unicode SMS request mock.
-        $request = new SendingUnicodeSMSRequest();
+        $request = new SendingUnicodeSmsRequest();
 
-        $obj = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
+        $obj = new SendingUnicodeSmsEvent($this->sendingUnicodeSms);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -48,9 +48,9 @@ class SendingUnicodeSMSEventTest extends AbstractTestCase {
     public function testSetResponse(): void {
 
         // Set a Sending unicode SMS response mock.
-        $response = new SendingUnicodeSMSResponse();
+        $response = new SendingUnicodeSmsResponse();
 
-        $obj = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
+        $obj = new SendingUnicodeSmsEvent($this->sendingUnicodeSms);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
@@ -63,15 +63,15 @@ class SendingUnicodeSMSEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.event.sending_unicode_sms", SendingUnicodeSMSEvent::EVENT_NAME);
+        $this->assertEquals("wbw.smsmode.event.sending_unicode_sms", SendingUnicodeSmsEvent::EVENT_NAME);
 
-        $obj = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
+        $obj = new SendingUnicodeSmsEvent($this->sendingUnicodeSms);
 
-        $this->assertEquals(SendingUnicodeSMSEvent::EVENT_NAME, $obj->getEventName());
+        $this->assertEquals(SendingUnicodeSmsEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
 
-        $this->assertSame($this->sendingUnicodeSMS, $obj->getSendingUnicodeSMS());
+        $this->assertSame($this->sendingUnicodeSms, $obj->getSendingUnicodeSms());
     }
 }

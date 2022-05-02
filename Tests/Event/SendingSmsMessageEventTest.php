@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\SendingSMSMessageEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\SendingSMSMessageRequest;
-use WBW\Library\SMSMode\Response\SendingSMSMessageResponse;
+use WBW\Bundle\SmsModeBundle\Event\SendingSmsMessageEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\SendingSmsMessageRequest;
+use WBW\Library\SmsMode\Response\SendingSmsMessageResponse;
 
 /**
  * Sending SMS message event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
-class SendingSMSMessageEventTest extends AbstractTestCase {
+class SendingSmsMessageEventTest extends AbstractTestCase {
 
     /**
      * Tests setRequest()
@@ -32,9 +32,9 @@ class SendingSMSMessageEventTest extends AbstractTestCase {
     public function testSetRequest(): void {
 
         // Set a Sending SMS message request mock.
-        $request = new SendingSMSMessageRequest();
+        $request = new SendingSmsMessageRequest();
 
-        $obj = new SendingSMSMessageEvent($this->sendingSMSMessage);
+        $obj = new SendingSmsMessageEvent($this->sendingSmsMessage);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -48,9 +48,9 @@ class SendingSMSMessageEventTest extends AbstractTestCase {
     public function testSetResponse(): void {
 
         // Set a Sending SMS message response mock.
-        $response = new SendingSMSMessageResponse();
+        $response = new SendingSmsMessageResponse();
 
-        $obj = new SendingSMSMessageEvent($this->sendingSMSMessage);
+        $obj = new SendingSmsMessageEvent($this->sendingSmsMessage);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
@@ -63,15 +63,15 @@ class SendingSMSMessageEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.event.sending_sms_message", SendingSMSMessageEvent::EVENT_NAME);
+        $this->assertEquals("wbw.smsmode.event.sending_sms_message", SendingSmsMessageEvent::EVENT_NAME);
 
-        $obj = new SendingSMSMessageEvent($this->sendingSMSMessage);
+        $obj = new SendingSmsMessageEvent($this->sendingSmsMessage);
 
-        $this->assertEquals(SendingSMSMessageEvent::EVENT_NAME, $obj->getEventName());
+        $this->assertEquals(SendingSmsMessageEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
 
-        $this->assertSame($this->sendingSMSMessage, $obj->getSendingSMSMessage());
+        $this->assertSame($this->sendingSmsMessage, $obj->getSendingSmsMessage());
     }
 }

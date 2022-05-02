@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\Tests\Fixtures\Event\TestEvent;
-use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
-use WBW\Library\SMSMode\Request\AccountBalanceRequest;
-use WBW\Library\SMSMode\Response\AccountBalanceResponse;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SmsModeBundle\Tests\Fixtures\Event\TestEvent;
+use WBW\Library\SmsMode\Entity\SmsModeEntityInterface;
+use WBW\Library\SmsMode\Request\AccountBalanceRequest;
+use WBW\Library\SmsMode\Response\AccountBalanceResponse;
 
 /**
  * Abstract event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
 class AbstractEventTest extends AbstractTestCase {
 
     /**
      * Entity.
      *
-     * @var SMSModeEntityInterface
+     * @var SmsModeEntityInterface
      */
     private $entity;
 
@@ -39,7 +39,7 @@ class AbstractEventTest extends AbstractTestCase {
         parent::setUp();
 
         // Set a sMsmode entity mock.
-        $this->entity = $this->getMockBuilder(SMSModeEntityInterface::class)->getMock();
+        $this->entity = $this->getMockBuilder(SmsModeEntityInterface::class)->getMock();
     }
 
     /**

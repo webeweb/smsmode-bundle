@@ -9,24 +9,24 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Controller;
+namespace WBW\Bundle\SmsModeBundle\Tests\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Bundle\SMSModeBundle\Tests\Fixtures\Controller\TestController;
-use WBW\Library\SMSMode\Model\DeliveryReportCallback;
-use WBW\Library\SMSMode\Model\SMSReplyCallback;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Bundle\SmsModeBundle\Tests\Fixtures\Controller\TestController;
+use WBW\Library\SmsMode\Model\DeliveryReportCallback;
+use WBW\Library\SmsMode\Model\SmsReplyCallback;
 
 /**
  * Abstract controller test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Controller
+ * @package WBW\Bundle\SmsModeBundle\Tests\Controller
  */
 class AbstractControllerTest extends AbstractTestCase {
 
     /**
-     * Tests newSMSReplyCallback()
+     * Tests newSmsReplyCallback()
      *
      * @return void
      */
@@ -56,11 +56,11 @@ class AbstractControllerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests newSMSReplyCallback()
+     * Tests newSmsReplyCallback()
      *
      * @return void
      */
-    public function testNewSMSReplyCallback(): void {
+    public function testNewSmsReplyCallback(): void {
 
         // Set a Request mock.
         $request = new Request([
@@ -75,8 +75,8 @@ class AbstractControllerTest extends AbstractTestCase {
 
         $obj = new TestController();
 
-        $res = $obj->newSMSReplyCallback($request);
-        $this->assertInstanceOf(SMSReplyCallback::class, $res);
+        $res = $obj->newSmsReplyCallback($request);
+        $this->assertInstanceOf(SmsReplyCallback::class, $res);
 
         $this->assertEquals("2013-01-01 12:22:33", $res->getDateReception()->format("Y-m-d H:i:s"));
         $this->assertEquals("33601020304", $res->getEmetteur());

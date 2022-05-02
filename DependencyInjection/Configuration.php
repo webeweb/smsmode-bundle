@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\DependencyInjection;
+namespace WBW\Bundle\SmsModeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -19,7 +19,7 @@ use WBW\Bundle\CoreBundle\Config\ConfigurationHelper;
  * Configuration
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\DependencyInjection
+ * @package WBW\Bundle\SmsModeBundle\DependencyInjection
  */
 class Configuration implements ConfigurationInterface {
 
@@ -28,9 +28,9 @@ class Configuration implements ConfigurationInterface {
      */
     public function getConfigTreeBuilder(): TreeBuilder {
 
-        $treeBuilder = new TreeBuilder(WBWSMSModeExtension::EXTENSION_ALIAS);
+        $treeBuilder = new TreeBuilder(WBWSmsModeExtension::EXTENSION_ALIAS);
 
-        $rootNode = ConfigurationHelper::getRootNode($treeBuilder, WBWSMSModeExtension::EXTENSION_ALIAS);
+        $rootNode = ConfigurationHelper::getRootNode($treeBuilder, WBWSmsModeExtension::EXTENSION_ALIAS);
         $rootNode
             ->children()
                 ->arrayNode("authentication")->addDefaultsIfNotSet()
@@ -45,5 +45,4 @@ class Configuration implements ConfigurationInterface {
 
         return $treeBuilder;
     }
-
 }

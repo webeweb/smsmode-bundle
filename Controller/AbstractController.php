@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Controller;
+namespace WBW\Bundle\SmsModeBundle\Controller;
 
 use DateTime;
 use Symfony\Component\HttpFoundation\Request;
 use WBW\Bundle\CoreBundle\Controller\AbstractController as BaseController;
-use WBW\Library\SMSMode\Model\DeliveryReportCallback;
-use WBW\Library\SMSMode\Model\SMSReplyCallback;
+use WBW\Library\SmsMode\Model\DeliveryReportCallback;
+use WBW\Library\SmsMode\Model\SmsReplyCallback;
 
 /**
  * Abstract controller.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Controller
+ * @package WBW\Bundle\SmsModeBundle\Controller
  * @abstract
  */
 abstract class AbstractController extends BaseController {
@@ -51,20 +51,20 @@ abstract class AbstractController extends BaseController {
      * Creates a SMS reply callback.
      *
      * @param Request $request The request.
-     * @return SMSReplyCallback Returns the SMS reply callback.
+     * @return SmsReplyCallback Returns the Sms reply callback.
      */
-    protected function newSMSReplyCallback(Request $request): SMSReplyCallback {
+    protected function newSmsReplyCallback(Request $request): SmsReplyCallback {
 
-        $dateReception = DateTime::createFromFormat("dmY-His", $request->query->get(SMSReplyCallback::PARAMETER_DATE_RECEPTION));
+        $dateReception = DateTime::createFromFormat("dmY-His", $request->query->get(SmsReplyCallback::PARAMETER_DATE_RECEPTION));
 
-        $model = new SMSReplyCallback();
+        $model = new SmsReplyCallback();
         $model->setDateReception(false !== $dateReception ? $dateReception : null);
-        $model->setEmetteur($request->query->get(SMSReplyCallback::PARAMETER_EMETTEUR));
-        $model->setMessage($request->query->get(SMSReplyCallback::PARAMETER_MESSAGE));
-        $model->setNumero($request->query->get(SMSReplyCallback::PARAMETER_NUMERO));
-        $model->setRefClient($request->query->get(SMSReplyCallback::PARAMETER_REF_CLIENT));
-        $model->setResponseID($request->query->get(SMSReplyCallback::PARAMETER_RESPONSE_ID));
-        $model->setSmsID($request->query->get(SMSReplyCallback::PARAMETER_SMS_ID));
+        $model->setEmetteur($request->query->get(SmsReplyCallback::PARAMETER_EMETTEUR));
+        $model->setMessage($request->query->get(SmsReplyCallback::PARAMETER_MESSAGE));
+        $model->setNumero($request->query->get(SmsReplyCallback::PARAMETER_NUMERO));
+        $model->setRefClient($request->query->get(SmsReplyCallback::PARAMETER_REF_CLIENT));
+        $model->setResponseID($request->query->get(SmsReplyCallback::PARAMETER_RESPONSE_ID));
+        $model->setSmsID($request->query->get(SmsReplyCallback::PARAMETER_SMS_ID));
 
         return $model;
     }

@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Controller;
+namespace WBW\Bundle\SmsModeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use WBW\Bundle\SMSModeBundle\Event\DeliveryReportCallbackEvent;
-use WBW\Bundle\SMSModeBundle\Event\SMSReplyCallbackEvent;
+use WBW\Bundle\SmsModeBundle\Event\DeliveryReportCallbackEvent;
+use WBW\Bundle\SmsModeBundle\Event\SmsReplyCallbackEvent;
 
 /**
  * Default controller.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Controller
+ * @package WBW\Bundle\SmsModeBundle\Controller
  */
 class DefaultController extends AbstractController {
 
@@ -56,9 +56,9 @@ class DefaultController extends AbstractController {
      */
     public function smsReplyCallbackAction(Request $request): Response {
 
-        $smsReplyCallback = $this->newSMSReplyCallback($request);
+        $smsReplyCallback = $this->newSmsReplyCallback($request);
 
-        $event = new SMSReplyCallbackEvent($smsReplyCallback);
+        $event = new SmsReplyCallbackEvent($smsReplyCallback);
         $this->dispatchEvent($event->getEventName(), $event);
 
         return new JsonResponse(["code" => 200, "message" => "OK"]);

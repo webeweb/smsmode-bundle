@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\DependencyInjection;
+namespace WBW\Bundle\SmsModeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\FileLocator;
@@ -22,9 +22,9 @@ use WBW\Bundle\CoreBundle\Config\ConfigurationHelper;
  * sMsmode extension.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\DependencyInjection
+ * @package WBW\Bundle\SmsModeBundle\DependencyInjection
  */
-class WBWSMSModeExtension extends Extension {
+class WBWSmsModeExtension extends Extension {
 
     /**
      * Extension alias.

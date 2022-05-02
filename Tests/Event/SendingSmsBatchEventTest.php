@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\SendingSMSBatchEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\SendingSMSBatchRequest;
-use WBW\Library\SMSMode\Response\SendingSMSBatchResponse;
+use WBW\Bundle\SmsModeBundle\Event\SendingSmsBatchEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\SendingSmsBatchRequest;
+use WBW\Library\SmsMode\Response\SendingSmsBatchResponse;
 
 /**
  * Sending SMS batch event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
-class SendingSMSBatchEventTest extends AbstractTestCase {
+class SendingSmsBatchEventTest extends AbstractTestCase {
 
     /**
      * Tests setRequest()
@@ -32,9 +32,9 @@ class SendingSMSBatchEventTest extends AbstractTestCase {
     public function testSetRequest(): void {
 
         // Set a Sending SMS batch request mock.
-        $request = new SendingSMSBatchRequest();
+        $request = new SendingSmsBatchRequest();
 
-        $obj = new SendingSMSBatchEvent($this->sendingSMSBatch);
+        $obj = new SendingSmsBatchEvent($this->sendingSmsBatch);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -48,9 +48,9 @@ class SendingSMSBatchEventTest extends AbstractTestCase {
     public function testSetResponse(): void {
 
         // Set a Sending SMS batch response mock.
-        $response = new SendingSMSBatchResponse();
+        $response = new SendingSmsBatchResponse();
 
-        $obj = new SendingSMSBatchEvent($this->sendingSMSBatch);
+        $obj = new SendingSmsBatchEvent($this->sendingSmsBatch);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
@@ -63,15 +63,15 @@ class SendingSMSBatchEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.event.sending_sms_batch", SendingSMSBatchEvent::EVENT_NAME);
+        $this->assertEquals("wbw.smsmode.event.sending_sms_batch", SendingSmsBatchEvent::EVENT_NAME);
 
-        $obj = new SendingSMSBatchEvent($this->sendingSMSBatch);
+        $obj = new SendingSmsBatchEvent($this->sendingSmsBatch);
 
-        $this->assertEquals(SendingSMSBatchEvent::EVENT_NAME, $obj->getEventName());
+        $this->assertEquals(SendingSmsBatchEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
 
-        $this->assertSame($this->sendingSMSBatch, $obj->getSendingSMSBatch());
+        $this->assertSame($this->sendingSmsBatch, $obj->getSendingSmsBatch());
     }
 }

@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\Event;
+namespace WBW\Bundle\SmsModeBundle\Tests\Event;
 
-use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\CheckingSMSMessageStatusRequest;
-use WBW\Library\SMSMode\Response\CheckingSMSMessageStatusResponse;
+use WBW\Bundle\SmsModeBundle\Event\CheckingSmsMessageStatusEvent;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\CheckingSmsMessageStatusRequest;
+use WBW\Library\SmsMode\Response\CheckingSmsMessageStatusResponse;
 
 /**
  * Checking SMS message status event test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\Event
+ * @package WBW\Bundle\SmsModeBundle\Tests\Event
  */
-class CheckingSMSMessageStatusEventTest extends AbstractTestCase {
+class CheckingSmsMessageStatusEventTest extends AbstractTestCase {
 
     /**
      * Tests setRequest()
@@ -32,9 +32,9 @@ class CheckingSMSMessageStatusEventTest extends AbstractTestCase {
     public function testSetRequest(): void {
 
         // Set a Checking SMS message status request mock.
-        $request = new CheckingSMSMessageStatusRequest();
+        $request = new CheckingSmsMessageStatusRequest();
 
-        $obj = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
+        $obj = new CheckingSmsMessageStatusEvent($this->checkingSmsMessageStatus);
 
         $obj->setRequest($request);
         $this->assertSame($request, $obj->getRequest());
@@ -48,9 +48,9 @@ class CheckingSMSMessageStatusEventTest extends AbstractTestCase {
     public function testSetResponse(): void {
 
         // Set a CHecking SMS message status response mock.
-        $response = new CheckingSMSMessageStatusResponse();
+        $response = new CheckingSmsMessageStatusResponse();
 
-        $obj = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
+        $obj = new CheckingSmsMessageStatusEvent($this->checkingSmsMessageStatus);
 
         $obj->setResponse($response);
         $this->assertSame($response, $obj->getResponse());
@@ -63,15 +63,15 @@ class CheckingSMSMessageStatusEventTest extends AbstractTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.event.checking_sms_message_status", CheckingSMSMessageStatusEvent::EVENT_NAME);
+        $this->assertEquals("wbw.smsmode.event.checking_sms_message_status", CheckingSmsMessageStatusEvent::EVENT_NAME);
 
-        $obj = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
+        $obj = new CheckingSmsMessageStatusEvent($this->checkingSmsMessageStatus);
 
-        $this->assertEquals(CheckingSMSMessageStatusEvent::EVENT_NAME, $obj->getEventName());
+        $this->assertEquals(CheckingSmsMessageStatusEvent::EVENT_NAME, $obj->getEventName());
 
         $this->assertNull($obj->getRequest());
         $this->assertNull($obj->getResponse());
 
-        $this->assertSame($this->checkingSMSMessageStatus, $obj->getCheckingSMSMessageStatus());
+        $this->assertSame($this->checkingSmsMessageStatus, $obj->getCheckingSmsMessageStatus());
     }
 }

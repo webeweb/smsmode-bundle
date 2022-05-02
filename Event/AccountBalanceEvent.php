@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
-use WBW\Library\SMSMode\Request\AccountBalanceRequest;
-use WBW\Library\SMSMode\Response\AccountBalanceResponse;
+use WBW\Library\SmsMode\Request\AccountBalanceRequest;
+use WBW\Library\SmsMode\Response\AccountBalanceResponse;
 
 /**
  * Account balance event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  */
 class AccountBalanceEvent extends AbstractEvent {
 

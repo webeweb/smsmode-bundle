@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
-use WBW\Library\SMSMode\Entity\TransferringCreditsInterface;
-use WBW\Library\SMSMode\Request\TransferringCreditsRequest;
-use WBW\Library\SMSMode\Response\TransferringCreditsResponse;
+use WBW\Library\SmsMode\Entity\TransferringCreditsInterface;
+use WBW\Library\SmsMode\Request\TransferringCreditsRequest;
+use WBW\Library\SmsMode\Response\TransferringCreditsResponse;
 
 /**
  * Transferring credits event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  */
 class TransferringCreditsEvent extends AbstractEvent {
 

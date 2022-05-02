@@ -9,63 +9,63 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Tests\EventListener;
+namespace WBW\Bundle\SmsModeBundle\Tests\EventListener;
 
 use Exception;
 use RuntimeException;
-use WBW\Bundle\SMSModeBundle\Event\AccountBalanceEvent;
-use WBW\Bundle\SMSModeBundle\Event\AddingContactEvent;
-use WBW\Bundle\SMSModeBundle\Event\CheckingSMSMessageStatusEvent;
-use WBW\Bundle\SMSModeBundle\Event\CreatingAPIKeyEvent;
-use WBW\Bundle\SMSModeBundle\Event\CreatingSubAccountEvent;
-use WBW\Bundle\SMSModeBundle\Event\DeletingSMSEvent;
-use WBW\Bundle\SMSModeBundle\Event\DeletingSubAccountEvent;
-use WBW\Bundle\SMSModeBundle\Event\DeliveryReportEvent;
-use WBW\Bundle\SMSModeBundle\Event\RetrievingSMSReplyEvent;
-use WBW\Bundle\SMSModeBundle\Event\SendingSMSBatchEvent;
-use WBW\Bundle\SMSModeBundle\Event\SendingSMSMessageEvent;
-use WBW\Bundle\SMSModeBundle\Event\SendingTextToSpeechSMSEvent;
-use WBW\Bundle\SMSModeBundle\Event\SendingUnicodeSMSEvent;
-use WBW\Bundle\SMSModeBundle\Event\SentSMSMessageListEvent;
-use WBW\Bundle\SMSModeBundle\Event\TransferringCreditsEvent;
-use WBW\Bundle\SMSModeBundle\EventListener\DefaultEventListener;
-use WBW\Bundle\SMSModeBundle\Tests\AbstractTestCase;
-use WBW\Library\SMSMode\Request\AccountBalanceRequest;
-use WBW\Library\SMSMode\Request\AddingContactRequest;
-use WBW\Library\SMSMode\Request\CheckingSMSMessageStatusRequest;
-use WBW\Library\SMSMode\Request\CreatingAPIKeyRequest;
-use WBW\Library\SMSMode\Request\CreatingSubAccountRequest;
-use WBW\Library\SMSMode\Request\DeletingSMSRequest;
-use WBW\Library\SMSMode\Request\DeletingSubAccountRequest;
-use WBW\Library\SMSMode\Request\DeliveryReportRequest;
-use WBW\Library\SMSMode\Request\RetrievingSMSReplyRequest;
-use WBW\Library\SMSMode\Request\SendingSMSBatchRequest;
-use WBW\Library\SMSMode\Request\SendingSMSMessageRequest;
-use WBW\Library\SMSMode\Request\SendingTextToSpeechSMSRequest;
-use WBW\Library\SMSMode\Request\SendingUnicodeSMSRequest;
-use WBW\Library\SMSMode\Request\SentSMSMessageListRequest;
-use WBW\Library\SMSMode\Request\TransferringCreditsRequest;
-use WBW\Library\SMSMode\Response\AccountBalanceResponse;
-use WBW\Library\SMSMode\Response\AddingContactResponse;
-use WBW\Library\SMSMode\Response\CheckingSMSMessageStatusResponse;
-use WBW\Library\SMSMode\Response\CreatingAPIKeyResponse;
-use WBW\Library\SMSMode\Response\CreatingSubAccountResponse;
-use WBW\Library\SMSMode\Response\DeletingSMSResponse;
-use WBW\Library\SMSMode\Response\DeletingSubAccountResponse;
-use WBW\Library\SMSMode\Response\DeliveryReportResponse;
-use WBW\Library\SMSMode\Response\RetrievingSMSReplyResponse;
-use WBW\Library\SMSMode\Response\SendingSMSBatchResponse;
-use WBW\Library\SMSMode\Response\SendingSMSMessageResponse;
-use WBW\Library\SMSMode\Response\SendingTextToSpeechSMSResponse;
-use WBW\Library\SMSMode\Response\SendingUnicodeSMSResponse;
-use WBW\Library\SMSMode\Response\SentSMSMessageListResponse;
-use WBW\Library\SMSMode\Response\TransferringCreditsResponse;
+use WBW\Bundle\SmsModeBundle\Event\AccountBalanceEvent;
+use WBW\Bundle\SmsModeBundle\Event\AddingContactEvent;
+use WBW\Bundle\SmsModeBundle\Event\CheckingSmsMessageStatusEvent;
+use WBW\Bundle\SmsModeBundle\Event\CreatingApiKeyEvent;
+use WBW\Bundle\SmsModeBundle\Event\CreatingSubAccountEvent;
+use WBW\Bundle\SmsModeBundle\Event\DeletingSmsEvent;
+use WBW\Bundle\SmsModeBundle\Event\DeletingSubAccountEvent;
+use WBW\Bundle\SmsModeBundle\Event\DeliveryReportEvent;
+use WBW\Bundle\SmsModeBundle\Event\RetrievingSmsReplyEvent;
+use WBW\Bundle\SmsModeBundle\Event\SendingSmsBatchEvent;
+use WBW\Bundle\SmsModeBundle\Event\SendingSmsMessageEvent;
+use WBW\Bundle\SmsModeBundle\Event\SendingTextToSpeechSmsEvent;
+use WBW\Bundle\SmsModeBundle\Event\SendingUnicodeSmsEvent;
+use WBW\Bundle\SmsModeBundle\Event\SentSmsMessageListEvent;
+use WBW\Bundle\SmsModeBundle\Event\TransferringCreditsEvent;
+use WBW\Bundle\SmsModeBundle\EventListener\DefaultEventListener;
+use WBW\Bundle\SmsModeBundle\Tests\AbstractTestCase;
+use WBW\Library\SmsMode\Request\AccountBalanceRequest;
+use WBW\Library\SmsMode\Request\AddingContactRequest;
+use WBW\Library\SmsMode\Request\CheckingSmsMessageStatusRequest;
+use WBW\Library\SmsMode\Request\CreatingApiKeyRequest;
+use WBW\Library\SmsMode\Request\CreatingSubAccountRequest;
+use WBW\Library\SmsMode\Request\DeletingSmsRequest;
+use WBW\Library\SmsMode\Request\DeletingSubAccountRequest;
+use WBW\Library\SmsMode\Request\DeliveryReportRequest;
+use WBW\Library\SmsMode\Request\RetrievingSmsReplyRequest;
+use WBW\Library\SmsMode\Request\SendingSmsBatchRequest;
+use WBW\Library\SmsMode\Request\SendingSmsMessageRequest;
+use WBW\Library\SmsMode\Request\SendingTextToSpeechSmsRequest;
+use WBW\Library\SmsMode\Request\SendingUnicodeSmsRequest;
+use WBW\Library\SmsMode\Request\SentSmsMessageListRequest;
+use WBW\Library\SmsMode\Request\TransferringCreditsRequest;
+use WBW\Library\SmsMode\Response\AccountBalanceResponse;
+use WBW\Library\SmsMode\Response\AddingContactResponse;
+use WBW\Library\SmsMode\Response\CheckingSmsMessageStatusResponse;
+use WBW\Library\SmsMode\Response\CreatingApiKeyResponse;
+use WBW\Library\SmsMode\Response\CreatingSubAccountResponse;
+use WBW\Library\SmsMode\Response\DeletingSmsResponse;
+use WBW\Library\SmsMode\Response\DeletingSubAccountResponse;
+use WBW\Library\SmsMode\Response\DeliveryReportResponse;
+use WBW\Library\SmsMode\Response\RetrievingSmsReplyResponse;
+use WBW\Library\SmsMode\Response\SendingSmsBatchResponse;
+use WBW\Library\SmsMode\Response\SendingSmsMessageResponse;
+use WBW\Library\SmsMode\Response\SendingTextToSpeechSmsResponse;
+use WBW\Library\SmsMode\Response\SendingUnicodeSmsResponse;
+use WBW\Library\SmsMode\Response\SentSmsMessageListResponse;
+use WBW\Library\SmsMode\Response\TransferringCreditsResponse;
 
 /**
  * Default event listener test.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Tests\EventListener
+ * @package WBW\Bundle\SmsModeBundle\Tests\EventListener
  */
 class DefaultEventListenerTest extends AbstractTestCase {
 
@@ -175,41 +175,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onCheckingSMSMessageStatus()
+     * Tests onCheckingSmsMessageStatus()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCheckingSMSMessageStatus(): void {
+    public function testOnCheckingSmsMessageStatus(): void {
 
         // Set a Checking SMS message status event mock.
-        $checkingSMSMessageStatusEvent = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
+        $checkingSmsMessageStatusEvent = new CheckingSmsMessageStatusEvent($this->checkingSmsMessageStatus);
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onCheckingSMSMessageStatus($checkingSMSMessageStatusEvent);
-        $this->assertSame($checkingSMSMessageStatusEvent, $res);
+        $res = $obj->onCheckingSmsMessageStatus($checkingSmsMessageStatusEvent);
+        $this->assertSame($checkingSmsMessageStatusEvent, $res);
 
-        $this->assertInstanceOf(CheckingSMSMessageStatusRequest::class, $res->getRequest());
-        $this->assertInstanceOf(CheckingSMSMessageStatusResponse::class, $res->getResponse());
+        $this->assertInstanceOf(CheckingSmsMessageStatusRequest::class, $res->getRequest());
+        $this->assertInstanceOf(CheckingSmsMessageStatusResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onCheckingSMSMessageStatus()
+     * Tests onCheckingSmsMessageStatus()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCheckingSMSMessageStatusWithRuntimeException(): void {
+    public function testOnCheckingSmsMessageStatusWithRuntimeException(): void {
 
         // Set an Checking SMS message status event mock.
-        $checkingSMSMessageStatusEvent = new CheckingSMSMessageStatusEvent($this->checkingSMSMessageStatus);
+        $checkingSmsMessageStatusEvent = new CheckingSmsMessageStatusEvent($this->checkingSmsMessageStatus);
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onCheckingSMSMessageStatus($checkingSMSMessageStatusEvent);
+            $obj->onCheckingSmsMessageStatus($checkingSmsMessageStatusEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
@@ -218,41 +218,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onCreatingAPIKey()
+     * Tests onCreatingApiKey()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCreatingAPIKey(): void {
+    public function testOnCreatingApiKey(): void {
 
         // Set a Creating API key event mock.
-        $creatingAPIKeyEvent = new CreatingAPIKeyEvent();
+        $creatingAPIKeyEvent = new CreatingApiKeyEvent();
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onCreatingAPIKey($creatingAPIKeyEvent);
+        $res = $obj->onCreatingApiKey($creatingAPIKeyEvent);
         $this->assertSame($creatingAPIKeyEvent, $res);
 
-        $this->assertInstanceOf(CreatingAPIKeyRequest::class, $res->getRequest());
-        $this->assertInstanceOf(CreatingAPIKeyResponse::class, $res->getResponse());
+        $this->assertInstanceOf(CreatingApiKeyRequest::class, $res->getRequest());
+        $this->assertInstanceOf(CreatingApiKeyResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onCreatingAPIKey()
+     * Tests onCreatingApiKey()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnCreatingAPIKeyWithRuntimeException(): void {
+    public function testOnCreatingApiKeyWithRuntimeException(): void {
 
         // Set a Creating API key event mock.
-        $creatingAPIKeyEvent = new CreatingAPIKeyEvent();
+        $creatingAPIKeyEvent = new CreatingApiKeyEvent();
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onCreatingAPIKey($creatingAPIKeyEvent);
+            $obj->onCreatingApiKey($creatingAPIKeyEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
@@ -304,41 +304,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onDeletingSMS()
+     * Tests onDeletingSms()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnDeletingSMS(): void {
+    public function testOnDeletingSms(): void {
 
         // Set a Deleting SMS event mock.
-        $deletingSMSEvent = new DeletingSMSEvent($this->deletingSMS);
+        $deletingSmsEvent = new DeletingSmsEvent($this->deletingSms);
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onDeletingSMS($deletingSMSEvent);
-        $this->assertSame($deletingSMSEvent, $res);
+        $res = $obj->onDeletingSms($deletingSmsEvent);
+        $this->assertSame($deletingSmsEvent, $res);
 
-        $this->assertInstanceOf(DeletingSMSRequest::class, $res->getRequest());
-        $this->assertInstanceOf(DeletingSMSResponse::class, $res->getResponse());
+        $this->assertInstanceOf(DeletingSmsRequest::class, $res->getRequest());
+        $this->assertInstanceOf(DeletingSmsResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onDeletingSMS()
+     * Tests onDeletingSms()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnDeletingSMSWithRuntimeException(): void {
+    public function testOnDeletingSmsWithRuntimeException(): void {
 
         // Set a Deleting SMS event mock.
-        $deletingSMSEvent = new DeletingSMSEvent($this->deletingSMS);
+        $deletingSmsEvent = new DeletingSmsEvent($this->deletingSms);
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onDeletingSMS($deletingSMSEvent);
+            $obj->onDeletingSms($deletingSmsEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
@@ -433,41 +433,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onRetrievingSMSReply()
+     * Tests onRetrievingSmsReply()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnRetrievingSMSReply() {
+    public function testOnRetrievingSmsReply() {
 
         // Set a Retrieving SMS reply event mock.
-        $retrievingSMSReplyEvent = new RetrievingSMSReplyEvent($this->retrievingSMSReply);
+        $retrievingSmsReplyEvent = new RetrievingSmsReplyEvent($this->retrievingSmsReply);
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onRetrievingSMSReply($retrievingSMSReplyEvent);
-        $this->assertSame($retrievingSMSReplyEvent, $res);
+        $res = $obj->onRetrievingSmsReply($retrievingSmsReplyEvent);
+        $this->assertSame($retrievingSmsReplyEvent, $res);
 
-        $this->assertInstanceOf(RetrievingSMSReplyRequest::class, $res->getRequest());
-        $this->assertInstanceOf(RetrievingSMSReplyResponse::class, $res->getResponse());
+        $this->assertInstanceOf(RetrievingSmsReplyRequest::class, $res->getRequest());
+        $this->assertInstanceOf(RetrievingSmsReplyResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onRetrievingSMSReply()
+     * Tests onRetrievingSmsReply()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnRetrievingSMSReplyWithRuntimeException() {
+    public function testOnRetrievingSmsReplyWithRuntimeException() {
 
         // Set a Retrieving SMS reply event mock.
-        $retrievingSMSReplyEvent = new RetrievingSMSReplyEvent($this->retrievingSMSReply);
+        $retrievingSmsReplyEvent = new RetrievingSmsReplyEvent($this->retrievingSmsReply);
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onRetrievingSMSReply($retrievingSMSReplyEvent);
+            $obj->onRetrievingSmsReply($retrievingSmsReplyEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
@@ -476,41 +476,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingSMSBatch()
+     * Tests onSendingSmsBatch()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSendingSMSBatch() {
+    public function testOnSendingSmsBatch() {
 
         // Set a Sending SMS batch event mock.
-        $sendingSMSBatchEvent = new SendingSMSBatchEvent($this->sendingSMSBatch);
+        $sendingSmsBatchEvent = new SendingSmsBatchEvent($this->sendingSmsBatch);
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onSendingSMSBatch($sendingSMSBatchEvent);
-        $this->assertSame($sendingSMSBatchEvent, $res);
+        $res = $obj->onSendingSmsBatch($sendingSmsBatchEvent);
+        $this->assertSame($sendingSmsBatchEvent, $res);
 
-        $this->assertInstanceOf(SendingSMSBatchRequest::class, $res->getRequest());
-        $this->assertInstanceOf(SendingSMSBatchResponse::class, $res->getResponse());
+        $this->assertInstanceOf(SendingSmsBatchRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SendingSmsBatchResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onSendingSMSBatch()
+     * Tests onSendingSmsBatch()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSendingSMSBatchWithRuntimeException() {
+    public function testOnSendingSmsBatchWithRuntimeException() {
 
         // Set a Sending SMS batch event mock.
-        $sendingSMSBatchEvent = new SendingSMSBatchEvent($this->sendingSMSBatch);
+        $sendingSmsBatchEvent = new SendingSmsBatchEvent($this->sendingSmsBatch);
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onSendingSMSBatch($sendingSMSBatchEvent);
+            $obj->onSendingSmsBatch($sendingSmsBatchEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
@@ -519,41 +519,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingSMSMessage()
+     * Tests onSendingSmsMessage()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSendingSMSMessage() {
+    public function testOnSendingSmsMessage() {
 
         // Set a Sending SMS message event mock.
-        $sendingSMSMessageEvent = new SendingSMSMessageEvent($this->sendingSMSMessage);
+        $sendingSmsMessageEvent = new SendingSmsMessageEvent($this->sendingSmsMessage);
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onSendingSMSMessage($sendingSMSMessageEvent);
-        $this->assertSame($sendingSMSMessageEvent, $res);
+        $res = $obj->onSendingSmsMessage($sendingSmsMessageEvent);
+        $this->assertSame($sendingSmsMessageEvent, $res);
 
-        $this->assertInstanceOf(SendingSMSMessageRequest::class, $res->getRequest());
-        $this->assertInstanceOf(SendingSMSMessageResponse::class, $res->getResponse());
+        $this->assertInstanceOf(SendingSmsMessageRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SendingSmsMessageResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onSendingSMSMessage()
+     * Tests onSendingSmsMessage()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSendingSMSMessageWithRuntimeException() {
+    public function testOnSendingSmsMessageWithRuntimeException() {
 
         // Set a Sending SMS message event mock.
-        $sendingSMSMessageEvent = new SendingSMSMessageEvent($this->sendingSMSMessage);
+        $sendingSmsMessageEvent = new SendingSmsMessageEvent($this->sendingSmsMessage);
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onSendingSMSMessage($sendingSMSMessageEvent);
+            $obj->onSendingSmsMessage($sendingSmsMessageEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
@@ -562,41 +562,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingTextToSpeechSMS()
+     * Tests onSendingTextToSpeechSms()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSendingTextToSpeechSMS() {
+    public function testOnSendingTextToSpeechSms() {
 
         // Set a Sending text-to-speech event mock.
-        $sendingTextToSpeechSMSEvent = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
+        $sendingTextToSpeechSmsEvent = new SendingTextToSpeechSmsEvent($this->sendingTextToSpeechSms);
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onSendingTextToSpeechSMS($sendingTextToSpeechSMSEvent);
-        $this->assertSame($sendingTextToSpeechSMSEvent, $res);
+        $res = $obj->onSendingTextToSpeechSms($sendingTextToSpeechSmsEvent);
+        $this->assertSame($sendingTextToSpeechSmsEvent, $res);
 
-        $this->assertInstanceOf(SendingTextToSpeechSMSRequest::class, $res->getRequest());
-        $this->assertInstanceOf(SendingTextToSpeechSMSResponse::class, $res->getResponse());
+        $this->assertInstanceOf(SendingTextToSpeechSmsRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SendingTextToSpeechSmsResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onSendingTextToSpeechSMS()
+     * Tests onSendingTextToSpeechSms()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSendingTextToSpeechSMSWithRuntimeException() {
+    public function testOnSendingTextToSpeechSmsWithRuntimeException() {
 
         // Set a Sending text-to-speech SMS event mock.
-        $sendingTextToSpeechSMSEvent = new SendingTextToSpeechSMSEvent($this->sendingTextToSpeechSMS);
+        $sendingTextToSpeechSmsEvent = new SendingTextToSpeechSmsEvent($this->sendingTextToSpeechSms);
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onSendingTextToSpeechSMS($sendingTextToSpeechSMSEvent);
+            $obj->onSendingTextToSpeechSms($sendingTextToSpeechSmsEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
@@ -605,41 +605,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingUnicodeSMS()
+     * Tests onSendingUnicodeSms()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSendingUnicodeSMS() {
+    public function testOnSendingUnicodeSms() {
 
         // Set a Sending unicode SMS event mock.
-        $sendingUnicodeSMSEvent = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
+        $sendingUnicodeSmsEvent = new SendingUnicodeSmsEvent($this->sendingUnicodeSms);
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onSendingUnicodeSMS($sendingUnicodeSMSEvent);
-        $this->assertSame($sendingUnicodeSMSEvent, $res);
+        $res = $obj->onSendingUnicodeSms($sendingUnicodeSmsEvent);
+        $this->assertSame($sendingUnicodeSmsEvent, $res);
 
-        $this->assertInstanceOf(SendingUnicodeSMSRequest::class, $res->getRequest());
-        $this->assertInstanceOf(SendingUnicodeSMSResponse::class, $res->getResponse());
+        $this->assertInstanceOf(SendingUnicodeSmsRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SendingUnicodeSmsResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onSendingUnicodeSMS()
+     * Tests onSendingUnicodeSms()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSendingUnicodeSMSWithRuntimeException() {
+    public function testOnSendingUnicodeSmsWithRuntimeException() {
 
         // Set a Sending unicode SMS event mock.
-        $sendingUnicodeSMSEvent = new SendingUnicodeSMSEvent($this->sendingUnicodeSMS);
+        $sendingUnicodeSmsEvent = new SendingUnicodeSmsEvent($this->sendingUnicodeSms);
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onSendingUnicodeSMS($sendingUnicodeSMSEvent);
+            $obj->onSendingUnicodeSms($sendingUnicodeSmsEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
@@ -648,41 +648,41 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSentSMSMessageList()
+     * Tests onSentSmsMessageList()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSentSMSMessageList() {
+    public function testOnSentSmsMessageList() {
 
         // Set a Sent SMS message list event mock.
-        $sentSMSMessageListEvent = new SentSMSMessageListEvent($this->sentSMSMessageList);
+        $sentSmsMessageListEvent = new SentSmsMessageListEvent($this->sentSmsMessageList);
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onSentSMSMessageList($sentSMSMessageListEvent);
-        $this->assertSame($sentSMSMessageListEvent, $res);
+        $res = $obj->onSentSmsMessageList($sentSmsMessageListEvent);
+        $this->assertSame($sentSmsMessageListEvent, $res);
 
-        $this->assertInstanceOf(SentSMSMessageListRequest::class, $res->getRequest());
-        $this->assertInstanceOf(SentSMSMessageListResponse::class, $res->getResponse());
+        $this->assertInstanceOf(SentSmsMessageListRequest::class, $res->getRequest());
+        $this->assertInstanceOf(SentSmsMessageListResponse::class, $res->getResponse());
     }
 
     /**
-     * Tests onSentSMSMessageList()
+     * Tests onSentSmsMessageList()
      *
      * @return void
      * @throws Exception Throws an exception if an error occurs.
      */
-    public function testOnSentSMSMessageListWithRuntimeException() {
+    public function testOnSentSmsMessageListWithRuntimeException() {
 
         // Set a Sent SMS message list event mock.
-        $sentSMSMessageListEvent = new SentSMSMessageListEvent($this->sentSMSMessageList);
+        $sentSmsMessageListEvent = new SentSmsMessageListEvent($this->sentSmsMessageList);
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onSentSMSMessageList($sentSMSMessageListEvent);
+            $obj->onSentSmsMessageList($sentSmsMessageListEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);

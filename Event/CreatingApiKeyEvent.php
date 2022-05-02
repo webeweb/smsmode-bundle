@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
-use WBW\Library\SMSMode\Request\CreatingAPIKeyRequest;
-use WBW\Library\SMSMode\Response\CreatingAPIKeyResponse;
+use WBW\Library\SmsMode\Request\CreatingApiKeyRequest;
+use WBW\Library\SmsMode\Response\CreatingApiKeyResponse;
 
 /**
  * Creating API key event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  */
-class CreatingAPIKeyEvent extends AbstractEvent {
+class CreatingApiKeyEvent extends AbstractEvent {
 
     /**
      * Event name.
@@ -39,18 +39,18 @@ class CreatingAPIKeyEvent extends AbstractEvent {
     /**
      * Get the creating API key request.
      *
-     * @return CreatingAPIKeyRequest|null Returns the creating API key request.
+     * @return CreatingApiKeyRequest|null Returns the creating API key request.
      */
-    public function getRequest(): ?CreatingAPIKeyRequest {
+    public function getRequest(): ?CreatingApiKeyRequest {
         return parent::getRequest();
     }
 
     /**
      * Get the creating API key response.
      *
-     * @return CreatingAPIKeyResponse|null Returns the creating API key response.
+     * @return CreatingApiKeyResponse|null Returns the creating API key response.
      */
-    public function getResponse(): ?CreatingAPIKeyResponse {
+    public function getResponse(): ?CreatingApiKeyResponse {
         return parent::getResponse();
     }
 }

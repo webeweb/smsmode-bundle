@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
 use WBW\Bundle\CoreBundle\Event\AbstractEvent as BaseEvent;
-use WBW\Library\SMSMode\Entity\SMSModeEntityInterface;
-use WBW\Library\SMSMode\Request\AbstractRequest;
-use WBW\Library\SMSMode\Response\AbstractResponse;
+use WBW\Library\SmsMode\Entity\SmsModeEntityInterface;
+use WBW\Library\SmsMode\Request\AbstractRequest;
+use WBW\Library\SmsMode\Response\AbstractResponse;
 
 /**
  * Abstract event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  * @abstract
  */
 abstract class AbstractEvent extends BaseEvent {
@@ -28,7 +28,7 @@ abstract class AbstractEvent extends BaseEvent {
     /**
      * Entity.
      *
-     * @var SMSModeEntityInterface|null
+     * @var SmsModeEntityInterface|null
      */
     private $entity;
 
@@ -50,9 +50,9 @@ abstract class AbstractEvent extends BaseEvent {
      * Constructor.
      *
      * @param string|null $eventName The event name.
-     * @param SMSModeEntityInterface|null $entity The entity.
+     * @param SmsModeEntityInterface|null $entity The entity.
      */
-    protected function __construct(string $eventName, ?SMSModeEntityInterface $entity) {
+    protected function __construct(string $eventName, ?SmsModeEntityInterface $entity) {
         parent::__construct($eventName);
 
         $this->setEntity($entity);
@@ -61,9 +61,9 @@ abstract class AbstractEvent extends BaseEvent {
     /**
      * Get the entity.
      *
-     * @return SMSModeEntityInterface|null Returns the entity.
+     * @return SmsModeEntityInterface|null Returns the entity.
      */
-    protected function getEntity(): ?SMSModeEntityInterface {
+    protected function getEntity(): ?SmsModeEntityInterface {
         return $this->entity;
     }
 
@@ -88,10 +88,10 @@ abstract class AbstractEvent extends BaseEvent {
     /**
      * Set the entity.
      *
-     * @param SMSModeEntityInterface|null $entity The entity.
+     * @param SmsModeEntityInterface|null $entity The entity.
      * @return AbstractEvent Returns this sMsmode event.
      */
-    protected function setEntity(?SMSModeEntityInterface $entity): AbstractEvent {
+    protected function setEntity(?SmsModeEntityInterface $entity): AbstractEvent {
         $this->entity = $entity;
         return $this;
     }

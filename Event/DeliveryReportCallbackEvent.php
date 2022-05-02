@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace WBW\Bundle\SMSModeBundle\Event;
+namespace WBW\Bundle\SmsModeBundle\Event;
 
 use WBW\Bundle\CoreBundle\Event\AbstractEvent as BaseEvent;
-use WBW\Library\SMSMode\Model\DeliveryReportCallback;
+use WBW\Library\SmsMode\Model\DeliveryReportCallback;
 
 /**
  * Delivery report callback event.
  *
  * @author webeweb <https://github.com/webeweb>
- * @package WBW\Bundle\SMSModeBundle\Event
+ * @package WBW\Bundle\SmsModeBundle\Event
  */
 class DeliveryReportCallbackEvent extends BaseEvent {
 

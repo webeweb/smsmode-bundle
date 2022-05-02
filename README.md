@@ -58,7 +58,7 @@ in the `app/AppKernel.php` file of your project:
     public function registerBundles() {
         $bundles = [
             // ...
-            new WBW\Bundle\SMSModeBundle\WBWSMSModeBundle(),
+            new WBW\Bundle\SmsModeBundle\WBWSmsModeBundle(),
         ];
 
         // ...
@@ -78,7 +78,7 @@ Add the bundle routing in the `app/config/routing.yml` file of your project:
 ```yml
 wbw_smsmode:
     prefix:   "/"
-    resource: "@WBWSMSModeBundle/Resources/config/routing.yml"
+    resource: "@WBWSmsModeBundle/Resources/config/routing.yml"
 ```
 
 ## Usage
