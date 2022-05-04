@@ -199,7 +199,7 @@ EOT;
         $this->beforeHandleEvent();
 
         $request  = RequestFactory::newCreatingApiKeyRequest();
-        $response = $this->getApiProvider()->creatingAPIKey($request);
+        $response = $this->getApiProvider()->creatingApiKey($request);
 
         return $this->beforeReturnEvent($event, $request, $response);
     }

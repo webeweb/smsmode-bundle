@@ -226,12 +226,12 @@ class DefaultEventListenerTest extends AbstractTestCase {
     public function testOnCreatingApiKey(): void {
 
         // Set a Creating API key event mock.
-        $creatingAPIKeyEvent = new CreatingApiKeyEvent();
+        $creatingApiKeyEvent = new CreatingApiKeyEvent();
 
         $obj = $this->smsModeEventListener;
 
-        $res = $obj->onCreatingApiKey($creatingAPIKeyEvent);
-        $this->assertSame($creatingAPIKeyEvent, $res);
+        $res = $obj->onCreatingApiKey($creatingApiKeyEvent);
+        $this->assertSame($creatingApiKeyEvent, $res);
 
         $this->assertInstanceOf(CreatingApiKeyRequest::class, $res->getRequest());
         $this->assertInstanceOf(CreatingApiKeyResponse::class, $res->getResponse());
@@ -246,13 +246,13 @@ class DefaultEventListenerTest extends AbstractTestCase {
     public function testOnCreatingApiKeyWithRuntimeException(): void {
 
         // Set a Creating API key event mock.
-        $creatingAPIKeyEvent = new CreatingApiKeyEvent();
+        $creatingApiKeyEvent = new CreatingApiKeyEvent();
 
         $obj = new DefaultEventListener($this->logger);
 
         try {
 
-            $obj->onCreatingApiKey($creatingAPIKeyEvent);
+            $obj->onCreatingApiKey($creatingApiKeyEvent);
         } catch (Exception $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
