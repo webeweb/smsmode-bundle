@@ -24,7 +24,7 @@ use WBW\Bundle\SmsModeBundle\DependencyInjection\WBWSmsModeExtension;
 class WBWSmsModeBundle extends Bundle {
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getContainerExtension(): Extension {
         return new WBWSmsModeExtension();

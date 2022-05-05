@@ -34,7 +34,7 @@ class WBWSmsModeExtension extends Extension {
     const EXTENSION_ALIAS = "wbw_smsmode";
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getAlias(): string {
         return self::EXTENSION_ALIAS;
