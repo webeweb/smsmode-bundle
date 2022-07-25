@@ -28,7 +28,6 @@ Includes:
 
 - [webeweb/smsmode-library](https://github.com/webeweb/smsmode-library)
 
-
 If you like this package, pay me a beer (or a coffee)
 [![paypal.me](https://img.shields.io/badge/paypal.me-webeweb-0070ba.svg?style=flat-square&logo=paypal)](https://www.paypal.me/webeweb)
 
