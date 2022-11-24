@@ -36,7 +36,7 @@ jobs:
                 run:  vendor/bin/phpunit --log-junit build/logs/junit.xml
 
             -   name: "Calculates"
-                run:  php phpmetrics.phar --git --junit=build/logs/junit.xml --report-html=build/logs/ src/
+                run:  php phpmetrics.phar --git --junit=build/logs/junit.xml --report-html=build/logs/ . --exclude-dirs=Tests/
 
             -   name: "Compress artifact"
                 run:  |
