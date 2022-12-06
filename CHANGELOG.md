@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### [1.11.1](https://github.com/webeweb/smsmode-bundle/tree/v1.11.1) (2022-12-06)
+
+- Fix Configuration
+
 ### [1.11.0](https://github.com/webeweb/smsmode-bundle/tree/v1.11.0) (2022-04-19)
 
 - Fix Configuration
