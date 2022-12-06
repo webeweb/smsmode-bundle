@@ -61,9 +61,9 @@ class WBWSmsModeExtension extends Extension {
         }
 
         if (true === array_key_exists("authentication", $config)) {
-            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], "smsmode", "access_token");
-            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], "smsmode", "pseudo");
-            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], "smsmode", "pass");
+            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], $this->getAlias(), "access_token");
+            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], $this->getAlias(), "pseudo");
+            ConfigurationHelper::registerContainerParameter($container, $config["authentication"], $this->getAlias(), "pass");
         }
 
         ConfigurationHelper::registerContainerParameter($container, $config, $this->getAlias(), "event_listeners");
