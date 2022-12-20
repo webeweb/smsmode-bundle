@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### [1.12.0](https://github.com/webeweb/smsmode-bundle/tree/v1.12.0) (2022-12-20)
+
+- Add PHP 8.2 support
+
 ### [1.11.1](https://github.com/webeweb/smsmode-bundle/tree/v1.11.1) (2022-12-06)
 
 - Fix Configuration
