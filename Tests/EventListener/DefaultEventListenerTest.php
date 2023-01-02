@@ -11,8 +11,8 @@
 
 namespace WBW\Bundle\SmsModeBundle\Tests\EventListener;
 
-use Exception;
 use RuntimeException;
+use Throwable;
 use WBW\Bundle\SmsModeBundle\Event\AccountBalanceEvent;
 use WBW\Bundle\SmsModeBundle\Event\AddingContactEvent;
 use WBW\Bundle\SmsModeBundle\Event\CheckingSmsMessageStatusEvent;
@@ -92,7 +92,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onAccountBalance()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnAccountBalance(): void {
 
@@ -112,7 +112,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onAccountBalance()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnAccountBalanceWithRuntimeException(): void {
 
@@ -124,7 +124,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onAccountBalance($accountBalanceEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -135,7 +135,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onAddingContact()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnAddingContact(): void {
 
@@ -155,7 +155,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onAddingContact()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnAddingContactWithRuntimeException(): void {
 
@@ -167,7 +167,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onAddingContact($addingContactEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -178,7 +178,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onCheckingSmsMessageStatus()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnCheckingSmsMessageStatus(): void {
 
@@ -198,7 +198,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onCheckingSmsMessageStatus()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnCheckingSmsMessageStatusWithRuntimeException(): void {
 
@@ -210,7 +210,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onCheckingSmsMessageStatus($checkingSmsMessageStatusEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -221,7 +221,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onCreatingApiKey()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnCreatingApiKey(): void {
 
@@ -241,7 +241,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onCreatingApiKey()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnCreatingApiKeyWithRuntimeException(): void {
 
@@ -253,7 +253,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onCreatingApiKey($creatingApiKeyEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -264,7 +264,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onCreatingSubAccount()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnCreatingSubAccount(): void {
 
@@ -284,7 +284,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onCreatingSubAccount()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnCreatingSubAccountWithRuntimeException(): void {
 
@@ -296,7 +296,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onCreatingSubAccount($creatingSubAccountEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -307,7 +307,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onDeletingSms()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnDeletingSms(): void {
 
@@ -327,7 +327,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onDeletingSms()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnDeletingSmsWithRuntimeException(): void {
 
@@ -339,7 +339,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onDeletingSms($deletingSmsEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -350,7 +350,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onDeletingSubAccount()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnDeletingSubAccount() {
 
@@ -370,7 +370,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onDeletingSubAccount()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnDeletingSubAccountWithRuntimeException() {
 
@@ -382,7 +382,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onDeletingSubAccount($deletingSubAccountEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -393,7 +393,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onDeliveryReport()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnDeliveryReport() {
 
@@ -413,7 +413,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onDeliveryReport()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnDeliveryReportWithRuntimeException() {
 
@@ -425,7 +425,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onDeliveryReport($deliveryReportEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -436,7 +436,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onRetrievingSmsReply()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnRetrievingSmsReply() {
 
@@ -456,7 +456,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onRetrievingSmsReply()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnRetrievingSmsReplyWithRuntimeException() {
 
@@ -468,7 +468,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onRetrievingSmsReply($retrievingSmsReplyEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -479,7 +479,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSendingSmsBatch()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSendingSmsBatch() {
 
@@ -499,7 +499,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSendingSmsBatch()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSendingSmsBatchWithRuntimeException() {
 
@@ -511,7 +511,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onSendingSmsBatch($sendingSmsBatchEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -522,7 +522,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSendingSmsMessage()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSendingSmsMessage() {
 
@@ -542,7 +542,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSendingSmsMessage()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSendingSmsMessageWithRuntimeException() {
 
@@ -554,7 +554,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onSendingSmsMessage($sendingSmsMessageEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -565,7 +565,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSendingTextToSpeechSms()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSendingTextToSpeechSms() {
 
@@ -585,7 +585,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSendingTextToSpeechSms()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSendingTextToSpeechSmsWithRuntimeException() {
 
@@ -597,7 +597,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onSendingTextToSpeechSms($sendingTextToSpeechSmsEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -608,7 +608,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSendingUnicodeSms()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSendingUnicodeSms() {
 
@@ -628,7 +628,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSendingUnicodeSms()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSendingUnicodeSmsWithRuntimeException() {
 
@@ -640,7 +640,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onSendingUnicodeSms($sendingUnicodeSmsEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -651,7 +651,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSentSmsMessageList()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSentSmsMessageList() {
 
@@ -671,7 +671,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onSentSmsMessageList()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnSentSmsMessageListWithRuntimeException() {
 
@@ -683,7 +683,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onSentSmsMessageList($sentSmsMessageListEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());
@@ -694,7 +694,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onTransferringCredits()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnTransferringCredits() {
 
@@ -714,7 +714,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
      * Tests onTransferringCredits()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testOnTransferringCreditsWithRuntimeException() {
 
@@ -726,7 +726,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
         try {
 
             $obj->onTransferringCredits($transferringCreditsEvent);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(RuntimeException::class, $ex);
             $this->assertEquals(DefaultEventListener::RUNTIME_EXCEPTION_MESSAGE, $ex->getMessage());

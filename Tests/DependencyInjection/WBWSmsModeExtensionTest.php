@@ -11,8 +11,8 @@
 
 namespace WBW\Bundle\SmsModeBundle\Tests\DependencyInjection;
 
-use Exception;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
+use Throwable;
 use WBW\Bundle\SmsModeBundle\Controller\DefaultController;
 use WBW\Bundle\SmsModeBundle\DependencyInjection\Configuration;
 use WBW\Bundle\SmsModeBundle\DependencyInjection\WBWSmsModeExtension;
@@ -81,7 +81,7 @@ class WBWSmsModeExtensionTest extends AbstractTestCase {
      * Tests load()
      *
      * @return void
-     * @throws Exception Throws an exception if an error occurs.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function testLoad(): void {
 
@@ -113,7 +113,7 @@ class WBWSmsModeExtensionTest extends AbstractTestCase {
         try {
 
             $this->containerBuilder->get(DefaultEventListener::SERVICE_NAME);
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
 
             $this->assertInstanceOf(ServiceNotFoundException::class, $ex);
             $this->assertStringContainsString(DefaultEventListener::SERVICE_NAME, $ex->getMessage());
