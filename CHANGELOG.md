@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+### [1.13.0](https://github.com/webeweb/smsmode-bundle/tree/v1.13.0) (2023-01-02)
+
+- Improve code quality
+- Improve PHPDoc
+- Update LICENSE
+
 ### [1.12.0](https://github.com/webeweb/smsmode-bundle/tree/v1.12.0) (2022-12-20)
 
 - Add PHP 8.2 support
