@@ -3,12 +3,12 @@ services:
 
     wbw.smsmode.event_listener.default:
         class:  WBW\Bundle\SmsModeBundle\EventListener\DefaultEventListener
+        public: true
         arguments: [ "@logger" ]
         calls:
             - [ "setAccessToken", [ "%wbw_smsmode.access_token%" ] ]
             - [ "setPseudo",      [ "%wbw_smsmode.pseudo%" ] ]
             - [ "setPass",        [ "%wbw_smsmode.pass%" ] ]
-        public: true
         tags:
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.account_balance",             method: "onAccountBalance" }
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.adding_contact",              method: "onAddingContact" }
