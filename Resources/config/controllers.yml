@@ -2,10 +2,10 @@
 services:
 
     WBW\Bundle\SmsModeBundle\Controller\DefaultController:
-        alias:  "wbw.smsmode.controller.default"
-        public: false
+        alias:  "wbw.smsmode.controller.smsmode.default"
+        public: true
 
-    wbw.smsmode.controller.default:
+    wbw.smsmode.controller.smsmode.default:
         class: WBW\Bundle\SmsModeBundle\Controller\DefaultController
         calls:
             - [ "setContainer", [ "@service_container" ] ]
