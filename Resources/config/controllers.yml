@@ -3,7 +3,7 @@ services:
 
     WBW\Bundle\SmsModeBundle\Controller\DefaultController:
         alias:  "wbw.smsmode.controller.default"
-        public: false
+        public: true
 
     wbw.smsmode.controller.default:
         class: WBW\Bundle\SmsModeBundle\Controller\DefaultController
