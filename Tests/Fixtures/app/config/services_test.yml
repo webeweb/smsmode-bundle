@@ -3,6 +3,7 @@ services:
 
     wbw.smsmode.event_listener:
         class: WBW\Bundle\SmsModeBundle\Tests\Fixtures\EventListener\TestEventListener
+        public: false
         tags:
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.delivery_report_callback", method: "onDeliveryReportCallback" }
             - { name: "kernel.event_listener", event: "wbw.smsmode.event.sms_reply_callback",       method: "onSmsReplyCallback" }
