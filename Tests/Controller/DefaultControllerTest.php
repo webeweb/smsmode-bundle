@@ -75,6 +75,6 @@ class DefaultControllerTest extends AbstractWebTestCase {
      */
     public function test__construct(): void {
 
-        $this->assertEquals("wbw.smsmode.controller.smsmode.default", DefaultController::SERVICE_NAME);
+        $this->assertEquals("wbw.smsmode.controller.default", DefaultController::SERVICE_NAME);
     }
 }

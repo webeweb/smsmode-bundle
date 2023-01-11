@@ -30,7 +30,7 @@ class DefaultController extends AbstractController {
      *
      * @var string
      */
-    const SERVICE_NAME = "wbw.smsmode.controller.smsmode.default";
+    const SERVICE_NAME = "wbw.smsmode.controller.default";
 
     /**
      * Delivery report callback.
