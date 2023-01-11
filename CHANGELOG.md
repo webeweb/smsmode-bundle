@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+### [1.13.1](https://github.com/webeweb/smsmode-bundle/tree/v1.13.1) (2023-01-11)
+
+- Fix Default controller service name
+- Improve code quality
+- Improve event listeners configuration
+
 ### [1.13.0](https://github.com/webeweb/smsmode-bundle/tree/v1.13.0) (2023-01-02)
 
 - Improve code quality
