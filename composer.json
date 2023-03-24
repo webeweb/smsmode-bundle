@@ -1,7 +1,7 @@
 {
     "name": "webeweb/smsmode-bundle",
     "type": "symfony-bundle",
-    "description": "sMsmode bundle for Symfony 2 and more",
+    "description": "sMsmode bundle for Symfony 4 and more",
     "keywords": [
         "API",
         "bundle",
