@@ -8,7 +8,7 @@ smsmode-bundle
 [![License](https://img.shields.io/packagist/l/webeweb/smsmode-bundle.svg?style=flat-square)](https://packagist.org/packages/webeweb/smsmode-bundle)
 [![composer.lock](https://img.shields.io/badge/.lock-uncommited-important.svg?style=flat-square)](https://packagist.org/packages/webeweb/smsmode-bundle)
 
-sMsmode bundle for Symfony 2 and more.
+sMsmode bundle for Symfony 4 and more.
 
 `sMsmode` provides an API that enables you to easily and automatically send SMS
 messages from your applications. This API provides the following functions:
