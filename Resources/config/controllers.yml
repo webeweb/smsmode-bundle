@@ -6,7 +6,7 @@ services:
         public: true
 
     wbw.smsmode.controller.default:
-        class: WBW\Bundle\SmsModeBundle\Controller\DefaultController
+        class:  WBW\Bundle\SmsModeBundle\Controller\DefaultController
         public: true
         calls:
             - [ "setContainer", [ "@service_container" ] ]

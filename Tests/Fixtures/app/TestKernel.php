@@ -25,7 +25,7 @@ class TestKernel extends AbstractKernel {
      */
     public function registerBundles(): array {
 
-       return [
+        return [
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
