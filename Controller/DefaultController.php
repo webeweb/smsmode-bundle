@@ -14,6 +14,7 @@ namespace WBW\Bundle\SmsModeBundle\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 use WBW\Bundle\SmsModeBundle\Event\DeliveryReportCallbackEvent;
 use WBW\Bundle\SmsModeBundle\Event\SmsReplyCallbackEvent;
 
@@ -37,6 +38,7 @@ class DefaultController extends AbstractController {
      *
      * @param Request $request The request.
      * @return Response Returns the response.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function deliveryReportCallbackAction(Request $request): Response {
 
@@ -53,6 +55,7 @@ class DefaultController extends AbstractController {
      *
      * @param Request $request The request.
      * @return Response Returns the response.
+     * @throws Throwable Throws an exception if an error occurs.
      */
     public function smsReplyCallbackAction(Request $request): Response {
 
