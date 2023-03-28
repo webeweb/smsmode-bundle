@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+### [1.14.0](https://github.com/webeweb/smsmode-bundle/tree/v1.14.0) (2023-03-28)
+
+- Add Symfony 6.x support
+- Improve code quality
+- Update dependencies
+
 ### [1.13.1](https://github.com/webeweb/smsmode-bundle/tree/v1.13.1) (2023-01-11)
 
 - Fix Default controller service name
