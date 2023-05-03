@@ -43,7 +43,7 @@ class AbstractEventTest extends AbstractTestCase {
     }
 
     /**
-     * Tests setRequest()
+     * Test setRequest()
      *
      * @return void
      */
@@ -59,7 +59,7 @@ class AbstractEventTest extends AbstractTestCase {
     }
 
     /**
-     * Tests setResponse()
+     * Test setResponse()
      *
      * @return void
      */
@@ -75,7 +75,7 @@ class AbstractEventTest extends AbstractTestCase {
     }
 
     /**
-     * Tests __construct()
+     * Test __construct()
      *
      * @return void
      */

@@ -54,7 +54,7 @@ class WBWSmsModeExtensionTest extends AbstractTestCase {
     }
 
     /**
-     * Tests getAlias()
+     * Test getAlias()
      *
      * @return void
      */
@@ -66,7 +66,7 @@ class WBWSmsModeExtensionTest extends AbstractTestCase {
     }
 
     /**
-     * Tests getConfiguration()
+     * Test getConfiguration()
      *
      * @return void
      */
@@ -78,7 +78,7 @@ class WBWSmsModeExtensionTest extends AbstractTestCase {
     }
 
     /**
-     * Tests load()
+     * Test load()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -97,7 +97,7 @@ class WBWSmsModeExtensionTest extends AbstractTestCase {
     }
 
     /**
-     * Tests load()
+     * Test load()
      *
      * @return void
      */
@@ -121,7 +121,7 @@ class WBWSmsModeExtensionTest extends AbstractTestCase {
     }
 
     /**
-     * Tests __construct()
+     * Test __construct()
      *
      * @return void
      */

@@ -24,7 +24,7 @@ use WBW\Library\SmsMode\Model\DeliveryReportCallback;
 class DeliveryReportCallbackEventTest extends AbstractTestCase {
 
     /**
-     * Tests __construct()
+     * Test __construct()
      *
      * @return void
      */

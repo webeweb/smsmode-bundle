@@ -24,7 +24,7 @@ use WBW\Library\SmsMode\Model\SmsReplyCallback;
 class SmsReplyCallbackEventTest extends AbstractTestCase {
 
     /**
-     * Tests __construct()
+     * Test __construct()
      *
      * @return void
      */

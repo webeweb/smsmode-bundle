@@ -23,7 +23,7 @@ use WBW\Bundle\SmsModeBundle\WBWSmsModeBundle;
 class WBWSmsModeBundleTest extends AbstractTestCase {
 
     /**
-     * Tests getContainerExtension()
+     * Test getContainerExtension()
      *
      * @return void
      */

@@ -89,7 +89,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onAccountBalance()
+     * Test onAccountBalance()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -109,7 +109,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onAccountBalance()
+     * Test onAccountBalance()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -132,7 +132,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onAddingContact()
+     * Test onAddingContact()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -152,7 +152,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onAddingContact()
+     * Test onAddingContact()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -175,7 +175,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onCheckingSmsMessageStatus()
+     * Test onCheckingSmsMessageStatus()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -195,7 +195,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onCheckingSmsMessageStatus()
+     * Test onCheckingSmsMessageStatus()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -218,7 +218,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onCreatingApiKey()
+     * Test onCreatingApiKey()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -238,7 +238,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onCreatingApiKey()
+     * Test onCreatingApiKey()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -261,7 +261,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onCreatingSubAccount()
+     * Test onCreatingSubAccount()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -281,7 +281,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onCreatingSubAccount()
+     * Test onCreatingSubAccount()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -304,7 +304,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onDeletingSms()
+     * Test onDeletingSms()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -324,7 +324,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onDeletingSms()
+     * Test onDeletingSms()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -347,7 +347,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onDeletingSubAccount()
+     * Test onDeletingSubAccount()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -367,7 +367,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onDeletingSubAccount()
+     * Test onDeletingSubAccount()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -390,7 +390,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onDeliveryReport()
+     * Test onDeliveryReport()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -410,7 +410,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onDeliveryReport()
+     * Test onDeliveryReport()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -433,7 +433,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onRetrievingSmsReply()
+     * Test onRetrievingSmsReply()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -453,7 +453,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onRetrievingSmsReply()
+     * Test onRetrievingSmsReply()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -476,7 +476,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingSmsBatch()
+     * Test onSendingSmsBatch()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -496,7 +496,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingSmsBatch()
+     * Test onSendingSmsBatch()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -519,7 +519,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingSmsMessage()
+     * Test onSendingSmsMessage()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -539,7 +539,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingSmsMessage()
+     * Test onSendingSmsMessage()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -562,7 +562,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingTextToSpeechSms()
+     * Test onSendingTextToSpeechSms()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -582,7 +582,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingTextToSpeechSms()
+     * Test onSendingTextToSpeechSms()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -605,7 +605,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingUnicodeSms()
+     * Test onSendingUnicodeSms()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -625,7 +625,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSendingUnicodeSms()
+     * Test onSendingUnicodeSms()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -648,7 +648,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSentSmsMessageList()
+     * Test onSentSmsMessageList()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -668,7 +668,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onSentSmsMessageList()
+     * Test onSentSmsMessageList()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -691,7 +691,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onTransferringCredits()
+     * Test onTransferringCredits()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -711,7 +711,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests onTransferringCredits()
+     * Test onTransferringCredits()
      *
      * @return void
      * @throws Throwable Throws an exception if an error occurs.
@@ -734,7 +734,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests setAccessToken()
+     * Test setAccessToken()
      *
      * @return void
      */
@@ -747,7 +747,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests setPass()
+     * Test setPass()
      *
      * @return void
      */
@@ -760,7 +760,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests setPseudo()
+     * Test setPseudo()
      *
      * @return void
      */
@@ -773,7 +773,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     }
 
     /**
-     * Tests __construct()
+     * Test __construct()
      *
      * @return void
      */

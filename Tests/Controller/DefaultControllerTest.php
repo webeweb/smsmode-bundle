@@ -23,7 +23,7 @@ use WBW\Bundle\SmsModeBundle\Tests\AbstractWebTestCase;
 class DefaultControllerTest extends AbstractWebTestCase {
 
     /**
-     * Tests deliveryReportCallbackAction()
+     * Test deliveryReportCallbackAction()
      *
      * @return void
      */
@@ -46,7 +46,7 @@ class DefaultControllerTest extends AbstractWebTestCase {
     }
 
     /**
-     * Tests smsReplyCallbackAction()
+     * Test smsReplyCallbackAction()
      *
      * @return void
      */
@@ -69,7 +69,7 @@ class DefaultControllerTest extends AbstractWebTestCase {
     }
 
     /**
-     * Tests __construct()
+     * Test __construct()
      *
      * @return void
      */

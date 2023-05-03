@@ -25,7 +25,7 @@ use WBW\Library\SmsMode\Response\CheckingSmsMessageStatusResponse;
 class CheckingSmsMessageStatusEventTest extends AbstractTestCase {
 
     /**
-     * Tests setRequest()
+     * Test setRequest()
      *
      * @return void
      */
@@ -41,7 +41,7 @@ class CheckingSmsMessageStatusEventTest extends AbstractTestCase {
     }
 
     /**
-     * Tests setResponse()
+     * Test setResponse()
      *
      * @return void
      */
@@ -57,7 +57,7 @@ class CheckingSmsMessageStatusEventTest extends AbstractTestCase {
     }
 
     /**
-     * Tests __construct()
+     * Test __construct()
      *
      * @return void
      */

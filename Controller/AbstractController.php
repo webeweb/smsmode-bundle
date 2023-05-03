@@ -29,7 +29,7 @@ use WBW\Library\SmsMode\Model\SmsReplyCallback;
 abstract class AbstractController extends BaseController {
 
     /**
-     * Creates a delivery report callback.
+     * Create a delivery report callback.
      *
      * @param Request $request The request.
      * @return DeliveryReportCallback Returns the delivery report callback.
@@ -50,7 +50,7 @@ abstract class AbstractController extends BaseController {
     }
 
     /**
-     * Creates a SMS reply callback.
+     * Create a SMS reply callback.
      *
      * @param Request $request The request.
      * @return SmsReplyCallback Returns the Sms reply callback.
