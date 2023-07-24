@@ -77,7 +77,7 @@ class DefaultEventListenerTest extends AbstractTestCase {
     private $smsModeEventListener;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     protected function setUp(): void {
         parent::setUp();

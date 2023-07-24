@@ -25,14 +25,14 @@ use WBW\Library\SmsMode\Model\SmsReplyCallback;
 class TestController extends AbstractController {
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function newDeliveryReportCallback(Request $request): DeliveryReportCallback {
         return parent::newDeliveryReportCallback($request);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function newSmsReplyCallback(Request $request): SmsReplyCallback {
         return parent::newSmsReplyCallback($request);

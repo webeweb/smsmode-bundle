@@ -25,49 +25,49 @@ use WBW\Library\SmsMode\Response\AbstractResponse;
 class TestEvent extends AbstractEvent {
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct(string $eventName, ?SmsModeEntityInterface $entity) {
         parent::__construct($eventName, $entity);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getEntity(): ?SmsModeEntityInterface {
         return parent::getEntity();
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getRequest(): ?AbstractRequest {
         return parent::getRequest();
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getResponse(): ?AbstractResponse {
         return parent::getResponse();
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setEntity(?SmsModeEntityInterface $entity): AbstractEvent {
         return parent::setEntity($entity);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setRequest(?AbstractRequest $request): AbstractEvent {
         return parent::setRequest($request);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setResponse(?AbstractResponse $response): AbstractEvent {
         return parent::setResponse($response);
