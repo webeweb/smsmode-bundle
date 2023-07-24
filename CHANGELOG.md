@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+### master
+
+- Improve PHPDoc
+
 ### [1.14.0](https://github.com/webeweb/smsmode-bundle/tree/v1.14.0) (2023-03-28)
 
 - Add Symfony 6.x support
