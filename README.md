@@ -10,6 +10,8 @@ smsmode-bundle
 
 sMsmode bundle for Symfony 4 and more.
 
+> IMPORTANT NOTICE: This package is no longer maintained.
+
 `sMsmode` provides an API that enables you to easily and automatically send SMS
 messages from your applications. This API provides the following functions:
 
